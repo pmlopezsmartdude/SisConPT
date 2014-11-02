@@ -1,0 +1,4 @@
+c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\bin\SisConPT.dll
+c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\bin\SisConPT.pdb
+c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\obj\Debug\SisConPT.dll
+c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\obj\Debug\SisConPT.pdb
