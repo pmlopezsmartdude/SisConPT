@@ -27,13 +27,13 @@
             </asp:TableRow>
             <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle">
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="CCPAC05PP" runat="server" Text="CC-PAC-05 por proceso" />
+                    <asp:Button ID="CCPAC075PP" runat="server" Text="CC-PAC-075 por proceso" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="CCPAC05PCC" runat="server" onclick="Button2_Click" Text="CC-PAC-05 por Código de caja"  />
                 </asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="Consporproceso" runat="server" Text="CC-PAC-05 por Proceso" /></asp:TableCell>
+                    <asp:Button ID="Consporproceso" runat="server" Text="CC-PAC-075 por Proceso" /></asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="Consporcodcaja" runat="server" Text="CC-PAC-05 por Código de caja" />
                 </asp:TableCell>

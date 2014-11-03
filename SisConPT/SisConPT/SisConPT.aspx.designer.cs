@@ -40,13 +40,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Table Aplicaciones;
         
         /// <summary>
-        /// Control CCPAC05PP.
+        /// Control CCPAC075PP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CCPAC05PP;
+        protected global::System.Web.UI.WebControls.Button CCPAC075PP;
         
         /// <summary>
         /// Control CCPAC05PCC.

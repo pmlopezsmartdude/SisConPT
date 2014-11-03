@@ -16,10 +16,42 @@ namespace SisConPT.SisConPT
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
+            System.Configuration.ConnectionStringSettings connStringmain;
+            System.Configuration.ConnectionStringSettings connStringLM;
             if (Session["PlantaName"] != null)
             {
-                Response.Write("Base de datos: " + Session["PlantaName"].ToString());
+                connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+                /* Response.Write("Base de datos: " + Session["PlantaName"].ToString());  */
                 string PlantaNombre = Session["PlantaName"].ToString();
+                SqlConnection SqlConnMain = new SqlConnection(connStringmain.ToString());
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+                cmd.CommandText = ("SELECT * FROM planta WHERE pladescri ='"+ PlantaNombre +"'");
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = SqlConnMain;
+                SqlConnMain.Open();
+                reader = cmd.ExecuteReader();
+                Response.Write("Resulta el Query?" + cmd.CommandText);
+                /* Response.Write(reader["placodigo"]); */
+                /*CodPta.Text = (reader["placodigo"].ToString());*/
+                SqlConnMain.Close();
+            }
+            if (Session["PlantaName"].ToString() == "Planta Mostazal")
+            {
+                connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager01"];
+               /* if (null != connStringLM)
+                    Response.Write("String de Conexion = " + connStringLM);
+                else
+                    Response.Write("No hay String de Conexion"); */
+            }
+            else
+            {
+                connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager40"];
+                /* if (null != connStringLM)
+                    Response.Write("String de Conexion = " + connStringLM);
+                else
+                    Response.Write("No hay String de Conexion"); */
             }
             /*
             if (Session.["PlantaName"].ToString() == "Planta Mostazal")

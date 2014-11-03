@@ -31,8 +31,12 @@
     <asp:Label ID="Label1" runat="server" Text="Código Caja" Height="20px" Font-Names="Century Gothic" Font-Size="Small"></asp:Label>
     <asp:TextBox ID="CodCaja" runat="server" Height="25" Font-Names="Century Gothic" Font-Size="Small"></asp:TextBox>
      
-    <asp:Button ID="btnLoadData"  runat="server"  style="display: none" /><br />
+    <asp:Button ID="btnLoadData"  runat="server"  style="display: none" />
+    <asp:Label ID="Label3" runat="server" Text="Código Planta" Height="20px" Font-Names="Century Gothic" Font-Size="Small"></asp:Label>
+    <asp:TextBox ID="CodPta" runat="server" Height="25px" Font-Names="Cenruty Gothic" 
+            Font-Size="Small" Enabled="False" ReadOnly="True" Width="27px"></asp:TextBox>
     <br />
+
     </asp:Panel>
     <asp:Table ID="UnitecDatos" runat="server" Width="653px" Height="90px" Font-Names="Century Gothic" Font-Size="X-Small">
         <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -157,6 +161,11 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
+    <asp:Table ID="ControlCC05" runat="server">
+    </asp:Table>
+    <center><asp:Button ID="Grabar" runat="server" Text="Grabar" /><asp:Button ID="Limpiar" runat="server"
+        Text="Limpiar" /></center>
+        <br />
 
  
 </asp:Content>
