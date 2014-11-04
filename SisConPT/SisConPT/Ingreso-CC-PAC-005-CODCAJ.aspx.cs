@@ -6,6 +6,7 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -16,92 +17,85 @@ namespace SisConPT.SisConPT
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.CodCaja.Attributes.Add("onkeypress", "button_click(this,'"+ this.btnLoadData.ClientID +"')");
+            CodCaja.Focus();
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
             System.Configuration.ConnectionStringSettings connStringmain;
             System.Configuration.ConnectionStringSettings connStringLM;
             if (Session["PlantaName"] != null)
             {
                 connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
-                /* Response.Write("Base de datos: " + Session["PlantaName"].ToString());  */
                 string PlantaNombre = Session["PlantaName"].ToString();
-                SqlConnection SqlConnMain = new SqlConnection(connStringmain.ToString());
-                SqlCommand cmd = new SqlCommand();
-                SqlDataReader reader;
-                cmd.CommandText = ("SELECT * FROM planta WHERE pladescri ='"+ PlantaNombre +"'");
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = SqlConnMain;
-                SqlConnMain.Open();
-                reader = cmd.ExecuteReader();
-                Response.Write("Resulta el Query?" + cmd.CommandText);
-                /* Response.Write(reader["placodigo"]); */
-                /*CodPta.Text = (reader["placodigo"].ToString());*/
-                SqlConnMain.Close();
+                string comando = "SELECT * FROM planta WHERE pladescri ='" + PlantaNombre + "'";
+                SqlConnection conexion = new SqlConnection(connStringmain.ToString());
+                conexion.Open();
+                SqlCommand sql = new SqlCommand(comando, conexion);
+                using (SqlDataReader reader = sql.ExecuteReader())
+                {
+                    reader.Read();
+                    CodPta.Text = reader.GetString(0);
+                }
+                conexion.Close();
+
             }
             if (Session["PlantaName"].ToString() == "Planta Mostazal")
             {
                 connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager01"];
-               /* if (null != connStringLM)
-                    Response.Write("String de Conexion = " + connStringLM);
-                else
-                    Response.Write("No hay String de Conexion"); */
+
             }
             else
             {
                 connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager40"];
-                /* if (null != connStringLM)
-                    Response.Write("String de Conexion = " + connStringLM);
-                else
-                    Response.Write("No hay String de Conexion"); */
+
             }
-            /*
-            if (Session.["PlantaName"].ToString() == "Planta Mostazal")
-            {
-                string DataSourceName = "LotManager01";
-            }
-            if (Session.["PlantaName"].ToString() == "Planta Molina")
-            {
-                string DataSourceName = "LotManager40";
-            }
-                        if (!IsPostBack)
-            {
-                CodCaja.Attributes.Add("onKeyPress", "doClick('" + btnLoadData.ClientID + "',event)");
- 
-            }*/
-          
+        
 
         }
         protected void btnLoadData_click(object senders, EventArgs e)
         {
-           /* ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Name: " + CodCaja.Text + "');", true);
-            SqlConnection Conexion = new SqlConnection(DataSourceName);
-            string CadenaSql = "SELECT * FROM dbo.DatosCajas where codCaja='" + CodCaja.Text + "'";
-            SqlCommand Comando = new SqlCommand(CadenaSql, Conexion);
-            Conexion.Open();
-            SqlDataReader Reader = Comando.ExecuteReader();
-            if (Reader.Read() == Reader.Read())
+            string codigocaja = CodCaja.Text;
+            string comando = "SELECT * FROM DatosCajas WHERE codCaja ='"+codigocaja+"'";
+            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
+            System.Configuration.ConnectionStringSettings connStringLM;
+            if (Session["PlantaName"].ToString() == "Planta Mostazal")
             {
-                Turno.Text = Reader["Turno"].ToString();
-                especieid.Text = Reader["codEspecie"].ToString();
-                especietext.Text = Reader["Especie"].ToString();
-                Linea.Text = Reader["Linea"].ToString();
-                Variedad.Text = Reader["codVariedadReal"].ToString();
-                VariedadText.Text = Reader["VariedadReal"].ToString();
-                NroProceso.Text = Reader["Proceso"].ToString();
-                Marca.Text = Reader["codMarca"].ToString();
-                MarcaTxt.Text = Reader["Marca"].ToString();
-                Lote.Text = Reader["Lote"].ToString();
-                Embalaje.Text = Reader["codEmbalaje"].ToString();
-                Embalajetx.Text = Reader["Embalaje"].ToString();
-                Peso.Text = Reader["PesoTimbrado"].ToString();
-                Envase.Text = Reader["codEnvase"].ToString();
-                Envasetxt.Text = Reader["Envase"].ToString();
-                Calibre.Text = Reader["ClaseCalibreColor"].ToString();
-                ProdReal.Text = Reader["codProductorReal"].ToString();
-                ProdRealtxt.Text = Reader["ProductorReal"].ToString();
-                Salida.Text = Reader["Salida"].ToString();
-                ProdEtiq.Text = Reader["codProductorTimbrado"].ToString();
-                ProdEtiqtxt.Text = Reader["ProductorTimbrado"].ToString();
-            } */
+                connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager01"];
+
+            }
+            else
+            {
+                connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager40"];
+
+            }
+            SqlConnection conexion = new SqlConnection(connStringLM.ToString());
+            conexion.Open();
+            SqlCommand sql = new SqlCommand(comando, conexion);
+            using (SqlDataReader reader = sql.ExecuteReader())
+            {
+                reader.Read();
+                Turno.Text = reader.GetString(6);
+                especieid.Text = reader.GetString(9);
+                especietext.Text = reader.GetString(10);
+                Linea.Text = reader.GetString(4);
+
+            }
+            conexion.Close();
+            ButtonBuscar.Enabled = false;
+            Grabar.Enabled = true;
+            Limpiar.Enabled = true;
+            bajo10p.Focus();
+        }
+
+        protected void Limpiar_Click(object sender, EventArgs e)
+        {
+            CodCaja.Text = "";
+            Turno.Text = "";
+            especieid.Text = "";
+            CodCaja.Focus();
+            ButtonBuscar.Enabled = true;
+            Grabar.Enabled = false;
+            Limpiar.Enabled = false;
+
         } 
     
     }
