@@ -2,3 +2,7 @@ c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\bin\Si
 c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\bin\SisConPT.pdb
 c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\obj\Debug\SisConPT.dll
 c:\users\patricio\documents\visual studio 2010\Projects\SisConPT\SisConPT\obj\Debug\SisConPT.pdb
+D:\Proyectos\SisConPT\SisConPT\SisConPT\bin\SisConPT.dll
+D:\Proyectos\SisConPT\SisConPT\SisConPT\bin\SisConPT.pdb
+D:\Proyectos\SisConPT\SisConPT\SisConPT\obj\Debug\SisConPT.dll
+D:\Proyectos\SisConPT\SisConPT\SisConPT\obj\Debug\SisConPT.pdb
