@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ingreso-CC-PAC-005-CODCAJ.aspx.cs" Inherits="SisConPT.SisConPT.Ingreso_CC_PAC_005_CODCAJ" %>
 
+<script runat="server">
+
+    protected void menuTabs_MenuItemClick(object sender, MenuEventArgs e)
+    {
+        multiTabs.ActiveViewIndex = Int32.Parse(menuTabs.SelectedValue);
+    }
+</script>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 
@@ -153,6 +161,385 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
+     <asp:Menu
+        id="menuTabs"
+        CssClass="menuTabs"
+        StaticMenuItemStyle-CssClass="tab"
+        StaticSelectedStyle-CssClass="selectedTab"
+        Orientation="Horizontal"
+        OnMenuItemClick="menuTabs_MenuItemClick"
+        Runat="server">
+        <Items>
+        <asp:MenuItem
+            Text="DEFECTOS"
+            Value="0" 
+            Selected="true" />
+        <asp:MenuItem
+            Text="OBSERVACIONES" 
+            Value="1"/>
+        
+            
+        </Items>
+    </asp:Menu>    
+    
+    
+    <div class="tabBody">
+    <asp:MultiView
+        id="multiTabs"
+        ActiveViewIndex="0"
+        Runat="server">
+        <asp:View ID="view1" runat="server">
+      
+         <asp:Table ID="ingresoDatos" runat="server" Width="653px" Height="90px" Font-Names="Century Gothic" Font-Size="X-Small">
+         <asp:TableRow ID="TableRow1" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                <asp:Label ID="lblbajo" runat="server" Height="10">Bajo (<10%)</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtbajo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblprecalibre" runat="server" Height="10">Pre Calibre</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtprecalibre"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblrusset" runat="server" Height="10">Russet</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtrusset"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesion</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtadhesion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblpudricion" runat="server" Height="10">Pudricion</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtpudricion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+ </asp:TableRow>
+         <asp:TableRow ID="TableRow2" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                <asp:Label ID="lblcalibreok" runat="server" Height="10">Calibre OK</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtcalibreok"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lbldanotrip" runat="server" Height="10">Daño Trip</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtdanotrip"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblsutura" runat="server" Height="10">Sutura</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtsutura"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratacion de Frutos</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtdeshid"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblmanchaspardas" runat="server" Height="10">Manchas Pardas</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtmanchaspardas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+ </asp:TableRow>
+
+
+  <asp:TableRow ID="TableRow3" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                <asp:Label ID="lblsobre" runat="server" Height="10">Sobre (<20 %)</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtsobre"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblescama" runat="server" Height="10">Escama</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtescama"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblfaltocolor" runat="server" Height="10">Falto de Color</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtfaltocolor"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratacion Pedicelar</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtdeshidpedi"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lbldanopajaro" runat="server" Height="10">Daño de Pajaro</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtdanopajaro"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+ </asp:TableRow>
+          <asp:TableRow ID="TableRow4" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+	    </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblfrutosdeformes" runat="server" Height="10">Frutos Deformes</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtfrutosdeformes"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblramaleo" runat="server" Height="10">Ramaleo</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtramaleo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblblandos" runat="server" Height="10">Blandos</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtblandos"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lbldesgarro" runat="server" Height="10">Desgarro</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtdesgarro"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+ </asp:TableRow>
+          <asp:TableRow ID="TableRow5" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+	    </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblfrutosdobles" runat="server" Height="10">Frutos Dobles</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtfrutosdobles"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblsinpedicelo" runat="server" Height="10">Sin Pedicelo</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtsinpedicelo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblheridasabiertas" runat="server" Height="10">Heridas Abiertas</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtheridasabiertas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblcortesierra" runat="server" Height="10">Corte de Sierra</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtcortesierra"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+ </asp:TableRow>
+
+  <asp:TableRow ID="TableRow6" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+	    </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblguatablanca" runat="server" Height="10">Guata Blanca</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtguatablanca"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblmachucon" runat="server" Height="10">Machucon</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+ </asp:TableRow>
+  <asp:TableRow ID="TableRow7" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+	    </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblherida" runat="server" Height="10">Herida</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtherida"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblpartiduras" runat="server" Height="10">Partiduras</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtpartiduras"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+ </asp:TableRow>
+  <asp:TableRow ID="TableRow8" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+	    </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblmanchas" runat="server" Height="10">Manchas</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtmanchas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblpartidurasagua" runat="server" Height="10">Partiduras por Agua</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtpartidurasagua"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+ </asp:TableRow>
+  <asp:TableRow ID="TableRow9" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+	    </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblmedialuna" runat="server" Height="10">Media Luna</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtmedialuna"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblpartiduracicatrizada" runat="server" Height="10">Partidura Cicatrizada</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtpartiduracicatrizada"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+ </asp:TableRow>
+  <asp:TableRow ID="TableRow10" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+	    </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblpiellagarto" runat="server" Height="10">Piel de Lagarto</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtpiellagarto"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblpitting" runat="server" Height="10">Pitting</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox runat="server" ID="txtpitting"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+            <asp:TableCell>
+                
+            </asp:TableCell>
+ </asp:TableRow>
+
+         </asp:Table>
+
+
+
+
+
+
+
+
+
+        </asp:View>
+        <asp:View ID="view2" runat="server">
+        
+<asp:Table ID="Table1" runat="server" Width="653px" Height="90px" Font-Names="Century Gothic" Font-Size="X-Small">
+   
+
+
+</asp:Table>
+
+           
+        </asp:View>
+      
+    </asp:MultiView>  
+    </div>
+
     <asp:Table ID="ControlCC05" runat="server">
     <asp:TableRow><asp:TableCell><asp:TextBox runat="server" ID="bajo10p" Width="100" Height="30" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox></asp:TableCell></asp:TableRow>
     </asp:Table>
