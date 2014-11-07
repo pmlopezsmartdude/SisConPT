@@ -1048,22 +1048,22 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// Control ControlCC05.
+        /// Control Label6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table ControlCC05;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control bajo10p.
+        /// Control TextBox1obs.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bajo10p;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1obs;
         
         /// <summary>
         /// Control Grabar.

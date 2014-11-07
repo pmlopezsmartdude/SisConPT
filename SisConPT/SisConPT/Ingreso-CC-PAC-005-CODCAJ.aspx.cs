@@ -14,7 +14,7 @@ namespace SisConPT.SisConPT
 {
     public partial class Ingreso_CC_PAC_005_CODCAJ : System.Web.UI.Page
     {
-        private string _;
+        
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,27 +55,21 @@ namespace SisConPT.SisConPT
         protected void btnLoadData_click(object senders, EventArgs e)
         {
             string codigocaja = CodCaja.Text;
-            //string comando = "SELECT * FROM DatosCajas WHERE codCaja ='"+codigocaja+"'";
-
             string comando = "SELECT [codCaja],[FechaProduccion],convert(varchar(8),[proceso]) as proceso ,[Lote],[codLinea],[Linea] ,[Turno],[Salida],[Clasificacion],[codEspecie],[Especie],[codVariedadReal],[VariedadReal],[codVariedadTimbrada],[VariedadTimbrada],[codEnvase],[Envase],[codEmbalaje],[Embalaje],[codConfeccion],[Confeccion],[PesoTimbrado],[codMarca] ,[Marca] ,[ClaseCalibreColor],[CalibreTimbrado],[CAT] ,[codProductorReal],[ProductorReal],[ComunaReal],[ProvinciaReal],[RegionReal],[codProductorTimbrado],[ProductorTimbrado],[ComunaTimbrada],[ProvinciaTimbrada],[RegionTimbrada],[CondicionEmbarque],[NumeroPalet],[FechaPaletizaje] FROM DatosCajas WHERE codCaja ='" + codigocaja + "'";
-
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
             System.Configuration.ConnectionStringSettings connStringLM;
             if (Session["PlantaName"].ToString() == "Planta Mostazal")
             {
                 connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager01"];
-
             }
             else
             {
                 connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager40"];
-
             }
             SqlConnection conexion = new SqlConnection(connStringLM.ToString());
             conexion.Open();
             SqlCommand sql = new SqlCommand(comando, conexion);
             try {
-
             using (SqlDataReader reader = sql.ExecuteReader())
             {
                 reader.Read();
@@ -101,20 +95,18 @@ namespace SisConPT.SisConPT
                 ProdEtiq.Text = reader.GetString(32);
                 ProdEtiqtxt.Text = reader.GetString(33);
             }
+    
            }
           catch 
             {
-                
-
           }
 
             conexion.Close();
             ButtonBuscar.Enabled = false;
             Grabar.Enabled = true;
             Limpiar.Enabled = true;
-            bajo10p.Focus();
+            txtbajo.Focus();
         }
-
         protected void Limpiar_Click(object sender, EventArgs e)
         {
             CodCaja.Text = "";
@@ -139,12 +131,139 @@ namespace SisConPT.SisConPT
             Salida.Text = "";
             ProdEtiq.Text = "";
             ProdEtiqtxt.Text = "";
+            TextBox1obs.Text = "";
+            txtbajo.Text = "";
+            txtprecalibre.Text = "";
+            txtrusset.Text = "";
+            txtadhesion.Text = "";
+            txtpudricion.Text = "";
+            txtcalibreok.Text = "";
+            txtdanotrip.Text = "";
+            txtsutura.Text = "";
+            txtdeshid.Text = "";
+            txtmanchaspardas.Text = "";
+            txtsobre.Text = "";
+            txtescama.Text = "";
+            txtfaltocolor.Text = "";
+            txtdeshidpedi.Text = "";
+            txtdanopajaro.Text = "";
+            txtfrutosdeformes.Text = "";
+            txtramaleo.Text = "";
+            txtblandos.Text = "";
+            txtdesgarro.Text = "";
+            txtfrutosdobles.Text = "";
+            txtsinpedicelo.Text = "";
+            txtheridasabiertas.Text = "";
+            txtcortesierra.Text = "";
+            txtguatablanca.Text = "";
+            txtmachucon.Text = "";
+            txtherida.Text = "";
+            txtpartiduras.Text = "";
+            txtmanchas.Text = "";
+            txtpartidurasagua.Text = "";
+            txtmedialuna.Text = "";
+            txtpartiduracicatrizada.Text = "";
+            txtpiellagarto.Text = "";
+            txtpitting.Text = "";
             CodCaja.Focus();
             ButtonBuscar.Enabled = true;
             Grabar.Enabled = false;
             Limpiar.Enabled = false;
-
+        }
+        protected void Grabar_Click(object sender, EventArgs e)
+        {
+            string numeroctrl = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
+            string username = HttpContext.Current.User.Identity.Name;
+            string comando = "INSERT INTO controlpt (cptnumero,placodigo,turcodigo,cptfechor,usurutsu,lincodigo,cptproces,cptnulote,cptrutprr,cptnompre,cptnompre,cptrutpet,cptnompet,cptespcod,cptespdes,cptvarcod,cptvardes,cptcalibr,cptmarcod,cptmardes,cptembcod,cptembdes,cptenvcod,cptenvdes,cptpesone.cptsalida,cptcodcaja) VALUES ('"+numeroctrl+"','"+CodPta.Text+"','"+Turno.Text+"','"+numeroctrl+"','"+username+"','"+Linea.Text+"','"+NroProceso.Text+"','"+Lote.Text+"','"+ProdReal.Text+"','"+ProdRealtxt.Text+"','"+ProdEtiq.Text+"','"+ProdEtiqtxt.Text+"','"+especieid.Text+"','"+especietext.Text+"','"+Variedad.Text+"','"+VariedadText.Text+"','"+Calibre.Text+"','"+Marca.Text+"','"+MarcaTxt.Text+"','"+Embalaje.Text+"','"+Embalajetx.Text+"','"+Envase.Text+"','"+Envasetxt.Text+"','"+Peso.Text+"','"+Salida.Text+"','"+CodCaja.Text+"')";
+            string comando1 = "INSERT INTO defecto (cptnumero,defcalbaj,defcalnor,defcalsobdefprecal,defdanotr,defescama,deffrutode,deffrutodo,defguatab,defherida,defmancha,defmedial,defpiella,defrusset,defsutura,deffaltoc,deframole,defsinped,defahdesi,defdesfru,defdesped,defblando,defherabi,defmachuc,defpartid,defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie) VALUES ('"+numeroctrl+"','"+txtbajo.Text+"','"+txtcalibreok.Text+"','"+txtsobre.Text+"','"+txtprecalibre.Text+"','"+txtdanotrip.Text+"','"+txtescama.Text+"','"+txtfrutosdeformes.Text+"','"+txtfrutosdobles.Text+"','"+txtguatablanca.Text+"','"+txtherida.Text+"','"+txtmanchas.Text+"','"+txtmedialuna.Text+"','"+txtpiellagarto.Text+"','"+txtrusset.Text+"','"+txtsutura.Text+"','"+txtfaltocolor.Text+"','"+txtramaleo.Text+"','"+txtsinpedicelo.Text+"','"+txtadhesion.Text+"','"+txtdeshid.Text+"','"+txtdeshidpedi.Text+"','"+txtblandos.Text+"','"+txtheridasabiertas.Text+"','"+txtmachucon.Text+"','"+txtpartiduras.Text+"','"+txtpartidurasagua.Text+"','"+txtpartiduracicatrizada.Text+"','"+txtpitting.Text+"','"+txtpudricion.Text+"','"+txtmanchaspardas.Text+"','"+txtdanopajaro.Text+"','"+txtdesgarro.Text+"','"+txtcortesierra.Text+"')";
+            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
+            System.Configuration.ConnectionStringSettings connStringmain;
+            connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+            try
+            {
+            SqlConnection conexion = new SqlConnection(connStringmain.ToString());
+            conexion.Open();
+            using (SqlCommand sql = new SqlCommand(comando, conexion))
+            { 
+                sql.ExecuteNonQuery();
+                conexion.Close();
+            }
+                        
+            }
+            catch
+            { }
+            try
+            {
+                SqlConnection conexion = new SqlConnection(connStringmain.ToString());
+                conexion.Open();
+                using (SqlCommand sql = new SqlCommand(comando1, conexion))
+                {
+                    sql.ExecuteNonQuery();
+                    conexion.Close();
+                }
+            }
+            catch
+            { }
+            CodCaja.Text = "";
+            Turno.Text = "";
+            especieid.Text = "";
+            especietext.Text = "";
+            Linea.Text = "";
+            Variedad.Text = "";
+            VariedadText.Text = "";
+            NroProceso.Text = "";
+            Marca.Text = "";
+            MarcaTxt.Text = "";
+            Lote.Text = "";
+            Embalaje.Text = "";
+            Embalajetx.Text = "";
+            Peso.Text = "";
+            Envase.Text = "";
+            Envasetxt.Text = "";
+            Calibre.Text = "";
+            ProdReal.Text = "";
+            ProdRealtxt.Text = "";
+            Salida.Text = "";
+            ProdEtiq.Text = "";
+            ProdEtiqtxt.Text = "";
+            TextBox1obs.Text = "";
+            txtbajo.Text = "";
+            txtprecalibre.Text = "";
+            txtrusset.Text = "";
+            txtadhesion.Text = "";
+            txtpudricion.Text = "";
+            txtcalibreok.Text = "";
+            txtdanotrip.Text = "";
+            txtsutura.Text = "";
+            txtdeshid.Text = "";
+            txtmanchaspardas.Text = "";
+            txtsobre.Text = "";
+            txtescama.Text = "";
+            txtfaltocolor.Text = "";
+            txtdeshidpedi.Text = "";
+            txtdanopajaro.Text = "";
+            txtfrutosdeformes.Text = "";
+            txtramaleo.Text = "";
+            txtblandos.Text = "";
+            txtdesgarro.Text = "";
+            txtfrutosdobles.Text = "";
+            txtsinpedicelo.Text = "";
+            txtheridasabiertas.Text = "";
+            txtcortesierra.Text = "";
+            txtguatablanca.Text = "";
+            txtmachucon.Text = "";
+            txtherida.Text = "";
+            txtpartiduras.Text = "";
+            txtmanchas.Text = "";
+            txtpartidurasagua.Text = "";
+            txtmedialuna.Text = "";
+            txtpartiduracicatrizada.Text = "";
+            txtpiellagarto.Text = "";
+            txtpitting.Text = "";
+            CodCaja.Focus();
+            ButtonBuscar.Enabled = true;
+            Grabar.Enabled = false;
+            Limpiar.Enabled = false;
         } 
-    
     }
 }
