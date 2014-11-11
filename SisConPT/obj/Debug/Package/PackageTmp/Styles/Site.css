@@ -198,6 +198,9 @@ div.menu ul li a:active
     text-decoration: none;
 }
 
+
+
+
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
 
@@ -356,3 +359,40 @@ ol.round {
             background: url("../Images/orderedList9.png") no-repeat;
         }
 
+
+
+div.menuTabs
+{
+    padding: 4px 0px 4px 8px;
+    
+}
+
+div.menuTabs ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+div.menuTabs ul li a, div.menuTabs ul li a:visited
+{
+    background-color: #006699;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    white-space: nowrap;
+}
+div.menuTabs ul li a:hover
+{
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+div.menuTabs ul li a:selectedTab
+{
+    background-color: #006699;
+    color: #cfdbe6;
+    text-decoration: none;
+}

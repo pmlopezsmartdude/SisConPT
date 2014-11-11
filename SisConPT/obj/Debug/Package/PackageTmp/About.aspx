@@ -10,9 +10,9 @@
     </h2>
     <p>
     Las herramientas proporcionadas a través de este sistema son parte de las herramientas de apoyo informático
-    diseñadas para registrar los datos de control de calidad de los productos confeccionados y comercializados,
-    con el propósito de brindar el mejor producto para los clientes y cumpliendo con los exigentes estándares 
-    de calidad.
+    diseñadas para registrar los datos de control de calidad de los productos confeccionados y comercializados
+    por la empresa, esto con el propósito de brindar el mejor producto para los clientes y cumpliendo con los 
+    exigentes estándares de calidad.
     </p>
     
 

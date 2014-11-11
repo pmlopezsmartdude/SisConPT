@@ -18,7 +18,7 @@
         <legend>Menu aplicaciones</legend>
         <asp:Table ID="Aplicaciones" runat="server" BorderColor="Black" 
             BorderStyle="Solid" Font-Names="Century Gothic" Font-Size="Small" Height="74px" 
-            Width="801px">
+            Width="650px" HorizontalAlign="Center">
             <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle">
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">Carga de Planillas Por proceso</asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">Carga de Planillas por Código de caja</asp:TableCell>
@@ -27,15 +27,15 @@
             </asp:TableRow>
             <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle">
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="CCPAC075PP" runat="server" onclick="Btn_proc_Click" Text="CC-PAC-075 por proceso" />
+                    <asp:Button ID="CCPAC075PP" runat="server" onclick="Btn_proc_Click" Text="CC-PAC-075 por proceso" Font-Size="X-Small" Font-Names="Century Gothic" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="CCPAC05PCC" runat="server" onclick="Button2_Click" Text="CC-PAC-05 por Código de caja"  />
+                    <asp:Button ID="CCPAC05PCC" runat="server" onclick="Button2_Click" Text="CC-PAC-05 por Código de caja"  Font-Names="Century Gothic" Font-Size="X-Small" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="Consporproceso" runat="server" Text="CC-PAC-075 por Proceso" Enabled="False" /></asp:TableCell>
+                    <asp:Button ID="Consporproceso" runat="server" Text="CC-PAC-075 por Proceso" Enabled="False" Font-Names="Century Gothic" Font-Size="X-Small" /></asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="Consporcodcaja" runat="server" Text="CC-PAC-05 por Código de caja" Enabled="False" />
+                    <asp:Button ID="Consporcodcaja" runat="server" Text="CC-PAC-05 por Código de caja" Enabled="False" Font-Names="Century Gothic" Font-Size="X-Small" />
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
