@@ -36,6 +36,9 @@
     <ApplicationIcon>icon3.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -90,6 +93,7 @@
     <Content Include="SisConPT\Images\orderedList9.png" />
     <Content Include="SisConPT\Ingreso-CC-PAC-005-CODCAJ.aspx" />
     <Content Include="SisConPT\SisConPT.aspx" />
+    <Content Include="SisConPT\Ingreso_CC-PAC-075_proceso.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -166,6 +170,13 @@
     </Compile>
     <Compile Include="SisConPT\SisConPT.aspx.designer.cs">
       <DependentUpon>SisConPT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SisConPT\Ingreso_CC-PAC-075_proceso.aspx.cs">
+      <DependentUpon>Ingreso_CC-PAC-075_proceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisConPT\Ingreso_CC-PAC-075_proceso.aspx.designer.cs">
+      <DependentUpon>Ingreso_CC-PAC-075_proceso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -20,5 +20,11 @@ namespace SisConPT.SisConPT
             Response.Redirect("~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx");
  
         }
+        protected void Btn_proc_Click(object sender, EventArgs e)
+        {
+            Session["PlantaName"] = DropDownList1.Text;
+            Response.Redirect("~/SisConPT/Ingreso_CC-PAC-075_proceso.aspx");
+
+        }
     }
 }

@@ -27,7 +27,7 @@
             </asp:TableRow>
             <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle">
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="CCPAC075PP" runat="server" Text="CC-PAC-075 por proceso" Enabled="False" />
+                    <asp:Button ID="CCPAC075PP" runat="server" onclick="Btn_proc_Click" Text="CC-PAC-075 por proceso" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="CCPAC05PCC" runat="server" onclick="Button2_Click" Text="CC-PAC-05 por Código de caja"  />

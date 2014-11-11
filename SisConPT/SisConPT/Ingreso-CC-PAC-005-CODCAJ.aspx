@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ingreso-CC-PAC-005-CODCAJ.aspx.cs" Inherits="SisConPT.SisConPT.Ingreso_CC_PAC_005_CODCAJ" %>
-
-<script runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx.cs" Inherits="SisConPT.SisConPT.Ingreso_CC_PAC_005_CODCAJ" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%--<script runat="server">
 
     protected void menuTabs_MenuItemClick(object sender, MenuEventArgs e)
     {
         multiTabs.ActiveViewIndex = Int32.Parse(menuTabs.SelectedValue);
     }
-</script>
+</script>--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -22,6 +22,7 @@
                     }
             }
     </script>
+      <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server">  </asp:ToolkitScriptManager>  
   
     <h3>CC-PAC-005</h3>
     <asp:Panel ID="Panel1" runat="server" DefaultButton="ButtonBuscar">
@@ -161,7 +162,7 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-     <asp:Menu
+    <%-- <asp:Menu
         id="menuTabs"
         CssClass="menuTabs"
         StaticMenuItemStyle-CssClass="tab"
@@ -198,7 +199,22 @@
         Runat="server">
         <asp:View ID="view1" runat="server">
       
-         <asp:Table ID="ingresoDatos" runat="server" Width="829px" Height="90px" 
+        </asp:View>
+        <asp:View ID="view2" runat="server">
+        
+           
+        </asp:View>
+      
+    </asp:MultiView>  
+    </div>--%>
+
+
+
+     <asp:TabContainer ID="TabContainer1" runat="server">
+<asp:TabPanel runat="server" HeaderText="DEFECTOS" ID="TabPanel1"  Enabled ="true" >
+    <ContentTemplate>
+
+     <asp:Table ID="ingresoDatos" runat="server" Width="829px" Height="90px" 
                 Font-Names="Century Gothic" Font-Size="X-Small" BackColor="#CCCCCC">
          <asp:TableRow ID="TableRow1" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             <asp:TableCell>
@@ -532,12 +548,12 @@
 
 
 
+    </ContentTemplate>
+</asp:TabPanel>
+<asp:TabPanel runat="server" HeaderText="OBSERVACIONES" ID="TabPanel2"  Enabled ="true" >
+    <ContentTemplate>
 
-
-        </asp:View>
-        <asp:View ID="view2" runat="server">
-        
-<asp:Table ID="Table1" runat="server" Width="827px" Height="90px" 
+    <asp:Table ID="Table1" runat="server" Width="827px" Height="90px" 
                 Font-Names="Century Gothic" Font-Size="X-Small" BackColor="#CCCCCC">
    
    <asp:TableRow>
@@ -549,11 +565,23 @@
 
 </asp:Table>
 
-           
-        </asp:View>
-      
-    </asp:MultiView>  
-    </div>
+
+
+
+
+
+
+
+    </ContentTemplate>
+</asp:TabPanel>
+
+    </asp:TabContainer>
+
+
+
+
+
+
 
     <center><asp:Button ID="Grabar" runat="server" Text="Grabar" Enabled="False" 
             onclick="Grabar_Click" />

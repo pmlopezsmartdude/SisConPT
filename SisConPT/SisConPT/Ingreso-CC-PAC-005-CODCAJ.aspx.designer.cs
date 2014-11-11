@@ -13,6 +13,15 @@ namespace SisConPT.SisConPT {
     public partial class Ingreso_CC_PAC_005_CODCAJ {
         
         /// <summary>
+        /// Control ToolkitScriptManager2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager2;
+        
+        /// <summary>
         /// Control Panel1.
         /// </summary>
         /// <remarks>
@@ -310,31 +319,22 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox ProdEtiqtxt;
         
         /// <summary>
-        /// Control menuTabs.
+        /// Control TabContainer1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu menuTabs;
+        protected global::AjaxControlToolkit.TabContainer TabContainer1;
         
         /// <summary>
-        /// Control multiTabs.
+        /// Control TabPanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView multiTabs;
-        
-        /// <summary>
-        /// Control view1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View view1;
+        protected global::AjaxControlToolkit.TabPanel TabPanel1;
         
         /// <summary>
         /// Control ingresoDatos.
@@ -1030,13 +1030,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txtpitting;
         
         /// <summary>
-        /// Control view2.
+        /// Control TabPanel2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View view2;
+        protected global::AjaxControlToolkit.TabPanel TabPanel2;
         
         /// <summary>
         /// Control Table1.
