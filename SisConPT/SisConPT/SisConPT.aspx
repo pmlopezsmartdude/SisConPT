@@ -33,7 +33,7 @@
                     <asp:Button ID="CCPAC05PCC" runat="server" onclick="Button2_Click" Text="CC-PAC-05 por Código de caja"  Font-Names="Century Gothic" Font-Size="X-Small" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
-                    <asp:Button ID="Consporproceso" runat="server" Text="CC-PAC-075 por Proceso" Enabled="False" Font-Names="Century Gothic" Font-Size="X-Small" /></asp:TableCell>
+                    <asp:Button ID="Consporproceso" runat="server" onclick="Btn_cons_proc" Text="CC-PAC-075 por Proceso" Enabled="True" Font-Names="Century Gothic" Font-Size="X-Small" /></asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="Consporcodcaja" runat="server" Text="CC-PAC-05 por Código de caja" Enabled="False" Font-Names="Century Gothic" Font-Size="X-Small" />
                 </asp:TableCell>

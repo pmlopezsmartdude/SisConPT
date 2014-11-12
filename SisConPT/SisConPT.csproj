@@ -77,8 +77,10 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="SisConPT\Consulta_CC-PAC-075_proceso.aspx" />
     <Content Include="SisConPT\Images\accent.png" />
     <Content Include="SisConPT\Images\bullet.png" />
+    <Content Include="SisConPT\Images\editar.png" />
     <Content Include="SisConPT\Images\heroAccent.png" />
     <Content Include="SisConPT\Images\logosfg.png" />
     <Content Include="SisConPT\Images\orderedList0.png" />
@@ -157,6 +159,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SisConPT\Consulta_CC-PAC-075_proceso.aspx.cs">
+      <DependentUpon>Consulta_CC-PAC-075_proceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisConPT\Consulta_CC-PAC-075_proceso.aspx.designer.cs">
+      <DependentUpon>Consulta_CC-PAC-075_proceso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SisConPT\Ingreso-CC-PAC-005-CODCAJ.aspx.cs">
       <DependentUpon>Ingreso-CC-PAC-005-CODCAJ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

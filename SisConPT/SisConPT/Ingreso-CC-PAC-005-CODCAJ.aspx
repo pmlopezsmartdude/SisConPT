@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx.cs" Inherits="SisConPT.SisConPT.Ingreso_CC_PAC_005_CODCAJ" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <%--<script runat="server">
 
     protected void menuTabs_MenuItemClick(object sender, MenuEventArgs e)
@@ -21,6 +22,18 @@
                     document.getElementById(objBtnID).click();
                     }
             }
+//            function ValidaDecimal(dato) {
+//                var valor = dato.indexOf(",");
+//                if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 44) {
+//                    if (window.event.keyCode == 44) {
+//                        if (valor >= 0) {
+//                            window.event.returnValue = false;
+//                        }
+//                    }
+//                } else {
+//                    window.event.returnValue = false;
+//                }
+//            }
     </script>
       <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server">  </asp:ToolkitScriptManager>  
   
@@ -221,31 +234,36 @@
                 <asp:Label ID="lblbajo" runat="server" Height="10">Bajo (<10%)</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtbajo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtbajo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" TargetControlID="txtbajo" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblprecalibre" runat="server" Height="10">Pre Calibre</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtprecalibre"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtprecalibre"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" TargetControlID="txtprecalibre" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblrusset" runat="server" Height="10">Russet</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtrusset"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtrusset"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" TargetControlID="txtrusset" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesion</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtadhesion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtadhesion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender4" TargetControlID="txtadhesion" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblpudricion" runat="server" Height="10">Pudricion</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtpudricion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtpudricion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender5" TargetControlID="txtpudricion" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
  </asp:TableRow>
          <asp:TableRow ID="TableRow2" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -253,31 +271,36 @@
                 <asp:Label ID="lblcalibreok" runat="server" Height="10">Calibre OK</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtcalibreok"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtcalibreok"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender6" TargetControlID="txtcalibreok" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lbldanotrip" runat="server" Height="10">Daño Trip</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtdanotrip"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtdanotrip"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender7" TargetControlID="txtdanotrip" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblsutura" runat="server" Height="10">Sutura</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtsutura"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtsutura"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" TargetControlID="txtsutura" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratacion de Frutos</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtdeshid"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtdeshid"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender9" TargetControlID="txtdeshid" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblmanchaspardas" runat="server" Height="10">Manchas Pardas</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtmanchaspardas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtmanchaspardas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender10" TargetControlID="txtmanchaspardas" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
  </asp:TableRow>
 
@@ -287,31 +310,36 @@
                 <asp:Label ID="lblsobre" runat="server" Height="10">Sobre (<20 %)</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtsobre"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtsobre"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender11" TargetControlID="txtsobre" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblescama" runat="server" Height="10">Escama</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtescama"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtescama"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender12" TargetControlID="txtescama" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblfaltocolor" runat="server" Height="10">Falto de Color</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtfaltocolor"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtfaltocolor"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender13" TargetControlID="txtfaltocolor" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratacion Pedicelar</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtdeshidpedi"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtdeshidpedi"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender14" TargetControlID="txtdeshidpedi" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lbldanopajaro" runat="server" Height="10">Daño de Pajaro</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtdanopajaro"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtdanopajaro"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender15" TargetControlID="txtdanopajaro" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
  </asp:TableRow>
           <asp:TableRow ID="TableRow4" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -325,25 +353,29 @@
                 <asp:Label ID="lblfrutosdeformes" runat="server" Height="10">Frutos Deformes</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtfrutosdeformes"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtfrutosdeformes"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender16" TargetControlID="txtfrutosdeformes" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblramaleo" runat="server" Height="10">Ramaleo</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtramaleo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtramaleo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender17" TargetControlID="txtramaleo" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblblandos" runat="server" Height="10">Blandos</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtblandos"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtblandos"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender18" TargetControlID="txtblandos" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lbldesgarro" runat="server" Height="10">Desgarro</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtdesgarro"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtdesgarro"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender19" TargetControlID="txtdesgarro" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
  </asp:TableRow>
           <asp:TableRow ID="TableRow5" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -357,25 +389,29 @@
                 <asp:Label ID="lblfrutosdobles" runat="server" Height="10">Frutos Dobles</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtfrutosdobles"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtfrutosdobles"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender20" TargetControlID="txtfrutosdobles" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblsinpedicelo" runat="server" Height="10">Sin Pedicelo</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtsinpedicelo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtsinpedicelo"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender21" TargetControlID="txtsinpedicelo" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblheridasabiertas" runat="server" Height="10">Heridas Abiertas</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtheridasabiertas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtheridasabiertas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender22" TargetControlID="txtheridasabiertas" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblcortesierra" runat="server" Height="10">Corte de Sierra</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtcortesierra"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtcortesierra"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender23" TargetControlID="txtcortesierra" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
  </asp:TableRow>
 
@@ -390,7 +426,8 @@
                 <asp:Label ID="lblguatablanca" runat="server" Height="10">Guata Blanca</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtguatablanca"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtguatablanca"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender24" TargetControlID="txtguatablanca" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -402,7 +439,8 @@
                 <asp:Label ID="lblmachucon" runat="server" Height="10">Machucon</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txtmachucon" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -422,7 +460,8 @@
                 <asp:Label ID="lblherida" runat="server" Height="10">Herida</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtherida"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtherida"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender26" TargetControlID="txtherida" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -434,7 +473,8 @@
                 <asp:Label ID="lblpartiduras" runat="server" Height="10">Partiduras</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtpartiduras"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtpartiduras"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender27" TargetControlID="txtpartiduras" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -454,7 +494,8 @@
                 <asp:Label ID="lblmanchas" runat="server" Height="10">Manchas</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtmanchas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtmanchas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender28" TargetControlID="txtmanchas" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -466,7 +507,8 @@
                 <asp:Label ID="lblpartidurasagua" runat="server" Height="10">Partiduras por Agua</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtpartidurasagua"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtpartidurasagua"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender29" TargetControlID="txtpartidurasagua" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -486,7 +528,8 @@
                 <asp:Label ID="lblmedialuna" runat="server" Height="10">Media Luna</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtmedialuna"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtmedialuna"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender30" TargetControlID="txtmedialuna" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -498,7 +541,8 @@
                 <asp:Label ID="lblpartiduracicatrizada" runat="server" Height="10">Partidura Cicatrizada</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtpartiduracicatrizada"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtpartiduracicatrizada"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender31" TargetControlID="txtpartiduracicatrizada" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -518,7 +562,8 @@
                 <asp:Label ID="lblpiellagarto" runat="server" Height="10">Piel de Lagarto</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtpiellagarto"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtpiellagarto"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender32" TargetControlID="txtpiellagarto" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -530,7 +575,8 @@
                 <asp:Label ID="lblpitting" runat="server" Height="10">Pitting</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox runat="server" ID="txtpitting"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox   runat="server" ID="txtpitting"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender33" TargetControlID="txtpitting" FilterType="Custom, numbers" ValidChars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 
