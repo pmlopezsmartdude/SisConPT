@@ -46,7 +46,7 @@ namespace SisConPT.SisConPT
                 connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager40"];
 
             }
-            
+
             if (!IsPostBack)
             {
                 DDLProcesos();
@@ -76,7 +76,7 @@ namespace SisConPT.SisConPT
         protected void Procesos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             string proceso_id = Convert.ToString(gvProcesos.DataKeys[e.NewSelectedIndex].Value);
-          
+
             InitializeEditPopUp();
             PopUpDetalle(proceso_id);
 
@@ -101,7 +101,7 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             SqlCommand cmd_proc = new SqlCommand("select Ctrl_CodProc,Ctrl_Lote,Ctrl_ExpDesc,Ctrl_CatII from CtrlDescarteCom where Ctrl_id='" + proceso_id + "'", con);
-            
+
             using (SqlDataReader reader = cmd_proc.ExecuteReader())
             {
                 reader.Read();
@@ -111,7 +111,7 @@ namespace SisConPT.SisConPT
                 txtCATII.Text = reader.GetString(3);
 
             }
-           
+
             con.Close();
 
 
@@ -143,7 +143,7 @@ namespace SisConPT.SisConPT
 
         private void InitializeEditPopUp()
         {
-            
+
 
         }
 

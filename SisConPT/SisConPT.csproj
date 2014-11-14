@@ -94,6 +94,7 @@
     <Content Include="SisConPT\Images\orderedList8.png" />
     <Content Include="SisConPT\Images\orderedList9.png" />
     <Content Include="SisConPT\Ingreso-CC-PAC-005-CODCAJ.aspx" />
+    <Content Include="SisConPT\Resumen_CC-PAC-005_CODCAJ.aspx" />
     <Content Include="SisConPT\SisConPT.aspx" />
     <Content Include="SisConPT\Ingreso_CC-PAC-075_proceso.aspx" />
     <Content Include="Styles\Site.css" />
@@ -172,6 +173,13 @@
     </Compile>
     <Compile Include="SisConPT\Ingreso-CC-PAC-005-CODCAJ.aspx.designer.cs">
       <DependentUpon>Ingreso-CC-PAC-005-CODCAJ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SisConPT\Resumen_CC-PAC-005_CODCAJ.aspx.cs">
+      <DependentUpon>Resumen_CC-PAC-005_CODCAJ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisConPT\Resumen_CC-PAC-005_CODCAJ.aspx.designer.cs">
+      <DependentUpon>Resumen_CC-PAC-005_CODCAJ.aspx</DependentUpon>
     </Compile>
     <Compile Include="SisConPT\SisConPT.aspx.cs">
       <DependentUpon>SisConPT.aspx</DependentUpon>

@@ -10,7 +10,7 @@
 namespace SisConPT.SisConPT {
     
     
-    public partial class Ingreso_CC_PAC_075_proceso {
+    public partial class Resumen_CC_PAC_005_CODCAJ {
         
         /// <summary>
         /// Control ToolkitScriptManager2.
@@ -22,15 +22,6 @@ namespace SisConPT.SisConPT {
         protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager2;
         
         /// <summary>
-        /// Control Panel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
-        /// <summary>
         /// Control Datos.
         /// </summary>
         /// <remarks>
@@ -38,24 +29,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table Datos;
-        
-        /// <summary>
-        /// Control lbl_cod_proc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cod_proc;
-        
-        /// <summary>
-        /// Control drop_proc_d.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drop_proc_d;
         
         /// <summary>
         /// Control lbl_cod_plan.
@@ -112,112 +85,58 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.DropDownList drop_turno_d;
         
         /// <summary>
-        /// Control lblLote.
+        /// Control Panel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLote;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// Control drop_lote_d.
+        /// Control gvProcesos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drop_lote_d;
+        protected global::System.Web.UI.WebControls.GridView gvProcesos;
         
         /// <summary>
-        /// Control Table1.
+        /// Control HiddenField1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
         
         /// <summary>
-        /// Control lbldescarte.
+        /// Control mpeEditOrder.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldescarte;
+        protected global::AjaxControlToolkit.ModalPopupExtender mpeEditOrder;
         
         /// <summary>
-        /// Control txtDescarte.
+        /// Control panelEditOrder.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescarte;
+        protected global::System.Web.UI.WebControls.Panel panelEditOrder;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender2.
+        /// Control upEditOrder.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender2;
-        
-        /// <summary>
-        /// Control lblCATII.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCATII;
-        
-        /// <summary>
-        /// Control txtCATII.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCATII;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender3;
-        
-        /// <summary>
-        /// Control lblCATIII.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCATIII;
-        
-        /// <summary>
-        /// Control txtCATIII.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCATIII;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender1;
+        protected global::System.Web.UI.UpdatePanel upEditOrder;
         
         /// <summary>
         /// Control Table2.
@@ -229,31 +148,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Table Table2;
         
         /// <summary>
-        /// Control lblRango.
+        /// Control TableRow11.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRango;
-        
-        /// <summary>
-        /// Control Label4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// Control Label5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.TableRow TableRow11;
         
         /// <summary>
         /// Control Label1.
@@ -265,6 +166,15 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// Control NroProceso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NroProceso;
+        
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>
@@ -272,6 +182,15 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// Control ProdReal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ProdReal;
         
         /// <summary>
         /// Control Label3.
@@ -283,31 +202,40 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control Label6.
+        /// Control Lote.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.TextBox Lote;
         
         /// <summary>
-        /// Control Label7.
+        /// Control Label5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control Label8.
+        /// Control txtVariedad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.TextBox txtVariedad;
+        
+        /// <summary>
+        /// Control TableRow12.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRow12;
         
         /// <summary>
         /// Control Label9.
@@ -319,15 +247,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// Control Label10.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
-        
-        /// <summary>
         /// Control Label11.
         /// </summary>
         /// <remarks>
@@ -337,579 +256,678 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
-        /// Control Label12.
+        /// Control TableRow1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
+        protected global::System.Web.UI.WebControls.TableRow TableRow1;
         
         /// <summary>
-        /// Control lblrango1.
+        /// Control lblprecalibre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblrango1;
+        protected global::System.Web.UI.WebControls.Label lblprecalibre;
         
         /// <summary>
-        /// Control txt3_1.
+        /// Control txtprecalibre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt3_1;
+        protected global::System.Web.UI.WebControls.TextBox txtprecalibre;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender4.
+        /// Control lblrusset.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender4;
+        protected global::System.Web.UI.WebControls.Label lblrusset;
         
         /// <summary>
-        /// Control txt3_porc_1.
+        /// Control txtrusset.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt3_porc_1;
+        protected global::System.Web.UI.WebControls.TextBox txtrusset;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender5.
+        /// Control lbladhesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender5;
+        protected global::System.Web.UI.WebControls.Label lbladhesion;
         
         /// <summary>
-        /// Control txt8_1.
+        /// Control txtadhesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt8_1;
+        protected global::System.Web.UI.WebControls.TextBox txtadhesion;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender6.
+        /// Control lblpudricion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender6;
+        protected global::System.Web.UI.WebControls.Label lblpudricion;
         
         /// <summary>
-        /// Control txt8_porc_1.
+        /// Control txtpudricion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt8_porc_1;
+        protected global::System.Web.UI.WebControls.TextBox txtpudricion;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender7.
+        /// Control TableRow2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender7;
+        protected global::System.Web.UI.WebControls.TableRow TableRow2;
         
         /// <summary>
-        /// Control txt21_1.
+        /// Control lbldanotrip.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt21_1;
+        protected global::System.Web.UI.WebControls.Label lbldanotrip;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender8.
+        /// Control txtdanotrip.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender8;
+        protected global::System.Web.UI.WebControls.TextBox txtdanotrip;
         
         /// <summary>
-        /// Control txt21_porc_1.
+        /// Control lblsutura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt21_porc_1;
+        protected global::System.Web.UI.WebControls.Label lblsutura;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender9.
+        /// Control txtsutura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender9;
+        protected global::System.Web.UI.WebControls.TextBox txtsutura;
         
         /// <summary>
-        /// Control txt18_1.
+        /// Control lbldeshid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt18_1;
+        protected global::System.Web.UI.WebControls.Label lbldeshid;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender10.
+        /// Control txtdeshid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender10;
+        protected global::System.Web.UI.WebControls.TextBox txtdeshid;
         
         /// <summary>
-        /// Control txt18_porc_1.
+        /// Control lblmanchaspardas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt18_porc_1;
+        protected global::System.Web.UI.WebControls.Label lblmanchaspardas;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender11.
+        /// Control txtmanchaspardas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender11;
+        protected global::System.Web.UI.WebControls.TextBox txtmanchaspardas;
         
         /// <summary>
-        /// Control txt25_1.
+        /// Control TableRow3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt25_1;
+        protected global::System.Web.UI.WebControls.TableRow TableRow3;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender12.
+        /// Control lblescama.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender12;
+        protected global::System.Web.UI.WebControls.Label lblescama;
         
         /// <summary>
-        /// Control txt25_porc_1.
+        /// Control txtescama.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt25_porc_1;
+        protected global::System.Web.UI.WebControls.TextBox txtescama;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender13.
+        /// Control lblfaltocolor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender13;
+        protected global::System.Web.UI.WebControls.Label lblfaltocolor;
         
         /// <summary>
-        /// Control txt19_1.
+        /// Control txtfaltocolor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt19_1;
+        protected global::System.Web.UI.WebControls.TextBox txtfaltocolor;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender14.
+        /// Control lbldeshidpedi.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender14;
+        protected global::System.Web.UI.WebControls.Label lbldeshidpedi;
         
         /// <summary>
-        /// Control txt19_porc_1.
+        /// Control txtdeshidpedi.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt19_porc_1;
+        protected global::System.Web.UI.WebControls.TextBox txtdeshidpedi;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender15.
+        /// Control lbldanopajaro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender15;
+        protected global::System.Web.UI.WebControls.Label lbldanopajaro;
         
         /// <summary>
-        /// Control Label16.
+        /// Control txtdanopajaro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label16;
+        protected global::System.Web.UI.WebControls.TextBox txtdanopajaro;
         
         /// <summary>
-        /// Control txt3_2.
+        /// Control TableRow4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt3_2;
+        protected global::System.Web.UI.WebControls.TableRow TableRow4;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender16.
+        /// Control lblfrutosdeformes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender16;
+        protected global::System.Web.UI.WebControls.Label lblfrutosdeformes;
         
         /// <summary>
-        /// Control txt3_porc_2.
+        /// Control txtfrutosdeformes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt3_porc_2;
+        protected global::System.Web.UI.WebControls.TextBox txtfrutosdeformes;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender17.
+        /// Control lblramaleo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender17;
+        protected global::System.Web.UI.WebControls.Label lblramaleo;
         
         /// <summary>
-        /// Control txt8_2.
+        /// Control txtramaleo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt8_2;
+        protected global::System.Web.UI.WebControls.TextBox txtramaleo;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender18.
+        /// Control lblblandos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender18;
+        protected global::System.Web.UI.WebControls.Label lblblandos;
         
         /// <summary>
-        /// Control txt8_porc_2.
+        /// Control txtblandos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt8_porc_2;
+        protected global::System.Web.UI.WebControls.TextBox txtblandos;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender19.
+        /// Control lbldesgarro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender19;
+        protected global::System.Web.UI.WebControls.Label lbldesgarro;
         
         /// <summary>
-        /// Control txt21_2.
+        /// Control txtdesgarro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt21_2;
+        protected global::System.Web.UI.WebControls.TextBox txtdesgarro;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender20.
+        /// Control TableRow5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender20;
+        protected global::System.Web.UI.WebControls.TableRow TableRow5;
         
         /// <summary>
-        /// Control txt21_porc_2.
+        /// Control lblfrutosdobles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt21_porc_2;
+        protected global::System.Web.UI.WebControls.Label lblfrutosdobles;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender21.
+        /// Control txtfrutosdobles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender21;
+        protected global::System.Web.UI.WebControls.TextBox txtfrutosdobles;
         
         /// <summary>
-        /// Control txt18_2.
+        /// Control lblsinpedicelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt18_2;
+        protected global::System.Web.UI.WebControls.Label lblsinpedicelo;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender22.
+        /// Control txtsinpedicelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender22;
+        protected global::System.Web.UI.WebControls.TextBox txtsinpedicelo;
         
         /// <summary>
-        /// Control txt18_porc_2.
+        /// Control lblheridasabiertas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt18_porc_2;
+        protected global::System.Web.UI.WebControls.Label lblheridasabiertas;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender23.
+        /// Control txtheridasabiertas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender23;
+        protected global::System.Web.UI.WebControls.TextBox txtheridasabiertas;
         
         /// <summary>
-        /// Control txt25_2.
+        /// Control lblcortesierra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt25_2;
+        protected global::System.Web.UI.WebControls.Label lblcortesierra;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender24.
+        /// Control txtcortesierra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender24;
+        protected global::System.Web.UI.WebControls.TextBox txtcortesierra;
         
         /// <summary>
-        /// Control txt25_porc_2.
+        /// Control TableRow6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt25_porc_2;
+        protected global::System.Web.UI.WebControls.TableRow TableRow6;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender25.
+        /// Control lblguatablanca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender25;
+        protected global::System.Web.UI.WebControls.Label lblguatablanca;
         
         /// <summary>
-        /// Control txt19_2.
+        /// Control txtguatablanca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt19_2;
+        protected global::System.Web.UI.WebControls.TextBox txtguatablanca;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender26.
+        /// Control lblmachucon.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender26;
+        protected global::System.Web.UI.WebControls.Label lblmachucon;
         
         /// <summary>
-        /// Control txt19_porc_2.
+        /// Control txtmachucon.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt19_porc_2;
+        protected global::System.Web.UI.WebControls.TextBox txtmachucon;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender27.
+        /// Control TableRow7.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender27;
+        protected global::System.Web.UI.WebControls.TableRow TableRow7;
         
         /// <summary>
-        /// Control Table3.
+        /// Control lblherida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
+        protected global::System.Web.UI.WebControls.Label lblherida;
         
         /// <summary>
-        /// Control Label13.
+        /// Control txtherida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
+        protected global::System.Web.UI.WebControls.TextBox txtherida;
         
         /// <summary>
-        /// Control KilosLote.
+        /// Control lblpartiduras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox KilosLote;
+        protected global::System.Web.UI.WebControls.Label lblpartiduras;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender28.
+        /// Control txtpartiduras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender28;
+        protected global::System.Web.UI.WebControls.TextBox txtpartiduras;
         
         /// <summary>
-        /// Control Label14.
+        /// Control TableRow8.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label14;
+        protected global::System.Web.UI.WebControls.TableRow TableRow8;
         
         /// <summary>
-        /// Control NTotes.
+        /// Control lblmanchas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NTotes;
+        protected global::System.Web.UI.WebControls.Label lblmanchas;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender29.
+        /// Control txtmanchas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender29;
+        protected global::System.Web.UI.WebControls.TextBox txtmanchas;
         
         /// <summary>
-        /// Control Label15.
+        /// Control lblpartidurasagua.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label15;
+        protected global::System.Web.UI.WebControls.Label lblpartidurasagua;
         
         /// <summary>
-        /// Control porc_exp.
+        /// Control txtpartidurasagua.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox porc_exp;
+        protected global::System.Web.UI.WebControls.TextBox txtpartidurasagua;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender30.
+        /// Control TableRow9.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender30;
+        protected global::System.Web.UI.WebControls.TableRow TableRow9;
         
         /// <summary>
-        /// Control Table4.
+        /// Control lblmedialuna.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table4;
+        protected global::System.Web.UI.WebControls.Label lblmedialuna;
         
         /// <summary>
-        /// Control btnGrabar.
+        /// Control txtmedialuna.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGrabar;
+        protected global::System.Web.UI.WebControls.TextBox txtmedialuna;
         
         /// <summary>
-        /// Control btnLimpiar.
+        /// Control lblpartiduracicatrizada.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLimpiar;
+        protected global::System.Web.UI.WebControls.Label lblpartiduracicatrizada;
+        
+        /// <summary>
+        /// Control txtpartiduracicatrizada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtpartiduracicatrizada;
+        
+        /// <summary>
+        /// Control TableRow10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRow10;
+        
+        /// <summary>
+        /// Control lblpiellagarto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblpiellagarto;
+        
+        /// <summary>
+        /// Control txtpiellagarto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtpiellagarto;
+        
+        /// <summary>
+        /// Control lblpitting.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblpitting;
+        
+        /// <summary>
+        /// Control txtpitting.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtpitting;
+        
+        /// <summary>
+        /// Control TableRow13.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRow13;
+        
+        /// <summary>
+        /// Control TableRow14.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRow14;
+        
+        /// <summary>
+        /// Control Label4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// Control txt_soluble.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_soluble;
+        
+        /// <summary>
+        /// Control btnClose.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClose;
     }
 }
