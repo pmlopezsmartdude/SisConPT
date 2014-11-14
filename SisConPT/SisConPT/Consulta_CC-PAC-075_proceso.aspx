@@ -32,7 +32,7 @@
                   
    </asp:TableRow>
     <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">  <asp:TableCell Width="60"><asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="button"
-                    onclick="btnFiltrar_Click" /></asp:TableCell>
+                    onclick="btnFiltrar_Click" Enabled="false" /></asp:TableCell>
     
     
     

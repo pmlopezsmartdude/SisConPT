@@ -54,6 +54,9 @@ namespace SisConPT.SisConPT
             {
                 SOLUBLE();
             }
+            Button1.Visible = false;
+            TabPanel2.Enabled = false;
+            TabPanel3.Enabled = false;
 
         
 
@@ -109,35 +112,40 @@ namespace SisConPT.SisConPT
 
             conexion.Close();
             ButtonBuscar.Enabled = false;
-            Grabar.Enabled = true;
+            TabPanel2.Enabled = true;
+            TabPanel3.Enabled = true;
+            Grabar.Enabled = false;
+            Grabar.Visible = false;
             Limpiar.Enabled = true;
+            Button1.Visible = true;
+            Button1.Enabled = true;
             txtbajo.Focus();
         }
         protected void Limpiar_Click(object sender, EventArgs e)
         {
-            CodCaja.Text = "0";
-            Turno.Text = "0";
-            especieid.Text = "0";
-            especietext.Text = "0";
-            Linea.Text = "0";
-            Variedad.Text = "0";
-            VariedadText.Text = "0";
-            NroProceso.Text = "0";
-            Marca.Text = "0";
-            MarcaTxt.Text = "0";
-            Lote.Text = "0";
-            Embalaje.Text = "0";
-            Embalajetx.Text = "0";
-            Peso.Text = "0";
-            Envase.Text = "0";
-            Envasetxt.Text = "0";
-            Calibre.Text = "0";
-            ProdReal.Text = "0";
-            ProdRealtxt.Text = "0";
-            Salida.Text = "0";
-            ProdEtiq.Text = "0";
-            ProdEtiqtxt.Text = "0";
-            TextBox1obs.Text = "0";
+            CodCaja.Text = "";
+            Turno.Text = "";
+            especieid.Text = "";
+            especietext.Text = "";
+            Linea.Text = "";
+            Variedad.Text = "";
+            VariedadText.Text = "";
+            NroProceso.Text = "";
+            Marca.Text = "";
+            MarcaTxt.Text = "";
+            Lote.Text = "";
+            Embalaje.Text = "";
+            Embalajetx.Text = "";
+            Peso.Text = "";
+            Envase.Text = "";
+            Envasetxt.Text = "";
+            Calibre.Text = "";
+            ProdReal.Text = "";
+            ProdRealtxt.Text = "";
+            Salida.Text = "";
+            ProdEtiq.Text = "";
+            ProdEtiqtxt.Text = "";
+            TextBox1obs.Text = "";
             txtbajo.Text = "0";
             txtprecalibre.Text = "0";
             txtrusset.Text = "0";
@@ -175,6 +183,8 @@ namespace SisConPT.SisConPT
             ButtonBuscar.Enabled = true;
             Grabar.Enabled = false;
             Limpiar.Enabled = false;
+            TabPanel2.Enabled = false;
+            TabPanel3.Enabled = false;
         }
         protected void Grabar_Click(object sender, EventArgs e)
         {
@@ -203,29 +213,29 @@ namespace SisConPT.SisConPT
                     conexion.Close();
                 }
 
-                CodCaja.Text = "0";
-                Turno.Text = "0";
-                especieid.Text = "0";
-                especietext.Text = "0";
-                Linea.Text = "0";
-                Variedad.Text = "0";
-                VariedadText.Text = "0";
-                NroProceso.Text = "0";
-                Marca.Text = "0";
-                MarcaTxt.Text = "0";
-                Lote.Text = "0";
-                Embalaje.Text = "0";
-                Embalajetx.Text = "0";
-                Peso.Text = "0";
-                Envase.Text = "0";
-                Envasetxt.Text = "0";
-                Calibre.Text = "0";
-                ProdReal.Text = "0";
-                ProdRealtxt.Text = "0";
-                Salida.Text = "0";
-                ProdEtiq.Text = "0";
-                ProdEtiqtxt.Text = "0";
-                TextBox1obs.Text = "0";
+                CodCaja.Text = "";
+                Turno.Text = "";
+                especieid.Text = "";
+                especietext.Text = "";
+                Linea.Text = "";
+                Variedad.Text = "";
+                VariedadText.Text = "";
+                NroProceso.Text = "";
+                Marca.Text = "";
+                MarcaTxt.Text = "";
+                Lote.Text = "";
+                Embalaje.Text = "";
+                Embalajetx.Text = "";
+                Peso.Text = "";
+                Envase.Text = "";
+                Envasetxt.Text = "";
+                Calibre.Text = "";
+                ProdReal.Text = "";
+                ProdRealtxt.Text = "";
+                Salida.Text = "";
+                ProdEtiq.Text = "";
+                ProdEtiqtxt.Text = "";
+                TextBox1obs.Text = "";
                 txtbajo.Text = "0";
                 txtprecalibre.Text = "0";
                 txtrusset.Text = "0";
@@ -261,8 +271,12 @@ namespace SisConPT.SisConPT
                 txtpitting.Text = "0";
             CodCaja.Focus();
             ButtonBuscar.Enabled = true;
+            TabPanel2.Visible = true;
+            TabPanel3.Visible = true;
+            Button1.Visible = true;
             Grabar.Enabled = false;
             Limpiar.Enabled = false;
+            
         }
 
         private void SOLUBLE()
@@ -357,10 +371,18 @@ namespace SisConPT.SisConPT
                 txt_f5.Text = "0";
 
 
-            CodCaja.Focus();
-            ButtonBuscar.Enabled = true;
-            Grabar.Enabled = false;
-            Limpiar.Enabled = false;
+            
+            
+
+            // TabPanel1.Visible = true;
+            TabPanel2.Enabled = false;
+            TabPanel3.Enabled = false;
+            txtbajo.Focus();
+            Button1.Enabled = false;
+            Button1.Visible = false;
+            Grabar.Enabled = true;
+            Grabar.Visible = true;
+            Limpiar.Enabled = true;
         }
 
 

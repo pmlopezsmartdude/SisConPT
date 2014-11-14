@@ -51,6 +51,10 @@ namespace SisConPT.SisConPT
             {
                 DDLProcesos();
             }
+            if (drop_proc_d.Text != "")
+            {
+                btnFiltrar.Enabled = true;
+            }
 
         }
 

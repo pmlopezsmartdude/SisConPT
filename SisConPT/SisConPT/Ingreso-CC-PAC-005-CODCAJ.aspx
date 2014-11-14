@@ -589,7 +589,7 @@
            
             <asp:TableCell>
                 
-        <asp:DropDownList ID="SOLUBLE_D"  runat="server" DataSourceID="SOLUBLE" DataTextField="SOL_DESCRIP" DataValueField="SOL_ID" Height="30" Width="50" Font-Names="Century Gothic"  AutoPostBack="True" onselectedindexchanged="SOL_SelectedIndexChanged">
+        <asp:DropDownList ID="SOLUBLE_D"  runat="server" DataSourceID="SOLUBLE" DataTextField="SOL_DESCRIP" DataValueField="SOL_ID" Height="30" Width="50" Font-Names="Century Gothic"  AutoPostBack="False" onselectedindexchanged="SOL_SelectedIndexChanged">
         </asp:DropDownList>
  </asp:TableCell>
  

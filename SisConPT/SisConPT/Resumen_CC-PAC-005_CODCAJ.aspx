@@ -62,8 +62,10 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="" 
-                                            CommandName="Select"  />
+                                        <asp:ImageButton ID="btnEdit" runat="server" ImageUrl="~/Images/lupa.png" 
+                                            CommandName="Select"  BorderStyle="Solid" BorderWidth="0.5" 
+                                            BorderColor="#999999" BackColor="White" Width="31px" 
+                                            AlternateText="Seleccionar" Height="26px" ImageAlign="AbsMiddle" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                
@@ -76,20 +78,20 @@
                             
 
                             <FooterStyle BackColor="#CCCCCC" />
-                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-                            <AlternatingRowStyle BackColor="#CCCCCC" />
+                            <PagerStyle BackColor="#999999" ForeColor="White" HorizontalAlign="Center" />
+                            <SelectedRowStyle BackColor="#999999" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="Gray" Font-Bold="True" ForeColor="White" />
+                            <AlternatingRowStyle BackColor="#999999" />
                         </asp:GridView>
 
 
    </asp:Panel>
 
-   <asp:HiddenField ID="HiddenField1" runat="server" />
+   <asp:HiddenField ID="HiddenField1" runat="server"  />
     
     <asp:ModalPopupExtender ID="mpeEditOrder" runat="server" 
         PopupControlID="panelEditOrder" TargetControlID="HiddenField1"
-         BackgroundCssClass="backgroundColor" >
+         BackgroundCssClass="backgroundColor"  >
     </asp:ModalPopupExtender>
     
     <asp:Panel ID="panelEditOrder" runat="server" BackColor="White">
@@ -99,7 +101,9 @@
                  <div id="popupcontainer" style="width:700px">
                     
                     
-                    <asp:Table ID="Table2" runat="server" Width="653px" Height="30px" Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center" >
+                    <asp:Table ID="Table2" runat="server" Width="653px" Height="30px" 
+                         Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center" 
+                         BorderStyle="Solid" BorderWidth="1px" >
 
 
                      <asp:TableRow ID="TableRow11" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
