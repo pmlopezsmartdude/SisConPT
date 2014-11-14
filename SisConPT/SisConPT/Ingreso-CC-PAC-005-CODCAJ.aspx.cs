@@ -119,6 +119,7 @@ namespace SisConPT.SisConPT
             Limpiar.Enabled = true;
             Button1.Visible = true;
             Button1.Enabled = true;
+            TabContainer1.ActiveTab = TabPanel1;
             txtbajo.Focus();
         }
         protected void Limpiar_Click(object sender, EventArgs e)
@@ -185,6 +186,7 @@ namespace SisConPT.SisConPT
             Limpiar.Enabled = false;
             TabPanel2.Enabled = false;
             TabPanel3.Enabled = false;
+            TabContainer1.ActiveTab = TabPanel1;
         }
         protected void Grabar_Click(object sender, EventArgs e)
         {
@@ -276,6 +278,7 @@ namespace SisConPT.SisConPT
             Button1.Visible = true;
             Grabar.Enabled = false;
             Limpiar.Enabled = false;
+            TabContainer1.ActiveTab = TabPanel1;
             
         }
 
