@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ingreso_CC-PAC-075_proceso.aspx.cs" Inherits="SisConPT.SisConPT.Ingreso_CC_PAC_075_proceso" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<%--<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>--%>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -17,7 +17,7 @@
             }
         }
    
-     <!--
+  
         function ValidaDecimal(dato) {
             var valor = dato.indexOf(",");
             if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 44) {
@@ -31,22 +31,12 @@
             }
         }
 
-       
 
-//        function isNumberKey(evt) {
-//            var charCode = (evt.which) ? evt.which : event.keyCode
-//            if (charCode > 31 && (charCode < 48 || charCode > 57))
-//                return true;
-
-//            return false;
-//        }
-     //-->
   </script>
    
    <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server">  </asp:ToolkitScriptManager>  
      <fieldset>
         <legend>CC-PAC-075</legend>
-<%-- <h3>CC-PAC-075</h3>--%>
  <asp:Panel ID="Panel1" runat="server">
    <asp:Table ID="Datos" runat="server" Width="653px" Height="50px" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Center">
           <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="30">
@@ -64,16 +54,10 @@
                 <asp:TextBox ID="txt_cod_plan" runat="server" Height="25px" Font-Names="Century Gothic" Font-Size="Small" Enabled="False" ReadOnly="True" Width="27px"></asp:TextBox>    
             </asp:TableCell>
              
-           <%--  <asp:Button ID="btn_buscar" runat="server" Text="Buscar" onclick="btnLoadData_click"/>--%>
-        
+                  
    </asp:TableRow>
     <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">  <asp:TableCell Width="60"></asp:TableCell></asp:TableRow>
-<%--   </asp:Table>
-        
-    <asp:Button ID="btnLoadData"  runat="server"  style="display: none" />
-          
-        &nbsp;<br />
-   <asp:Table ID="Table1" runat="server" Width="653px" Height="30px" Font-Names="Century Gothic" Font-Size="Small">--%>
+
    <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
              <asp:TableCell Width="30">
             <asp:Label ID="lbl_linea" runat="server" Text="Línea" Width="50" Height="20"></asp:Label>
@@ -109,19 +93,19 @@
              <asp:Label ID="lbldescarte" runat="server" Text="% Exportable Descarte Manual" Width="50" Height="20"></asp:Label>
              </asp:TableCell>
              <asp:TableCell>
-                <asp:TextBox  onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txtDescarte"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" TargetControlID="txtDescarte" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3"  runat="server" ID="txtDescarte"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" TargetControlID="txtDescarte"  FilterType="numbers"   runat="server" />
                    </asp:TableCell><asp:TableCell Width="30">
              <asp:Label ID="lblCATII" runat="server" Text="% Exportable Comercial CAT II" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txtCATII"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox  MaxLength="3"  runat="server" ID="txtCATII"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
             </asp:TableCell><asp:TableCell Width="30">
-           <%--  <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" TargetControlID="txtCATII" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+             <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" TargetControlID="txtCATII" FilterType="numbers"  runat="server" />
              <asp:Label ID="lblCATIII" runat="server" Text="% Exportable Comercial CAT III" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txtCATIII"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txtCATIII"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
  
-               <%-- <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" TargetControlID="txtCatIII" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" TargetControlID="txtCatIII"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell></asp:TableRow></asp:Table><br />
            
@@ -162,102 +146,102 @@
             <asp:TableCell>
                <asp:Label ID="lblrango1" runat="server" Text="1" Width="30" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt3_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-           <%--     <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender4" TargetControlID="txt3_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt3_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender4" TargetControlID="txt3_1"  FilterType="numbers"   runat="server" />
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt3_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender5" TargetControlID="txt3_porc_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt3_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender5" TargetControlID="txt3_porc_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt8_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-     <%--           <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender6" TargetControlID="txt8_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt8_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender6" TargetControlID="txt8_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)"  runat="server" ID="txt8_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-            <%--    <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender7" TargetControlID="txt8_porc_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3"  runat="server" ID="txt8_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender7" TargetControlID="txt8_porc_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt21_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-               <%-- <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" TargetControlID="txt21_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt21_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" TargetControlID="txt21_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt21_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender9" TargetControlID="txt21_porc_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt21_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender9" TargetControlID="txt21_porc_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt18_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender10" TargetControlID="txt18_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt18_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender10" TargetControlID="txt18_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt18_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender11" TargetControlID="txt18_porc_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt18_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender11" TargetControlID="txt18_porc_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt25_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-               <%-- <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender12" TargetControlID="txt25_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt25_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender12" TargetControlID="txt25_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt25_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender13" TargetControlID="txt25_porc_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt25_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender13" TargetControlID="txt25_porc_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt19_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender14" TargetControlID="txt19_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt19_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender14" TargetControlID="txt19_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt19_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender15" TargetControlID="txt19_porc_1" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt19_porc_1"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender15" TargetControlID="txt19_porc_1"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
                <asp:TableCell>
                <asp:Label ID="Label16" runat="server" Text="2" Width="30" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt3_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender16" TargetControlID="txt3_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt3_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender16" TargetControlID="txt3_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt3_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender17" TargetControlID="txt3_porc_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt3_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender17" TargetControlID="txt3_porc_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt8_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender18" TargetControlID="txt8_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt8_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender18" TargetControlID="txt8_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt8_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender19" TargetControlID="txt8_porc_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt8_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender19" TargetControlID="txt8_porc_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt21_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender20" TargetControlID="txt21_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt21_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender20" TargetControlID="txt21_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt21_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender21" TargetControlID="txt21_porc_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt21_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender21" TargetControlID="txt21_porc_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt18_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender22" TargetControlID="txt18_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt18_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender22" TargetControlID="txt18_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt18_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender23" TargetControlID="txt18_porc_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt18_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender23" TargetControlID="txt18_porc_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt25_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender24" TargetControlID="txt25_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt25_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender24" TargetControlID="txt25_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt25_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txt25_porc_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt25_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txt25_porc_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt19_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender26" TargetControlID="txt19_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt19_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender26" TargetControlID="txt19_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="txt19_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender27" TargetControlID="txt19_porc_2" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt19_porc_2"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender27" TargetControlID="txt19_porc_2"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell></asp:TableRow></asp:Table></fieldset> 
             
@@ -266,21 +250,22 @@
       <asp:TableCell Width="30">
              <asp:Label ID="Label13" runat="server" Text="KILOS LOTE" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="KilosLote"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender28" TargetControlID="KilosLote" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="KilosLote"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender28" TargetControlID="KilosLote"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell Width="30">
              <asp:Label ID="Label14" runat="server" Text="N° TOTES" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="NTotes"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender29" TargetControlID="NTotes" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
+                <asp:TextBox  MaxLength="3" runat="server" ID="NTotes"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender29" TargetControlID="NTotes"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell Width="30">
              <asp:Label ID="Label15" runat="server" Text="% EXP" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox onkeypress ="return ValidaDecimal(this.value)" runat="server" ID="porc_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender30" TargetControlID="porc_exp" FilterType="Custom, numbers" ValidChars="." runat="server" />--%>
-
+                <asp:TextBox  MaxLength="3" runat="server" ID="porc_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+             
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender30" TargetControlID="porc_exp"  FilterType="numbers"   runat="server" />
+            
             </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
       <asp:TableCell Width="30">
              </asp:TableCell></asp:TableRow></asp:Table><asp:Table ID="Table4" runat="server" Width="653px" Height="30px" Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center">
@@ -290,21 +275,4 @@
              </asp:TableCell><asp:TableCell Width="30" HorizontalAlign="Center">
              <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" onclick="Limpiar_Click"/>
             
-             </asp:TableCell></asp:TableRow></asp:Table></fieldset> 
-             
-             
-             
-             
-             
-   
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             </asp:Content>
+             </asp:TableCell></asp:TableRow></asp:Table></fieldset> </asp:Content>

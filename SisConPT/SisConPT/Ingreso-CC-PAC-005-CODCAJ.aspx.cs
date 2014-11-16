@@ -112,8 +112,12 @@ namespace SisConPT.SisConPT
 
             conexion.Close();
             ButtonBuscar.Enabled = false;
-            TabPanel2.Enabled = true;
-            TabPanel3.Enabled = true;
+            CodCaja.Enabled = false;
+            Siguiente1.Visible = true;
+            Siguiente1.Enabled = true;
+
+     //       TabPanel2.Enabled = true;
+     //       TabPanel3.Enabled = true;
             Grabar.Enabled = false;
             Grabar.Visible = false;
             Limpiar.Enabled = true;
@@ -121,6 +125,7 @@ namespace SisConPT.SisConPT
             Button1.Enabled = true;
             TabContainer1.ActiveTab = TabPanel1;
             txtbajo.Focus();
+            Siguiente1.Enabled = true;
         }
         protected void Limpiar_Click(object sender, EventArgs e)
         {
@@ -182,6 +187,7 @@ namespace SisConPT.SisConPT
             txtpitting.Text = "0";
             CodCaja.Focus();
             ButtonBuscar.Enabled = true;
+            CodCaja.Enabled = true;
             Grabar.Enabled = false;
             Limpiar.Enabled = false;
             TabPanel2.Enabled = false;
@@ -279,6 +285,7 @@ namespace SisConPT.SisConPT
             Grabar.Enabled = false;
             Limpiar.Enabled = false;
             TabContainer1.ActiveTab = TabPanel1;
+            CodCaja.Enabled = true;
             
         }
 
@@ -377,16 +384,29 @@ namespace SisConPT.SisConPT
             
             
 
-            // TabPanel1.Visible = true;
+            
             TabPanel2.Enabled = false;
-            TabPanel3.Enabled = false;
+            TabPanel1.Enabled = false;
             txtbajo.Focus();
             Button1.Enabled = false;
             Button1.Visible = false;
             Grabar.Enabled = true;
             Grabar.Visible = true;
             Limpiar.Enabled = true;
+            TabPanel2.Enabled = true;
+            TabContainer1.ActiveTab = TabPanel2;
+               
         }
+
+           protected void Siguiente1_cick(object sender, EventArgs e)
+           {
+               TabPanel3.Enabled = true;
+               TabContainer1.ActiveTab = TabPanel3;
+               TabPanel1.Enabled = false;
+               Siguiente1.Visible = false;
+               Button1.Visible = true;
+
+           }
 
 
 

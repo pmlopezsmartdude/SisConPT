@@ -610,28 +610,28 @@
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender39" TargetControlID="txt_f1" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="Label16" runat="server" Height="10">F 1</asp:Label>
+                <asp:Label ID="Label16" runat="server" Height="10">F 2</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f2"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender40" TargetControlID="txt_f2" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="Label17" runat="server" Height="10">F 1</asp:Label>
+                <asp:Label ID="Label17" runat="server" Height="10">F 3</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f3"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender41" TargetControlID="txt_f3" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="Label18" runat="server" Height="10">F 1</asp:Label>
+                <asp:Label ID="Label18" runat="server" Height="10">F 4</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f4"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender42" TargetControlID="txt_f4" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="Label19" runat="server" Height="10">F 1</asp:Label>
+                <asp:Label ID="Label19" runat="server" Height="10">F 5</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f5"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
@@ -717,7 +717,8 @@
 
 
 
-    <center><asp:Button ID="Grabar" runat="server" Text="Grabar" Enabled="False" 
+    <center><asp:Button ID="Siguiente1" runat="server" Text="Siguiente" Enabled="false" OnClick="Siguiente1_cick" />
+    <asp:Button ID="Grabar" runat="server" Text="Grabar" Enabled="False" 
             onclick="Grabar_Click" />
         <asp:Button ID="Limpiar" runat="server"
         Text="Limpiar" onclick="Limpiar_Click" Enabled="False" /></center>
