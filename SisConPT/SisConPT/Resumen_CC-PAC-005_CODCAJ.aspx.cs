@@ -50,9 +50,12 @@ namespace SisConPT.SisConPT
 
             if (!IsPostBack)
             {
-                DropLinea();
+
+             DropLinea(); 
+
             }
-          
+
+                  
         }
 
         protected void linea_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,11 +74,13 @@ namespace SisConPT.SisConPT
             GvProcesos_Llenar(turno, linea_2);
 
         }
+     
         private void InitializeEditPopUp()
         {
 
 
         }
+
         protected void Procesos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             string proceso_id = Convert.ToString(gvProcesos.DataKeys[e.NewSelectedIndex].Value);
@@ -95,9 +100,7 @@ namespace SisConPT.SisConPT
             //GvProcesos_Llenar();
 
         }
-
-
-
+        
         private void PopUpDetalle(string proceso_id)
         {
 
@@ -107,7 +110,9 @@ namespace SisConPT.SisConPT
             string PlantaNombre = Session["PlantaName"].ToString();
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
-            SqlCommand cmd_proc = new SqlCommand("select top 1 vis.cptproces,cptnompre,cptnulote,lincodigo,turcodigo,convert(varchar(8),defprecal) as defprecal,convert(varchar(8),defdanotr) as defdanotr,convert(varchar(8),defescama) as defescama,convert(varchar(8),deffrutode) as deffrutode,convert(varchar(8),deffrutodo) as deffrutodo,convert(varchar(8),defguatab) as defguatab,convert(varchar(8),defherida) as defherida,convert(varchar(8),defmancha) as defmancha,convert(varchar(8),defmedial) as defmedial,convert(varchar(8),defpiella) as defpiella,convert(varchar(8),defrusset) as defrusset,convert(varchar(8),defsutura) as defsutura,convert(varchar(8),deffaltoc) as deffaltoc,convert(varchar(8),deframole) as deframole,convert(varchar(8),defsinped) as defsinped,convert(varchar(8),defadhesi) as defadhesi,convert(varchar(8),defdesfru) as defdesfru,convert(varchar(8),defdesped) as defdesped,convert(varchar(8),defblando) as defblando,convert(varchar(8),defherabi) as defherabi,convert(varchar(8),defmachuc) as defmachuc,convert(varchar(8),defpartid) as defpartid,convert(varchar(8),defparagu) as defparagu,convert(varchar(8),defparcic) as defparcic,convert(varchar(8),defpittin) as defpittin,convert(varchar(8),defpudric) as defpudric,convert(varchar(8),defmanpar) as defmanpar,convert(varchar(8),defdanopa) as defdanopa,convert(varchar(8),defdesgar) as defdesgar,convert(varchar(8),defcorsie) as defcorsie,convert(varchar(8),promedio) as  promedio , cptvardes from VistaResumen005 as vis inner join (select distinct cptproces, cptvardes from controlpt) as cl on vis.cptproces=cl.cptproces where vis.cptproces='" + proceso_id + "' order by promedio desc ", con);
+            SqlCommand cmd_proc = new SqlCommand("select top 1 vis.cptproces,cptnompre,cptnulote,lincodigo,turcodigo,convert(varchar(8),defprecal) as defprecal,convert(varchar(8),defdanotr) as defdanotr,convert(varchar(8),defescama) as defescama,convert(varchar(8),deffrutode) as deffrutode,convert(varchar(8),deffrutodo) as deffrutodo,convert(varchar(8),defguatab) as defguatab,convert(varchar(8),defherida) as defherida,convert(varchar(8),defmancha) as defmancha,convert(varchar(8),defmedial) as defmedial,convert(varchar(8),defpiella) as defpiella,convert(varchar(8),defrusset) as defrusset,convert(varchar(8),defsutura) as defsutura,convert(varchar(8),deffaltoc) as deffaltoc,convert(varchar(8),deframole) as deframole,convert(varchar(8),defsinped) as defsinped,convert(varchar(8),defadhesi) as defadhesi,convert(varchar(8),defdesfru) as defdesfru,convert(varchar(8),defdesped) as defdesped,convert(varchar(8),defblando) as defblando,convert(varchar(8),defherabi) as defherabi,convert(varchar(8),defmachuc) as defmachuc,convert(varchar(8),defpartid) as defpartid,convert(varchar(8),defparagu) as defparagu,convert(varchar(8),defparcic) as defparcic,convert(varchar(8),defpittin) as defpittin,convert(varchar(8),defpudric) as defpudric,convert(varchar(8),defmanpar) as defmanpar,convert(varchar(8),defdanopa) as defdanopa,convert(varchar(8),defdesgar) as defdesgar,convert(varchar(8),defcorsie) as defcorsie,convert(varchar(8),promedio) as  promedio , cptvardes, SOL_DESCRIP from VistaResumen005 as vis inner join (select distinct cptproces, cptvardes from controlpt) as cl on vis.cptproces=cl.cptproces where vis.cptproces='" + proceso_id + "' order by promedio desc ", con);
+            try
+            {
 
             using (SqlDataReader reader = cmd_proc.ExecuteReader())
             {
@@ -147,12 +152,18 @@ namespace SisConPT.SisConPT
                 txtcortesierra.Text = reader.GetString(34);
                 txt_soluble.Text = reader.GetString(35);
                 txtVariedad.Text = reader.GetString(36);
-
+                txt_tipo_sol.Text = reader.GetString(37);
 
 
             }
 
             con.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
 
 
         }
@@ -169,13 +180,14 @@ namespace SisConPT.SisConPT
             connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
             string PlantaNombre = Session["PlantaName"].ToString();
             SqlConnection con = new SqlConnection(connStringmain.ToString());
+            //try
+            //{
             con.Open();
             //linea
             SqlCommand cmd_linea = new SqlCommand("select distinct lincodigo from controlpt where placodigo = " + txt_cod_plan.Text + "", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
-
             drop_linea_d.DataSourceID = "";
             drop_linea_d.DataSource = ds_linea;
             drop_linea_d.DataBind();
@@ -187,9 +199,15 @@ namespace SisConPT.SisConPT
                 BuscaTurno(linea);
 
             }
-            con.Close();
-        }
+            if (drop_linea_d.Items.Count == 0)
+            {
+                
+                BuscaTurno(0);
 
+            }
+            con.Close();
+        
+        }
 
         private void BuscaTurno(int linea)
         {
@@ -204,7 +222,8 @@ namespace SisConPT.SisConPT
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
-
+            try
+            { 
             drop_turno_d.DataSourceID = "";
             drop_turno_d.DataSource = ds_linea;
             drop_turno_d.DataBind();
@@ -218,11 +237,17 @@ namespace SisConPT.SisConPT
 
             }
             con.Close();
+            }
+            catch (Exception e)
+            {
+                drop_turno_d.DataSourceID = "";
+                drop_turno_d.DataSource = "";
+                drop_turno_d.DataBind();
+
+            }
 
             
         }
-
-
 
         private void GvProcesos_Llenar(string turno, int linea_2)
         {
@@ -237,15 +262,63 @@ namespace SisConPT.SisConPT
             SqlCommand cmd_proc = new SqlCommand("select distinct cptproces  from VistaResumen005 where turcodigo='" + turno + "' and lincodigo=" + linea_2 + " and placodigo = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
             DataSet ds_proc = new DataSet();
+            try {
             sda_proc.Fill(ds_proc);
             gvProcesos.DataSource = ds_proc;
             gvProcesos.DataBind();
+            
 
             con.Close();
 
+            }
+            catch (Exception e)
+            {
+                this.Page.Response.Write("<script language='JavaScript'>window.alert('" + e + "');</script>");
+            }
+        }
+        
+        protected void Exportar_click(object sender, EventArgs e)
+        {
+            string turno = Convert.ToString(drop_turno_d.SelectedValue);
+            int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
+            System.Configuration.ConnectionStringSettings connStringmain;
+            connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+            string PlantaNombre = Session["PlantaName"].ToString();
+            SqlConnection con = new SqlConnection(connStringmain.ToString());
+           
+           
+            string sql = "select *  from VistaResumen005 where turcodigo='" + turno + "' and lincodigo=" + linea_2 + " and placodigo = '" + txt_cod_plan.Text + "'";
+
+            SqlCommand command = new SqlCommand(sql, con);
+            con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            this.ExportToExcel(dt, "Resultado.xls");
 
         }
 
+        public void ExportToExcel(DataTable dt, string filename)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                System.IO.StringWriter tw = new System.IO.StringWriter();
+                System.Web.UI.HtmlTextWriter hw = new System.Web.UI.HtmlTextWriter(tw);
+                DataGrid dgGrid = new DataGrid();
+                dgGrid.DataSource = dt;
+                dgGrid.DataBind();
+
+                dgGrid.RenderControl(hw);
+                Response.ContentType = "application/vnd.ms-excel";
+                Response.BinaryWrite(System.Text.Encoding.UTF8.GetPreamble());
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + filename + "");
+                this.EnableViewState = false;
+                Response.Write(tw.ToString());
+                Response.End();
+                Response.Redirect("~/SisConPT/Resumen_CC-PAC-005_CODCAJ.aspx");
+            }
+        }
 
 
     }

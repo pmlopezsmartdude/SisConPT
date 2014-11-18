@@ -53,7 +53,7 @@ namespace SisConPT.SisConPT
             
          if (!IsPostBack)
             {
-                DDLProcesos();
+                DropLinea();
             }
 
 
@@ -63,7 +63,7 @@ namespace SisConPT.SisConPT
         {
             int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
 
-            DropLinea(proceso);
+            DropLote(proceso);
             
         }
            
@@ -77,9 +77,10 @@ namespace SisConPT.SisConPT
       
         protected void turno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
+            int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string turno = Convert.ToString(drop_turno_d.SelectedValue);
 
-           DropLote(proceso);
+            DDLProcesos(linea, turno);
             
         }
          
@@ -91,7 +92,7 @@ namespace SisConPT.SisConPT
             
         }
         
-        private void DDLProcesos()
+        private void DDLProcesos(int linea, string turno)
              {
                  // string linea = drop_linea_d.Text;
                  System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -107,7 +108,7 @@ namespace SisConPT.SisConPT
                  SqlConnection con = new SqlConnection(connStringLM.ToString());
                  con.Open();
                  //linea
-                 SqlCommand cmd_proc = new SqlCommand("select PROC_NumeroProcesso from PROD_Processo", con);
+                 SqlCommand cmd_proc = new SqlCommand("select  PROC_NumeroProcesso from Ana_Linea as lin inner join [PROD_Processo] as prodproc on lin.lin_codice=proc_linea_fk inner join ANA_Turno as tur on tur.TUR_Linea_FK=lin.lin_codice where lin.LIN_Codice=" + linea + " and tur.TUR_Descrizione='" + turno + "' group by PROC_NumeroProcesso order by PROC_NumeroProcesso", con);
                  SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
                  DataSet ds_proc = new DataSet();
                  sda_proc.Fill(ds_proc);
@@ -116,16 +117,17 @@ namespace SisConPT.SisConPT
                  drop_proc_d.DataSource = ds_proc;
                  drop_proc_d.DataBind();
 
+               
                  if (drop_proc_d.Items.Count != 0)
                  {
                      int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
 
-                     DropLinea(proceso);
+                     DropLote(proceso);
                  }
                  con.Close();
              }
 
-        private void DropLinea(int cod_proc_busca)
+        private void DropLinea()
         {
             // string linea = drop_linea_d.Text;
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -141,7 +143,8 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringLM.ToString());
             con.Open();
             //linea
-            SqlCommand cmd_linea = new SqlCommand("select  LIN_Codice from Ana_Linea as lin inner join [PROD_Processo] as prodproc on lin.lin_codice=proc_linea_fk where proc_numeroprocesso=" + cod_proc_busca + "group by LIN_Codice", con);
+            //SqlCommand cmd_linea = new SqlCommand("select  LIN_Codice from Ana_Linea as lin inner join [PROD_Processo] as prodproc on lin.lin_codice=proc_linea_fk where proc_numeroprocesso=" + cod_proc_busca + "group by LIN_Codice", con);
+            SqlCommand cmd_linea = new SqlCommand("select  LIN_Codice from Ana_Linea as lin inner join [PROD_Processo] as prodproc on lin.lin_codice=proc_linea_fk group by LIN_Codice", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
@@ -186,11 +189,12 @@ namespace SisConPT.SisConPT
             drop_turno_d.DataBind();
 
 
-            if (drop_linea_d.Items.Count != 0)
+            if (drop_turno_d.Items.Count != 0)
             {
-                int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
+                int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+                string turno = Convert.ToString(drop_turno_d.SelectedValue);
 
-                DropLote(proceso);
+                DDLProcesos(linea_2, turno);
 
             }
             con.Close();
@@ -227,35 +231,31 @@ namespace SisConPT.SisConPT
         protected void Limpiar_Click(object sender, EventArgs e)
         {
             txtDescarte.Text = "0";
-            txtCATII.Text = "0";
-            txtCATIII.Text = "0";
-            txt3_1.Text = "0";
-            txt3_2.Text = "0";
-            txt3_porc_1.Text = "0";
-            txt3_porc_2.Text = "0";
-            txt8_1.Text = "0";
-            txt8_2.Text = "0";
-            txt8_porc_1.Text = "0";
-            txt8_porc_2.Text = "0";
-            txt21_1.Text = "0";
-            txt21_2.Text = "0";
-            txt21_porc_1.Text = "0";
-            txt21_porc_2.Text = "0";
-            txt18_1.Text = "0";
-            txt18_2.Text = "0";
-            txt18_porc_1.Text = "0";
-            txt18_porc_2.Text = "0";
-            txt25_1.Text = "0";
-            txt25_2.Text = "0";
-            txt25_porc_1.Text = "0";
-            txt25_porc_2.Text = "0";
-            txt19_1.Text = "0";
-            txt19_2.Text = "0";
-            txt19_porc_1.Text = "0";
-            txt19_porc_2.Text = "0";
+            txtCAT_Valor.Text = "0";
+            txt_global_v.Text = "0";
+            txt_global_p.Text = "0";
+            txt_global_exp.Text = "0";
+            txt_puntual_v.Text = "0";
+            txt_puntual_p.Text = "0";
+            txt_puntual_exp.Text = "0";
+            txt_externo_v.Text = "0";
+            txt_externo_p.Text = "0";
+            txt_externo_exp.Text = "0";
+            txt_ptoneg_v.Text = "0";
+            txt_ptoneg_p.Text = "0";
+            txt_ptoneg_exp.Text = "0";
+            txt_ptomar_v.Text = "0";
+            txt_ptomar_p.Text = "0";
+            txt_ptomar_exp.Text = "0";
+            txt_mancha_v.Text = "0";
+            txt_mancha_p.Text = "0";
+            txt_mancha_exp.Text = "0";
+
+
             KilosLote.Text = "0";
             NTotes.Text = "0";
             porc_exp.Text = "0";
+            
             txtDescarte.Focus();
             btnGrabar.Enabled = true;
             btnLimpiar.Enabled = true;
@@ -269,11 +269,14 @@ namespace SisConPT.SisConPT
             string Linea = drop_linea_d.SelectedValue;
             string Turno = drop_turno_d.SelectedValue;
             string Lote = drop_lote_d.SelectedValue;
-
-            string comando = "INSERT INTO [CtrlDescarteCom] (Ctrl_id, Ctrl_CodProc, Ctrl_CodPlan, Ctrl_Lin, Ctrl_Usuario, Ctrl_Turno, Ctrl_Lote, Ctrl_ExpDesc, Ctrl_CatII, Ctrl_CatIII, Ctrl_Rango1_3, Ctrl_Rango1_3_porc, Ctrl_Rango1_8, Ctrl_Rango1_8_porc, Ctrl_Rango1_21, Ctrl_Rango1_21_porc, Ctrl_Rango1_18, Ctrl_Rango1_18_porc, Ctrl_Rango1_25, Ctrl_Rango1_25_porc, Ctrl_Rango1_19, Ctrl_Rango1_19_porc, Ctrl_Rango2_3, Ctrl_Rango2_3_porc, Ctrl_Rango2_8, Ctrl_Rango2_8_porc, Ctrl_Rango2_21, Ctrl_Rango2_21_porc, Ctrl_Rango2_18, Ctrl_Rango2_18_porc, Ctrl_Rango2_25, Ctrl_Rango2_25_porc, Ctrl_Rango2_19, Ctrl_Rango2_19_porc, Ctrl_KilosLote, Ctrl_NumTotes, Ctrl_PorcExp, Ctrl_FecHora) VALUES ('" + numeroctrl + "','" + CodProc + "','" + txt_cod_plan.Text + "','" + Linea + "','" + username + "','" + Turno + "','" + Lote + "','" + txtDescarte.Text + "','" + txtCATII.Text + "','" + txtCATIII.Text + "','" + txt3_1.Text + "','" + txt3_2.Text + "','" + txt3_porc_1.Text + "','" + txt3_porc_2.Text + "','" + txt8_1.Text + "','" + txt8_2.Text + "','" + txt8_porc_1.Text + "','" + txt8_porc_2.Text + "','" + txt21_1.Text + "','" + txt21_2.Text + "','" + txt21_porc_1.Text + "','" + txt21_porc_2.Text + "','" + txt18_1.Text + "','" + txt18_2.Text + "','" + txt18_porc_1.Text + "','" + txt18_porc_2.Text + "','" + txt25_1.Text + "','" + txt25_2.Text + "','" + txt25_porc_1.Text + "','" + txt25_porc_2.Text + "','" + txt19_1.Text + "','" + txt19_2.Text + "','" + txt19_porc_1.Text + "','" + txt19_porc_2.Text + "','" + KilosLote.Text + "','" + NTotes.Text + "','" + porc_exp.Text + "','" + numeroctrl + "')"; 
-
-           // string comando1 = "INSERT INTO defecto (cptnumero,defcalbaj,defcalnor,defcalsob,defprecal,defdanotr,defescama,deffrutode,deffrutodo,defguatab,defherida,defmancha,defmedial,defpiella,defrusset,defsutura,deffaltoc,deframole,defsinped,defadhesi,defdesfru,defdesped,defblando,defherabi,defmachuc,defpartid,defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie) VALUES ('" + numeroctrl + "','" + txtbajo.Text + "','" + txtcalibreok.Text + "','" + txtsobre.Text + "','" + txtprecalibre.Text + "','" + txtdanotrip.Text + "','" + txtescama.Text + "','" + txtfrutosdeformes.Text + "','" + txtfrutosdobles.Text + "','" + txtguatablanca.Text + "','" + txtherida.Text + "','" + txtmanchas.Text + "','" + txtmedialuna.Text + "','" + txtpiellagarto.Text + "','" + txtrusset.Text + "','" + txtsutura.Text + "','" + txtfaltocolor.Text + "','" + txtramaleo.Text + "','" + txtsinpedicelo.Text + "','" + txtadhesion.Text + "','" + txtdeshid.Text + "','" + txtdeshidpedi.Text + "','" + txtblandos.Text + "','" + txtheridasabiertas.Text + "','" + txtmachucon.Text + "','" + txtpartiduras.Text + "','" + txtpartidurasagua.Text + "','" + txtpartiduracicatrizada.Text + "','" + txtpitting.Text + "','" + txtpudricion.Text + "','" + txtmanchaspardas.Text + "','" + txtdanopajaro.Text + "','" + txtdesgarro.Text + "','" + txtcortesierra.Text + "')";
-            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
+            string tipo_cat;
+            if (CAT_II.Checked) { tipo_cat = "CAT II"; }
+            else { if (CAT_III.Checked) { tipo_cat = "CAT III"; } else { tipo_cat = "SIN INFO"; } }
+            // sin comillas
+            string comando = "INSERT INTO [CC_PAC_075] (Ctrl_id,Ctrl_CodProc,Ctrl_CodPlan,Ctrl_Lin,Ctrl_Usuario,Ctrl_Turno,Ctrl_Lote,Ctrl_RefAjuste,Ctrl_CAT,Ctrl_CAT_valor,Ctrl_desacrte,Ctrl_global_valor,Ctrl_global_porc,Ctrl_global_prueba,Ctrl_puntual_valor,Ctrl_puntual_porc,Ctrl_puntual_prueba,Ctrl_externo_valor,Ctrl_externo_porc,Ctrl_externo_prueba,Ctrl_ptonegro_valor,Ctrl_ptonegro_porc,Ctrl_ptonegro_prueba,Ctrl_ptomarron_valor,Ctrl_ptomarron_porc,Ctrl_ptomarron_prueba,Ctrl_marchablanca_valor,Ctrl_marchablanca_porc,Ctrl_marchablanca_prueba,Ctrl_KilosLote,Ctrl_NumTotes,Ctrl_PorcExp,Ctrl_FecHora) VALUES ('" + numeroctrl + "','" + CodProc + "','" + txt_cod_plan.Text + "','" + Linea + "','" + username + "','" + Turno + "','" + Lote + "','" + txt_ref.Text + "','" + tipo_cat + "'," + txtCAT_Valor.Text + "," + txtDescarte.Text + "," + txt_global_v.Text + "," + txt_global_p.Text + "," + txt_global_exp.Text + "," + txt_puntual_v.Text + "," + txt_puntual_p.Text + "," + txt_puntual_exp.Text + "," + txt_externo_v.Text + "," + txt_externo_p.Text + "," + txt_externo_exp.Text + "," + txt_ptoneg_v.Text + "," + txt_ptoneg_p.Text + "," + txt_ptoneg_exp.Text + "," + txt_ptomar_v.Text + "," + txt_ptomar_p.Text + "," + txt_ptomar_exp.Text + "," + txt_mancha_v.Text + "," + txt_mancha_p.Text + "," + txt_mancha_exp.Text + "," + KilosLote.Text + "," + NTotes.Text + "," + porc_exp.Text + ",'" + numeroctrl + "')"; 
+            // con comillas
+            //string comando = "INSERT INTO [CC_PAC_075] (Ctrl_id,Ctrl_CodProc,Ctrl_CodPlan,Ctrl_Lin,Ctrl_Usuario,Ctrl_Turno,Ctrl_Lote,Ctrl_RefAjuste,Ctrl_CAT,Ctrl_CAT_valor,Ctrl_desacrte,Ctrl_global_valor,Ctrl_global_porc,Ctrl_global_prueba,Ctrl_puntual_valor,Ctrl_puntual_porc,Ctrl_puntual_prueba,Ctrl_externo_valor,Ctrl_externo_porc,Ctrl_externo_prueba,Ctrl_ptonegro_valor,Ctrl_ptonegro_porc,Ctrl_ptonegro_prueba,Ctrl_ptomarron_valor,Ctrl_ptomarron_porc,Ctrl_ptomarron_prueba,Ctrl_marchablanca_valor,Ctrl_marchablanca_porc,Ctrl_marchablanca_prueba,Ctrl_KilosLote,Ctrl_NumTotes,Ctrl_PorcExp,Ctrl_FecHora) VALUES ('" + numeroctrl + "','" + CodProc + "','" + txt_cod_plan.Text + "','" + Linea + "','" + username + "','" + Turno + "','" + Lote + "','" + txt_ref.Text + "','" + tipo_cat + "','" + txtCAT_Valor.Text + "','" + txtDescarte.Text + "','" + txt_global_v.Text + "','" + txt_global_p.Text + "','" + txt_global_exp.Text + "','" + txt_puntual_v.Text + "','" + txt_puntual_p.Text + "','" + txt_puntual_exp.Text + "','" + txt_externo_v.Text + "','" + txt_externo_p.Text + "','" + txt_externo_exp.Text + "','" + txt_ptoneg_v.Text + "','" + txt_ptoneg_p.Text + "','" + txt_ptoneg_exp.Text + "','" + txt_ptomar_v.Text + "','" + txt_ptomar_p.Text + "','" + txt_ptomar_exp.Text + "','" + txt_mancha_v.Text + "','" + txt_mancha_p.Text + "','" + txt_mancha_exp.Text + "','" + KilosLote.Text + "','" + NTotes.Text + "','" + porc_exp.Text + "','" + numeroctrl + "')"; 
+           System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
             connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
 
@@ -285,33 +288,31 @@ namespace SisConPT.SisConPT
                 conexion.Close();
             }
 
+            string error = "Registro guardado OK";
+            Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+
             txtDescarte.Text = "";
-            txtCATII.Text = "";
-            txtCATIII.Text = "";
-            txt3_1.Text = "";
-            txt3_2.Text = "";
-            txt3_porc_1.Text = "";
-            txt3_porc_2.Text = "";
-            txt8_1.Text = "";
-            txt8_2.Text = "";
-            txt8_porc_1.Text = "";
-            txt8_porc_2.Text = "";
-            txt21_1.Text = "";
-            txt21_2.Text = "";
-            txt21_porc_1.Text = "";
-            txt21_porc_2.Text = "";
-            txt18_1.Text = "";
-            txt18_2.Text = "";
-            txt18_porc_1.Text = "";
-            txt18_porc_2.Text = "";
-            txt25_1.Text = "";
-            txt25_2.Text = "";
-            txt25_porc_1.Text = "";
-            txt25_porc_2.Text = "";
-            txt19_1.Text = "";
-            txt19_2.Text = "";
-            txt19_porc_1.Text = "";
-            txt19_porc_2.Text = "";
+            txtCAT_Valor.Text = "";
+            txt_global_v.Text = "";
+            txt_global_p.Text = "";
+            txt_global_exp.Text = "";
+            txt_puntual_v.Text = "";
+            txt_puntual_p.Text = "";
+            txt_puntual_exp.Text = "";
+            txt_externo_v.Text = "";
+            txt_externo_p.Text = "";
+            txt_externo_exp.Text = "";
+            txt_ptoneg_v.Text = "";
+            txt_ptoneg_p.Text = "";
+            txt_ptoneg_exp.Text = "";
+            txt_ptomar_v.Text = "";
+            txt_ptomar_p.Text = "";
+            txt_ptomar_exp.Text = "";
+            txt_mancha_v.Text = "";
+            txt_mancha_p.Text = "";
+            txt_mancha_exp.Text = "";
+
+
             KilosLote.Text = "";
             NTotes.Text = "";
             porc_exp.Text = "";

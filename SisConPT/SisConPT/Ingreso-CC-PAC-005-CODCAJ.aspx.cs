@@ -14,8 +14,7 @@ namespace SisConPT.SisConPT
 {
     public partial class Ingreso_CC_PAC_005_CODCAJ : System.Web.UI.Page
     {
-        
-        
+                
         protected void Page_Load(object sender, EventArgs e)
         {
             this.CodCaja.Attributes.Add("onkeypress", "button_click(this,'"+ this.btnLoadData.ClientID +"')");
@@ -54,6 +53,10 @@ namespace SisConPT.SisConPT
             {
                 SOLUBLE();
             }
+
+            CheckSoluble.Visible = false;
+               
+          
             Button1.Visible = false;
             TabPanel2.Enabled = false;
             TabPanel3.Enabled = false;
@@ -61,12 +64,14 @@ namespace SisConPT.SisConPT
         
 
         }
+        
         protected void btnLoadData_click(object senders, EventArgs e)
         {
             string codigocaja = CodCaja.Text;
             string comando = "SELECT [codCaja],[FechaProduccion],convert(varchar(8),[proceso]) as proceso ,[Lote],[codLinea],[Linea] ,[Turno],[Salida],[Clasificacion],[codEspecie],[Especie],[codVariedadReal],[VariedadReal],[codVariedadTimbrada],[VariedadTimbrada],[codEnvase],[Envase],[codEmbalaje],[Embalaje],[codConfeccion],[Confeccion],[PesoTimbrado],[codMarca] ,[Marca] ,[ClaseCalibreColor],[CalibreTimbrado],[CAT] ,[codProductorReal],[ProductorReal],[ComunaReal],[ProvinciaReal],[RegionReal],[codProductorTimbrado],[ProductorTimbrado],[ComunaTimbrada],[ProvinciaTimbrada],[RegionTimbrada],[CondicionEmbarque],[NumeroPalet],[FechaPaletizaje] FROM DatosCajas WHERE codCaja ='" + codigocaja + "'";
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringLM;
+            System.Configuration.ConnectionStringSettings connStringmain;
             if (Session["PlantaName"].ToString() == "Planta Mostazal")
             {
                 connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager01"];
@@ -103,21 +108,54 @@ namespace SisConPT.SisConPT
                 Salida.Text = reader.GetString(7);
                 ProdEtiq.Text = reader.GetString(32);
                 ProdEtiqtxt.Text = reader.GetString(33);
+                conexion.Close();
             }
+
     
            }
           catch 
             {
+
           }
 
-            conexion.Close();
+            
             ButtonBuscar.Enabled = false;
             CodCaja.Enabled = false;
             Siguiente1.Visible = true;
             Siguiente1.Enabled = true;
 
-     //       TabPanel2.Enabled = true;
-     //       TabPanel3.Enabled = true;
+            connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+            SqlConnection con = new SqlConnection(connStringmain.ToString());
+            SqlCommand cmd_proc = new SqlCommand("select nroproceso from solidossolubles where nroproceso='" + NroProceso.Text + "' and nrolinea = '" + Linea.Text + "' and turno='" + Turno.Text + "'", con);
+            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
+            DataSet ds_proc = new DataSet();
+            con.Open();
+
+            sda_proc.Fill(ds_proc);
+            con.Close();
+            if (ds_proc.Tables[0].Rows.Count.ToString() == "0")
+            {
+                CheckSoluble.Visible = true;
+            }
+
+            SqlConnection con_2 = new SqlConnection(connStringmain.ToString());
+            SqlCommand cmd_proc_2 = new SqlCommand("select cptclasificacion,cptdestino,cptcajasvaciadas from CONTROLPT where cptproces='" + NroProceso.Text + "' and lincodigo='" + Linea.Text + "' and turcodigo='" + Turno.Text + "' and cptnulote='" + Lote.Text + "' and placodigo='" + CodPta.Text + "' and cptcajasvaciadas is not null", con);
+            //SqlCommand cmd_proc_2 = new SqlCommand("select nroproceso from solidossolubles where nroproceso='" + NroProceso.Text + "' and nrolinea = '" + Linea.Text + "' and turno='" + Turno.Text + "'", con);
+            SqlDataAdapter sda_proc_2 = new SqlDataAdapter(cmd_proc_2);
+            DataSet ds_proc_2 = new DataSet();
+            con.Open();
+            sda_proc_2.Fill(ds_proc_2);
+            con.Close();
+            if (ds_proc_2.Tables[0].Rows.Count.ToString() == "0")
+            {
+                txt_calisificacion.Enabled = true;
+
+            }
+            else
+            {
+                txt_calisificacion.Enabled = false;
+            }
+
             Grabar.Enabled = false;
             Grabar.Visible = false;
             Limpiar.Enabled = true;
@@ -127,6 +165,7 @@ namespace SisConPT.SisConPT
             txtbajo.Focus();
             Siguiente1.Enabled = true;
         }
+        
         protected void Limpiar_Click(object sender, EventArgs e)
         {
             CodCaja.Text = "";
@@ -194,11 +233,12 @@ namespace SisConPT.SisConPT
             TabPanel3.Enabled = false;
             TabContainer1.ActiveTab = TabPanel1;
         }
+        
         protected void Grabar_Click(object sender, EventArgs e)
         {
             string numeroctrl = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
             string username = HttpContext.Current.User.Identity.Name;
-            string comando = "INSERT INTO controlpt (cptnumero,placodigo,turcodigo,cptfechor,usurutusu,lincodigo,cptproces,cptnulote,cptrutprr,cptnompre,cptrutpet,cptnompet,cptespcod,cptespdes,cptvarcod,cptvardes,cptcalibr,cptmarcod,cptmardes,cptembcod,cptembdes,cptenvcod,cptenvdes,cptpesone,cptsalida,cptcodcja) VALUES ('"+numeroctrl+"','"+CodPta.Text+"','"+Turno.Text+"','"+numeroctrl+"','"+username+"','"+Linea.Text+"','"+NroProceso.Text+"','"+Lote.Text+"','"+ProdReal.Text+"','"+ProdRealtxt.Text+"','"+ProdEtiq.Text+"','"+ProdEtiqtxt.Text+"','"+especieid.Text+"','"+especietext.Text+"','"+Variedad.Text+"','"+VariedadText.Text+"','"+Calibre.Text+"','"+Marca.Text+"','"+MarcaTxt.Text+"','"+Embalaje.Text+"','"+Embalajetx.Text+"','"+Envase.Text+"','"+Envasetxt.Text+"','"+Peso.Text+"','"+Salida.Text+"','"+CodCaja.Text+"')";
+            string comando = "INSERT INTO controlpt (cptnumero,placodigo,turcodigo,cptfechor,usurutusu,lincodigo,cptproces,cptnulote,cptrutprr,cptnompre,cptrutpet,cptnompet,cptespcod,cptespdes,cptvarcod,cptvardes,cptcalibr,cptmarcod,cptmardes,cptembcod,cptembdes,cptenvcod,cptenvdes,cptpesone,cptsalida,cptcodcja,cptclasificacion,cptdestino,cptcajasvaciadas) VALUES ('" + numeroctrl + "','" + CodPta.Text + "','" + Turno.Text + "','" + numeroctrl + "','" + username + "','" + Linea.Text + "','" + NroProceso.Text + "','" + Lote.Text + "','" + ProdReal.Text + "','" + ProdRealtxt.Text + "','" + ProdEtiq.Text + "','" + ProdEtiqtxt.Text + "','" + especieid.Text + "','" + especietext.Text + "','" + Variedad.Text + "','" + VariedadText.Text + "','" + Calibre.Text + "','" + Marca.Text + "','" + MarcaTxt.Text + "','" + Embalaje.Text + "','" + Embalajetx.Text + "','" + Envase.Text + "','" + Envasetxt.Text + "','" + Peso.Text + "','" + Salida.Text + "','" + CodCaja.Text + "','" + txt_calisificacion.Text + "','" + txt_destino.Text + "'," + txt_cajasvaciadas.Text + ")";
             string comando1 = "INSERT INTO defecto (cptnumero,defcalbaj,defcalnor,defcalsob,defprecal,defdanotr,defescama,deffrutode,deffrutodo,defguatab,defherida,defmancha,defmedial,defpiella,defrusset,defsutura,deffaltoc,deframole,defsinped,defadhesi,defdesfru,defdesped,defblando,defherabi,defmachuc,defpartid,defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie) VALUES ('"+numeroctrl+"','"+txtbajo.Text+"','"+txtcalibreok.Text+"','"+txtsobre.Text+"','"+txtprecalibre.Text+"','"+txtdanotrip.Text+"','"+txtescama.Text+"','"+txtfrutosdeformes.Text+"','"+txtfrutosdobles.Text+"','"+txtguatablanca.Text+"','"+txtherida.Text+"','"+txtmanchas.Text+"','"+txtmedialuna.Text+"','"+txtpiellagarto.Text+"','"+txtrusset.Text+"','"+txtsutura.Text+"','"+txtfaltocolor.Text+"','"+txtramaleo.Text+"','"+txtsinpedicelo.Text+"','"+txtadhesion.Text+"','"+txtdeshid.Text+"','"+txtdeshidpedi.Text+"','"+txtblandos.Text+"','"+txtheridasabiertas.Text+"','"+txtmachucon.Text+"','"+txtpartiduras.Text+"','"+txtpartidurasagua.Text+"','"+txtpartiduracicatrizada.Text+"','"+txtpitting.Text+"','"+txtpudricion.Text+"','"+txtmanchaspardas.Text+"','"+txtdanopajaro.Text+"','"+txtdesgarro.Text+"','"+txtcortesierra.Text+"')";
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
@@ -206,78 +246,104 @@ namespace SisConPT.SisConPT
 
             SqlConnection conexion = new SqlConnection(connStringmain.ToString());
             conexion.Open();
-            using (SqlCommand sql = new SqlCommand(comando, conexion))
-            { 
-                sql.ExecuteNonQuery();
+
+            SqlCommand cmd_proc = new SqlCommand("select cptcodcja from CONTROLPT where cptcodcja='" + CodCaja.Text + "' group by cptcodcja", conexion);
+            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
+            DataSet ds_proc = new DataSet();
+            try
+            {
+                sda_proc.Fill(ds_proc);
                 conexion.Close();
-            }
-                        
- 
-  //              SqlConnection conexion = new SqlConnection(connStringmain.ToString());
-                conexion.Open();
-                using (SqlCommand sql = new SqlCommand(comando1, conexion))
+                if (ds_proc.Tables[0].Rows.Count.ToString() == "0")
                 {
-                    sql.ExecuteNonQuery();
-                    conexion.Close();
+                    conexion.Open();
+
+                    using (SqlCommand sql = new SqlCommand(comando, conexion))
+                    {
+                        sql.ExecuteNonQuery();
+                        conexion.Close();
+                    }
+
+                    conexion.Open();
+                    using (SqlCommand sql = new SqlCommand(comando1, conexion))
+                    {
+                        sql.ExecuteNonQuery();
+                        conexion.Close();
+                        
+                    }
+                    string error = "Registro guardado OK";
+                    Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+
+                    CodCaja.Text = "";
+                    Turno.Text = "";
+                    especieid.Text = "";
+                    especietext.Text = "";
+                    Linea.Text = "";
+                    Variedad.Text = "";
+                    VariedadText.Text = "";
+                    NroProceso.Text = "";
+                    Marca.Text = "";
+                    MarcaTxt.Text = "";
+                    Lote.Text = "";
+                    Embalaje.Text = "";
+                    Embalajetx.Text = "";
+                    Peso.Text = "";
+                    Envase.Text = "";
+                    Envasetxt.Text = "";
+                    Calibre.Text = "";
+                    ProdReal.Text = "";
+                    ProdRealtxt.Text = "";
+                    Salida.Text = "";
+                    ProdEtiq.Text = "";
+                    ProdEtiqtxt.Text = "";
+                    TextBox1obs.Text = "";
+                    txtbajo.Text = "0";
+                    txtprecalibre.Text = "0";
+                    txtrusset.Text = "0";
+                    txtadhesion.Text = "0";
+                    txtpudricion.Text = "0";
+                    txtcalibreok.Text = "0";
+                    txtdanotrip.Text = "0";
+                    txtsutura.Text = "0";
+                    txtdeshid.Text = "0";
+                    txtmanchaspardas.Text = "0";
+                    txtsobre.Text = "0";
+                    txtescama.Text = "0";
+                    txtfaltocolor.Text = "0";
+                    txtdeshidpedi.Text = "0";
+                    txtdanopajaro.Text = "0";
+                    txtfrutosdeformes.Text = "0";
+                    txtramaleo.Text = "0";
+                    txtblandos.Text = "0";
+                    txtdesgarro.Text = "0";
+                    txtfrutosdobles.Text = "0";
+                    txtsinpedicelo.Text = "0";
+                    txtheridasabiertas.Text = "0";
+                    txtcortesierra.Text = "0";
+                    txtguatablanca.Text = "0";
+                    txtmachucon.Text = "0";
+                    txtherida.Text = "0";
+                    txtpartiduras.Text = "0";
+                    txtmanchas.Text = "0";
+                    txtpartidurasagua.Text = "0";
+                    txtmedialuna.Text = "0";
+                    txtpartiduracicatrizada.Text = "0";
+                    txtpiellagarto.Text = "0";
+                    txtpitting.Text = "0";
+                    CodCaja.Focus();
+
+
+                }
+                else
+                {
+                    string error = "Registro ya existente..";
+                    Response.Write("<script language=javascript > alert('" + error + "'); </script>");
                 }
 
-                CodCaja.Text = "";
-                Turno.Text = "";
-                especieid.Text = "";
-                especietext.Text = "";
-                Linea.Text = "";
-                Variedad.Text = "";
-                VariedadText.Text = "";
-                NroProceso.Text = "";
-                Marca.Text = "";
-                MarcaTxt.Text = "";
-                Lote.Text = "";
-                Embalaje.Text = "";
-                Embalajetx.Text = "";
-                Peso.Text = "";
-                Envase.Text = "";
-                Envasetxt.Text = "";
-                Calibre.Text = "";
-                ProdReal.Text = "";
-                ProdRealtxt.Text = "";
-                Salida.Text = "";
-                ProdEtiq.Text = "";
-                ProdEtiqtxt.Text = "";
-                TextBox1obs.Text = "";
-                txtbajo.Text = "0";
-                txtprecalibre.Text = "0";
-                txtrusset.Text = "0";
-                txtadhesion.Text = "0";
-                txtpudricion.Text = "0";
-                txtcalibreok.Text = "0";
-                txtdanotrip.Text = "0";
-                txtsutura.Text = "0";
-                txtdeshid.Text = "0";
-                txtmanchaspardas.Text = "0";
-                txtsobre.Text = "0";
-                txtescama.Text = "0";
-                txtfaltocolor.Text = "0";
-                txtdeshidpedi.Text = "0";
-                txtdanopajaro.Text = "0";
-                txtfrutosdeformes.Text = "0";
-                txtramaleo.Text = "0";
-                txtblandos.Text = "0";
-                txtdesgarro.Text = "0";
-                txtfrutosdobles.Text = "0";
-                txtsinpedicelo.Text = "0";
-                txtheridasabiertas.Text = "0";
-                txtcortesierra.Text = "0";
-                txtguatablanca.Text = "0";
-                txtmachucon.Text = "0";
-                txtherida.Text = "0";
-                txtpartiduras.Text = "0";
-                txtmanchas.Text = "0";
-                txtpartidurasagua.Text = "0";
-                txtmedialuna.Text = "0";
-                txtpartiduracicatrizada.Text = "0";
-                txtpiellagarto.Text = "0";
-                txtpitting.Text = "0";
-            CodCaja.Focus();
+
+            }
+            catch { }
+
             ButtonBuscar.Enabled = true;
             TabPanel2.Visible = true;
             TabPanel3.Visible = true;
@@ -286,6 +352,8 @@ namespace SisConPT.SisConPT
             Limpiar.Enabled = false;
             TabContainer1.ActiveTab = TabPanel1;
             CodCaja.Enabled = true;
+
+
             
         }
 
@@ -306,13 +374,10 @@ namespace SisConPT.SisConPT
             SOLUBLE_D.DataSourceID = "";
             SOLUBLE_D.DataSource = ds_soluble;
             SOLUBLE_D.DataBind();
-
-
+            
             if (SOLUBLE_D.Items.Count != 0)
             {
                 int proceso = Convert.ToInt32(SOLUBLE_D.SelectedValue);
-
-                //SOLUBLE_D(proceso);
 
             }
             con.Close();
@@ -320,37 +385,11 @@ namespace SisConPT.SisConPT
 
         protected void SOL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //int proceso = Convert.ToInt32(SOLUBLE_D.SelectedValue);
 
-            //DropLinea(proceso);
 
         }
 
-
-
-        private bool Exists(string NroProceso, string Linea, string Turno)
-        {
-            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
-            System.Configuration.ConnectionStringSettings connStringmain;
-            connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
-            string existe = "select count(1) as  casos from solidossolubles where nroproceso=" + NroProceso + " and nrolinea = " + Linea + " and turno='" + Turno + "'";
-            SqlConnection conexion = new SqlConnection(connStringmain.ToString());
-            conexion.Open();
-            SqlCommand command = new SqlCommand(existe, conexion);
-            string count = Convert.ToString(command.ExecuteScalar());
-            if (count == "")
-
-            return true;
-
-            else
-
-            return false;
-
-        }
-
-
-
-           protected void Grabar_soluble(object sender, EventArgs e)
+        protected void Grabar_soluble(object sender, EventArgs e)
         {
              
             string numeroctrl = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
@@ -360,30 +399,40 @@ namespace SisConPT.SisConPT
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
             connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
-            string existe = "select nroproceso from solidossolubles where nroproceso='" + NroProceso.Text + "' and nrolinea = '" + Linea.Text + "' and turno='" + Turno.Text + "'";
             SqlConnection conexion = new SqlConnection(connStringmain.ToString());
             conexion.Open();
-            
-         
-                   using (SqlCommand sql = new SqlCommand(comando, conexion))
-               {
-                   sql.ExecuteNonQuery();
-                    conexion.Close();
-              }
+            SqlCommand cmd_proc = new SqlCommand("select nroproceso from solidossolubles where nroproceso='" + NroProceso.Text + "' and nrolinea = '" + Linea.Text + "' and turno='" + Turno.Text + "'", conexion);
+            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
+            DataSet ds_proc = new DataSet();
+            try
+            {
+                sda_proc.Fill(ds_proc);
+                conexion.Close();
+                if (ds_proc.Tables[0].Rows.Count.ToString() == "0")
+                {
+                    conexion.Open();
+                    using (SqlCommand sql = new SqlCommand(comando, conexion))
+                    {
 
+                        sql.ExecuteNonQuery();
+                        conexion.Close();
+                    }
+                   
 
+                }
+                else
+                {
+                    string error = "Registro ya existente..";
+                    Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+                }
 
-                             
+            }
+            catch { }
                 txt_f1.Text = "0";
                 txt_f2.Text = "0";
                 txt_f3.Text = "0";
                 txt_f4.Text = "0";
                 txt_f5.Text = "0";
-
-
-            
-            
-
             
             TabPanel2.Enabled = false;
             TabPanel1.Enabled = false;
@@ -398,19 +447,30 @@ namespace SisConPT.SisConPT
                
         }
 
-           protected void Siguiente1_cick(object sender, EventArgs e)
+        protected void Siguiente1_cick(object sender, EventArgs e)
            {
-               TabPanel3.Enabled = true;
-               TabContainer1.ActiveTab = TabPanel3;
+
+
+               if (CheckSoluble.Checked == true)
+               {
+                   TabPanel3.Enabled = true;
+                   TabPanel3.Visible = true;
+                   TabContainer1.ActiveTab = TabPanel3;
+               }
+               else
+               {
+                   TabPanel2.Enabled = true;
+                   TabPanel2.Visible = true;
+                   TabContainer1.ActiveTab = TabPanel2;
+                   Grabar.Enabled = true;
+                   Grabar.Visible = true;
+               }
+               //TabContainer1.ActiveTab = TabPanel3;
                TabPanel1.Enabled = false;
                Siguiente1.Visible = false;
                Button1.Visible = true;
 
            }
-
-
-
-
-
+        
     }
 }

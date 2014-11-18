@@ -85,6 +85,15 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.DropDownList drop_turno_d;
         
         /// <summary>
+        /// Control Exportar_005.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Exportar_005;
+        
+        /// <summary>
         /// Control Panel1.
         /// </summary>
         /// <remarks>
@@ -911,6 +920,15 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// Control txt_tipo_sol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_tipo_sol;
         
         /// <summary>
         /// Control txt_soluble.
