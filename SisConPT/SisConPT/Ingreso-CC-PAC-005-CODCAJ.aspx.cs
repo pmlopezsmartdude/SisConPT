@@ -149,11 +149,15 @@ namespace SisConPT.SisConPT
             if (ds_proc_2.Tables[0].Rows.Count.ToString() == "0")
             {
                 txt_calisificacion.Enabled = true;
+                txt_destino.Enabled = true;
+                txt_cajasvaciadas.Enabled = true;
 
             }
             else
             {
                 txt_calisificacion.Enabled = false;
+                txt_destino.Enabled = false;
+                txt_cajasvaciadas.Enabled = false;
             }
 
             Grabar.Enabled = false;

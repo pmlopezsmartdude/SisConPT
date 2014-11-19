@@ -43,7 +43,7 @@ namespace SisConPT.SisConPT
         protected void Btn_resumen_075(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropDownList1.Text;
-            //   Response.Redirect("~/SisConPT/Consulta_CC-PAC-075_proceso.aspx");
+            Response.Redirect("~/SisConPT/Resumen_CC-PAC-075_CSV.aspx");
 
         }
     }

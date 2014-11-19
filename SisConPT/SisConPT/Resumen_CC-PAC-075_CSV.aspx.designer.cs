@@ -13,6 +13,24 @@ namespace SisConPT.SisConPT {
     public partial class Resumen_CC_PAC_075_CSV {
         
         /// <summary>
+        /// Control lbl_planta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_planta;
+        
+        /// <summary>
+        /// Control lbl_codpla.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_codpla;
+        
+        /// <summary>
         /// Control Datos.
         /// </summary>
         /// <remarks>
@@ -22,13 +40,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Table Datos;
         
         /// <summary>
-        /// Control lbl_cod_plan.
+        /// Control DESCARGAR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cod_plan;
+        protected global::System.Web.UI.WebControls.Label DESCARGAR;
         
         /// <summary>
         /// Control Exportar_075.

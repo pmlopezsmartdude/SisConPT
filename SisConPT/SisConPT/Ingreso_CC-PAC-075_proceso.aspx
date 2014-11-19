@@ -114,7 +114,7 @@
              <asp:Label ID="Label1" runat="server" Text="Referencia CAT 1 Justificacion Ajuste" Width="90" Height="20"></asp:Label>
              </asp:TableCell>
                     <asp:TableCell>
-                <asp:TextBox  MaxLength="3"  runat="server" ID="txt_ref"  Width="100" Height="50" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox runat="server" ID="txt_ref"  Width="100" Height="50" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                
                    </asp:TableCell></asp:TableRow></asp:Table><br />
            

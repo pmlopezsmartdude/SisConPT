@@ -28,11 +28,12 @@ namespace SisConPT.SisConPT
                 SqlConnection conexion = new SqlConnection(connStringmain.ToString());
                 conexion.Open();
                 SqlCommand sql = new SqlCommand(comando, conexion);
+               
                 using (SqlDataReader reader = sql.ExecuteReader())
                 {
                     reader.Read();
                     txt_cod_plan.Text = reader.GetString(0);
-                }
+                    }
                 conexion.Close();
 
             }
@@ -46,6 +47,29 @@ namespace SisConPT.SisConPT
                 connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["LotManager40"];
 
             }
+
+            connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+            SqlConnection conexion_2 = new SqlConnection(connStringmain.ToString());
+            conexion_2.Open();
+            SqlCommand cmd_proc = new SqlCommand("select * from controlpt where placodigo ='" + txt_cod_plan.Text + "'", conexion_2);
+            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
+            DataSet ds_proc = new DataSet();
+            try
+            {
+                sda_proc.Fill(ds_proc);
+                conexion_2.Close();
+                if (ds_proc.Tables[0].Rows.Count.ToString() == "0")
+                {
+                    string error = "Sin informacion para mostrar";
+                    Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+                    Exportar_005.Enabled = false;
+                }
+
+            }
+            catch { }
+
+
+
 
 
             if (!IsPostBack)
@@ -110,7 +134,7 @@ namespace SisConPT.SisConPT
             string PlantaNombre = Session["PlantaName"].ToString();
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
-            SqlCommand cmd_proc = new SqlCommand("select top 1 vis.cptproces,cptnompre,cptnulote,lincodigo,turcodigo,convert(varchar(8),defprecal) as defprecal,convert(varchar(8),defdanotr) as defdanotr,convert(varchar(8),defescama) as defescama,convert(varchar(8),deffrutode) as deffrutode,convert(varchar(8),deffrutodo) as deffrutodo,convert(varchar(8),defguatab) as defguatab,convert(varchar(8),defherida) as defherida,convert(varchar(8),defmancha) as defmancha,convert(varchar(8),defmedial) as defmedial,convert(varchar(8),defpiella) as defpiella,convert(varchar(8),defrusset) as defrusset,convert(varchar(8),defsutura) as defsutura,convert(varchar(8),deffaltoc) as deffaltoc,convert(varchar(8),deframole) as deframole,convert(varchar(8),defsinped) as defsinped,convert(varchar(8),defadhesi) as defadhesi,convert(varchar(8),defdesfru) as defdesfru,convert(varchar(8),defdesped) as defdesped,convert(varchar(8),defblando) as defblando,convert(varchar(8),defherabi) as defherabi,convert(varchar(8),defmachuc) as defmachuc,convert(varchar(8),defpartid) as defpartid,convert(varchar(8),defparagu) as defparagu,convert(varchar(8),defparcic) as defparcic,convert(varchar(8),defpittin) as defpittin,convert(varchar(8),defpudric) as defpudric,convert(varchar(8),defmanpar) as defmanpar,convert(varchar(8),defdanopa) as defdanopa,convert(varchar(8),defdesgar) as defdesgar,convert(varchar(8),defcorsie) as defcorsie,convert(varchar(8),promedio) as  promedio , cptvardes, SOL_DESCRIP from VistaResumen005 as vis inner join (select distinct cptproces, cptvardes from controlpt) as cl on vis.cptproces=cl.cptproces where vis.cptproces='" + proceso_id + "' order by promedio desc ", con);
+            SqlCommand cmd_proc = new SqlCommand("select top 1 vis.cptproces,cptnompre,cptnulote,lincodigo,turcodigo,convert(varchar(8),defprecal) as defprecal,convert(varchar(8),defdanotr) as defdanotr,convert(varchar(8),defescama) as defescama,convert(varchar(8),deffrutode) as deffrutode,convert(varchar(8),deffrutodo) as deffrutodo,convert(varchar(8),defguatab) as defguatab,convert(varchar(8),defherida) as defherida,convert(varchar(8),defmancha) as defmancha,convert(varchar(8),defmedial) as defmedial,convert(varchar(8),defpiella) as defpiella,convert(varchar(8),defrusset) as defrusset,convert(varchar(8),defsutura) as defsutura,convert(varchar(8),deffaltoc) as deffaltoc,convert(varchar(8),deframole) as deframole,convert(varchar(8),defsinped) as defsinped,convert(varchar(8),defadhesi) as defadhesi,convert(varchar(8),defdesfru) as defdesfru,convert(varchar(8),defdesped) as defdesped,convert(varchar(8),defblando) as defblando,convert(varchar(8),defherabi) as defherabi,convert(varchar(8),defmachuc) as defmachuc,convert(varchar(8),defpartid) as defpartid,convert(varchar(8),defparagu) as defparagu,convert(varchar(8),defparcic) as defparcic,convert(varchar(8),defpittin) as defpittin,convert(varchar(8),defpudric) as defpudric,convert(varchar(8),defmanpar) as defmanpar,convert(varchar(8),defdanopa) as defdanopa,convert(varchar(8),defdesgar) as defdesgar,convert(varchar(8),defcorsie) as defcorsie,convert(varchar(8),promedio) as  promedio , cptvardes, SOL_DESCRIP,cptclasificacion,cptdestino,cptcajasvaciadas from VistaResumen005 as vis inner join (select distinct cptproces, cptvardes from controlpt) as cl on vis.cptproces=cl.cptproces where vis.cptproces='" + proceso_id + "' order by promedio desc ", con);
             try
             {
 
@@ -153,7 +177,9 @@ namespace SisConPT.SisConPT
                 txt_soluble.Text = reader.GetString(35);
                 txtVariedad.Text = reader.GetString(36);
                 txt_tipo_sol.Text = reader.GetString(37);
-
+                txt_clasi.Text = reader.GetString(38);
+                txt_destino.Text = reader.GetString(39);
+                txt_vaciadas.Text = reader.GetString(40);
 
             }
 
