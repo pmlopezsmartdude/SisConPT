@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
    <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server">  </asp:ToolkitScriptManager>  
 <fieldset>
-        <legend>CC-PAC-005 </legend>
+        <legend>Resumen CC-PAC-005 Producto Terminado</legend>
     
 
     <asp:Table ID="Datos" runat="server" Width="653px" Height="50px" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Center">
