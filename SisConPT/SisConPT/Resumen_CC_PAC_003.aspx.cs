@@ -132,15 +132,6 @@ namespace SisConPT.SisConPT
             connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
-
-            //System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
-            //System.Configuration.ConnectionStringSettings connStringmain;
-            //connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
-
-            //string connStringmain = "Data Source=192.168.1.140;Initial Catalog=CONTROLPT;Integrated Security=false;uid=usercontrolpt;pwd=$Control03";
-            //SqlConnection con = new SqlConnection(connStringmain.ToString());
-            //SqlConnection con = new SqlConnection(connStringmain);
-           // con.Open();
             SqlCommand cmd_proc = new SqlCommand("select top 1 * from [VistaResumen003] where Ctrl_CodProc = '" + proceso_id + "'", con);
             try
             {
@@ -178,8 +169,8 @@ namespace SisConPT.SisConPT
                     txt_ramaleo.Text = reader.GetString(30);
                     txt_desgarros.Text = reader.GetString(31);
                     txt_sierras.Text = reader.GetString(32);
-                    txt_defcalidad.Text = reader.GetString(50);
-                    txt_defcondicion.Text = reader.GetString(51);
+                    txt_defcalidad.Text = reader.GetString(49);
+                    txt_defcondicion.Text = reader.GetString(50);
                     txt_qc_pudricion.Text = reader.GetString(35);
                     txt_comp_pudricion.Text = reader.GetString(36);
                     txt_qc_deshechos.Text = reader.GetString(37);
@@ -192,10 +183,10 @@ namespace SisConPT.SisConPT
                     txt_exportable_2.Text = reader.GetString(44);
                     txt_comercial_5.Text = reader.GetString(45);
                     
-                    lbl_productor.Text = reader.GetString(47);
-                    lbl_variedad.Text = reader.GetString(48);
+                    lbl_productor.Text = reader.GetString(46);
+                    lbl_variedad.Text = reader.GetString(47);
 
-                    txt_pedicelo.Text = reader.GetString(49);
+                    txt_pedicelo.Text = reader.GetString(48);
 
 
 

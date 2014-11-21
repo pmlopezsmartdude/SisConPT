@@ -157,6 +157,15 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Table Table8;
         
         /// <summary>
+        /// Control Label49.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label49;
+        
+        /// <summary>
         /// Control lbl_productor.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,15 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_productor;
+        
+        /// <summary>
+        /// Control Label50.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label50;
         
         /// <summary>
         /// Control lbl_variedad.
@@ -229,15 +247,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_precalibre;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender28.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender28;
-        
-        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -254,15 +263,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_trips;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender1;
         
         /// <summary>
         /// Control Label17.
@@ -283,15 +283,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_adhesion;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender16.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender16;
-        
-        /// <summary>
         /// Control Label18.
         /// </summary>
         /// <remarks>
@@ -308,15 +299,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_deshid_frutos;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender17.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender17;
         
         /// <summary>
         /// Control Label2.
@@ -337,15 +319,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_escama;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender2;
-        
-        /// <summary>
         /// Control Label3.
         /// </summary>
         /// <remarks>
@@ -362,15 +335,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_frudeformes;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender3;
         
         /// <summary>
         /// Control Label19.
@@ -391,15 +355,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_deshid_ped;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender18.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender18;
-        
-        /// <summary>
         /// Control Label35.
         /// </summary>
         /// <remarks>
@@ -416,15 +371,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_blandos;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender33.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender33;
         
         /// <summary>
         /// Control Label20.
@@ -445,15 +391,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_dobles;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender19.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender19;
-        
-        /// <summary>
         /// Control Label4.
         /// </summary>
         /// <remarks>
@@ -470,15 +407,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_guatablanca;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender4;
         
         /// <summary>
         /// Control Label5.
@@ -499,15 +427,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_heri_abiertas;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender5;
-        
-        /// <summary>
         /// Control Label21.
         /// </summary>
         /// <remarks>
@@ -524,15 +443,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_machucon;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender20.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender20;
         
         /// <summary>
         /// Control Label22.
@@ -553,15 +463,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_heri_cica;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender21.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender21;
-        
-        /// <summary>
         /// Control Label6.
         /// </summary>
         /// <remarks>
@@ -578,15 +479,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_manchas;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender6;
         
         /// <summary>
         /// Control Label7.
@@ -607,15 +499,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_part_cica;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender7.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender7;
-        
-        /// <summary>
         /// Control Label23.
         /// </summary>
         /// <remarks>
@@ -632,15 +515,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_pitting;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender22.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender22;
         
         /// <summary>
         /// Control Label24.
@@ -661,15 +535,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_medluna;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender23.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender23;
-        
-        /// <summary>
         /// Control Label8.
         /// </summary>
         /// <remarks>
@@ -686,15 +551,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_lagarto;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender8.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender8;
         
         /// <summary>
         /// Control Label25.
@@ -715,15 +571,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_pudricion;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender24.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender24;
-        
-        /// <summary>
         /// Control Label26.
         /// </summary>
         /// <remarks>
@@ -740,15 +587,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_part_agua;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender25.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender25;
         
         /// <summary>
         /// Control Label10.
@@ -769,15 +607,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_russet;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender10.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender10;
-        
-        /// <summary>
         /// Control Label11.
         /// </summary>
         /// <remarks>
@@ -794,15 +623,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_sutura;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender11.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender11;
         
         /// <summary>
         /// Control Label27.
@@ -823,15 +643,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_pardas;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender26.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender26;
-        
-        /// <summary>
         /// Control Label28.
         /// </summary>
         /// <remarks>
@@ -848,15 +659,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_pajaro;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender27.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender27;
         
         /// <summary>
         /// Control Label12.
@@ -877,15 +679,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_faltocolor;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender12.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender12;
-        
-        /// <summary>
         /// Control Label14.
         /// </summary>
         /// <remarks>
@@ -902,15 +695,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_ramaleo;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender13.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender13;
         
         /// <summary>
         /// Control Label29.
@@ -931,15 +715,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_desgarros;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender29.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender29;
-        
-        /// <summary>
         /// Control Label30.
         /// </summary>
         /// <remarks>
@@ -958,15 +733,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_sierras;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender30.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender30;
-        
-        /// <summary>
         /// Control Label15.
         /// </summary>
         /// <remarks>
@@ -983,15 +749,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_pedicelo;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender14.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender14;
         
         /// <summary>
         /// Control Table2.
@@ -1021,15 +778,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_defcalidad;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender31.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender31;
-        
-        /// <summary>
         /// Control Label16.
         /// </summary>
         /// <remarks>
@@ -1046,15 +794,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_defcondicion;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender32.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender32;
         
         /// <summary>
         /// Control Table4.
@@ -1111,15 +850,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_qc_pudricion;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender34.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender34;
-        
-        /// <summary>
         /// Control txt_comp_pudricion.
         /// </summary>
         /// <remarks>
@@ -1127,15 +857,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_comp_pudricion;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender35.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender35;
         
         /// <summary>
         /// Control Label43.
@@ -1156,15 +877,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_qc_deshechos;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender38.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender38;
-        
-        /// <summary>
         /// Control txt_comp_deshechos.
         /// </summary>
         /// <remarks>
@@ -1172,15 +884,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_comp_deshechos;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender39.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender39;
         
         /// <summary>
         /// Control Table6.
@@ -1237,15 +940,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_qc_exportable;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender40.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender40;
-        
-        /// <summary>
         /// Control txt_comp_exportable.
         /// </summary>
         /// <remarks>
@@ -1253,15 +947,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_comp_exportable;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender41.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender41;
         
         /// <summary>
         /// Control Label48.
@@ -1282,15 +967,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_qc_deshecho_com;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender42.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender42;
-        
-        /// <summary>
         /// Control txt_comp_deshecho_com.
         /// </summary>
         /// <remarks>
@@ -1298,15 +974,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_comp_deshecho_com;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender43.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender43;
         
         /// <summary>
         /// Control Table7.
@@ -1336,15 +1003,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_num_frutos;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender9.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender9;
-        
-        /// <summary>
         /// Control Label52.
         /// </summary>
         /// <remarks>
@@ -1363,15 +1021,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TextBox txt_exportable_2;
         
         /// <summary>
-        /// Control FilteredTextBoxExtender44.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender44;
-        
-        /// <summary>
         /// Control Label32.
         /// </summary>
         /// <remarks>
@@ -1388,105 +1037,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_comercial_5;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender15.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender15;
-        
-        /// <summary>
-        /// Control Table5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table5;
-        
-        /// <summary>
-        /// Control Label36.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label36;
-        
-        /// <summary>
-        /// Control TextBox1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender36.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender36;
-        
-        /// <summary>
-        /// Control Label37.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label37;
-        
-        /// <summary>
-        /// Control TextBox2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender37.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender37;
-        
-        /// <summary>
-        /// Control Label40.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label40;
-        
-        /// <summary>
-        /// Control TextBox3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
-        
-        /// <summary>
-        /// Control FilteredTextBoxExtender45.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender45;
         
         /// <summary>
         /// Control btnClose.
