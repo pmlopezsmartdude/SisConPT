@@ -46,5 +46,17 @@ namespace SisConPT.SisConPT
             Response.Redirect("~/SisConPT/Resumen_CC-PAC-075_CSV.aspx");
 
         }
+        protected void Btn_003(object sender, EventArgs e)
+        {
+            Session["PlantaName"] = DropDownList1.Text;
+            Response.Redirect("~/SisConPT/Ingreso_CC-PAC-003.aspx");
+
+        }
+        protected void Btn_resumen_003(object sender, EventArgs e)
+        {
+            Session["PlantaName"] = DropDownList1.Text;
+            Response.Redirect("~/SisConPT/Resumen_CC_PAC_003.aspx");
+
+        }
     }
 }
