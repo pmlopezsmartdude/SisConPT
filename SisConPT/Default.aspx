@@ -6,7 +6,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <img alt="" src="Images/logosfg.png" />
     <h2>
-        Bienvenido al sistema de control de producto terminado</h2>
+        Bienvenido al sistema de control de calidad</h2>
     
         <h3>Operación del sistema:</h3>
     <ol class="round">
@@ -30,7 +30,7 @@
         <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
             <AnonymousTemplate>
                 <li class="four">
-                    <h5>Acceso a las aplicaciones de Control de Producto Terminado</h5>
+                    <h5>Acceso a las aplicaciones de Control de calidad</h5>
                     El acceso a las aplicaciones de control de producto terminado esta solo permitido para usuarios autenticados
                     Por favor ingrese con su cuenta de usuario para permitirle el acceso.
                 </li>
@@ -38,8 +38,8 @@
             </AnonymousTemplate>
             <LoggedInTemplate>
                 <li class="four">
-                    <h5>Acceso a las aplicaciones de Control de Producto Terminado</h5>
-                    <a id="A1" runat="server" href="~/SisConPT/SisConPT.aspx">Aplicaciones de sistema de control de producto terminado.</a>
+                    <h5>Acceso a las aplicaciones de Control de calidad</h5>
+                    <a id="A1" runat="server" href="~/SisConPT/SisConPT.aspx">Aplicaciones de sistema de control de calidad.</a>
                 </li>
                 <li class="five">
                     <h5>Administre su contraseña</h5>

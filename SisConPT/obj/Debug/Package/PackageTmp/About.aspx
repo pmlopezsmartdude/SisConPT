@@ -6,7 +6,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <img alt="" src="Images/logosfg.png" />
     <h2>
-        Sistema de Control de Producto Terminado
+        Sistema de Control de Calidad
     </h2>
     <p>
     Las herramientas proporcionadas a través de este sistema son parte de las herramientas de apoyo informático

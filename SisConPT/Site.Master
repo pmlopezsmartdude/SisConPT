@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Sistema de Control de Producto Terminado</title>
+    <title>Sistema de Control de Calidad</title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
@@ -15,7 +15,7 @@
         <div class="header">
             <div class="title">
                 <h1>
-                    Sistema de Control de Producto Terminado
+                    Sistema de Control de Calidad
                 </h1>
             </div>
             <div class="loginDisplay">
