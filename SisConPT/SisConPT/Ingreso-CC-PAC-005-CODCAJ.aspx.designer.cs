@@ -409,6 +409,24 @@ namespace SisConPT.SisConPT {
         protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender34;
         
         /// <summary>
+        /// Control LabelPesoNeto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPesoNeto;
+        
+        /// <summary>
+        /// Control txt_peso_neto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_peso_neto;
+        
+        /// <summary>
         /// Control TabContainer1.
         /// </summary>
         /// <remarks>

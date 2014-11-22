@@ -623,35 +623,35 @@
                 <asp:Label ID="Label10" runat="server" Height="10">F 1</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f1"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <asp:TextBox  MaxLength="4"    runat="server" ID="txt_f1"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender39" TargetControlID="txt_f1" FilterType="numbers, Custom" Validchars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="Label16" runat="server" Height="10">F 2</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f2"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <asp:TextBox  MaxLength="4"    runat="server" ID="txt_f2"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender40" TargetControlID="txt_f2" FilterType="numbers, Custom" Validchars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="Label17" runat="server" Height="10">F 3</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f3"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <asp:TextBox  MaxLength="4"    runat="server" ID="txt_f3"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender41" TargetControlID="txt_f3" FilterType="numbers, Custom" Validchars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="Label18" runat="server" Height="10">F 4</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f4"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <asp:TextBox  MaxLength="4"    runat="server" ID="txt_f4"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender42" TargetControlID="txt_f4" FilterType="numbers, Custom" Validchars="." runat="server" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="Label19" runat="server" Height="10">F 5</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_f5"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <asp:TextBox  MaxLength="4"    runat="server" ID="txt_f5"  Width="40" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender43" TargetControlID="txt_f5" FilterType="numbers, Custom" Validchars="." runat="server" />
             </asp:TableCell>
  </asp:TableRow>
