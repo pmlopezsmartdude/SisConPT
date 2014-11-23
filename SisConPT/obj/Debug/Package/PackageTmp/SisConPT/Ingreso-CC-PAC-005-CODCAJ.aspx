@@ -167,7 +167,8 @@
         </asp:TableRow>
 
     </asp:Table>
-     <asp:Table ID="Table3" runat="server" Width="653px" Height="50px" Font-Names="Century Gothic" Font-Size="X-Small">
+     <asp:Table ID="Table3" runat="server" Width="732px" Height="50px" 
+            Font-Names="Century Gothic" Font-Size="X-Small">
    
          
           <asp:TableRow ID="TableRow15" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -175,7 +176,7 @@
                 <asp:Label ID="Label21" runat="server" Height="10">Clasificación</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox  runat="server" ID="txt_calisificacion"  Width="150" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox  runat="server" ID="txt_calisificacion"  Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 
             </asp:TableCell>
             <asp:TableCell>
@@ -191,6 +192,12 @@
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_cajasvaciadas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender34" TargetControlID="txt_cajasvaciadas" FilterType="numbers"  runat="server" />
+            </asp:TableCell>
+            <asp:TableCell>
+            <asp:Label ID="LabelPesoNeto" runat="server" Height="10">Peso Neto</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+            <asp:TextBox runat="server" ID="txt_peso_neto" Width="50" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
    
  </asp:TableRow>
