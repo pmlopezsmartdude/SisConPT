@@ -96,8 +96,8 @@
              <asp:Label ID="lbldescarte" runat="server" Text="% Exportable Descarte Manual" Width="70" Height="20"></asp:Label>
              </asp:TableCell>
              <asp:TableCell>
-                <asp:TextBox  MaxLength="3"  runat="server" ID="txtDescarte"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
-                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" TargetControlID="txtDescarte"  FilterType="numbers"   runat="server" />
+                <asp:TextBox  MaxLength="5"  runat="server" ID="txtDescarte"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" TargetControlID="txtDescarte"  FilterType="numbers, Custom"  ValidChars="." runat="server" />
                    </asp:TableCell><asp:TableCell Width="70">
              <asp:Label ID="lblCATII" runat="server" Text="% Exportable Comercial" Width="70" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell Width="60">
@@ -106,8 +106,8 @@
               <asp:RadioButton text="CAT III" id="CAT_III" groupname="CAT" runat="server" />
     </asp:TableCell>
              <asp:TableCell>
-                <asp:TextBox  MaxLength="3"  runat="server" ID="txtCAT_Valor"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
-                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" TargetControlID="txtCAT_Valor"  FilterType="numbers"   runat="server" />
+                <asp:TextBox  MaxLength="5"  runat="server" ID="txtCAT_Valor"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" TargetControlID="txtCAT_Valor"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
                    </asp:TableCell> <asp:TableCell></asp:TableCell>
                    <asp:TableCell Width="90">
             
@@ -152,46 +152,46 @@
   <tr>
     <td width="60" align="center"><asp:Label ID="Label35" runat="server" Text="RANGOS" Width="60" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_global_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_global_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_global_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_puntual_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_puntual_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_puntual_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_externo_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_externo_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_externo_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_ptoneg_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_ptoneg_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_ptoneg_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_ptomar_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_ptomar_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_ptomar_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_mancha_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_mancha_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_mancha_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     </tr>
   <tr>
     <td width="60" align="center"><asp:Label ID="Label36" runat="server" Text="PRUEBA (% Exp)" Width="60" Height="20" Font-Names="Century Gothic" Font-Size="x-Small"></asp:Label></td>
-    <td colspan="2" align="center"><asp:TextBox  MaxLength="3" runat="server" ID="txt_global_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td colspan="2" align="center"><asp:TextBox  MaxLength="3" runat="server" ID="txt_puntual_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td colspan="2" align="center"><asp:TextBox  MaxLength="3" runat="server" ID="txt_externo_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td colspan="2" align="center"><asp:TextBox  MaxLength="3" runat="server" ID="txt_ptoneg_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td colspan="2" align="center"><asp:TextBox  MaxLength="3" runat="server" ID="txt_ptomar_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td colspan="2" align="center"><asp:TextBox  MaxLength="3" runat="server" ID="txt_mancha_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>  </tr>
+    <td colspan="2" align="center"><asp:TextBox  MaxLength="5" runat="server" ID="txt_global_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td colspan="2" align="center"><asp:TextBox  MaxLength="5" runat="server" ID="txt_puntual_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td colspan="2" align="center"><asp:TextBox  MaxLength="5" runat="server" ID="txt_externo_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td colspan="2" align="center"><asp:TextBox  MaxLength="5" runat="server" ID="txt_ptoneg_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td colspan="2" align="center"><asp:TextBox  MaxLength="5" runat="server" ID="txt_ptomar_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td colspan="2" align="center"><asp:TextBox  MaxLength="5" runat="server" ID="txt_mancha_exp"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>  </tr>
 </table>
 
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" TargetControlID="txt_global_v"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender4" TargetControlID="txt_global_p"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender5" TargetControlID="txt_global_exp"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender6" TargetControlID="txt_puntual_v"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender7" TargetControlID="txt_puntual_p"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" TargetControlID="txt_puntual_exp"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender9" TargetControlID="txt_externo_v"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender10" TargetControlID="txt_externo_p"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender11" TargetControlID="txt_externo_exp"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender12" TargetControlID="txt_ptoneg_v"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender13" TargetControlID="txt_ptoneg_p"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender14" TargetControlID="txt_ptoneg_exp"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender15" TargetControlID="txt_ptomar_v"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender16" TargetControlID="txt_ptomar_p"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender17" TargetControlID="txt_ptomar_exp"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender18" TargetControlID="txt_mancha_v"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender19" TargetControlID="txt_mancha_p"  FilterType="numbers"   runat="server" />
-<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender20" TargetControlID="txt_mancha_exp"  FilterType="numbers"   runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" TargetControlID="txt_global_v"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender4" TargetControlID="txt_global_p"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender5" TargetControlID="txt_global_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender6" TargetControlID="txt_puntual_v"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender7" TargetControlID="txt_puntual_p"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" TargetControlID="txt_puntual_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender9" TargetControlID="txt_externo_v"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender10" TargetControlID="txt_externo_p"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender11" TargetControlID="txt_externo_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender12" TargetControlID="txt_ptoneg_v"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender13" TargetControlID="txt_ptoneg_p"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender14" TargetControlID="txt_ptoneg_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender15" TargetControlID="txt_ptomar_v"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender16" TargetControlID="txt_ptomar_p"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender17" TargetControlID="txt_ptomar_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender18" TargetControlID="txt_mancha_v"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender19" TargetControlID="txt_mancha_p"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender20" TargetControlID="txt_mancha_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
 
 
              </fieldset>
@@ -201,21 +201,21 @@
       <asp:TableCell Width="30">
              <asp:Label ID="Label13" runat="server" Text="KILOS LOTE" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox  MaxLength="3" runat="server" ID="KilosLote"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
-                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender28" TargetControlID="KilosLote"  FilterType="numbers"   runat="server" />
+                <asp:TextBox  MaxLength="6" runat="server" ID="KilosLote"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender28" TargetControlID="KilosLote"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
 
             </asp:TableCell><asp:TableCell Width="30">
              <asp:Label ID="Label14" runat="server" Text="N° TOTES" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox  MaxLength="3" runat="server" ID="NTotes"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <asp:TextBox  MaxLength="4" runat="server" ID="NTotes"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender29" TargetControlID="NTotes"  FilterType="numbers"   runat="server" />
 
             </asp:TableCell><asp:TableCell Width="30">
              <asp:Label ID="Label15" runat="server" Text="% EXP" Width="50" Height="20"></asp:Label>
              </asp:TableCell><asp:TableCell>
-                <asp:TextBox  MaxLength="3" runat="server" ID="porc_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <asp:TextBox  MaxLength="5" runat="server" ID="porc_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
              
-                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender30" TargetControlID="porc_exp"  FilterType="numbers"   runat="server" />
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender30" TargetControlID="porc_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
             
             </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
       <asp:TableCell Width="30">
