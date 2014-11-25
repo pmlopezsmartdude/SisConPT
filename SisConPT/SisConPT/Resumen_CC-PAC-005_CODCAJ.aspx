@@ -50,6 +50,43 @@
                </asp:TableCell>
             
    </asp:TableRow>
+      <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+   <asp:TableCell Width="30">
+         
+
+  
+   </asp:TableCell>
+   </asp:TableRow>
+
+   <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+   <asp:TableCell Width="30">
+            <asp:Label ID="Label10" runat="server" Text="Fecha Inicio" Width="50" Height="20"></asp:Label>
+            </asp:TableCell>
+   <asp:TableCell Width="30">
+       <asp:TextBox ID="txt_fechainicio" runat="server" Width="70"  >
+       </asp:TextBox><asp:ImageButton ID="imgPopup" ImageUrl="~/Images/calendar.png" ImageAlign="Bottom"
+    runat="server" />
+
+   <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="txt_fechainicio"
+    Format="yyyy-MM-dd">
+</cc1:CalendarExtender>
+   </asp:TableCell>
+     <asp:TableCell Width="30">
+            <asp:Label ID="Label12" runat="server" Text="Fecha Fin" Width="50" Height="20"></asp:Label>
+            </asp:TableCell>
+   <asp:TableCell Width="30">
+       <asp:TextBox ID="txt_fechafin" runat="server" Width="70"   ></asp:TextBox><asp:ImageButton ID="imgPopup_fin" ImageUrl="~/Images/calendar.png" ImageAlign="Bottom"
+    runat="server" />
+
+   <cc1:CalendarExtender ID="CalendarExtender1" PopupButtonID="imgPopup_fin" runat="server" TargetControlID="txt_fechafin"
+    Format="yyyy-MM-dd">
+</cc1:CalendarExtender>
+   </asp:TableCell>
+   <asp:TableCell Width="60">
+    <asp:Button ID="Filtrar_fecha" runat="server" Text="  Filtrar  " Enabled="true" OnClick="Filtrar" />
+
+    </asp:TableCell>
+   </asp:TableRow>
   </asp:Table>
   </fieldset>
 
@@ -59,7 +96,7 @@
    
    <asp:GridView ID="gvProcesos" runat="server" CellPadding="3" ForeColor="Black" 
                             GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
-                            DataKeyNames="cptproces" BackColor="White" 
+                            DataKeyNames="id" BackColor="White" 
                             BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
                             onpageindexchanging="Procesos_PageIndexChanging" 
                             onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center">
@@ -74,6 +111,7 @@
                                 </asp:TemplateField>
                                
                                 <asp:BoundField DataField="cptproces" HeaderText="Proceso" DataFormatString="{0:d}"  />
+                                <asp:BoundField DataField="cptnulote" HeaderText="Lote" DataFormatString="{0:d}"  />
                              <%-- <asp:BoundField DataField="Ctrl_CodPlan" HeaderText="Planta" DataFormatString="{0:d}" />
                                 <asp:BoundField DataField="Ctrl_Lin" HeaderText="Linea" />
                                 <asp:BoundField DataField="Ctrl_Usuario" HeaderText="Usuario" />

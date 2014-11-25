@@ -52,6 +52,13 @@ namespace SisConPT.SisConPT
             Response.Redirect("~/SisConPT/Ingreso_CC-PAC-003.aspx");
 
         }
+
+        //protected void Btn_carga(object sender, EventArgs e)
+        //{
+        //    Session["PlantaName"] = DropDownList1.Text;
+        //    Response.Redirect("~/SisConPT/ImportExcel.aspx");
+
+        //}
         protected void Btn_resumen_003(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropDownList1.Text;

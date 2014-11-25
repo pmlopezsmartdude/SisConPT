@@ -102,6 +102,8 @@
    </asp:TableRow>
   </asp:Table>
    </asp:Panel>
+
+   <cc1:RoundedCornersExtender ID="RoundedCornersExtender1" runat="server" TargetControlID="Panel1" Radius="8"> </cc1:RoundedCornersExtender> 
    
    </fieldset>
    <fieldset>
@@ -419,6 +421,7 @@
 
 
                   <asp:TabContainer ID="TabContainer1" runat="server">
+
 <asp:TabPanel runat="server" HeaderText="EXPORTABLE" ID="PANEL_EXPORTABLE"  Enabled ="true" >
     <ContentTemplate>
 
@@ -489,6 +492,8 @@
 
     </ContentTemplate>
 </asp:TabPanel>
+
+
 <asp:TabPanel runat="server" HeaderText="COMERCIAL" ID="PANEL_COMERCIAL"  Enabled ="true" >
     <ContentTemplate>
 
@@ -555,6 +560,7 @@
 
     </ContentTemplate>
 </asp:TabPanel>
+
 <asp:TabPanel runat="server" HeaderText="DESECHO" ID="PANEL_DESHECHO"  Enabled ="true" >
     <ContentTemplate>
 

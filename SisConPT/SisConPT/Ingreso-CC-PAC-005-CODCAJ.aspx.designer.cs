@@ -1354,13 +1354,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TableRow TableRow9;
         
         /// <summary>
-        /// Control Label13.
+        /// Control lbl_opcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
+        protected global::System.Web.UI.WebControls.Label lbl_opcion;
         
         /// <summary>
         /// Control CheckSoluble.
@@ -1741,22 +1741,22 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Button guardar_obs_bt;
         
         /// <summary>
-        /// Control Siguiente1.
+        /// Control Table4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Siguiente1;
+        protected global::System.Web.UI.WebControls.Table Table4;
         
         /// <summary>
-        /// Control SiguienteFinal.
+        /// Control TableRow17.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SiguienteFinal;
+        protected global::System.Web.UI.WebControls.TableRow TableRow17;
         
         /// <summary>
         /// Control Grabar.

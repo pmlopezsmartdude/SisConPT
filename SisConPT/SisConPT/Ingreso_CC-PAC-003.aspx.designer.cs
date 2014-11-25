@@ -166,6 +166,15 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.DropDownList drop_variedad_d;
         
         /// <summary>
+        /// Control RoundedCornersExtender1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.RoundedCornersExtender RoundedCornersExtender1;
+        
+        /// <summary>
         /// Control Table1.
         /// </summary>
         /// <remarks>

@@ -115,7 +115,7 @@ namespace SisConPT.SisConPT
                  SqlConnection con = new SqlConnection(connStringLM.ToString());
                  con.Open();
                  //linea
-                 SqlCommand cmd_proc = new SqlCommand("select  PROC_NumeroProcesso from Ana_Linea as lin inner join [PROD_Processo] as prodproc on lin.lin_codice=proc_linea_fk inner join ANA_Turno as tur on tur.TUR_Linea_FK=lin.lin_codice where lin.LIN_Codice=" + linea + " and tur.TUR_Descrizione='" + turno + "' group by PROC_NumeroProcesso order by PROC_NumeroProcesso", con);
+                 SqlCommand cmd_proc = new SqlCommand("select  PROC_NumeroProcesso from Ana_Linea as lin inner join [PROD_Processo] as prodproc on lin.lin_codice=proc_linea_fk inner join ANA_Turno as tur on tur.TUR_Linea_FK=lin.lin_codice where lin.LIN_Codice=" + linea + " and tur.TUR_Descrizione='" + turno + "' group by PROC_NumeroProcesso order by PROC_NumeroProcesso desc", con);
                  SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
                  DataSet ds_proc = new DataSet();
                  sda_proc.Fill(ds_proc);
@@ -302,6 +302,49 @@ namespace SisConPT.SisConPT
             string Turno = drop_turno_d.SelectedValue;
             string Lote = drop_lote_d.SelectedValue;
             string Variedad = drop_variedad_d.SelectedValue;
+            if (txt_precalibre.Text == "") { txt_precalibre.Text = "0"; }
+            if (txt_trips.Text == "") { txt_trips.Text = "0"; }
+            if (txt_adhesion.Text == "") { txt_adhesion.Text = "0"; }
+            if (txt_deshid_frutos.Text == "") { txt_deshid_frutos.Text = "0"; }
+            if (txt_escama.Text == "") { txt_escama.Text = "0"; }
+            if (txt_frudeformes.Text == "") { txt_frudeformes.Text = "0"; }
+            if (txt_deshid_ped.Text == "") { txt_deshid_ped.Text = "0"; }
+            if (txt_blandos.Text == "") { txt_blandos.Text = "0"; }
+            if (txt_dobles.Text == "") { txt_dobles.Text = "0"; }
+            if (txt_guatablanca.Text == "") { txt_guatablanca.Text = "0"; }
+            if (txt_heri_abiertas.Text == "") { txt_heri_abiertas.Text = "0"; }
+            if (txt_machucon.Text == "") { txt_machucon.Text = "0"; }
+            if (txt_heri_cica.Text == "") { txt_heri_cica.Text = "0"; }
+            if (txt_manchas.Text == "") { txt_manchas.Text = "0"; }
+            if (txt_part_cica.Text == "") { txt_part_cica.Text = "0"; }
+            if (txt_pitting.Text == "") { txt_pitting.Text = "0"; }
+            if (txt_medluna.Text == "") { txt_medluna.Text = "0"; }
+            if (txt_lagarto.Text == "") { txt_lagarto.Text = "0"; }
+            if (txt_pudricion.Text == "") { txt_pudricion.Text = "0"; }
+            if (txt_part_agua.Text == "") { txt_part_agua.Text = "0"; }
+            if (txt_russet.Text == "") { txt_russet.Text = "0"; }
+            if (txt_sutura.Text == "") { txt_sutura.Text = "0"; }
+            if (txt_pardas.Text == "") { txt_pardas.Text = "0"; }
+            if (txt_pajaro.Text == "") { txt_pajaro.Text = "0"; }
+            if (txt_faltocolor.Text == "") { txt_faltocolor.Text = "0"; }
+            if (txt_ramaleo.Text == "") { txt_ramaleo.Text = "0"; }
+            if (txt_desgarros.Text == "") { txt_desgarros.Text = "0"; }
+            if (txt_sierras.Text == "") { txt_sierras.Text = "0"; }
+            if (txt_defcalidad.Text == "") { txt_defcalidad.Text = "0"; }
+            if (txt_defcondicion.Text == "") { txt_defcondicion.Text = "0"; }
+            if (txt_qc_pudricion.Text == "") { txt_qc_pudricion.Text = "0"; }
+            if (txt_comp_pudricion.Text == "") { txt_comp_pudricion.Text = "0"; }
+            if (txt_qc_deshechos.Text == "") { txt_qc_deshechos.Text = "0"; }
+            if (txt_comp_deshechos.Text == "") { txt_comp_deshechos.Text = "0"; }
+            if (txt_qc_exportable.Text == "") { txt_qc_exportable.Text = "0"; }
+            if (txt_comp_exportable.Text == "") { txt_comp_exportable.Text = "0"; }
+            if (txt_qc_deshecho_com.Text == "") { txt_qc_deshecho_com.Text = "0"; }
+            if (txt_comp_deshecho_com.Text == "") { txt_comp_deshecho_com.Text = "0"; }
+            if (txt_num_frutos.Text == "") { txt_num_frutos.Text = "0"; }
+            if (txt_exportable_2.Text == "") { txt_exportable_2.Text = "0"; }
+            if (txt_comercial_5.Text == "") { txt_comercial_5.Text = "0"; }
+            if (txt_obser.Text == "") { txt_obser.Text = "0"; }
+
 
             string comando = "insert into CC_PAC_003 (Ctrl_id,Ctrl_CodProc,Ctrl_CodPlan,Ctrl_Lin,Ctrl_Usuario,Ctrl_Turno,Ctrl_Lote,Ctrl_FecHora,txt_precalibre,txt_trips,txt_adhesion,txt_deshid_frutos,txt_escama,txt_frudeformes,txt_deshid_ped,txt_blandos,txt_dobles,txt_guatablanca,txt_heri_abiertas,txt_machucon,txt_heri_cica,txt_manchas,txt_part_cica,txt_pitting,txt_medluna,txt_lagarto,txt_pudricion,txt_part_agua,txt_russet,txt_sutura,txt_pardas,txt_pajaro,txt_faltocolor,txt_ramaleo,txt_desgarros,txt_sierras,txt_defcalidad,txt_defcondicion,txt_qc_pudricion,txt_comp_pudricion,txt_qc_deshechos,txt_comp_deshechos,txt_qc_exportable,txt_comp_exportable,txt_qc_deshecho_com,txt_comp_deshecho_com,txt_num_frutos,txt_exportable_2,txt_comercial_5,txt_obser,productor,variedad,txt_pedicelo) values ('" + numeroctrl + "','" + CodProc + "','" + txt_cod_plan.Text + "','" + Linea + "','" + username + "','" + Turno + "','" + Lote + "','" + numeroctrl + "'," + txt_precalibre.Text + "," + txt_trips.Text + "," + txt_adhesion.Text + "," + txt_deshid_frutos.Text + "," + txt_escama.Text + "," + txt_frudeformes.Text + "," + txt_deshid_ped.Text + "," + txt_blandos.Text + "," + txt_dobles.Text + "," + txt_guatablanca.Text + "," + txt_heri_abiertas.Text + "," + txt_machucon.Text + "," + txt_heri_cica.Text + "," + txt_manchas.Text + "," + txt_part_cica.Text + "," + txt_pitting.Text + "," + txt_medluna.Text + "," + txt_lagarto.Text + "," + txt_pudricion.Text + "," + txt_part_agua.Text + "," + txt_russet.Text + "," + txt_sutura.Text + "," + txt_pardas.Text + "," + txt_pajaro.Text + "," + txt_faltocolor.Text + "," + txt_ramaleo.Text + "," + txt_desgarros.Text + "," + txt_sierras.Text + "," + txt_defcalidad.Text + "," + txt_defcondicion.Text + "," + txt_qc_pudricion.Text + "," + txt_comp_pudricion.Text + "," + txt_qc_deshechos.Text + "," + txt_comp_deshechos.Text + "," + txt_qc_exportable.Text + "," + txt_comp_exportable.Text + "," + txt_qc_deshecho_com.Text + "," + txt_comp_deshecho_com.Text + "," + txt_num_frutos.Text + "," + txt_exportable_2.Text + "," + txt_comercial_5.Text + ",'" + txt_obser.Text + "', '" + lbl_productor.Text + "', '" + Variedad + "', '" + txt_pedicelo.Text + "')";
             // con comillas

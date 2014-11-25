@@ -205,7 +205,7 @@
 
          </asp:Table>
 
-     <asp:TabContainer ID="TabContainer1" runat="server">
+     <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0">
 <asp:TabPanel runat="server" HeaderText="DEFECTOS" ID="TabPanel1"  Enabled ="true" >
     <ContentTemplate>
 
@@ -535,10 +535,10 @@
  </asp:TableRow>
           <asp:TableRow ID="TableRow9" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             <asp:TableCell>
-                <asp:Label ID="Label13" runat="server" Height="10">Solidos Solubles</asp:Label>
+                <asp:Label ID="lbl_opcion" runat="server" Height="10">Solidos Solubles</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:CheckBox ID="CheckSoluble" runat="server" />
+                <asp:CheckBox ID="CheckSoluble" runat="server" OnCheckedChanged="checkBox1_Click" AutoPostBack="true"/>
 
 	    </asp:TableCell>
             <asp:TableCell>
@@ -714,24 +714,19 @@
 
     </asp:TabContainer>
 
+         <asp:Table ID="Table4" runat="server" Width="732px" Height="50px" Font-Names="Century Gothic" Font-Size="X-Small" HorizontalAlign="Center">
+   
+         
+          <asp:TableRow ID="TableRow17" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="50">
 
-
-
-
-
-
-    <center><asp:Button ID="Siguiente1" runat="server" Text="Siguiente" Enabled="false" OnClick="Siguiente1_cick" />
-    <asp:Button ID="SiguienteFinal" runat="server" Text="Siguiente" Enabled="false" OnClick="Siguiente2_click" />
-    <asp:Button ID="Grabar" runat="server" Text="Guardar y Salir" Enabled="False" 
-            onclick="Grabar_Click" />
-           
-        <asp:Button ID="Limpiar" runat="server"
-        Text="Limpiar" onclick="btn_limpiar" Enabled="False" />
-        
-          
-        
-        </center>
-        <br />
+            <asp:TableCell>
+            <asp:Button ID="Grabar" runat="server" Text="Guardar y Salir" Enabled="False" onclick="Grabar_Click" Width="100" />
+            </asp:TableCell>
+            <asp:TableCell>
+            <asp:Button ID="Limpiar" runat="server" Text="Limpiar" onclick="btn_limpiar" Enabled="False" Width="100" />
+            </asp:TableCell>
+            </asp:TableRow>
+            </asp:Table>
 
  
 </asp:Content>
