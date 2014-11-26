@@ -26,6 +26,7 @@ namespace SisConPT.SisConPT
             {
                 connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
                 string PlantaNombre = Session["PlantaName"].ToString();
+                lbl_planta.Text = PlantaNombre;
                 string comando = "SELECT * FROM planta WHERE pladescri ='" + PlantaNombre + "'";
                 SqlConnection conexion = new SqlConnection(connStringmain.ToString());
                 conexion.Open();
@@ -52,9 +53,9 @@ namespace SisConPT.SisConPT
 
 
             TabPanel2.Enabled = true;
-            TabPanel3.Enabled = false;
+            TabPanel3.Enabled = true;
 
-            CheckSoluble.Visible = false;
+            //CheckSoluble.Visible = false;
 
             guardar_obs_bt.Visible = false;
             guardar_obs_bt.Enabled = false;
@@ -292,14 +293,14 @@ namespace SisConPT.SisConPT
                 con_existe_caja.Close();
             }
 
-            string cadena_consulta = "select convert(varchar(4),f1) as F1,convert(varchar(4),f2) as F2,convert(varchar(4),f3) as F3,convert(varchar(4),f4) as F4,convert(varchar(4),f5) as F5 from solidossolubles where nroproceso='" + NroProceso.Text + "' and nrolinea = '" + Linea.Text + "' and turno='" + Turno.Text + "'";
+            string cadena_consulta = "select convert(varchar(4),f1) as F1,convert(varchar(4),f2) as F2,convert(varchar(4),f3) as F3,convert(varchar(4),f4) as F4,convert(varchar(4),f5) as F5 from solidossolubles where codcaja='" + CodCaja.Text + "'";
             SqlCommand Comando_2 = new SqlCommand(cadena_consulta, con_existe_caja);
             SqlDataAdapter soluble = new SqlDataAdapter(Comando_2);
             DataSet ds_soluble = new DataSet();
             con_existe_caja.Open();
             soluble.Fill(ds_soluble);
             con_existe_caja.Close();
-            
+
             if (ds_soluble.Tables[0].Rows.Count.ToString() == "0")
             {
 
@@ -308,11 +309,11 @@ namespace SisConPT.SisConPT
                 txt_f3.Enabled = true;
                 txt_f4.Enabled = true;
                 txt_f5.Enabled = true;
-                CheckSoluble.Enabled = true;
-                CheckSoluble.Visible = true;
-                lbl_opcion.Visible = true;
-                Button1.Visible = true;
-                Button1.Enabled = true;
+                //CheckSoluble.Enabled = true;
+                //CheckSoluble.Visible = true;
+                //lbl_opcion.Visible = true;
+                //Button1.Visible = true;
+                //Button1.Enabled = true;
 
             }
             else
@@ -325,17 +326,17 @@ namespace SisConPT.SisConPT
                     txt_f2.Text = reader.GetString(1);
                     txt_f3.Text = reader.GetString(2);
                     txt_f4.Text = reader.GetString(3);
-                    txt_f5.Text = reader.GetString(4); 
+                    txt_f5.Text = reader.GetString(4);
                     txt_f1.Enabled = false;
                     txt_f2.Enabled = false;
                     txt_f3.Enabled = false;
                     txt_f4.Enabled = false;
                     txt_f5.Enabled = false;
-                    TabPanel3.Enabled = true;
-                    CheckSoluble.Visible = false;
-                    lbl_opcion.Visible = false;
-                    Button1.Visible = false;
-                    Button1.Enabled = false; 
+                    //TabPanel3.Enabled = true;
+                    //CheckSoluble.Visible = false;
+                    //lbl_opcion.Visible = false;
+                    //Button1.Visible = false;
+                    //Button1.Enabled = false;
 
                 }
                 con_existe_caja.Close();
@@ -395,6 +396,14 @@ namespace SisConPT.SisConPT
             if (txtpartiduracicatrizada.Text == "") { txtpartiduracicatrizada.Text = "0"; }
             if (txtpiellagarto.Text == "") { txtpiellagarto.Text = "0"; }
             if (txtpitting.Text == "") { txtpitting.Text = "0"; }
+            if (txt_cajasvaciadas.Text == "") { txt_cajasvaciadas.Text = "0"; }
+            if (txt_peso_neto.Text == "") { txt_peso_neto.Text = "0"; }
+            if (txt_f1.Text == "") { txt_f1.Text = "0"; }
+            if (txt_f2.Text == "") { txt_f2.Text = "0"; }
+            if (txt_f3.Text == "") { txt_f3.Text = "0"; }
+            if (txt_f4.Text == "") { txt_f4.Text = "0"; }
+            if (txt_f5.Text == "") { txt_f5.Text = "0"; }
+            if (TextBox1obs.Text == "") { TextBox1obs.Text = "0"; }
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
@@ -412,10 +421,11 @@ namespace SisConPT.SisConPT
                 conexion.Close();
                 if (ds_proc.Tables[0].Rows.Count.ToString() == "0")
                 {
-                    conexion.Open();
+                    
                     string comando = "INSERT INTO controlpt (cptnumero,placodigo,turcodigo,cptfechor,usurutusu,lincodigo,cptproces,cptnulote,cptrutprr,cptnompre,cptrutpet,cptnompet,cptespcod,cptespdes,cptvarcod,cptvardes,cptcalibr,cptmarcod,cptmardes,cptembcod,cptembdes,cptenvcod,cptenvdes,cptpesone,cptsalida,cptcodcja,cptclasificacion,cptdestino,cptcajasvaciadas) VALUES ('" + numeroctrl + "','" + CodPta.Text + "','" + Turno.Text + "','" + fecha + "','" + username + "','" + Linea.Text + "','" + NroProceso.Text + "','" + Lote.Text + "','" + ProdReal.Text + "','" + ProdRealtxt.Text + "','" + ProdEtiq.Text + "','" + ProdEtiqtxt.Text + "','" + especieid.Text + "','" + especietext.Text + "','" + Variedad.Text + "','" + VariedadText.Text + "','" + Calibre.Text + "','" + Marca.Text + "','" + MarcaTxt.Text + "','" + Embalaje.Text + "','" + Embalajetx.Text + "','" + Envase.Text + "','" + Envasetxt.Text + "','" + Peso.Text + "'," + Salida.Text + ",'" + CodCaja.Text + "','" + txt_calisificacion.Text + "','" + txt_destino.Text + "'," + txt_cajasvaciadas.Text + ")";
                    string comando1 = "INSERT INTO defecto (cptnumero,defcalbaj,defcalnor,defcalsob,defprecal,defdanotr,defescama,deffrutode,deffrutodo,defguatab,defherida,defmancha,defmedial,defpiella,defrusset,defsutura,deffaltoc,deframole,defsinped,defadhesi,defdesfru,defdesped,defblando,defherabi,defmachuc,defpartid,defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie,observac,pesoneto) VALUES ('" + numeroctrl + "','" + txtbajo.Text + "','" + txtcalibreok.Text + "','" + txtsobre.Text + "','" + txtprecalibre.Text + "','" + txtdanotrip.Text + "','" + txtescama.Text + "','" + txtfrutosdeformes.Text + "','" + txtfrutosdobles.Text + "','" + txtguatablanca.Text + "','" + txtherida.Text + "','" + txtmanchas.Text + "','" + txtmedialuna.Text + "','" + txtpiellagarto.Text + "','" + txtrusset.Text + "','" + txtsutura.Text + "','" + txtfaltocolor.Text + "','" + txtramaleo.Text + "','" + txtsinpedicelo.Text + "','" + txtadhesion.Text + "','" + txtdeshid.Text + "','" + txtdeshidpedi.Text + "','" + txtblandos.Text + "','" + txtheridasabiertas.Text + "','" + txtmachucon.Text + "','" + txtpartiduras.Text + "','" + txtpartidurasagua.Text + "','" + txtpartiduracicatrizada.Text + "','" + txtpitting.Text + "','" + txtpudricion.Text + "','" + txtmanchaspardas.Text + "','" + txtdanopajaro.Text + "','" + txtdesgarro.Text + "','" + txtcortesierra.Text + "','" + TextBox1obs.Text + "','" +txt_peso_neto.Text+"')";
-            
+                   string comando_soluble = "insert into solidossolubles (cptnumero,nroproceso,codcaja,nrolote,turno,usuario,calibresoluble,f1,f2,f3,f4,f5, nrolinea) values ('" + numeroctrl + "','" + NroProceso.Text + "','" + CodCaja.Text + "','" + Lote.Text + "','" + Turno.Text + "','" + username + "','" + lbl_calibre.Text + "', " + txt_f1.Text + "," + txt_f2.Text + "," + txt_f3.Text + "," + txt_f4.Text + "," + txt_f5.Text + ",'" + Linea.Text + "')";
+                   conexion.Open();
                     using (SqlCommand sql = new SqlCommand(comando, conexion))
                     {
                         sql.ExecuteNonQuery();
@@ -429,8 +439,16 @@ namespace SisConPT.SisConPT
                         conexion.Close();
                         
                     }
-                    string error = "Registro guardado OK";
-                    Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+
+                    conexion.Open();
+                    using (SqlCommand sql = new SqlCommand(comando_soluble, conexion))
+                    {
+
+                        sql.ExecuteNonQuery();
+                        conexion.Close();
+
+                    }
+
 
                     CodCaja.Text = "";
                     Turno.Text = "";
@@ -456,45 +474,49 @@ namespace SisConPT.SisConPT
                     ProdEtiqtxt.Text = "";
                     TextBox1obs.Text = "";
                     txt_peso_neto.Text = "";
-                    txtbajo.Text = "0";
-                    txtprecalibre.Text = "0";
-                    txtrusset.Text = "0";
-                    txtadhesion.Text = "0";
-                    txtpudricion.Text = "0";
-                    txtcalibreok.Text = "0";
-                    txtdanotrip.Text = "0";
-                    txtsutura.Text = "0";
-                    txtdeshid.Text = "0";
-                    txtmanchaspardas.Text = "0";
-                    txtsobre.Text = "0";
-                    txtescama.Text = "0";
-                    txtfaltocolor.Text = "0";
-                    txtdeshidpedi.Text = "0";
-                    txtdanopajaro.Text = "0";
-                    txtfrutosdeformes.Text = "0";
-                    txtramaleo.Text = "0";
-                    txtblandos.Text = "0";
-                    txtdesgarro.Text = "0";
-                    txtfrutosdobles.Text = "0";
-                    txtsinpedicelo.Text = "0";
-                    txtheridasabiertas.Text = "0";
-                    txtcortesierra.Text = "0";
-                    txtguatablanca.Text = "0";
-                    txtmachucon.Text = "0";
-                    txtherida.Text = "0";
-                    txtpartiduras.Text = "0";
-                    txtmanchas.Text = "0";
-                    txtpartidurasagua.Text = "0";
-                    txtmedialuna.Text = "0";
-                    txtpartiduracicatrizada.Text = "0";
-                    txtpiellagarto.Text = "0";
-                    txtpitting.Text = "0";
-                    txt_f1.Text = "0";
-                    txt_f2.Text = "0";
-                    txt_f3.Text = "0";
-                    txt_f4.Text = "0";
-                    txt_f5.Text = "0";
+                    txtbajo.Text = "";
+                    txtprecalibre.Text = "";
+                    txtrusset.Text = "";
+                    txtadhesion.Text = "";
+                    txtpudricion.Text = "";
+                    txtcalibreok.Text = "";
+                    txtdanotrip.Text = "";
+                    txtsutura.Text = "";
+                    txtdeshid.Text = "";
+                    txtmanchaspardas.Text = "";
+                    txtsobre.Text = "";
+                    txtescama.Text = "";
+                    txtfaltocolor.Text = "";
+                    txtdeshidpedi.Text = "";
+                    txtdanopajaro.Text = "";
+                    txtfrutosdeformes.Text = "";
+                    txtramaleo.Text = "";
+                    txtblandos.Text = "";
+                    txtdesgarro.Text = "";
+                    txtfrutosdobles.Text = "";
+                    txtsinpedicelo.Text = "";
+                    txtheridasabiertas.Text = "";
+                    txtcortesierra.Text = "";
+                    txtguatablanca.Text = "";
+                    txtmachucon.Text = "";
+                    txtherida.Text = "";
+                    txtpartiduras.Text = "";
+                    txtmanchas.Text = "";
+                    txtpartidurasagua.Text = "";
+                    txtmedialuna.Text = "";
+                    txtpartiduracicatrizada.Text = "";
+                    txtpiellagarto.Text = "";
+                    txtpitting.Text = "";
+                    txt_f1.Text = "";
+                    txt_f2.Text = "";
+                    txt_f3.Text = "";
+                    txt_f4.Text = "";
+                    txt_f5.Text = "";
                     CodCaja.Focus();
+
+
+
+
 
 
                 }
@@ -506,99 +528,109 @@ namespace SisConPT.SisConPT
 
 
             }
-            catch { }
+            catch {
 
-           
+            }
+
+            //Button1.Enabled = false;
+            //Button1.Visible = false;
+            Grabar.Enabled = true;
+            Grabar.Visible = true;
+            Limpiar.Enabled = true;
+            TabPanel2.Enabled = true;
+            TabPanel3.Enabled = true;
+            //CheckSoluble.Visible = false;
+            //lbl_opcion.Visible = false;
+            TabContainer1.ActiveTab = TabPanel1;
+
             Response.Redirect("~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx");
                         
         }
 
-        protected void Grabar_soluble(object sender, EventArgs e)
-        {
+        //protected void Grabar_soluble(object sender, EventArgs e)
+        //{
              
-            string numeroctrl = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
-          
+        //    string numeroctrl = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
+        //    string username = HttpContext.Current.User.Identity.Name;
+        //    if (txt_f1.Text == "") { txt_f1.Text = "0"; }
+        //    if (txt_f2.Text == "") { txt_f2.Text = "0"; }
+        //    if (txt_f3.Text == "") { txt_f3.Text = "0"; }
+        //    if (txt_f4.Text == "") { txt_f4.Text = "0"; }
+        //    if (txt_f5.Text == "") { txt_f5.Text = "0"; }
 
-            string username = HttpContext.Current.User.Identity.Name;
-            if (txt_f1.Text == "") { txt_f1.Text = "0"; }
-            if (txt_f2.Text == "") { txt_f2.Text = "0"; }
-            if (txt_f3.Text == "") { txt_f3.Text = "0"; }
-            if (txt_f4.Text == "") { txt_f4.Text = "0"; }
-            if (txt_f5.Text == "") { txt_f5.Text = "0"; }
+        //    string comando = "insert into solidossolubles (cptnumero,nroproceso,codcaja,nrolote,turno,usuario,calibresoluble,f1,f2,f3,f4,f5, nrolinea) values ('" + numeroctrl + "','" + NroProceso.Text + "','" + CodCaja.Text + "','" + Lote.Text + "','" + Turno.Text + "','" + username + "','" + lbl_calibre.Text + "', " + txt_f1.Text + "," + txt_f2.Text + "," + txt_f3.Text + "," + txt_f4.Text + "," + txt_f5.Text + ",'" + Linea.Text + "')";
+        //    System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
+        //    System.Configuration.ConnectionStringSettings connStringmain;
+        //    connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+        //    SqlConnection conexion = new SqlConnection(connStringmain.ToString());
+        //    conexion.Open();
+        //    SqlCommand cmd_proc = new SqlCommand("select nroproceso from solidossolubles where nroproceso='" + NroProceso.Text + "' and nrolinea = '" + Linea.Text + "' and turno='" + Turno.Text + "'", conexion);
+        //    SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
+        //    DataSet ds_proc = new DataSet();
+        //   try
+        //   {
+        //        sda_proc.Fill(ds_proc);
+        //        conexion.Close();
+        //        if (ds_proc.Tables[0].Rows.Count.ToString() == "0")
+        //        {
+        //            conexion.Open();
+        //            using (SqlCommand sql = new SqlCommand(comando, conexion))
+        //            {
 
-            string comando = "insert into solidossolubles (cptnumero,nroproceso,codcaja,nrolote,turno,usuario,calibresoluble,f1,f2,f3,f4,f5, nrolinea) values ('" + numeroctrl + "','" + NroProceso.Text + "','" + CodCaja.Text + "','" + Lote.Text + "','" + Turno.Text + "','" + username + "','" + lbl_calibre.Text + "', " + txt_f1.Text + "," + txt_f2.Text + "," + txt_f3.Text + "," + txt_f4.Text + "," + txt_f5.Text + ",'" + Linea.Text + "')";
-            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
-            System.Configuration.ConnectionStringSettings connStringmain;
-            connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
-            SqlConnection conexion = new SqlConnection(connStringmain.ToString());
-            conexion.Open();
-            SqlCommand cmd_proc = new SqlCommand("select nroproceso from solidossolubles where nroproceso='" + NroProceso.Text + "' and nrolinea = '" + Linea.Text + "' and turno='" + Turno.Text + "'", conexion);
-            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
-            DataSet ds_proc = new DataSet();
-           try
-           {
-                sda_proc.Fill(ds_proc);
-                conexion.Close();
-                if (ds_proc.Tables[0].Rows.Count.ToString() == "0")
-                {
-                    conexion.Open();
-                    using (SqlCommand sql = new SqlCommand(comando, conexion))
-                    {
+        //                sql.ExecuteNonQuery();
+        //                conexion.Close();
 
-                        sql.ExecuteNonQuery();
-                        conexion.Close();
+        //            }
 
-                    }
+        //            Button1.Enabled = false;
+        //            Button1.Visible = false;
+        //            Grabar.Enabled = true;
+        //            Grabar.Visible = true;
+        //            Limpiar.Enabled = true;
+        //            TabPanel2.Enabled = true;
+        //            TabPanel3.Enabled = true;
+        //            //CheckSoluble.Visible = false;
+        //            lbl_opcion.Visible = false;
+        //            txt_f1.Enabled = false;
+        //            txt_f2.Enabled = false;
+        //            txt_f3.Enabled = false;
+        //            txt_f4.Enabled = false;
+        //            txt_f5.Enabled = false;
+        //            TabContainer1.ActiveTab = TabPanel1;
 
-                    Button1.Enabled = false;
-                    Button1.Visible = false;
-                    Grabar.Enabled = true;
-                    Grabar.Visible = true;
-                    Limpiar.Enabled = true;
-                    TabPanel2.Enabled = true;
-                    TabPanel3.Enabled = true;
-                    CheckSoluble.Visible = false;
-                    lbl_opcion.Visible = false;
-                    txt_f1.Enabled = false;
-                    txt_f2.Enabled = false;
-                    txt_f3.Enabled = false;
-                    txt_f4.Enabled = false;
-                    txt_f5.Enabled = false;
-                    TabContainer1.ActiveTab = TabPanel1;
+        //        }
+        //        else
+        //        {
+        //            string error = "Registro ya existente..";
+        //            Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+        //        }
 
-                }
-                else
-                {
-                    string error = "Registro ya existente..";
-                    Response.Write("<script language=javascript > alert('" + error + "'); </script>");
-                }
-
-            }
-            catch { }
+        //    }
+        //    catch { }
                  
-        }
+        //}
 
-        protected void checkBox1_Click(object sender, System.EventArgs e)
-        {
+        //protected void checkBox1_Click(object sender, System.EventArgs e)
+        //{
 
-            if (CheckSoluble.Checked == true)
-            {
-                TabPanel3.Enabled = true;
-                TabPanel3.Visible = true;
-                Button1.Visible = true;
-                Button1.Enabled = true;
-                CheckSoluble.Visible = true;
-                CheckSoluble.Enabled = true;
-                CheckSoluble.Checked = true;
-            }
-            else
-            {
-                TabPanel3.Enabled = false;
-                CheckSoluble.Visible = true;
-                CheckSoluble.Enabled = true;
-                CheckSoluble.Checked = false;
-            }
-        }
+        //    if (CheckSoluble.Checked == true)
+        //    {
+        //        TabPanel3.Enabled = true;
+        //        TabPanel3.Visible = true;
+        //        Button1.Visible = true;
+        //        Button1.Enabled = true;
+        //        CheckSoluble.Visible = true;
+        //        CheckSoluble.Enabled = true;
+        //        CheckSoluble.Checked = true;
+        //    }
+        //    else
+        //    {
+        //        TabPanel3.Enabled = false;
+        //        CheckSoluble.Visible = true;
+        //        CheckSoluble.Enabled = true;
+        //        CheckSoluble.Checked = false;
+        //    }
+        //}
 
         private void Limpiar_Click()
     {
@@ -625,44 +657,47 @@ namespace SisConPT.SisConPT
             ProdEtiq.Text = "";
             ProdEtiqtxt.Text = "";
             TextBox1obs.Text = "";
-            txtbajo.Text = "0";
-            txtprecalibre.Text = "0";
-            txtrusset.Text = "0";
-            txtadhesion.Text = "0";
-            txtpudricion.Text = "0";
-            txtcalibreok.Text = "0";
-            txtdanotrip.Text = "0";
-            txtsutura.Text = "0";
-            txtdeshid.Text = "0";
-            txtmanchaspardas.Text = "0";
-            txtsobre.Text = "0";
-            txtescama.Text = "0";
-            txtfaltocolor.Text = "0";
-            txtdeshidpedi.Text = "0";
-            txtdanopajaro.Text = "0";
-            txtfrutosdeformes.Text = "0";
-            txtramaleo.Text = "0";
-            txtblandos.Text = "0";
-            txtdesgarro.Text = "0";
-            txtfrutosdobles.Text = "0";
-            txtsinpedicelo.Text = "0";
-            txtheridasabiertas.Text = "0";
-            txtcortesierra.Text = "0";
-            txtguatablanca.Text = "0";
-            txtmachucon.Text = "0";
-            txtherida.Text = "0";
-            txtpartiduras.Text = "0";
-            txtmanchas.Text = "0";
-            txtpartidurasagua.Text = "0";
-            txtmedialuna.Text = "0";
-            txtpartiduracicatrizada.Text = "0";
-            txtpiellagarto.Text = "0";
-            txtpitting.Text = "0";
-            txt_f1.Text = "0";
-            txt_f2.Text = "0";
-            txt_f3.Text = "0";
-            txt_f4.Text = "0";
-            txt_f5.Text = "0";
+            txtbajo.Text = "";
+            txtprecalibre.Text = "";
+            txtrusset.Text = "";
+            txtadhesion.Text = "";
+            txtpudricion.Text = "";
+            txtcalibreok.Text = "";
+            txtdanotrip.Text = "";
+            txtsutura.Text = "";
+            txtdeshid.Text = "";
+            txtmanchaspardas.Text = "";
+            txtsobre.Text = "";
+            txtescama.Text = "";
+            txtfaltocolor.Text = "";
+            txtdeshidpedi.Text = "";
+            txtdanopajaro.Text = "";
+            txtfrutosdeformes.Text = "";
+            txtramaleo.Text = "";
+            txtblandos.Text = "";
+            txtdesgarro.Text = "";
+            txtfrutosdobles.Text = "";
+            txtsinpedicelo.Text = "";
+            txtheridasabiertas.Text = "";
+            txtcortesierra.Text = "";
+            txtguatablanca.Text = "";
+            txtmachucon.Text = "";
+            txtherida.Text = "";
+            txtpartiduras.Text = "";
+            txtmanchas.Text = "";
+            txtpartidurasagua.Text = "";
+            txtmedialuna.Text = "";
+            txtpartiduracicatrizada.Text = "";
+            txtpiellagarto.Text = "";
+            txtpitting.Text = "";
+            txt_cajasvaciadas.Text = "";
+            txt_destino.Text = "";
+            txt_calisificacion.Text = "";
+            txt_f1.Text = "";
+            txt_f2.Text = "";
+            txt_f3.Text = "";
+            txt_f4.Text = "";
+            txt_f5.Text = "";
             CodCaja.Focus();
             ButtonBuscar.Enabled = true;
             CodCaja.Enabled = true;
