@@ -446,7 +446,8 @@ namespace SisConPT.SisConPT
 
                         sql.ExecuteNonQuery();
                         conexion.Close();
-
+                        string error = "Guardado ok";
+                        Response.Write("<script language=javascript > alert('" + error + "'); </script>");
                     }
 
 

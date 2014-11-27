@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+
 
 
 namespace SisConPT.SisConPT
@@ -95,13 +97,6 @@ namespace SisConPT.SisConPT
 
         protected void turno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string turno = Convert.ToString(drop_turno_d.SelectedValue);
-            //int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
-            //string fecha_inicio = txt_fechainicio.Text.Replace("/", "-");
-            //string fecha_fin = txt_fechafin.Text.Replace("/", "-");
-
-           // GvProcesos_Llenar(turno, linea_2, fecha_inicio, fecha_fin);
-
 
 
         }
@@ -114,15 +109,22 @@ namespace SisConPT.SisConPT
 
         protected void Procesos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            string id = Convert.ToString(gvProcesos.DataKeys[e.NewSelectedIndex].Value);
+            GridViewRow row = gvProcesos.Rows[e.NewSelectedIndex];
 
+            string proceso = row.Cells[1].Text;
+            string lote = row.Cells[2].Text;
+            string destino = row.Cells[3].Text;
+            string turno = Convert.ToString(drop_turno_d.SelectedValue);
+            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
 
 
             InitializeEditPopUp();
-            PopUpDetalle(id);
+            PopUpDetalle(proceso, lote, destino);
+            gv_solubles(proceso, lote, turno, linea_2);
 
             mpeEditOrder.Show();
         }
+
 
         protected void Procesos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -133,8 +135,8 @@ namespace SisConPT.SisConPT
             //GvProcesos_Llenar();
 
         }
-        
-        private void PopUpDetalle(string id)
+
+        private void PopUpDetalle(string proceso, string lote, string destino)
         {
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -149,56 +151,58 @@ namespace SisConPT.SisConPT
             string inicio = txt_fechainicio.Text;
             string fin = txt_fechafin.Text;
             int planta = Convert.ToInt32(txt_cod_plan.Text);
-            SqlCommand cmd_proc = new SqlCommand("resumen_005_detalle '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + ",'" + id + "'", con);
+
+            if (destino == "&nbsp;") { destino = ""; }
+           // SqlCommand cmd_proc = new SqlCommand("resumen_005_detalle '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + ",'" + id + "'", con);
+            string cadena_consulta = "[resumen_005_prueba] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
+            SqlCommand cmd_proc = new SqlCommand(cadena_consulta, con);
             try
             {
 
             using (SqlDataReader reader = cmd_proc.ExecuteReader())
             {
                 reader.Read();
-                NroProceso.Text  = reader.GetString(1);
-                ProdReal.Text  = reader.GetString(2);
-                Lote.Text  = reader.GetString(3);
+                NroProceso.Text = reader.GetString(0);
+                ProdReal.Text = reader.GetString(1);
+                Lote.Text = reader.GetString(2);
 
 
-                txtprecalibre.Text  = reader.GetString(6);
-                txtdanotrip.Text  = reader.GetString(7);
-                txtescama.Text  = reader.GetString(8);
-                txtfrutosdeformes.Text  = reader.GetString(9);
-                txtfrutosdobles.Text  = reader.GetString(10);
-                txtguatablanca.Text  = reader.GetString(11);
-                txtherida.Text  = reader.GetString(12);
-                txtmanchas.Text  = reader.GetString(13);
-                txtmedialuna.Text  = reader.GetString(14);
-                txtpiellagarto.Text  = reader.GetString(15);
-                txtrusset.Text  = reader.GetString(16);
-                txtsutura.Text  = reader.GetString(17);
-                txtfaltocolor.Text  = reader.GetString(18);
-                txtramaleo.Text  = reader.GetString(19);
-                txtsinpedicelo.Text  = reader.GetString(20);
-                txtadhesion.Text  = reader.GetString(21);
-                txtdeshid.Text  = reader.GetString(22);
-                txtdeshidpedi.Text  = reader.GetString(23);
-                txtblandos.Text  = reader.GetString(24);
-                txtheridasabiertas.Text  = reader.GetString(25);
-                txtmachucon.Text  = reader.GetString(26);
-                txtpartiduras.Text  = reader.GetString(27);
-                txtpartidurasagua.Text  = reader.GetString(28);
-                txtpartiduracicatrizada.Text  = reader.GetString(29);
-                txtpitting.Text  = reader.GetString(30);
-                txtpudricion.Text  = reader.GetString(31);
-                txtmanchaspardas.Text  = reader.GetString(32);
-                txtdanopajaro.Text  = reader.GetString(33);
-                txtdesgarro.Text  = reader.GetString(34);
-                txtcortesierra.Text  = reader.GetString(35);
-                txt_soluble.Text = "--";
+                txtprecalibre.Text = reader.GetString(5);
+                txtdanotrip.Text = reader.GetString(6);
+                txtescama.Text = reader.GetString(7);
+                txtfrutosdeformes.Text = reader.GetString(8);
+                txtfrutosdobles.Text = reader.GetString(9);
+                txtguatablanca.Text = reader.GetString(10);
+                txtherida.Text = reader.GetString(11);
+                txtmanchas.Text = reader.GetString(12);
+                txtmedialuna.Text = reader.GetString(13);
+                txtpiellagarto.Text = reader.GetString(14);
+                txtrusset.Text = reader.GetString(15);
+                txtsutura.Text = reader.GetString(16);
+                txtfaltocolor.Text = reader.GetString(17);
+                txtramaleo.Text = reader.GetString(18);
+                txtsinpedicelo.Text = reader.GetString(19);
+                txtadhesion.Text = reader.GetString(20);
+                txtdeshid.Text = reader.GetString(21);
+                txtdeshidpedi.Text = reader.GetString(22);
+                txtblandos.Text = reader.GetString(23);
+                txtheridasabiertas.Text = reader.GetString(24);
+                txtmachucon.Text = reader.GetString(25);
+                txtpartiduras.Text = reader.GetString(26);
+                txtpartidurasagua.Text = reader.GetString(27);
+                txtpartiduracicatrizada.Text = reader.GetString(28);
+                txtpitting.Text = reader.GetString(29);
+                txtpudricion.Text = reader.GetString(30);
+                txtmanchaspardas.Text = reader.GetString(31);
+                txtdanopajaro.Text = reader.GetString(32);
+                txtdesgarro.Text = reader.GetString(33);
+                txtcortesierra.Text = reader.GetString(34);
                 txtVariedad.Text = "--";
-                txt_tipo_sol.Text = "--";
-                txt_clasi.Text  = reader.GetString(37);
-                txt_destino.Text  = reader.GetString(38);
+                txt_clasi.Text  = reader.GetString(36);
+                txt_destino.Text  = reader.GetString(37);
                 txt_vaciadas.Text  = reader.GetString(39);
 
-
+         
             }
 
             con.Close();
@@ -307,7 +311,7 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             int planta = Convert.ToInt32(txt_cod_plan.Text);
-            string comando_cadena = "resumen_005 '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "";
+            string comando_cadena = "[resumen_005_prueba] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a;";
 
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
@@ -316,7 +320,7 @@ namespace SisConPT.SisConPT
             sda_proc.Fill(ds_proc);
             gvProcesos.DataSource = ds_proc;
             gvProcesos.DataBind();
-            
+
 
             con.Close();
 
@@ -326,7 +330,38 @@ namespace SisConPT.SisConPT
                 this.Page.Response.Write("<script language='JavaScript'>window.alert('" + e + "');</script>");
             }
         }
-        
+
+        private void gv_solubles(string proceso, string lote, string turno, string linea_2)
+        {
+
+            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
+            System.Configuration.ConnectionStringSettings connStringmain;
+            connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+            string PlantaNombre = Session["PlantaName"].ToString();
+            SqlConnection con = new SqlConnection(connStringmain.ToString());
+            con.Open();
+
+            string comando_cadena = "select codcaja, calibresoluble,convert(varchar (255),f1) as f1,convert(varchar (255),f2) as f2,convert(varchar (255),f3) as f3,convert(varchar (255),f4) as f4,convert(varchar (255),f5) as f5, convert(varchar(255),(CONVERT(decimal(18, 2),(f1+f2+f3+f4+f5)/5.0))) as promedio from solidossolubles where nroproceso=" + proceso + " and nrolote=" + lote + " and turno='" + turno + "' and nrolinea=" + linea_2 + "";
+
+            SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
+            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
+            DataSet ds_proc = new DataSet();
+            try
+            {
+                sda_proc.Fill(ds_proc);
+                gv_solubles_datos.DataSource = ds_proc;
+                gv_solubles_datos.DataBind();
+
+
+                con.Close();
+
+            }
+            catch (Exception e)
+            {
+                this.Page.Response.Write("<script language='JavaScript'>window.alert('" + e + "');</script>");
+            }
+        }
+
         protected void Exportar_click(object sender, EventArgs e)
         {
             string turno = Convert.ToString(drop_turno_d.SelectedValue);
@@ -342,7 +377,7 @@ namespace SisConPT.SisConPT
             string fin = txt_fechafin.Text;
 
 
-            string sql = "resumen_005 '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "";
+            string sql = "[resumen_005_prueba] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a;";
 
             SqlCommand command = new SqlCommand(sql, con);
             con.Open();
