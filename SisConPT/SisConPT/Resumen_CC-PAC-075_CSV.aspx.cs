@@ -71,14 +71,23 @@ namespace SisConPT.SisConPT
 
         }
     
-            protected void Exportar_click(object sender, EventArgs e)
+        protected void Exportar_click(object sender, EventArgs e)
         {
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
             connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
             string PlantaNombre = Session["PlantaName"].ToString();
             SqlConnection con = new SqlConnection(connStringmain.ToString());
-            string sql = "select Ctrl_id as [ID],Ctrl_CodProc as [PROCESO],Ctrl_CodPlan as [PLANTA],Ctrl_Lin as [LINEA],Ctrl_Usuario as [USUARIO],Ctrl_Turno as [TURNO],Ctrl_Lote as [LOTE],Ctrl_RefAjuste as [REFERENCIA AJUSTE],Ctrl_CAT as [TIPO CAT],Ctrl_CAT_valor as [% CAT],Ctrl_desacrte as [% EXPORTABLE DESCARTE MANUAL],Ctrl_global_valor as [GLOBAL VALOR],Ctrl_global_porc as [GLOBAL %],Ctrl_global_prueba as [GLOBAL % EXP],Ctrl_puntual_valor as [PUNTUAL VALOR],Ctrl_puntual_porc as [PUNTUAL %],Ctrl_puntual_prueba as [PUNTUAL % EXP],Ctrl_externo_valor as [EXTERNO VALOR],Ctrl_externo_porc as [EXTERNO %],Ctrl_externo_prueba as [EXTERNO % EXP],Ctrl_ptonegro_valor as [PUNTO NEGRO VALOR],Ctrl_ptonegro_porc as [PUNTO NEGRO %],Ctrl_ptonegro_prueba as [PUNTO NEGRO % EXP],Ctrl_ptomarron_valor as [PUNTO MARRON VALOR],Ctrl_ptomarron_porc as [PUNTO MARRON %],Ctrl_ptomarron_prueba as [PUNTO MARRON % EXP],Ctrl_marchablanca_valor as [MANCHABLANCA VALOR],Ctrl_marchablanca_porc as [MANCHA BLANCA %],Ctrl_marchablanca_prueba as [MANCHA BLANCA % EXP],Ctrl_KilosLote as [KILOS LOTE],Ctrl_NumTotes as [NUMERO TOTES],Ctrl_PorcExp as [% EXP],Ctrl_FecHora as [FECHA / HORA] FROM CC_PAC_075 WHERE Ctrl_CodPlan ='" + lbl_codpla.Text + "'";
+            string sql = "select Ctrl_id as [ID],Ctrl_CodProc as [PROCESO],Ctrl_CodPlan as [PLANTA],Ctrl_Lin as [LINEA],Ctrl_Usuario as [USUARIO]," +
+                " Ctrl_Turno as [TURNO],Ctrl_Lote as [LOTE],Ctrl_RefAjuste as [REFERENCIA AJUSTE],Ctrl_CAT as [TIPO CAT],Ctrl_CAT_valor as [% CAT]," +
+                " Ctrl_desacrte as [% EXPORTABLE DESCARTE MANUAL],Ctrl_global_valor as [GLOBAL VALOR],Ctrl_global_porc as [GLOBAL %]," +
+                " Ctrl_global_prueba as [GLOBAL % EXP],Ctrl_puntual_valor as [PUNTUAL VALOR],Ctrl_puntual_porc as [PUNTUAL %]," +
+                " Ctrl_puntual_prueba as [PUNTUAL % EXP],Ctrl_externo_valor as [EXTERNO VALOR],Ctrl_externo_porc as [EXTERNO %]," +
+                " Ctrl_externo_prueba as [EXTERNO % EXP],Ctrl_ptonegro_valor as [PUNTO NEGRO VALOR],Ctrl_ptonegro_porc as [PUNTO NEGRO %]," +
+                " Ctrl_ptonegro_prueba as [PUNTO NEGRO % EXP],Ctrl_ptomarron_valor as [PUNTO MARRON VALOR],Ctrl_ptomarron_porc as [PUNTO MARRON %]," +
+                " Ctrl_ptomarron_prueba as [PUNTO MARRON % EXP],Ctrl_marchablanca_valor as [MANCHABLANCA VALOR],Ctrl_marchablanca_porc as [MANCHA BLANCA %]," +
+                " Ctrl_marchablanca_prueba as [MANCHA BLANCA % EXP],Ctrl_KilosLote as [KILOS LOTE],Ctrl_NumTotes as [NUMERO TOTES],Ctrl_PorcExp as [% EXP]," +
+                " Ctrl_FecHora as [FECHA / HORA] FROM CC_PAC_075 WHERE Ctrl_CodPlan ='" + lbl_codpla.Text + "'";
             SqlCommand command = new SqlCommand(sql, con);
             con.Open();
             SqlDataAdapter da = new SqlDataAdapter(command);

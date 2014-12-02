@@ -20,9 +20,6 @@ namespace SisConPT.SisConPT
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //txt_fechafin.Text = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
-            //txt_fechainicio.Text = "2011-01-01T00:00:00.0000000000";
-
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
             System.Configuration.ConnectionStringSettings connStringLM;
@@ -81,10 +78,7 @@ namespace SisConPT.SisConPT
 
             }
 
-
-           
-
-                  
+                 
         }
 
         protected void linea_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,15 +119,10 @@ namespace SisConPT.SisConPT
             mpeEditOrder.Show();
         }
 
-
         protected void Procesos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvProcesos.PageIndex = e.NewPageIndex;
             int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
-
-           // GvProcesos_Llenar( linea_2);
-            //GvProcesos_Llenar();
-
         }
 
         private void PopUpDetalle(string proceso, string lote, string destino)
@@ -153,8 +142,8 @@ namespace SisConPT.SisConPT
             int planta = Convert.ToInt32(txt_cod_plan.Text);
 
             if (destino == "&nbsp;") { destino = ""; }
-           // SqlCommand cmd_proc = new SqlCommand("resumen_005_detalle '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + ",'" + id + "'", con);
-            string cadena_consulta = "[resumen_005_prueba] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
+            string cadena_consulta = "[resumen_005_prueba] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; " +
+            " select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
             SqlCommand cmd_proc = new SqlCommand(cadena_consulta, con);
             try
             {
@@ -162,10 +151,9 @@ namespace SisConPT.SisConPT
             using (SqlDataReader reader = cmd_proc.ExecuteReader())
             {
                 reader.Read();
-                NroProceso.Text = reader.GetString(0);
-                ProdReal.Text = reader.GetString(1);
-                Lote.Text = reader.GetString(2);
-
+                lbl_proceso.Text = reader.GetString(0);
+                lbl_productor.Text = reader.GetString(1);
+                lbl_lote.Text = reader.GetString(2);
 
                 txtprecalibre.Text = reader.GetString(5);
                 txtdanotrip.Text = reader.GetString(6);
@@ -197,13 +185,11 @@ namespace SisConPT.SisConPT
                 txtdanopajaro.Text = reader.GetString(32);
                 txtdesgarro.Text = reader.GetString(33);
                 txtcortesierra.Text = reader.GetString(34);
-                txtVariedad.Text = "--";
-                txt_clasi.Text  = reader.GetString(36);
-                txt_destino.Text  = reader.GetString(37);
-                txt_vaciadas.Text  = reader.GetString(39);
-
-         
-            }
+                lbl_variedad.Text = reader.GetString(39);
+                lbl_clasi.Text  = reader.GetString(36);
+                lbl_destino.Text  = reader.GetString(37);
+                lbl_vaciadas.Text  = reader.GetString(38);
+           }
 
             con.Close();
 
@@ -233,7 +219,7 @@ namespace SisConPT.SisConPT
             con.Open();
             //linea
 
-            SqlCommand cmd_linea = new SqlCommand("select distinct lincodigo from controlpt where placodigo = " + txt_cod_plan.Text + "", con);
+            SqlCommand cmd_linea = new SqlCommand("select distinct lincodigo from controlpt where placodigo = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
@@ -268,7 +254,7 @@ namespace SisConPT.SisConPT
             con.Open();
             //linea
 
-            SqlCommand cmd_linea = new SqlCommand("select distinct turcodigo from controlpt where lincodigo ='" + linea + "' and placodigo = " + txt_cod_plan.Text + "", con);
+            SqlCommand cmd_linea = new SqlCommand("select distinct turcodigo from controlpt where lincodigo ='" + linea + "' and placodigo = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
@@ -278,16 +264,9 @@ namespace SisConPT.SisConPT
             drop_turno_d.DataSource = ds_linea;
             drop_turno_d.DataBind();
 
-            if (drop_turno_d.Items.Count != 0)
-            {
                 string turno = Convert.ToString(drop_turno_d.SelectedValue);
                 int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
-                //string fecha_inicio = txt_fechainicio.Text;
-                //string fecha_fin = txt_fechafin.Text;
 
-                //GvProcesos_Llenar(turno, linea_2,fecha_inicio, fecha_fin);
-
-            }
             con.Close();
             }
             catch (Exception e)
@@ -341,7 +320,10 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
 
-            string comando_cadena = "select codcaja, calibresoluble,convert(varchar (255),f1) as f1,convert(varchar (255),f2) as f2,convert(varchar (255),f3) as f3,convert(varchar (255),f4) as f4,convert(varchar (255),f5) as f5, convert(varchar(255),(CONVERT(decimal(18, 2),(f1+f2+f3+f4+f5)/5.0))) as promedio from solidossolubles where nroproceso=" + proceso + " and nrolote=" + lote + " and turno='" + turno + "' and nrolinea=" + linea_2 + "";
+            string comando_cadena = "select codcaja, calibresoluble,convert(varchar (255),f1) as f1,convert(varchar (255),f2) as f2," +
+            " convert(varchar (255),f3) as f3,convert(varchar (255),f4) as f4,convert(varchar (255),f5) as f5, convert(varchar(255)," +
+            " (CONVERT(decimal(18, 2),(f1+f2+f3+f4+f5)/5.0))) as promedio from solidossolubles " +
+            " where nroproceso='" + proceso + "' and nrolote='" + lote + "' and turno='" + turno + "' and nrolinea='" + linea_2 + "'";
 
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);

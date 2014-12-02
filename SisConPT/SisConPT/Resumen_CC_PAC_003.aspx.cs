@@ -118,10 +118,6 @@ namespace SisConPT.SisConPT
         {
             gvProcesos.PageIndex = e.NewPageIndex;
             int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
-
-            // GvProcesos_Llenar( linea_2);
-            //GvProcesos_Llenar();
-
         }
 
         private void PopUpDetalle(string proceso_id)
@@ -220,7 +216,7 @@ namespace SisConPT.SisConPT
             //{
             con.Open();
             //linea
-            SqlCommand cmd_linea = new SqlCommand("select ctrl_lin from cc_PAC_003 where Ctrl_CodPlan='" + txt_cod_plan.Text + "'group by ctrl_lin", con);
+            SqlCommand cmd_linea = new SqlCommand("select ctrl_lin from cc_PAC_003 where Ctrl_CodPlan='" + txt_cod_plan.Text + "' group by ctrl_lin", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
@@ -254,7 +250,7 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             //linea
-            SqlCommand cmd_linea = new SqlCommand("select distinct Ctrl_Turno from cc_PAC_003 where ctrl_lin ='" + linea + "' and Ctrl_CodPlan = " + txt_cod_plan.Text + "", con);
+            SqlCommand cmd_linea = new SqlCommand("select distinct Ctrl_Turno from cc_PAC_003 where ctrl_lin ='" + linea + "' and Ctrl_CodPlan = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
@@ -264,14 +260,12 @@ namespace SisConPT.SisConPT
                 drop_turno_d.DataSource = ds_linea;
                 drop_turno_d.DataBind();
 
-                if (drop_turno_d.Items.Count != 0)
-                {
+
                     string turno = Convert.ToString(drop_turno_d.SelectedValue);
                     int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
 
                     GvProcesos_Llenar(turno, linea_2);
 
-                }
                 con.Close();
             }
             catch (Exception e)
@@ -295,7 +289,7 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             //linea
-            SqlCommand cmd_proc = new SqlCommand("select distinct Ctrl_CodProc  from VistaResumen003 where Ctrl_Turno='" + turno + "' and Ctrl_Lin=" + linea_2 + " and Ctrl_CodPlan = '" + txt_cod_plan.Text + "'", con);
+            SqlCommand cmd_proc = new SqlCommand("select distinct Ctrl_CodProc  from VistaResumen003 where Ctrl_Turno='" + turno + "' and Ctrl_Lin='" + linea_2 + "' and Ctrl_CodPlan = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
             DataSet ds_proc = new DataSet();
             try
@@ -325,7 +319,7 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
 
 
-            string sql = "select *  from VistaResumen003 where Ctrl_Turno='" + turno + "' and Ctrl_Lin=" + linea_2 + " and Ctrl_CodPlan = '" + txt_cod_plan.Text + "'";
+            string sql = "select *  from VistaResumen003 where Ctrl_Turno='" + turno + "' and Ctrl_Lin='" + linea_2 + "' and Ctrl_CodPlan = '" + txt_cod_plan.Text + "'";
 
             SqlCommand command = new SqlCommand(sql, con);
             con.Open();

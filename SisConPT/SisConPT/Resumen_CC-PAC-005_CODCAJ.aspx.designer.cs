@@ -256,13 +256,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control NroProceso.
+        /// Control lbl_proceso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NroProceso;
+        protected global::System.Web.UI.WebControls.Label lbl_proceso;
         
         /// <summary>
         /// Control Label2.
@@ -274,13 +274,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control ProdReal.
+        /// Control lbl_productor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProdReal;
+        protected global::System.Web.UI.WebControls.Label lbl_productor;
         
         /// <summary>
         /// Control Label3.
@@ -292,13 +292,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control Lote.
+        /// Control lbl_lote.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Lote;
+        protected global::System.Web.UI.WebControls.Label lbl_lote;
         
         /// <summary>
         /// Control Label5.
@@ -310,13 +310,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control txtVariedad.
+        /// Control lbl_variedad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtVariedad;
+        protected global::System.Web.UI.WebControls.Label lbl_variedad;
         
         /// <summary>
         /// Control TableRow15.
@@ -337,13 +337,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control txt_clasi.
+        /// Control lbl_clasi.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_clasi;
+        protected global::System.Web.UI.WebControls.Label lbl_clasi;
         
         /// <summary>
         /// Control Label7.
@@ -355,13 +355,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control txt_destino.
+        /// Control lbl_destino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_destino;
+        protected global::System.Web.UI.WebControls.Label lbl_destino;
         
         /// <summary>
         /// Control Label8.
@@ -373,13 +373,22 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Control txt_vaciadas.
+        /// Control lbl_vaciadas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_vaciadas;
+        protected global::System.Web.UI.WebControls.Label lbl_vaciadas;
+        
+        /// <summary>
+        /// Control TableRow13.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRow13;
         
         /// <summary>
         /// Control TableRow12.
@@ -391,6 +400,15 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.TableRow TableRow12;
         
         /// <summary>
+        /// Control Label4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
         /// Control Label9.
         /// </summary>
         /// <remarks>
@@ -398,15 +416,6 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label9;
-        
-        /// <summary>
-        /// Control Label11.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
         /// Control TableRow1.

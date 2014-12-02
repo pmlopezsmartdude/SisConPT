@@ -20,7 +20,8 @@
     </script>
       <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server">  </asp:ToolkitScriptManager>  
   
-    <h3>CC-PAC-005</h3>
+   <fieldset>
+        <legend>CC-PAC-005</legend>
     <asp:Panel ID="Panel1" runat="server" DefaultButton="ButtonBuscar">
 
         <asp:Table ID="Table5" runat="server" Width="500px" Height="70px" 
@@ -57,7 +58,7 @@
     </asp:Panel>
     <asp:Table ID="UnitecDatos" runat="server" Width="900px" Height="90px" 
             Font-Names="Century Gothic" Font-Size="X-Small">
-                    <asp:TableRow ID="TableRow18" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+                    <asp:TableRow ID="TableRow18" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="10">
         <asp:TableCell>
                
             </asp:TableCell>
@@ -231,6 +232,8 @@
         
 
          </asp:Table>
+         </fieldset>
+
 
      <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0">
 <asp:TabPanel runat="server" HeaderText="DEFECTOS" ID="TabPanel1"  Enabled ="true" >
@@ -562,11 +565,9 @@
  </asp:TableRow>
           <asp:TableRow ID="TableRow9" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             <asp:TableCell>
-             <%--   <asp:Label ID="lbl_opcion" runat="server" Height="10">Solidos Solubles</asp:Label>--%>
             </asp:TableCell>
             <asp:TableCell>
-           <%--     <asp:CheckBox ID="CheckSoluble" runat="server" OnCheckedChanged="checkBox1_Click" AutoPostBack="true"/>--%>
-
+        
 	    </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblmedialuna" runat="server" Height="10">Media Luna</asp:Label>
@@ -633,11 +634,6 @@
          </asp:Table>
 
 
-
-
-
-
-
     </ContentTemplate>
 </asp:TabPanel>
 
@@ -701,7 +697,7 @@
 
  <asp:TableCell>
               
-<%--<center> <asp:Button ID="Button1" runat="server" Text="OK"  Enabled="True" onclick="Grabar_soluble" /> </center>--%>
+
  </asp:TableCell>
        
    </asp:TableRow>
