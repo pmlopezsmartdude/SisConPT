@@ -85,6 +85,7 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="SisConPT\Detalle_CC_PAC_005.aspx" />
+    <Content Include="SisConPT\Editar_CC_PAC_005.aspx" />
     <Content Include="SisConPT\Images\accent.png" />
     <Content Include="SisConPT\Images\bullet.png" />
     <Content Include="SisConPT\Images\editar.png" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="SisConPT\Detalle_CC_PAC_005.aspx.designer.cs">
       <DependentUpon>Detalle_CC_PAC_005.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SisConPT\Editar_CC_PAC_005.aspx.cs">
+      <DependentUpon>Editar_CC_PAC_005.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisConPT\Editar_CC_PAC_005.aspx.designer.cs">
+      <DependentUpon>Editar_CC_PAC_005.aspx</DependentUpon>
     </Compile>
     <Compile Include="SisConPT\ImportExcel.aspx.cs">
       <DependentUpon>ImportExcel.aspx</DependentUpon>

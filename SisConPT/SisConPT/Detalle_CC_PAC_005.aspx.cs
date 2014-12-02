@@ -93,7 +93,7 @@ namespace SisConPT.SisConPT
 
 
         }
-     
+
         private void DropLinea()
         {
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -139,7 +139,7 @@ namespace SisConPT.SisConPT
             con.Open();
             //linea
 
-            SqlCommand cmd_linea = new SqlCommand("select distinct turcodigo from controlpt where lincodigo ='" + linea + "' and placodigo = '" + txt_cod_plan.Text + "'", con);
+            SqlCommand cmd_linea = new SqlCommand("select distinct turcodigo from controlpt where lincodigo ='" + linea + "' and placodigo = " + txt_cod_plan.Text + "", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
@@ -256,7 +256,7 @@ namespace SisConPT.SisConPT
             " def.defdanopa as DANO_PAJARO,def.defdesgar as DESGARRE,def.defcorsie as CORTE_SIERRAS,def.observac as OBSERVACIONES," +
             " def.pesoneto as PESO_NETO_II,sol.calibresoluble as CALIBRE_II,sol.f1 as f1,sol.f2 as f2,sol.f3 as f3,sol.f4 as f4,sol.f5 as f5 " +
             " from controlpt as cl  inner join defecto as def on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptcodcja=sol.codcaja " +
-            " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.lincodigo='" + linea_2 + "' and cl.placodigo= '" + planta + "'";
+            " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.lincodigo='" + linea_2 + "' and cl.placodigo= " + planta + "";
 
             SqlCommand command = new SqlCommand(sql, con);
             con.Open();
