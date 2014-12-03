@@ -158,7 +158,7 @@ namespace SisConPT.SisConPT
             " convert(varchar(15),defdesgar) as [defdesgar],convert(varchar(15),defcorsie) as [defcorsie]," +
             " convert(varchar(15),solsolub) as solsolub,convert(varchar(15),defcalbaj)as defcalbaj ," +
             " convert(varchar(15),defcalnor) as defcalnor,convert(varchar(15),defcalsob) as defcalsob, observac, " +
-            " cptclasificacion,cptdestino,convert(varchar(4),cptcajasvaciadas) as cptcajasvaciadas " +
+            " cptclasificacion,cptdestino,convert(varchar(4),cptcajasvaciadas) as cptcajasvaciadas, convert(varchar(15),pesoneto) as pesoneto " +
             " from defecto as def inner join controlpt as cl on cl.cptnumero=def.cptnumero where cl.cptcodcja='" + CodCaja.Text + "'", con_existe_caja);
             SqlDataAdapter sda_existe = new SqlDataAdapter(cmd__existe);
             DataSet ds_existe = new DataSet();
@@ -204,6 +204,7 @@ namespace SisConPT.SisConPT
                 txtpartiduracicatrizada.Enabled = true;
                 txtpiellagarto.Enabled = true;
                 txtpitting.Enabled = true;
+                txt_peso_neto.Enabled = true;
 
 
                 Grabar.Enabled = true;
@@ -255,7 +256,9 @@ namespace SisConPT.SisConPT
                     txt_calisificacion.Text = reader.GetString(35);
                     txt_destino.Text = reader.GetString(36);
                     txt_cajasvaciadas.Text = reader.GetString(37);
+                    txt_peso_neto.Text = reader.GetString(38);
 
+                    txt_peso_neto.Enabled = false;
                     txtbajo.Enabled = false;
                     txtprecalibre.Enabled = false;
                     txtsobre.Enabled = false;

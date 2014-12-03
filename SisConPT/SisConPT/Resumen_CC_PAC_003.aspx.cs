@@ -268,7 +268,7 @@ namespace SisConPT.SisConPT
 
                 con.Close();
             }
-            catch (Exception e)
+            catch 
             {
                 drop_turno_d.DataSourceID = "";
                 drop_turno_d.DataSource = "";

@@ -85,15 +85,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.DropDownList drop_turno_d;
         
         /// <summary>
-        /// Control Exportar_005.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Exportar_005;
-        
-        /// <summary>
         /// Control Label10.
         /// </summary>
         /// <remarks>
@@ -1514,6 +1505,15 @@ namespace SisConPT.SisConPT {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender33;
+        
+        /// <summary>
+        /// Control lbl_calibre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_calibre;
         
         /// <summary>
         /// Control Table1.

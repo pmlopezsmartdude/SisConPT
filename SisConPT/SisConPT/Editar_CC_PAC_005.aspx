@@ -47,8 +47,8 @@
         </asp:DropDownList>  
                </asp:TableCell>
                <asp:TableCell Width="60">
-             <asp:Button ID="Exportar_005" runat="server" Text="Exportar" Enabled="true" OnClick="Exportar_click" />
-                 
+
+
                </asp:TableCell>
             
    </asp:TableRow>
@@ -101,12 +101,15 @@
     <fieldset>
         <legend>DETALLE</legend>
 
-          <asp:GridView ID="gvProcesos" runat="server" CellPadding="2" ForeColor="Black" 
+           <asp:GridView ID="gvProcesos" runat="server" CellPadding="3" ForeColor="Black" 
                             GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
-                            DataKeyNames="cptcodcja" BackColor="White" Font-Names="Century Gothic" Font-Size="Small"
-                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px"
-                            onpageindexchanging="Procesos_PageIndexChanging"  
-                            HorizontalAlign="Center" style="width:800px">
+                            DataKeyNames="cptcodcja" BackColor="White" 
+                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="Small"
+                            onpageindexchanging="Procesos_PageIndexChanging" 
+                            onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center" style="width:800px">
+
+
+
                             <Columns>
                             <asp:TemplateField>
                                     <ItemTemplate>
@@ -155,7 +158,7 @@
     
          <asp:UpdatePanel ID="upEditOrder" runat="server">
             <ContentTemplate>   
-                 <div id="popupcontainer" style="width:900px">
+                 <div id="popupcontainer" style="width:930px">
 
                  <fieldset>
         <legend>EDITAR</legend>
@@ -699,7 +702,7 @@
                     <table width="880" border="0">
   <tr>
     <td><fieldset>
-        <legend>SOLIDOS SOLUBLES</legend>
+        <legend>CALIBRE : <asp:Label ID="lbl_calibre" runat="server"  Font-Names="Century Gothic" Font-Bold="true"></asp:Label></legend>
                             <asp:Table ID="Table1" runat="server" Width="400px" Height="90px" 
                 Font-Names="Century Gothic" Font-Size="X-Small" >
 
@@ -767,9 +770,9 @@
 </table> <center> 
 <table width="240" border="0">
   <tr>
-    <td width="120"><asp:Button ID="btn_guardar" runat="server" Text="Guardar Cambios"  CssClass="button" onclick="btnGuarda_Click" width=120 /></td>
+    <td width="120"><asp:Button ID="btn_guardar" runat="server" Text="Guardar Cambios"  CssClass="button" onclick="btnGuarda_Click" width="120" /></td>
     <td width="12">&nbsp;</td>
-    <td width="120"><asp:Button ID="btnClose" runat="server" Text="Cerrar" CssClass="button" onclick="btnClose_Click" CausesValidation="false" width=120 /></td>
+    <td width="120"><asp:Button ID="btnClose" runat="server" Text="Cerrar" CssClass="button" onclick="btnClose_Click" CausesValidation="false" width="120" /></td>
   </tr>
 </table>
 

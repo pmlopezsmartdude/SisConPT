@@ -7,10 +7,10 @@
                     <legend>Seleccione planta</legend>
    <ol>
         <li>
-        <asp:Label runat="server" AssociatedControlID="Plantas">Planta</asp:Label>
-        <asp:DropDownList ID="DropDownList1"  runat="server" DataSourceID="Plantas" DataTextField="pladescri" DataValueField="pladescri" Height="30px" Width="310px" Font-Names="Century Gothic">
+        <asp:Label runat="server" >Planta</asp:Label>
+        <asp:DropDownList ID="DropPlanta_d"  runat="server" DataSourceID="DropPlanta" DataTextField="pladescri" DataValueField="pladescri" Height="30px" Width="310px" Font-Names="Century Gothic">
         </asp:DropDownList>
-            <asp:SqlDataSource ID="Plantas" runat="server" ConnectionString="<%$ ConnectionStrings:CONTROLPTConnectionString %>" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [pladescri] FROM [planta]"></asp:SqlDataSource>
+            
         </li>
     </ol>
         </fieldset>
@@ -56,6 +56,17 @@
               <asp:Button ID="BTN_DETALLE" runat="server" onclick="detalle" Text="Detalle CC-PAC-005"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>
                 </asp:TableCell>
                 <asp:TableCell ID="TableCell8" runat="server" BorderColor="Black" BorderStyle="Solid">
+                
+                </asp:TableCell>
+                 </asp:TableRow>
+                  <asp:TableRow ID="TableRow3" runat="server" BorderColor="Black" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle">
+                <asp:TableCell ID="TableCell6" runat="server" BorderColor="Black" BorderStyle="Solid">
+               
+                </asp:TableCell>
+                <asp:TableCell ID="TableCell9" runat="server" BorderColor="Black" BorderStyle="Solid">
+              <asp:Button ID="btn_editar" runat="server" onclick="Editar" Text="Editar CC-PAC-005"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>
+                </asp:TableCell>
+                <asp:TableCell ID="TableCell10" runat="server" BorderColor="Black" BorderStyle="Solid">
                 
                 </asp:TableCell>
                  </asp:TableRow>
