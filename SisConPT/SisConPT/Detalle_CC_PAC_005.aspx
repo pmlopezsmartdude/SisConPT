@@ -9,7 +9,6 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 
@@ -18,11 +17,9 @@
 
 
 <fieldset>
-        <legend>Detalle CC-PAC-005 Producto Terminado</legend>
-    
-
-    <asp:Table ID="Datos" runat="server" Width="653px" Height="50px" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Center">
-          <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="30">
+   <legend>Detalle CC-PAC-005 Producto Terminado</legend>
+   <asp:Table ID="Datos" runat="server" Width="653px" Height="50px" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Center">
+   <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="30">
            
         
               <asp:TableCell Width="20">
@@ -34,8 +31,10 @@
              
                   
    </asp:TableRow>
-    <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">  <asp:TableCell Width="60"></asp:TableCell></asp:TableRow>
-
+   <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">  
+    <asp:TableCell Width="60">
+    </asp:TableCell>
+    </asp:TableRow>
    <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
              <asp:TableCell Width="30">
             <asp:Label ID="lbl_linea" runat="server" Text="Línea" Width="50" Height="20"></asp:Label>
@@ -58,14 +57,13 @@
                </asp:TableCell>
             
    </asp:TableRow>
-      <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+   <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
    <asp:TableCell Width="30">
          
 
   
    </asp:TableCell>
    </asp:TableRow>
-
    <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
    <asp:TableCell Width="30">
             <asp:Label ID="Label10" runat="server" Text="Fecha Inicio" Width="50" Height="20"></asp:Label>
@@ -97,13 +95,7 @@
    </asp:TableRow>
   </asp:Table>
   </fieldset>
-
-
-
  <asp:Panel ID="Panel1" runat="server">
-     
-
-
     <fieldset>
         <legend>DETALLE</legend>
 
@@ -136,13 +128,5 @@
         <br />
 
         </fieldset>
-
-                           
-
    </asp:Panel>
-
-
-
-
-
-      </asp:Content>
+  </asp:Content>

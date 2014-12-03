@@ -20,7 +20,6 @@ namespace SisConPT.SisConPT
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
             System.Configuration.ConnectionStringSettings connStringLM;
