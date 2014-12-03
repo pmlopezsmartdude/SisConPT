@@ -87,7 +87,7 @@ namespace SisConPT.SisConPT
                 " Ctrl_ptonegro_prueba as [PUNTO NEGRO % EXP],Ctrl_ptomarron_valor as [PUNTO MARRON VALOR],Ctrl_ptomarron_porc as [PUNTO MARRON %]," +
                 " Ctrl_ptomarron_prueba as [PUNTO MARRON % EXP],Ctrl_marchablanca_valor as [MANCHABLANCA VALOR],Ctrl_marchablanca_porc as [MANCHA BLANCA %]," +
                 " Ctrl_marchablanca_prueba as [MANCHA BLANCA % EXP],Ctrl_KilosLote as [KILOS LOTE],Ctrl_NumTotes as [NUMERO TOTES],Ctrl_PorcExp as [% EXP]," +
-                " Ctrl_FecHora as [FECHA / HORA] FROM CC_PAC_075 WHERE Ctrl_CodPlan ='" + lbl_codpla.Text + "'";
+                " Ctrl_FecHora as [FECHA / HORA], Ctrl_obs as [OBSERVACIONES] FROM CC_PAC_075 WHERE Ctrl_CodPlan ='" + lbl_codpla.Text + "'";
             SqlCommand command = new SqlCommand(sql, con);
             con.Open();
             SqlDataAdapter da = new SqlDataAdapter(command);

@@ -282,13 +282,13 @@ namespace SisConPT.SisConPT
             " Ctrl_CAT,Ctrl_CAT_valor,Ctrl_desacrte,Ctrl_global_valor,Ctrl_global_porc,Ctrl_global_prueba,Ctrl_puntual_valor,Ctrl_puntual_porc," +
             " Ctrl_puntual_prueba,Ctrl_externo_valor,Ctrl_externo_porc,Ctrl_externo_prueba,Ctrl_ptonegro_valor,Ctrl_ptonegro_porc,Ctrl_ptonegro_prueba," +
             " Ctrl_ptomarron_valor,Ctrl_ptomarron_porc,Ctrl_ptomarron_prueba,Ctrl_marchablanca_valor,Ctrl_marchablanca_porc,Ctrl_marchablanca_prueba," +
-            " Ctrl_KilosLote,Ctrl_NumTotes,Ctrl_PorcExp,Ctrl_FecHora) VALUES ('" + numeroctrl + "','" + CodProc + "','" + txt_cod_plan.Text + "'," +
+            " Ctrl_KilosLote,Ctrl_NumTotes,Ctrl_PorcExp,Ctrl_FecHora, Ctrl_obs) VALUES ('" + numeroctrl + "','" + CodProc + "','" + txt_cod_plan.Text + "'," +
             " '" + Linea + "','" + username + "','" + Turno + "','" + Lote + "','" + txt_ref.Text + "','" + tipo_cat + "'," + txtCAT_Valor.Text + "," +
             " " + txtDescarte.Text + "," + txt_global_v.Text + "," + txt_global_p.Text + "," + txt_global_exp.Text + "," + txt_puntual_v.Text + "," +
             " " + txt_puntual_p.Text + "," + txt_puntual_exp.Text + "," + txt_externo_v.Text + "," + txt_externo_p.Text + "," + txt_externo_exp.Text + "," +
             " " + txt_ptoneg_v.Text + "," + txt_ptoneg_p.Text + "," + txt_ptoneg_exp.Text + "," + txt_ptomar_v.Text + "," + txt_ptomar_p.Text + "," +
             " " + txt_ptomar_exp.Text + "," + txt_mancha_v.Text + "," + txt_mancha_p.Text + "," + txt_mancha_exp.Text + "," + KilosLote.Text + "," +
-            " " + NTotes.Text + "," + porc_exp.Text + ",'" + numeroctrl + "')"; 
+            " " + NTotes.Text + "," + porc_exp.Text + ",'" + numeroctrl + "', '" + txt_obser.Text + "')"; 
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
@@ -329,6 +329,9 @@ namespace SisConPT.SisConPT
             KilosLote.Text = "0";
             NTotes.Text = "0";
             porc_exp.Text = "0";
+
+            txt_obser.Text = "";
+
             txtDescarte.Focus();
             btnGrabar.Enabled = true;
             btnLimpiar.Enabled = true;

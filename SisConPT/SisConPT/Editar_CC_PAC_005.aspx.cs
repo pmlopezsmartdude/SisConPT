@@ -83,15 +83,11 @@ namespace SisConPT.SisConPT
         {
             GridViewRow row = gvProcesos.Rows[e.NewSelectedIndex];
 
-            string proceso = row.Cells[1].Text;
-            string lote = row.Cells[2].Text;
-            string destino = row.Cells[3].Text;
-            string turno = Convert.ToString(drop_turno_d.SelectedValue);
-            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
-
+            string caja = row.Cells[1].Text;
+          
 
             InitializeEditPopUp();
-            PopUpDetalle(proceso, lote, destino);
+            PopUpDetalle(caja);
 
             mpeEditOrder.Show();
         }
@@ -102,7 +98,7 @@ namespace SisConPT.SisConPT
             int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
         }
 
-        private void PopUpDetalle(string proceso, string lote, string destino)
+        private void PopUpDetalle(string caja)
         {
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -118,9 +114,31 @@ namespace SisConPT.SisConPT
             string fin = txt_fechafin.Text;
             int planta = Convert.ToInt32(txt_cod_plan.Text);
 
-            if (destino == "&nbsp;") { destino = ""; }
-            string cadena_consulta = "[resumen_005_prueba] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; " +
-            " select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
+           
+            string cadena_consulta = "select  top 1 convert(varchar(255),cl.cptcodcja) as cptcodcja, turcodigo, convert(varchar(255),lincodigo) as lincodigo, " +
+            " convert(varchar(255),cptproces) as cptproces, " +
+           " convert(varchar(15),defcalbaj) as [defcalbaj],convert(varchar(15),defcalnor) as [defcalnor], convert(varchar(15),defcalsob) as [delcalsob], "+
+" convert(varchar(15),defprecal) as [defprecal],convert(varchar(15),defdanotr) as [defdanotr], " +
+"   convert(varchar(15),defescama) as [defescama],convert(varchar(15),deffrutode) as [deffrutode]," +
+ " convert(varchar(15),deffrutodo) as [deffrutodo],convert(varchar(15),defguatab) as [defguatab]," +
+ " convert(varchar(15),defherida) as [defherida],convert(varchar(15),defmancha) as [defmancha]," +
+ " convert(varchar(15),defmedial) as [defmedial],convert(varchar(15),defpiella) as [defpiella]," +
+ " convert(varchar(15),defrusset) as [defrusset],convert(varchar(15),defsutura) as [defsutura]," +
+     " convert(varchar(15),deffaltoc) as [deffaltoc],convert(varchar(15),deframole) as [deframole]," +
+         " convert(varchar(15),defsinped) as [defsinped],convert(varchar(15),defadhesi) as [defadhesi]," +
+            " convert(varchar(15),defdesfru) as [defdesfru],convert(varchar(15),defdesped) as [defdesped]," +
+             " convert(varchar(15),defblando) as [defblando],convert(varchar(15),defherabi) as [defherabi]," +
+            " convert(varchar(15),defmachuc) as [defmachuc],convert(varchar(15),defpartid) as [defpartid]," +
+            " convert(varchar(15),defparagu) as [defparagu],convert(varchar(15),defparcic) as [defparcic]," +
+             " convert(varchar(15),defpittin) as [defpittin],convert(varchar(15),defpudric) as [defpudric]," +
+             " convert(varchar(15),defmanpar) as [defmanpar],convert(varchar(15),defdanopa) as [defdanopa]," +
+             " convert(varchar(15),defdesgar) as [defdesgar],convert(varchar(15),defcorsie) as [defcorsie]," +
+             " convert(varchar(15),solsolub) as solsolub,convert(varchar(15),defcalbaj)as defcalbaj ," +
+             " convert(varchar(15),defcalnor) as defcalnor,convert(varchar(15),defcalsob) as defcalsob, observac, " +
+             " cptdestino,convert(varchar(4),cptcajasvaciadas) as cptcajasvaciadas, convert(varchar(15),pesoneto) as pesoneto" +
+             	" , convert(varchar(15),f1) as f1,convert(varchar(15),f2) as f2,convert(varchar(15),f3) as f3," +
+			 " convert(varchar(15),f4) as f4,convert(varchar(15),f5) as f5, sol.calibresoluble" +
+             " from defecto as def inner join controlpt as cl on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptcodcja=sol.codcaja where cl.cptcodcja='" + caja + "'";
             SqlCommand cmd_proc = new SqlCommand(cadena_consulta, con);
             try
             {
@@ -128,53 +146,53 @@ namespace SisConPT.SisConPT
                 using (SqlDataReader reader = cmd_proc.ExecuteReader())
                 {
                     reader.Read();
-                    lbl_caja.Text = "";
-                    lbl_proceso.Text = "";
-                    lbl_linea.Text = "";
-                    lbl_turno.Text = "";
+                    lbl_caja.Text = reader.GetString(0);
+                    lbl_proceso.Text = reader.GetString(3);
+                    lbl_linea.Text = reader.GetString(2);
+                    lbl_turno.Text = reader.GetString(1);
+                    txtbajo.Text = reader.GetString(4);
+                    txtcalibreok.Text = reader.GetString(5);
+                    txtsobre.Text = reader.GetString(6);
+                    txtprecalibre.Text = reader.GetString(7);
+                    txtdanotrip.Text = reader.GetString(8);
+                    txtescama.Text = reader.GetString(9);
+                    txtfrutosdeformes.Text = reader.GetString(10);
+                    txtfrutosdobles.Text = reader.GetString(11);
+                    txtguatablanca.Text = reader.GetString(12);
+                    txtherida.Text = reader.GetString(13);
+                    txtmanchas.Text = reader.GetString(14);
+                    txtmedialuna.Text = reader.GetString(15);
+                    txtpiellagarto.Text = reader.GetString(16);
+                    txtrusset.Text = reader.GetString(17);
+                    txtsutura.Text = reader.GetString(18);
+                    txtfaltocolor.Text = reader.GetString(19);
+                    txtramaleo.Text = reader.GetString(20);
+                    txtsinpedicelo.Text = reader.GetString(21);
+                    txtadhesion.Text = reader.GetString(22);
+                    txtdeshid.Text = reader.GetString(23);
+                    txtdeshidpedi.Text = reader.GetString(24);
+                    txtblandos.Text = reader.GetString(25);
+                    txtheridasabiertas.Text = reader.GetString(26);
+                    txtmachucon.Text = reader.GetString(27);
+                    txtpartiduras.Text = reader.GetString(28);
+                    txtpartidurasagua.Text = reader.GetString(29);
+                    txtpartiduracicatrizada.Text = reader.GetString(30);
+                    txtpitting.Text = reader.GetString(31);
+                    txtpudricion.Text = reader.GetString(32);
+                    txtmanchaspardas.Text = reader.GetString(33);
+                    txtdanopajaro.Text = reader.GetString(34);
+                    txtdesgarro.Text = reader.GetString(35);
+                    txtcortesierra.Text = reader.GetString(36);
+                    txt_peso_neto.Text = reader.GetString(44);
+                    txt_destino.Text = reader.GetString(42);
+                    txt_cajasvaciadas.Text = reader.GetString(43);
+                    txt_f1.Text = reader.GetString(45);
+                    txt_f2.Text = reader.GetString(46);
+                    txt_f3.Text = reader.GetString(47);
+                    txt_f4.Text = reader.GetString(48);
+                    txt_f5.Text = reader.GetString(49);
+                    TextBox1obs.Text = reader.GetString(41);
 
-                    txtbajo.Text = "";
-                    txtcalibreok.Text = "";
-                    txtsobre.Text = "";
-                    txtprecalibre.Text = reader.GetString(5);
-                    txtdanotrip.Text = reader.GetString(6);
-                    txtescama.Text = reader.GetString(7);
-                    txtfrutosdeformes.Text = reader.GetString(8);
-                    txtfrutosdobles.Text = reader.GetString(9);
-                    txtguatablanca.Text = reader.GetString(10);
-                    txtherida.Text = reader.GetString(11);
-                    txtmanchas.Text = reader.GetString(12);
-                    txtmedialuna.Text = reader.GetString(13);
-                    txtpiellagarto.Text = reader.GetString(14);
-                    txtrusset.Text = reader.GetString(15);
-                    txtsutura.Text = reader.GetString(16);
-                    txtfaltocolor.Text = reader.GetString(17);
-                    txtramaleo.Text = reader.GetString(18);
-                    txtsinpedicelo.Text = reader.GetString(19);
-                    txtadhesion.Text = reader.GetString(20);
-                    txtdeshid.Text = reader.GetString(21);
-                    txtdeshidpedi.Text = reader.GetString(22);
-                    txtblandos.Text = reader.GetString(23);
-                    txtheridasabiertas.Text = reader.GetString(24);
-                    txtmachucon.Text = reader.GetString(25);
-                    txtpartiduras.Text = reader.GetString(26);
-                    txtpartidurasagua.Text = reader.GetString(27);
-                    txtpartiduracicatrizada.Text = reader.GetString(28);
-                    txtpitting.Text = reader.GetString(29);
-                    txtpudricion.Text = reader.GetString(30);
-                    txtmanchaspardas.Text = reader.GetString(31);
-                    txtdanopajaro.Text = reader.GetString(32);
-                    txtdesgarro.Text = reader.GetString(33);
-                    txtcortesierra.Text = reader.GetString(34);
-                    txt_peso_neto.Text = "";
-                    txt_destino.Text = reader.GetString(37);
-                    txt_cajasvaciadas.Text = reader.GetString(38);
-                    txt_f1.Text = "";
-                    txt_f2.Text = "";
-                    txt_f3.Text = "";
-                    txt_f4.Text = "";
-                    txt_f5.Text = "";
-                    TextBox1obs.Text = "";
                 }
 
                 con.Close();
