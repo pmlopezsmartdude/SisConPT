@@ -199,7 +199,12 @@
             <asp:TableCell>
              <asp:Label ID="lbl_vaciadas" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
                  </asp:TableCell>
-
+                 <asp:TableCell>
+                 <asp:Label ID="Label11" runat="server" Height="20">Casos</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+             <asp:Label ID="lbl_casos" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+                 </asp:TableCell>
         
  </asp:TableRow><asp:TableRow ID="TableRow13" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="10">
             

@@ -53,9 +53,10 @@ namespace SisConPT.SisConPT
 
               // rol += r + " ";
             }
-
+            if (!IsPostBack)
+            {
                 DropPlanta(rol);
-
+            }
         }
 
         private void DropPlanta(string DropPlanta)

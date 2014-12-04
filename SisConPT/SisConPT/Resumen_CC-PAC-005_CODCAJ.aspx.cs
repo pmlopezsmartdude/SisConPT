@@ -142,7 +142,7 @@ namespace SisConPT.SisConPT
             int planta = Convert.ToInt32(txt_cod_plan.Text);
 
             if (destino == "&nbsp;") { destino = ""; }
-            string cadena_consulta = "[resumen_005_prueba] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; " +
+            string cadena_consulta = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; " +
             " select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
             SqlCommand cmd_proc = new SqlCommand(cadena_consulta, con);
             try
@@ -189,6 +189,7 @@ namespace SisConPT.SisConPT
                 lbl_clasi.Text  = reader.GetString(36);
                 lbl_destino.Text  = reader.GetString(37);
                 lbl_vaciadas.Text  = reader.GetString(38);
+                lbl_casos.Text = reader.GetString(40);
            }
 
             con.Close();
