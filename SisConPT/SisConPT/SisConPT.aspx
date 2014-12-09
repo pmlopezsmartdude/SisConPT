@@ -8,7 +8,8 @@
    <ol>
         <li>
         <asp:Label runat="server" >Planta</asp:Label>
-        <asp:DropDownList ID="DropPlanta_d"  runat="server" DataSourceID="DropPlanta" DataTextField="pladescri" DataValueField="pladescri" Height="30px" Width="310px" Font-Names="Century Gothic">
+        <asp:DropDownList ID="DropPlanta_d"  runat="server" DataSourceID="DropPlanta" DataTextField="pladescri" DataValueField="pladescri" Height="30px" Width="310px" Font-Names="Century Gothic" >
+        
         </asp:DropDownList>
             
         </li>
@@ -30,6 +31,7 @@
                 </asp:TableCell>
                 <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="CCPAC05PCC" runat="server" onclick="Button2_Click" Text="Ingreso CC-PAC-005"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>
+                    <asp:Button ID="btn_satelite" runat="server" onclick="boton_satelite" Text="Ingreso CC-PAC-005 Satelite"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>
                 </asp:TableCell>
                 <asp:TableCell ID="TableCell3" runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="CCPAC003PP" runat="server" onclick="Btn_003" Text="Ingreso CC-PAC-003"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>

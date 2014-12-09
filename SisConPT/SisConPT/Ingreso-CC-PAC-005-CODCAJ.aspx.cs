@@ -27,7 +27,7 @@ namespace SisConPT.SisConPT
                 connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
                 string PlantaNombre = Session["PlantaName"].ToString();
                 lbl_planta.Text = PlantaNombre;
-                string comando = "SELECT * FROM planta WHERE pladescri ='" + PlantaNombre + "'";
+                string comando = "SELECT convert(varchar(10),placodigo) as placodigo FROM planta WHERE pladescri ='" + PlantaNombre + "'";
                 SqlConnection conexion = new SqlConnection(connStringmain.ToString());
                 conexion.Open();
                 SqlCommand sql = new SqlCommand(comando, conexion);
@@ -486,8 +486,8 @@ namespace SisConPT.SisConPT
 
                         sql.ExecuteNonQuery();
                         conexion.Close();
-                        string error = "Guardado ok";
-                        Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+                       
+                    
                     }
 
 
@@ -554,13 +554,12 @@ namespace SisConPT.SisConPT
                     txt_f4.Text = "";
                     txt_f5.Text = "";
                     CodCaja.Focus();
-
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "scriptName", "alert(\"Registro guardado ok...\");", true);
 
                 }
                 else
                 {
-                    string error = "Registro ya existente..";
-                    Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "scriptName", "alert(\"Registro ya existente...\");", true);
                 }
 
 
@@ -577,13 +576,13 @@ namespace SisConPT.SisConPT
 
             TabContainer1.ActiveTab = TabPanel1;
 
-            Response.Redirect("~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx");
+           Response.Redirect("~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx");
                         
         }
 
         private void Limpiar_Click()
     {
-        CodCaja.Text = "";
+            CodCaja.Text = "";
             Turno.Text = "";
             especieid.Text = "";
             especietext.Text = "";

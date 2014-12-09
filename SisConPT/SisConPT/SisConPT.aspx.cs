@@ -31,22 +31,45 @@ namespace SisConPT.SisConPT
                 }
                 else
                 {
-                    if (r == "operador Molina")
+
+                    if (r == "operador")
                     {
-                        rol = "40";
+                        rol = "00";
                         break;
                     }
                     else
                     {
-                        if (r == "operador San Francisco")
+                        if (r == "operador Molina")
                         {
-                            rol = "01";
+                            rol = "40";
+                            btn_satelite.Visible = false;
                             break;
                         }
                         else
                         {
-                            rol = "00";
-                            break;
+                            if (r == "operador San Francisco")
+                            {
+                                rol = "01";
+                                btn_satelite.Visible = false;
+                                break;
+                            }
+                            else
+                            {
+
+                                rol = "99";
+                                CCPAC05PCC.Visible = false;
+                                btn_005_resumen.Visible = false;
+                                btn_editar.Visible = false;
+                                BTN_DETALLE.Visible = true;
+                                btn_003_resumen.Visible = false;
+                                btn_075_resumen.Visible = false;
+                                CCPAC075PP.Visible = false;
+                                CCPAC003PP.Visible = false;
+                                btn_satelite.Visible = true;
+
+                                break;
+
+                            }
                         }
                     }
                 }
@@ -57,6 +80,9 @@ namespace SisConPT.SisConPT
             {
                 DropPlanta(rol);
             }
+
+
+
         }
 
         private void DropPlanta(string DropPlanta)
@@ -69,6 +95,7 @@ namespace SisConPT.SisConPT
             string DDL_planta = "";
             if (DropPlanta == "00") { DDL_planta = "SELECT [pladescri] FROM [planta]"; }
             else { DDL_planta = "SELECT [pladescri] FROM [planta] where placodigo='" + DropPlanta + "'"; }
+            if (DropPlanta == "99") { DDL_planta = "SELECT [pladescri] FROM [planta] where placodigo not in ('1','40')"; }
 
             SqlCommand cmd_linea = new SqlCommand(DDL_planta, con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
@@ -80,25 +107,46 @@ namespace SisConPT.SisConPT
 
             con.Close();
 
+            //if (DropPlanta_d.Items.Count != 0)
+            //{
+            //    string planta = Convert.ToString(DropPlanta_d.SelectedValue);
+
+            //    if (planta != "Planta Mostazal")
+            //    {
+            //        btn_003_resumen.Visible = false;
+            //    }
+
+            //}
+            //if (DropPlanta_d.Items.Count == 0)
+            //{
+   
+
+            //}
+
+
         }
+
+
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx");
+            Response.Redirect("~/Ingreso");
  
         }
         protected void Btn_proc_Click(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
+           
             Response.Redirect("~/SisConPT/Ingreso_CC-PAC-075_proceso.aspx");
+            
 
         }
 
         protected void detalle(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/SisConPT/Detalle_CC_PAC_005.aspx");
+            Response.Redirect("~/Detalle");
 
         }
         protected void Editar(object sender, EventArgs e)
@@ -127,12 +175,12 @@ namespace SisConPT.SisConPT
 
         }
 
-        //protected void Btn_carga(object sender, EventArgs e)
-        //{
-        //    Session["PlantaName"] = DropDownList1.Text;
-        //    Response.Redirect("~/SisConPT/ImportExcel.aspx");
+        protected void boton_satelite(object sender, EventArgs e)
+        {
+            Session["PlantaName"] = DropPlanta_d.Text;
+            Response.Redirect("~/SisConPT/Ingreso_CC_PAC_005_satelite.aspx");
 
-        //}
+        }
         protected void Btn_resumen_003(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;

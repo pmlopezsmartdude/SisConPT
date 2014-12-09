@@ -27,7 +27,7 @@ namespace SisConPT.SisConPT
             {
                 connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
                 string PlantaNombre = Session["PlantaName"].ToString();
-                string comando = "SELECT * FROM planta WHERE pladescri ='" + PlantaNombre + "'";
+                string comando = "SELECT convert(varchar(10),placodigo) as placodigo FROM planta WHERE pladescri ='" + PlantaNombre + "'";
                 SqlConnection conexion = new SqlConnection(connStringmain.ToString());
                 conexion.Open();
                 SqlCommand sql = new SqlCommand(comando, conexion);

@@ -27,7 +27,7 @@ namespace SisConPT.SisConPT
             {
                 connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
                 string PlantaNombre = Session["PlantaName"].ToString();
-                string comando = "SELECT * FROM planta WHERE pladescri ='" + PlantaNombre + "'";
+                string comando = "SELECT convert(varchar(10),placodigo) as placodigo FROM planta WHERE pladescri ='" + PlantaNombre + "'";
                 SqlConnection conexion = new SqlConnection(connStringmain.ToString());
                 conexion.Open();
                 SqlCommand sql = new SqlCommand(comando, conexion);
@@ -324,7 +324,8 @@ namespace SisConPT.SisConPT
             string comando_cadena = "select codcaja, calibresoluble,convert(varchar (255),f1) as f1,convert(varchar (255),f2) as f2," +
             " convert(varchar (255),f3) as f3,convert(varchar (255),f4) as f4,convert(varchar (255),f5) as f5, convert(varchar(255)," +
             " (CONVERT(decimal(18, 2),(f1+f2+f3+f4+f5)/5.0))) as promedio from solidossolubles " +
-            " where nroproceso='" + proceso + "' and nrolote='" + lote + "' and turno='" + turno + "' and nrolinea='" + linea_2 + "'";
+            " as sol inner join controlpt as cl on sol.codcaja=cl.cptcodcja" +
+            " where nroproceso='" + proceso + "' and nrolote='" + lote + "' and turno='" + turno + "' and nrolinea='" + linea_2 + "' and placodigo= '" + txt_cod_plan.Text + "'";
 
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);

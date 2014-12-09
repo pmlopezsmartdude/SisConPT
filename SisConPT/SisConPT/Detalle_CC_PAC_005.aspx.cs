@@ -26,7 +26,7 @@ namespace SisConPT.SisConPT
             {
                 connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
                 string PlantaNombre = Session["PlantaName"].ToString();
-                string comando = "SELECT * FROM planta WHERE pladescri ='" + PlantaNombre + "'";
+                string comando = "SELECT convert(varchar(10),placodigo) as placodigo FROM planta WHERE pladescri ='" + PlantaNombre + "'";
                 SqlConnection conexion = new SqlConnection(connStringmain.ToString());
                 conexion.Open();
                 SqlCommand sql = new SqlCommand(comando, conexion);
@@ -65,6 +65,7 @@ namespace SisConPT.SisConPT
                     string error = "Sin informacion para mostrar";
                     Response.Write("<script language=javascript > alert('" + error + "'); </script>");
                     Exportar_005.Enabled = false;
+                    Filtrar_fecha.Enabled = false;
                 }
 
             }
