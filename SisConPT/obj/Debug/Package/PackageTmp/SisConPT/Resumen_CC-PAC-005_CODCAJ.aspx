@@ -9,6 +9,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
    <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server">  </asp:ToolkitScriptManager>  
+
+
 <fieldset>
         <legend>Resumen CC-PAC-005 Producto Terminado</legend>
     
@@ -50,6 +52,43 @@
                </asp:TableCell>
             
    </asp:TableRow>
+      <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+   <asp:TableCell Width="30">
+         
+
+  
+   </asp:TableCell>
+   </asp:TableRow>
+
+   <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+   <asp:TableCell Width="30">
+            <asp:Label ID="Label10" runat="server" Text="Fecha Inicio" Width="50" Height="20"></asp:Label>
+            </asp:TableCell>
+   <asp:TableCell Width="30">
+       <asp:TextBox ID="txt_fechainicio" runat="server" Width="70"  >
+       </asp:TextBox><asp:ImageButton ID="imgPopup" ImageUrl="~/Images/calendar.png" ImageAlign="Bottom"
+    runat="server" />
+
+   <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="txt_fechainicio"
+    Format="yyyy-MM-dd">
+</cc1:CalendarExtender>
+   </asp:TableCell>
+     <asp:TableCell Width="30">
+            <asp:Label ID="Label12" runat="server" Text="Fecha Fin" Width="50" Height="20"></asp:Label>
+            </asp:TableCell>
+   <asp:TableCell Width="30">
+       <asp:TextBox ID="txt_fechafin" runat="server" Width="70"   ></asp:TextBox><asp:ImageButton ID="imgPopup_fin" ImageUrl="~/Images/calendar.png" ImageAlign="Bottom"
+    runat="server" />
+
+   <cc1:CalendarExtender ID="CalendarExtender1" PopupButtonID="imgPopup_fin" runat="server" TargetControlID="txt_fechafin"
+    Format="yyyy-MM-dd">
+</cc1:CalendarExtender>
+   </asp:TableCell>
+   <asp:TableCell Width="60">
+    <asp:Button ID="Filtrar_fecha" runat="server" Text="  Filtrar  " Enabled="true" OnClick="Filtrar" />
+
+    </asp:TableCell>
+   </asp:TableRow>
   </asp:Table>
   </fieldset>
 
@@ -59,10 +98,10 @@
    
    <asp:GridView ID="gvProcesos" runat="server" CellPadding="3" ForeColor="Black" 
                             GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
-                            DataKeyNames="cptproces" BackColor="White" 
-                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
+                            DataKeyNames="cptproces,cptnulote,cptdestino" BackColor="White" 
+                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="Small"
                             onpageindexchanging="Procesos_PageIndexChanging" 
-                            onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center">
+                            onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center" style="width:500px">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -73,22 +112,19 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                
-                                <asp:BoundField DataField="cptproces" HeaderText="Proceso" DataFormatString="{0:d}"  />
-                             <%-- <asp:BoundField DataField="Ctrl_CodPlan" HeaderText="Planta" DataFormatString="{0:d}" />
-                                <asp:BoundField DataField="Ctrl_Lin" HeaderText="Linea" />
-                                <asp:BoundField DataField="Ctrl_Usuario" HeaderText="Usuario" />
-                                <asp:BoundField DataField="Ctrl_Turno" HeaderText="Turno" />--%>
+                                <asp:BoundField DataField="cptproces" HeaderText="Proceso" />
+                                <asp:BoundField DataField="cptnulote" HeaderText="Lote" />
+                                <asp:BoundField DataField="cptdestino" HeaderText="Destino" />
+                                <asp:BoundField DataField="cptvardes" HeaderText="Variedad" />
+
                             </Columns>
-                            
-
-                            <FooterStyle BackColor="#CCCCCC" />
-                            <PagerStyle BackColor="#999999" ForeColor="White" HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#999999" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="Gray" Font-Bold="True" ForeColor="White" />
-                            <AlternatingRowStyle BackColor="#999999" />
+                        
+                       <FooterStyle BackColor="#CCCCCC" />
+                            <PagerStyle BackColor="#005eb7" ForeColor="White" HorizontalAlign="Center" />
+                            <HeaderStyle BackColor="#90c9ff" Font-Bold="True" ForeColor="White" />
+                            <AlternatingRowStyle BackColor="#cbe6ff" />
                         </asp:GridView>
-
-
+ 
    </asp:Panel>
 
    <asp:HiddenField ID="HiddenField1" runat="server"  />
@@ -98,74 +134,91 @@
          BackgroundCssClass="backgroundColor"  >
     </asp:ModalPopupExtender>
     
-    <asp:Panel ID="panelEditOrder" runat="server" BackColor="White">
+    <asp:Panel ID="panelEditOrder" runat="server" BackColor="White" BorderStyle=Double>
     
          <asp:UpdatePanel ID="upEditOrder" runat="server">
             <ContentTemplate>   
-                 <div id="popupcontainer" style="width:700px">
-                    
+                 <div id="popupcontainer" style="width:800px">
+                                                   <fieldset>
+        <legend>RESUMEN</legend>
+         <fieldset>
+        <legend>DEFECTOS</legend>
+                   
                     
                     <asp:Table ID="Table2" runat="server" Width="653px" Height="30px" 
-                         Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center" 
-                         BorderStyle="Solid" BorderWidth="1px" >
+                         Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center"  >
 
 
                      <asp:TableRow ID="TableRow11" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
             <asp:TableCell>
-                 <asp:Label ID="Label1" runat="server" Height="30">Proceso</asp:Label>
+                 <asp:Label ID="Label1" runat="server" Height="20">Proceso</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="NroProceso" runat="server" ReadOnly="true" Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+             <asp:Label ID="lbl_proceso" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+                 </asp:TableCell>
+            <asp:TableCell>
+                 <asp:Label ID="Label2" runat="server" Height="20">Productor</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                 <asp:Label ID="Label2" runat="server" Height="30">Productor</asp:Label>
+             <asp:Label ID="lbl_productor" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+                 </asp:TableCell>
+            <asp:TableCell>
+                 <asp:Label ID="Label3" runat="server" Height="20">Lote</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="ProdReal" runat="server" ReadOnly="true" Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label3" runat="server" Height="30">Lote</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="Lote" runat="server" ReadOnly="true" Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-            </asp:TableCell>
+             <asp:Label ID="lbl_lote" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+                    </asp:TableCell>
 
              <asp:TableCell>
-                 <asp:Label ID="Label5" runat="server" Height="30">Variedad</asp:Label>
+                 <asp:Label ID="Label5" runat="server" Height="20">Variedad</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtVariedad" runat="server" ReadOnly="true" Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            <asp:Label ID="lbl_variedad" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+               
             </asp:TableCell>
             
  </asp:TableRow>
             <asp:TableRow ID="TableRow15" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
             <asp:TableCell>
-                 <asp:Label ID="Label6" runat="server" Height="30">Clasificacion</asp:Label>
+                 <asp:Label ID="Label6" runat="server" Height="20">Clasificacion</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txt_clasi" runat="server" ReadOnly="true" Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+             <asp:Label ID="lbl_clasi" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+               </asp:TableCell>
+            <asp:TableCell>
+                 <asp:Label ID="Label7" runat="server" Height="20">Destino</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                 <asp:Label ID="Label7" runat="server" Height="30">Destino</asp:Label>
+             <asp:Label ID="lbl_destino" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+               </asp:TableCell>
+            <asp:TableCell>
+                 <asp:Label ID="Label8" runat="server" Height="20">Cajas Vaciadas</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txt_destino" runat="server" ReadOnly="true" Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+             <asp:Label ID="lbl_vaciadas" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+                 </asp:TableCell>
+                 <asp:TableCell>
+                 <asp:Label ID="Label11" runat="server" Height="20">Casos</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                 <asp:Label ID="Label8" runat="server" Height="30">Cajas Vaciadas</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="txt_vaciadas" runat="server" ReadOnly="true" Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-            </asp:TableCell>
-
+             <asp:Label ID="lbl_casos" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+                 </asp:TableCell>
         
+ </asp:TableRow><asp:TableRow ID="TableRow13" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="10">
+            
+    
+            <asp:TableCell>
+                
+            </asp:TableCell>
+       
  </asp:TableRow>
 <asp:TableRow ID="TableRow12" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
             <asp:TableCell>
-                 <asp:Label ID="Label9" runat="server" Height="30">Defectos de Calidad</asp:Label>
+            <asp:Label ID="Label4" runat="server" Text="DEFECTOS DE CALIDAD" Height="30" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+                
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -177,7 +230,7 @@
                
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="Label11" runat="server" Height="30">Defectos de Condición</asp:Label>
+               <asp:Label ID="Label9" runat="server" Text="DEFECTOS DE CONDICIÓN" Height="30" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 
@@ -494,54 +547,45 @@
                 
             </asp:TableCell>
  </asp:TableRow>
- <asp:TableRow ID="TableRow13" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-            
-            <asp:TableCell></asp:TableCell>
-             </asp:TableRow>
 
-            <asp:TableRow ID="TableRow14" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-            
-            <asp:TableCell>
-
-                <asp:Label ID="Label4" runat="server" Height="10">SOLIDOS SOLUBLES</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox   runat="server" ID="txt_tipo_sol"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-        
-            </asp:TableCell>
-            <asp:TableCell>
-                 <asp:TextBox   runat="server" ID="txt_soluble"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                
-            </asp:TableCell>
-            <asp:TableCell>
-            <asp:Button ID="btnClose" runat="server" Text="Cerrar" 
-                                                CssClass="button" onclick="btnClose_Click" CausesValidation="false" />
-            </asp:TableCell>
-            <asp:TableCell>
-               
-            
-            </asp:TableCell>
-            <asp:TableCell>
-                
-            </asp:TableCell>
-            <asp:TableCell>
-                
-            </asp:TableCell>
- </asp:TableRow>
-
-
-                    <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20" >  <asp:TableCell Width="30">
-                    
-                                                         </asp:TableCell></asp:TableRow>
-
-                    
-                    </asp:Table>
+                 </asp:Table>
 
 
 
-                    
+                    </fieldset>
+                    <fieldset>
+        <legend>SOLIDOS SOLUBLES</legend>
+
+          <asp:GridView ID="gv_solubles_datos" runat="server" CellPadding="3" ForeColor="Black" 
+                            GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
+                            DataKeyNames="codcaja" BackColor="White" Font-Names="Century Gothic" Font-Size="Small"
+                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
+                            HorizontalAlign="Center" style="width:500px">
+                            <Columns>
+                               
+                                <asp:BoundField DataField="codcaja" HeaderText="Caja"  />
+                                <asp:BoundField DataField="calibresoluble" HeaderText="Calibre"  />
+                                <asp:BoundField DataField="f1" HeaderText="F 1" />
+                                <asp:BoundField DataField="f2" HeaderText="F 2" />
+                                <asp:BoundField DataField="f3" HeaderText="F 3" />
+                                <asp:BoundField DataField="f4" HeaderText="F 4" />
+                                <asp:BoundField DataField="f5" HeaderText="F 5" />
+                                <asp:BoundField DataField="promedio" HeaderText="Promedio" />
+                      </Columns>
+                        
+                            <FooterStyle BackColor="#CCCCCC" />
+                            <PagerStyle BackColor="#005eb7" ForeColor="White" HorizontalAlign="Center" />
+                            <SelectedRowStyle BackColor="#007cf2" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#90c9ff" Font-Bold="True" ForeColor="White" />
+                            <AlternatingRowStyle BackColor="#cbe6ff" />
+                        </asp:GridView>
+
+        </fieldset>
+
+
+        <center> <asp:Button ID="btnClose" runat="server" Text="Cerrar" 
+                                                CssClass="button" onclick="btnClose_Click" CausesValidation="false" /></center>
+                </fieldset>
                  </div>
              </ContentTemplate>
         </asp:UpdatePanel>

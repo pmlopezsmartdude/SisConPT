@@ -5,6 +5,12 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .style1
+        {
+            width: 35px;
+        }
+    </style>
     </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
@@ -116,7 +122,7 @@
                     <asp:TableCell>
                 <asp:TextBox runat="server" ID="txt_ref"  Width="100" Height="50" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                
-                   </asp:TableCell></asp:TableRow></asp:Table><br />
+                   </asp:TableCell></asp:TableRow></asp:Table>
            
   <fieldset>
            
@@ -147,7 +153,7 @@
    <td width="35" align="center"><asp:Label ID="Label31" runat="server" Text="Valor" Width="30" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
    <td width="35" align="center"><asp:Label ID="Label32" runat="server" Text="%" Width="30" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
    <td width="35" align="center"><asp:Label ID="Label33" runat="server" Text="Valor" Width="30" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
-   <td width="35" align="center"><asp:Label ID="Label34" runat="server" Text="%" Width="30" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
+   <td align="center" class="style1"><asp:Label ID="Label34" runat="server" Text="%" Width="30" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
    </tr>
   <tr>
     <td width="60" align="center"><asp:Label ID="Label35" runat="server" Text="RANGOS" Width="60" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
@@ -162,7 +168,7 @@
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_ptomar_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_ptomar_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     <td width="35" align="center">  <asp:TextBox  MaxLength="3" runat="server" ID="txt_mancha_v"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
-    <td width="35" align="center">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_mancha_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
+    <td align="center" class="style1">  <asp:TextBox  MaxLength="5" runat="server" ID="txt_mancha_p"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox></td>
     </tr>
   <tr>
     <td width="60" align="center"><asp:Label ID="Label36" runat="server" Text="PRUEBA (% Exp)" Width="60" Height="20" Font-Names="Century Gothic" Font-Size="x-Small"></asp:Label></td>
@@ -215,11 +221,36 @@
              </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="5" runat="server" ID="porc_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
              
-                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender30" TargetControlID="porc_exp"  FilterType="numbers, Custom" ValidChars="."  runat="server" />
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender30" TargetControlID="porc_exp"  FilterType="numbers, Custom" ValidChars="." runat="server" />
             
             </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
       <asp:TableCell Width="30">
-             </asp:TableCell></asp:TableRow></asp:Table><asp:Table ID="Table4" runat="server" Width="653px" Height="30px" Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center">
+             </asp:TableCell></asp:TableRow></asp:Table>
+             
+               <asp:Table ID="Table5" runat="server" Width="700px" Height="90px" 
+                Font-Names="Century Gothic" Font-Size="X-Small" HorizontalAlign="Center" >
+   
+   <asp:TableRow Width="162px">
+   <asp:TableCell>
+       <asp:Label ID="Label2" runat="server" Text="Label" Font-Names="Century Gothic" Font-Size="Small">Observaciones</asp:Label>
+       </asp:TableCell> 
+       </asp:TableRow>
+       <asp:TableRow Width="162px">
+       <asp:TableCell>
+       <center><asp:TextBox ID="txt_obser" runat="server" Height="120" Width="690" Font-Size="X-Small" Font-Names="Century Gothic" TextMode="MultiLine"></asp:TextBox></center>
+   </asp:TableCell>   
+   </asp:TableRow>
+      <asp:TableRow Width="162px">
+   <asp:TableCell>
+
+   </asp:TableCell>   </asp:TableRow>
+
+   </asp:Table>
+             
+             
+             
+             
+             <asp:Table ID="Table4" runat="server" Width="653px" Height="30px" Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center">
     <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
       <asp:TableCell Width="30" HorizontalAlign="Center">
              <asp:Button ID="btnGrabar" runat="server" Text="Guardar" onclick="Grabar_Click"/>

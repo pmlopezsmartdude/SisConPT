@@ -131,7 +131,7 @@ namespace SisConPT.SisConPT
         protected void Button2_Click(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/Ingreso");
+            Response.Redirect("~/SisConPT/Ingreso-CC-PAC-005-CODCAJ.aspx");
  
         }
         protected void Btn_proc_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace SisConPT.SisConPT
         protected void detalle(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/Detalle");
+            Response.Redirect("~/SisConPT/Detalle_CC_PAC_005.aspx");
 
         }
         protected void Editar(object sender, EventArgs e)
