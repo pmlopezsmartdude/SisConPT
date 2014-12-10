@@ -8,7 +8,7 @@
    <ol>
         <li>
         <asp:Label runat="server" >Planta</asp:Label>
-        <asp:DropDownList ID="DropPlanta_d"  runat="server" DataSourceID="DropPlanta" DataTextField="pladescri" DataValueField="pladescri" Height="30px" Width="310px" Font-Names="Century Gothic" >
+        <asp:DropDownList ID="DropPlanta_d"  runat="server" DataSourceID="DropPlanta" DataTextField="pladescri" DataValueField="pladescri" Height="30px" Width="310px" Font-Names="Century Gothic"  AutoPostBack="True" onselectedindexchanged="planta_SelectedIndexChanged">
         
         </asp:DropDownList>
             

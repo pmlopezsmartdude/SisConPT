@@ -253,9 +253,9 @@
              <asp:Table ID="Table4" runat="server" Width="653px" Height="30px" Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center">
     <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
       <asp:TableCell Width="30" HorizontalAlign="Center">
-             <asp:Button ID="btnGrabar" runat="server" Text="Guardar" onclick="Grabar_Click"/>
+             <asp:Button ID="btnGrabar" runat="server" Text="Guardar y salir" onclick="Grabar_Click" Width="100"/>
              </asp:TableCell><asp:TableCell Width="30" HorizontalAlign="Center">
-             <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" onclick="Limpiar_Click"/>
+             <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" onclick="Limpiar_Click" Width="100"/>
             
              </asp:TableCell></asp:TableRow></asp:Table></fieldset> 
              

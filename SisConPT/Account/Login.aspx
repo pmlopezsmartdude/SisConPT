@@ -35,8 +35,8 @@
                              CssClass="failureNotification" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
-                    <p>
-                        <asp:CheckBox ID="RememberMe" runat="server"/>
+                    <p><%--le agregue el checked y el visible--%>
+                        <asp:CheckBox ID="RememberMe" runat="server" Checked="true" Visible="true"/>
                         <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Mantenerme conectado</asp:Label>
                     </p>
                 </fieldset>

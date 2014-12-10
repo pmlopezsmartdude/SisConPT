@@ -35,6 +35,7 @@ namespace SisConPT.SisConPT
                     if (r == "operador")
                     {
                         rol = "00";
+                        btn_editar.Visible = false;
                         break;
                     }
                     else
@@ -42,7 +43,7 @@ namespace SisConPT.SisConPT
                         if (r == "operador Molina")
                         {
                             rol = "40";
-                            btn_satelite.Visible = false;
+                            btn_editar.Visible = false;
                             break;
                         }
                         else
@@ -50,22 +51,13 @@ namespace SisConPT.SisConPT
                             if (r == "operador San Francisco")
                             {
                                 rol = "01";
-                                btn_satelite.Visible = false;
+                                btn_editar.Visible = false;
                                 break;
                             }
                             else
                             {
 
                                 rol = "99";
-                                CCPAC05PCC.Visible = false;
-                                btn_005_resumen.Visible = false;
-                                btn_editar.Visible = false;
-                                BTN_DETALLE.Visible = true;
-                                btn_003_resumen.Visible = false;
-                                btn_075_resumen.Visible = false;
-                                CCPAC075PP.Visible = false;
-                                CCPAC003PP.Visible = false;
-                                btn_satelite.Visible = true;
 
                                 break;
 
@@ -79,6 +71,8 @@ namespace SisConPT.SisConPT
             if (!IsPostBack)
             {
                 DropPlanta(rol);
+
+
             }
 
 
@@ -107,23 +101,55 @@ namespace SisConPT.SisConPT
 
             con.Close();
 
-            //if (DropPlanta_d.Items.Count != 0)
-            //{
-            //    string planta = Convert.ToString(DropPlanta_d.SelectedValue);
+            if (DropPlanta_d.Items.Count != 0)
+            {
+                string planta = Convert.ToString(DropPlanta_d.SelectedValue);
 
-            //    if (planta != "Planta Mostazal")
-            //    {
-            //        btn_003_resumen.Visible = false;
-            //    }
+            filtra_botones(planta);
 
-            //}
-            //if (DropPlanta_d.Items.Count == 0)
-            //{
-   
-
-            //}
+            }
+            if (DropPlanta_d.Items.Count == 0)
+            {
 
 
+            }
+
+        }
+
+        protected void planta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string planta = Convert.ToString(DropPlanta_d.SelectedValue);
+
+            filtra_botones(planta);
+
+        }
+
+        private void filtra_botones(string planta)
+        {
+            if (planta == "Planta Mostazal" || planta == "Planta Molina")
+            {
+                btn_satelite.Visible = false;
+                CCPAC05PCC.Visible = true;
+                btn_005_resumen.Visible = true;
+                BTN_DETALLE.Visible = true;
+                btn_003_resumen.Visible = true;
+                btn_075_resumen.Visible = true;
+                CCPAC075PP.Visible = true;
+                CCPAC003PP.Visible = true;
+
+
+            }
+            else
+            {
+                btn_satelite.Visible = true;
+                CCPAC05PCC.Visible = false;
+                btn_005_resumen.Visible = false;
+                BTN_DETALLE.Visible = true;
+                btn_003_resumen.Visible = false;
+                btn_075_resumen.Visible = false;
+                CCPAC075PP.Visible = false;
+                CCPAC003PP.Visible = false;
+            }
         }
 
 
@@ -180,7 +206,7 @@ namespace SisConPT.SisConPT
             Session["PlantaName"] = DropPlanta_d.Text;
             Response.Redirect("~/SisConPT/Ingreso_CC_PAC_005_satelite.aspx");
 
-        }
+        } 
         protected void Btn_resumen_003(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
