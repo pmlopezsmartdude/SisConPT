@@ -98,7 +98,7 @@
          BackgroundCssClass="backgroundColor"  >
     </asp:ModalPopupExtender>
     
-    <asp:Panel ID="panelEditOrder" runat="server" BackColor="White" BorderStyle=Double>
+    <asp:Panel ID="panelEditOrder" runat="server" BackColor="White" BorderStyle=Double ScrollBars=Auto width=70% Height=95%>
     
          <asp:UpdatePanel ID="upEditOrder" runat="server">
             <ContentTemplate>   
