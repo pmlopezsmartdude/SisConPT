@@ -204,7 +204,7 @@ namespace SisConPT.SisConPT
         protected void boton_satelite(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/SisConPT/Ingreso_CC_PAC_005_satelite.aspx");
+            Response.Redirect("~/SisConPT/Ingreso_CC_PAC_005_satelite_caburgua.aspx");
 
         } 
         protected void Btn_resumen_003(object sender, EventArgs e)
