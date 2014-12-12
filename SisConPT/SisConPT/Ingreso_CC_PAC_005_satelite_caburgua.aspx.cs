@@ -504,7 +504,7 @@ namespace SisConPT.SisConPT
        {
            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
            System.Configuration.ConnectionStringSettings connStringLM;
-           connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+           connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["Agroweb_planta"];
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
