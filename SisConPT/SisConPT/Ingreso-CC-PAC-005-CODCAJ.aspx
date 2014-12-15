@@ -215,7 +215,7 @@
                 <asp:Label ID="Label23" runat="server" Text="Cajas Vaciadas" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_cajasvaciadas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox  MaxLength="5"    runat="server" ID="txt_cajasvaciadas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender34" TargetControlID="txt_cajasvaciadas" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>

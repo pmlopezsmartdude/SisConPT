@@ -28,13 +28,13 @@
         </asp:TableCell></asp:TableRow></asp:Table></asp:Panel><asp:Table ID="UnitecDatos" runat="server" Width="800px" Height="90px" Font-Names="Century Gothic" Font-Size="X-Small">
 
         <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-        <asp:TableCell Width="60"><asp:Label ID="label_turno" runat="server" Text="Turno" Width="80" Height="20"></asp:Label></asp:TableCell><asp:TableCell Width="60"><asp:DropDownList ID="DDL_turno_d"  runat="server" Width="120" DataSourceID="DDL_turno" DataTextField="turno" DataValueField="turno" Height="25"  Font-Names="Century Gothic" AutoPostBack="True" > </asp:DropDownList>
+        <asp:TableCell Width="60"><asp:Label ID="label_turno" runat="server" Text="Turno" Width="80" Height="20"></asp:Label></asp:TableCell><asp:TableCell Width="60"><asp:DropDownList ID="DDL_turno_d"  runat="server" Width="120" DataSourceID="DDL_turno" DataTextField="turno" DataValueField="turno" Height="25"  Font-Names="Century Gothic" AutoPostBack="True" onselectedindexchanged="turno_SelectedIndexChanged"> </asp:DropDownList>
             </asp:TableCell><asp:TableCell Width="60"></asp:TableCell><asp:TableCell Width="60"><asp:Label ID="label_especie" runat="server" Text="Especie" width="80" Height="20"></asp:Label></asp:TableCell><asp:TableCell Width="60"><asp:TextBox ID="especietext" runat="server"  Width="60" Height="20" ReadOnly="true" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox></asp:TableCell><asp:TableCell Width="120"><asp:DropDownList ID="DDL_cod_especie_d"  runat="server" Width="150" DataSourceID="DDL_cod_especie" DataTextField="DESCESPECIE"  DataValueField="CODESPECIE" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="especie_SelectedIndexChanged"> </asp:DropDownList>
                 </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
         <asp:TableCell Width="60">
                 <asp:Label ID="label_linea" runat="server" Text="Linea"  Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="60">
-                <asp:DropDownList ID="DDL_linea_d"  runat="server" Width="120" DataSourceID="DDL_linea" DataTextField="linea" DataValueField="linea" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"> </asp:DropDownList>
+                <asp:DropDownList ID="DDL_linea_d"  runat="server" Width="120" DataSourceID="DDL_linea" DataTextField="linea" DataValueField="linea" Height="25"  Font-Names="Century Gothic" AutoPostBack="True" onselectedindexchanged="linea_SelectedIndexChanged"> </asp:DropDownList>
                            </asp:TableCell><asp:TableCell Width="60">
        </asp:TableCell><asp:TableCell Width="60">
                 <asp:Label ID="label_variedad" runat="server" Text="Variedad" width="80" Height="20"></asp:Label>
@@ -83,7 +83,7 @@
            <asp:TableCell Width="60">
                 <asp:Label ID="Label7" runat="server" Text="Calibre" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="60">
-                <asp:DropDownList ID="DDL_calibre_d"  runat="server" Width="120" DataSourceID="DDL_calibre" DataTextField="calibre" DataValueField="calibre" Height="25"  Font-Names="Century Gothic" AutoPostBack="True" > </asp:DropDownList>
+                <asp:DropDownList ID="DDL_calibre_d"  runat="server" Width="120" DataSourceID="DDL_calibre" DataTextField="calibre" DataValueField="calibre" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="calibre_SelectedIndexChanged"> </asp:DropDownList>
             </asp:TableCell><asp:TableCell Width="60">
         </asp:TableCell><asp:TableCell Width="60">
                 <asp:Label ID="Label8" runat="server" Text="Prod. Real" Width="80" Height="20"></asp:Label>
@@ -108,7 +108,7 @@
             <asp:TableCell>
                 <asp:Label ID="Label21" runat="server" Text="Clasificación" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell>
-               <asp:DropDownList ID="DDL_clasi_d"  runat="server" Width="120" DataSourceID="DDL_clasi" DataTextField="clasi_descrip" DataValueField="clasi_descrip" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"> </asp:DropDownList>
+               <asp:DropDownList ID="DDL_clasi_d"  runat="server" Width="120" DataSourceID="DDL_clasi" DataTextField="clasi_descrip" DataValueField="clasi_descrip" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="clasi_SelectedIndexChanged"> </asp:DropDownList>
                 
             </asp:TableCell><asp:TableCell>
                 <asp:Label ID="Label22" runat="server" Text="Destino" Width="80" Height="20"></asp:Label>
@@ -118,7 +118,7 @@
             </asp:TableCell><asp:TableCell>
                 <asp:Label ID="Label23" runat="server" Text="Cajas Vaciadas" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell>
-                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_cajasvaciadas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox  MaxLength="4"    runat="server" ID="txt_cajasvaciadas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender34" TargetControlID="txt_cajasvaciadas" FilterType="numbers"  runat="server" />
             </asp:TableCell><asp:TableCell>
             <asp:Label ID="LabelPesoNeto" runat="server" Text="Peso Neto" Width="80" Height="20"></asp:Label>

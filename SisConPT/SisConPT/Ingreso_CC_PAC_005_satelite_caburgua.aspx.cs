@@ -402,7 +402,7 @@ namespace SisConPT.SisConPT
             DropVariedad(especie);
             DDL_envase(especie);
             DDL_embalaje(especie);
-            
+            DDL_linea_d.Focus();            
        }
 
        protected void embalaje_SelectedIndexChanged(object sender, EventArgs e)
@@ -410,6 +410,7 @@ namespace SisConPT.SisConPT
 
            string embalaje = Convert.ToString(DDL_embalaje_d.SelectedItem.Value);
            txt_embalaje_cod.Text = embalaje;
+           Peso.Focus();
 
        }
 
@@ -417,11 +418,13 @@ namespace SisConPT.SisConPT
        {
            string envase = Convert.ToString(DDL_envase_d.SelectedItem.Value);
            txt_envase_cod.Text = envase;
+           DDL_calibre_d.Focus();
        }
        protected void prodreal_SelectedIndexChanged(object sender, EventArgs e)
        {
            string prodreal = Convert.ToString(DDL_prodreal_d.SelectedValue);
            txt_prodreal_cod.Text = prodreal;
+           Salida.Focus();
        }
        protected void prodetiq_SelectedIndexChanged(object sender, EventArgs e)
        {
@@ -433,11 +436,32 @@ namespace SisConPT.SisConPT
        {
            string marca = Convert.ToString(DDL_marca_d.SelectedValue);
            txt_marca_cod.Text = marca;
+           Lote.Focus();
        }
        protected void variedad_SelectedIndexChanged(object sender, EventArgs e)
        {
            string variedad = Convert.ToString(DDL_variedad_d.SelectedItem.Value);
            txt_variedad_cod.Text = variedad;
+           NroProceso.Focus();
+       }
+       protected void linea_SelectedIndexChanged(object sender, EventArgs e)
+       {
+           DDL_variedad_d.Focus();
+
+       }
+       protected void turno_SelectedIndexChanged(object sender, EventArgs e)
+       {
+           DDL_cod_especie_d.Focus();
+       }
+       protected void calibre_SelectedIndexChanged(object sender, EventArgs e)
+       {
+
+           DDL_prodreal_d.Focus();
+       }
+       protected void clasi_SelectedIndexChanged(object sender, EventArgs e)
+       {
+
+           txt_destino.Focus();
        }
  
 
