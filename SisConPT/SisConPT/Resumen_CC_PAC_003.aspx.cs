@@ -183,6 +183,7 @@ namespace SisConPT.SisConPT
                     lbl_variedad.Text = reader.GetString(47);
 
                     txt_pedicelo.Text = reader.GetString(48);
+                    txt_sut_exp.Text = reader.GetString(51);
 
 
 

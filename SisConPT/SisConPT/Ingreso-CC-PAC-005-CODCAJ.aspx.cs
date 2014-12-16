@@ -158,7 +158,7 @@ namespace SisConPT.SisConPT
             " convert(varchar(15),defdesgar) as [defdesgar],convert(varchar(15),defcorsie) as [defcorsie]," +
             " convert(varchar(15),solsolub) as solsolub,convert(varchar(15),defcalbaj)as defcalbaj ," +
             " convert(varchar(15),defcalnor) as defcalnor,convert(varchar(15),defcalsob) as defcalsob, observac, " +
-            " cptclasificacion,cptdestino,convert(varchar(4),cptcajasvaciadas) as cptcajasvaciadas, convert(varchar(15),pesoneto) as pesoneto " +
+            " cptclasificacion,cptdestino,convert(varchar(4),cptcajasvaciadas) as cptcajasvaciadas, convert(varchar(15),pesoneto) as pesoneto, convert(varchar(15),defsutura_exp) as defsutura_exp  " +
             " from defecto as def inner join controlpt as cl on cl.cptnumero=def.cptnumero where cl.cptcodcja='" + CodCaja.Text + "'", con_existe_caja);
             SqlDataAdapter sda_existe = new SqlDataAdapter(cmd__existe);
             DataSet ds_existe = new DataSet();
@@ -257,6 +257,7 @@ namespace SisConPT.SisConPT
                     txt_destino.Text = reader.GetString(36);
                     txt_cajasvaciadas.Text = reader.GetString(37);
                     txt_peso_neto.Text = reader.GetString(38);
+                    txt_sut_exp.Text = reader.GetString(39);
 
                     txt_peso_neto.Enabled = false;
                     txtbajo.Enabled = false;
@@ -298,6 +299,7 @@ namespace SisConPT.SisConPT
                     txt_calisificacion.Enabled = false;
                     txt_destino.Enabled = false;
                     txt_cajasvaciadas.Enabled = false;
+                    txt_sut_exp.Enabled = false;
                     
                     con_existe_caja.Close();
 
@@ -371,6 +373,11 @@ namespace SisConPT.SisConPT
             
         }
 
+        protected void btn_ingresar_manual(object senders, EventArgs e)
+        {
+            Response.Redirect("~/SisConPT/Ingreso_CC_PAC_005_satelite_caburgua.aspx");
+        }
+
         protected void btn_limpiar(object sender, EventArgs e)
         {
             Limpiar_Click();
@@ -419,6 +426,7 @@ namespace SisConPT.SisConPT
             if (txtpitting.Text == "") { txtpitting.Text = "0"; }
             if (txt_cajasvaciadas.Text == "") { txt_cajasvaciadas.Text = "0"; }
             if (txt_peso_neto.Text == "") { txt_peso_neto.Text = "0"; }
+            if (txt_sut_exp.Text == "") { txt_sut_exp.Text = "0"; }
             if (txt_f1.Text == "") { txt_f1.Text = "0"; }
             if (txt_f2.Text == "") { txt_f2.Text = "0"; }
             if (txt_f3.Text == "") { txt_f3.Text = "0"; }
@@ -453,14 +461,14 @@ namespace SisConPT.SisConPT
 
                    string comando1 = "INSERT INTO defecto (cptnumero,defcalbaj,defcalnor,defcalsob,defprecal,defdanotr,defescama,deffrutode,deffrutodo,defguatab,defherida," +
                    " defmancha,defmedial,defpiella,defrusset,defsutura,deffaltoc,deframole,defsinped,defadhesi,defdesfru,defdesped,defblando,defherabi,defmachuc,defpartid," +
-                   " defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie,observac,pesoneto) VALUES ('" + numeroctrl + "','" + txtbajo.Text + "'," +
+                   " defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie,observac,pesoneto,defsutura_exp) VALUES ('" + numeroctrl + "','" + txtbajo.Text + "'," +
                    " '" + txtcalibreok.Text + "','" + txtsobre.Text + "','" + txtprecalibre.Text + "','" + txtdanotrip.Text + "','" + txtescama.Text + "'," +
                    " '" + txtfrutosdeformes.Text + "','" + txtfrutosdobles.Text + "','" + txtguatablanca.Text + "','" + txtherida.Text + "','" + txtmanchas.Text + "'," +
                    " '" + txtmedialuna.Text + "','" + txtpiellagarto.Text + "','" + txtrusset.Text + "','" + txtsutura.Text + "','" + txtfaltocolor.Text + "','" + txtramaleo.Text + "'," +
                    " '" + txtsinpedicelo.Text + "','" + txtadhesion.Text + "','" + txtdeshid.Text + "','" + txtdeshidpedi.Text + "','" + txtblandos.Text + "','" + txtheridasabiertas.Text + "'," +
                    " '" + txtmachucon.Text + "','" + txtpartiduras.Text + "','" + txtpartidurasagua.Text + "','" + txtpartiduracicatrizada.Text + "','" + txtpitting.Text + "'," +
                    " '" + txtpudricion.Text + "','" + txtmanchaspardas.Text + "','" + txtdanopajaro.Text + "','" + txtdesgarro.Text + "','" + txtcortesierra.Text + "'," +
-                   " '" + TextBox1obs.Text + "','" +txt_peso_neto.Text+"')";
+                   " '" + TextBox1obs.Text + "','" + txt_peso_neto.Text + "','" + txt_sut_exp.Text + "')";
 
                    string comando_soluble = "insert into solidossolubles (cptnumero,nroproceso,codcaja,nrolote,turno,usuario,calibresoluble,f1,f2,f3,f4,f5, nrolinea)" +
                    " values ('" + numeroctrl + "','" + NroProceso.Text + "','" + CodCaja.Text + "','" + Lote.Text + "','" + Turno.Text + "','" + username + "'," +
@@ -548,6 +556,7 @@ namespace SisConPT.SisConPT
                     txtpartiduracicatrizada.Text = "";
                     txtpiellagarto.Text = "";
                     txtpitting.Text = "";
+                    txt_sut_exp.Text = "";
                     txt_f1.Text = "";
                     txt_f2.Text = "";
                     txt_f3.Text = "";
@@ -641,6 +650,8 @@ namespace SisConPT.SisConPT
             txt_cajasvaciadas.Text = "";
             txt_destino.Text = "";
             txt_calisificacion.Text = "";
+            txt_sut_exp.Text = "";
+
             txt_f1.Text = "";
             txt_f2.Text = "";
             txt_f3.Text = "";

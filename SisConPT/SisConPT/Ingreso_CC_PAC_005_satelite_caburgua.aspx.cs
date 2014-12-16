@@ -20,6 +20,7 @@ namespace SisConPT.SisConPT
             {
                 DropTurno();
                 DDL_linea();
+                DropSalida();
                 DDL_calibre();
                 DropEspecie();
                 DDL_marca();
@@ -76,6 +77,7 @@ namespace SisConPT.SisConPT
             if (txtpitting.Text == "") { txtpitting.Text = "0"; }
             if (txt_cajasvaciadas.Text == "") { txt_cajasvaciadas.Text = "0"; }
             if (txt_peso_neto.Text == "") { txt_peso_neto.Text = "0"; }
+            if (txt_sut_exp.Text == "") { txt_sut_exp.Text = "0"; }
             if (txt_f1.Text == "") { txt_f1.Text = "0"; }
             if (txt_f2.Text == "") { txt_f2.Text = "0"; }
             if (txt_f3.Text == "") { txt_f3.Text = "0"; }
@@ -97,6 +99,7 @@ namespace SisConPT.SisConPT
             string prodetiq = Convert.ToString(DDL_prodetiq_d.SelectedItem.Text);
             string calibre = Convert.ToString(DDL_calibre_d.SelectedItem.Text);
             string clasificacion = Convert.ToString(DDL_clasi_d.SelectedItem.Text);
+            string salida = Convert.ToString(DDL_salida_d.SelectedValue);
 
         
             //    string linea_2 = Convert.ToString(DDL_linea_d.SelectedItem.Value);
@@ -130,9 +133,19 @@ namespace SisConPT.SisConPT
                 reader.Read();
                 string planta = reader.GetString(0);
                 conexion.Close();
+                string comprueba = "";
 
-                  
-                SqlCommand cmd_proc = new SqlCommand("select cptcodcja from CONTROLPT where cptcodcja='" + CodCaja.Text + "' group by cptcodcja", conexion);
+                if (CodCaja.Text == "99999999999999")
+                {
+                    comprueba = "select cptcodcja from CONTROLPT where cptcodcja='' group by cptcodcja";
+
+                }
+                else
+                {
+                    comprueba = "select cptcodcja from CONTROLPT where cptcodcja='" + CodCaja.Text + "' group by cptcodcja";
+                }
+
+                SqlCommand cmd_proc = new SqlCommand(comprueba, conexion);
                 SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
                 DataSet ds_proc = new DataSet();
                 try
@@ -148,18 +161,18 @@ namespace SisConPT.SisConPT
                         " '" + linea + "','" + NroProceso.Text + "','" + Lote.Text + "','" + txt_prodreal_cod.Text + "','" + prodreal +"','" + txt_prodetiq_cod.Text + "'," +
                         " '" + prodetiq + "','" + especietext.Text + "','" + especie + "','" + txt_variedad_cod.Text + "','" + variedad + "','" + calibre + "'," +
                         " '" + txt_marca_cod.Text + "','" + marca + "','" + txt_embalaje_cod.Text + "','" + embalaje + "','" + txt_envase_cod.Text + "','" + envase + "','" + Peso.Text + "'," +
-                        " " + Salida.Text + ",'" + CodCaja.Text + "','" + clasificacion + "','" + txt_destino.Text + "'," + txt_cajasvaciadas.Text + ")";
+                        " " + salida + ",'" + CodCaja.Text + "','" + clasificacion + "','" + txt_destino.Text + "'," + txt_cajasvaciadas.Text + ")";
 
                         string comando_2 = "INSERT INTO defecto (cptnumero,defcalbaj,defcalnor,defcalsob,defprecal,defdanotr,defescama,deffrutode,deffrutodo,defguatab,defherida," +
                         " defmancha,defmedial,defpiella,defrusset,defsutura,deffaltoc,deframole,defsinped,defadhesi,defdesfru,defdesped,defblando,defherabi,defmachuc,defpartid," +
-                        " defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie,observac,pesoneto) VALUES ('" + numeroctrl + "','" + txtbajo.Text + "'," +
+                        " defparagu,defparcic,defpittin,defpudric,defmanpar,defdanopa,defdesgar,defcorsie,observac,pesoneto,defsutura_exp) VALUES ('" + numeroctrl + "','" + txtbajo.Text + "'," +
                         " '" + txtcalibreok.Text + "','" + txtsobre.Text + "','" + txtprecalibre.Text + "','" + txtdanotrip.Text + "','" + txtescama.Text + "'," +
                         " '" + txtfrutosdeformes.Text + "','" + txtfrutosdobles.Text + "','" + txtguatablanca.Text + "','" + txtherida.Text + "','" + txtmanchas.Text + "'," +
                         " '" + txtmedialuna.Text + "','" + txtpiellagarto.Text + "','" + txtrusset.Text + "','" + txtsutura.Text + "','" + txtfaltocolor.Text + "','" + txtramaleo.Text + "'," +
                         " '" + txtsinpedicelo.Text + "','" + txtadhesion.Text + "','" + txtdeshid.Text + "','" + txtdeshidpedi.Text + "','" + txtblandos.Text + "','" + txtheridasabiertas.Text + "'," +
                         " '" + txtmachucon.Text + "','" + txtpartiduras.Text + "','" + txtpartidurasagua.Text + "','" + txtpartiduracicatrizada.Text + "','" + txtpitting.Text + "'," +
                         " '" + txtpudricion.Text + "','" + txtmanchaspardas.Text + "','" + txtdanopajaro.Text + "','" + txtdesgarro.Text + "','" + txtcortesierra.Text + "'," +
-                        " '" + TextBox1obs.Text + "','" + txt_peso_neto.Text + "')";
+                        " '" + TextBox1obs.Text + "','" + txt_peso_neto.Text + "','" + txt_sut_exp.Text + "')";
 
                         string comando_soluble = "insert into solidossolubles (cptnumero,nroproceso,codcaja,nrolote,turno,usuario,calibresoluble,f1,f2,f3,f4,f5, nrolinea)" +
                         " values ('" + numeroctrl + "','" + NroProceso.Text + "','" + CodCaja.Text + "','" + Lote.Text + "','" + turno + "','" + username + "'," +
@@ -191,16 +204,14 @@ namespace SisConPT.SisConPT
 
                         CodCaja.Text = "";
                         
-                        especietext.Text = "";
+                        
                       
                         NroProceso.Text = "";
                         
                         Lote.Text = "";
                         
                         Peso.Text = "";
-                       
-                        Salida.Text = "";
-                        
+                       txt_cajasvaciadas.Text = "";
                         TextBox1obs.Text = "";
                         txt_peso_neto.Text = "";
                         txtbajo.Text = "";
@@ -236,6 +247,7 @@ namespace SisConPT.SisConPT
                         txtpartiduracicatrizada.Text = "";
                         txtpiellagarto.Text = "";
                         txtpitting.Text = "";
+                        txt_sut_exp.Text = "";
                         txt_f1.Text = "";
                         txt_f2.Text = "";
                         txt_f3.Text = "";
@@ -286,7 +298,6 @@ namespace SisConPT.SisConPT
             Peso.Text = "";
             txt_envase_cod.Text = "";
             txt_prodreal_cod.Text = "";
-            Salida.Text = "";
             txt_prodetiq_cod.Text = "";
             TextBox1obs.Text = "";
             txtbajo.Text = "";
@@ -297,6 +308,7 @@ namespace SisConPT.SisConPT
             txtcalibreok.Text = "";
             txtdanotrip.Text = "";
             txtsutura.Text = "";
+            txt_sut_exp.Text = "";
             txtdeshid.Text = "";
             txtmanchaspardas.Text = "";
             txtsobre.Text = "";
@@ -324,6 +336,7 @@ namespace SisConPT.SisConPT
             txtpitting.Text = "";
             txt_cajasvaciadas.Text = "";
             txt_destino.Text = "";
+
   
             txt_f1.Text = "";
             txt_f2.Text = "";
@@ -360,6 +373,26 @@ namespace SisConPT.SisConPT
             con.Close();
         }
 
+        private void DropSalida()
+        {
+            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
+            System.Configuration.ConnectionStringSettings connStringLM;
+            connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
+            SqlConnection con = new SqlConnection(connStringLM.ToString());
+            con.Open();
+            //linea
+            SqlCommand cmd_proc = new SqlCommand("select sal_descrip from salida_sat", con);
+            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
+            DataSet ds_proc = new DataSet();
+            sda_proc.Fill(ds_proc);
+
+            DDL_salida_d.DataSourceID = "";
+            DDL_salida_d.DataSource = ds_proc;
+            DDL_salida_d.DataBind();
+
+            con.Close();
+        }
+
         private void DropEspecie()
         {
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -368,7 +401,7 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringLM.ToString());
             con.Open();
             //linea
-            SqlCommand cmd_proc = new SqlCommand("select CODESPECIE, DESCESPECIE from ESPECIE where codespecie<>0", con);
+            SqlCommand cmd_proc = new SqlCommand("select CODESPECIE, DESCESPECIE from ESPECIE where codespecie=21", con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
             DataSet ds_proc = new DataSet();
             sda_proc.Fill(ds_proc);
@@ -391,6 +424,12 @@ namespace SisConPT.SisConPT
 
             DDL_envase(especie);
             string envase = Convert.ToString(DDL_envase_d.SelectedItem.Value);
+            con.Open();
+            SqlCommand sql_planta = new SqlCommand("select CONVERT(varchar(15),CAPACIDAD)+' kg' as capacidad from envases where alias='" + envase + "'", con);
+            SqlDataReader reader = sql_planta.ExecuteReader();
+            reader.Read();
+            Peso.Text = reader.GetString(0);
+            con.Close();
             txt_envase_cod.Text = envase;
         }
 
@@ -418,13 +457,25 @@ namespace SisConPT.SisConPT
        {
            string envase = Convert.ToString(DDL_envase_d.SelectedItem.Value);
            txt_envase_cod.Text = envase;
+           System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
+           System.Configuration.ConnectionStringSettings connStringLM;
+           connStringLM = rootWebConfig.ConnectionStrings.ConnectionStrings["Agroweb_planta"];
+           SqlConnection con = new SqlConnection(connStringLM.ToString());
+
+           con.Open();
+           SqlCommand sql_planta = new SqlCommand("select (CONVERT(varchar(15),CAPACIDAD)+' kg') as capacidad from envases where alias='" + envase + "'", con);
+           SqlDataReader reader = sql_planta.ExecuteReader();
+           reader.Read();
+           Peso.Text = reader.GetString(0);
+           con.Close();
+
            DDL_calibre_d.Focus();
        }
        protected void prodreal_SelectedIndexChanged(object sender, EventArgs e)
        {
            string prodreal = Convert.ToString(DDL_prodreal_d.SelectedValue);
            txt_prodreal_cod.Text = prodreal;
-           Salida.Focus();
+           DDL_salida_d.Focus();
        }
        protected void prodetiq_SelectedIndexChanged(object sender, EventArgs e)
        {
@@ -447,6 +498,11 @@ namespace SisConPT.SisConPT
        protected void linea_SelectedIndexChanged(object sender, EventArgs e)
        {
            DDL_variedad_d.Focus();
+
+       }
+       protected void salida_SelectedIndexChanged(object sender, EventArgs e)
+       {
+           DDL_prodetiq_d.Focus();
 
        }
        protected void turno_SelectedIndexChanged(object sender, EventArgs e)
@@ -483,7 +539,8 @@ namespace SisConPT.SisConPT
            DDL_variedad_d.DataSource = ds_proc;
            DDL_variedad_d.DataBind();
            con.Close();
-        
+
+
           
        }
        private void DDL_embalaje(string especie)
@@ -513,7 +570,7 @@ namespace SisConPT.SisConPT
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
-           SqlCommand cmd_proc = new SqlCommand("select env.codenvase, env.nombre, env_esp.codespecie from envases as env inner join [ENVASES_ESPECIE] as env_esp on env.CODENVASE=env_esp.CODENVASE where codespecie='" + especie + "'", con);
+           SqlCommand cmd_proc = new SqlCommand("select env.alias, env.nombre, env_esp.codespecie from envases as env inner join [ENVASES_ESPECIE] as env_esp on env.CODENVASE=env_esp.CODENVASE where codespecie='" + especie + "'", con);
            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
            DataSet ds_proc = new DataSet();
            sda_proc.Fill(ds_proc);

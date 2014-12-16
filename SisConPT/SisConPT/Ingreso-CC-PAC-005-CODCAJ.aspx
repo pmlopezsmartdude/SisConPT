@@ -49,6 +49,15 @@
        <asp:TableCell>
         <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" onclick="btnLoadData_click"  Width="80" Height="25px"/>
         </asp:TableCell>
+        <asp:TableCell>
+      
+        </asp:TableCell>
+        <asp:TableCell>
+      
+        </asp:TableCell>
+        <asp:TableCell>
+        <asp:Button ID="btn_manual" runat="server" Text="Ingresar Manual" onclick="btn_ingresar_manual"  Width="120" Height="25px"/>
+        </asp:TableCell>
        </asp:TableRow>
        </asp:Table>
     
@@ -486,11 +495,12 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txtmachucon" FilterType="numbers"  runat="server" />
             </asp:TableCell>
-            <asp:TableCell>
-                
+           <asp:TableCell>
+                <asp:Label ID="Label12" runat="server" Height="10">Sutura Expuesta</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                
+                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_sut_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender36" TargetControlID="txt_sut_exp" FilterType="numbers"  runat="server" />
             </asp:TableCell>
  </asp:TableRow>
           <asp:TableRow ID="TableRow7" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">

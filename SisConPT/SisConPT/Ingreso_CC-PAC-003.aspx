@@ -378,11 +378,13 @@
              <asp:TableCell>
                    </asp:TableCell>
 
-             <asp:TableCell Width="30">
-             
+         <asp:TableCell Width="30">
+             <asp:Label ID="Label49" runat="server" Text="Sutura Expuesta" Width="70" Height="20"></asp:Label>
              </asp:TableCell>
              <asp:TableCell>
-                   </asp:TableCell>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt_sut_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender36" TargetControlID="txt_sut_exp"  FilterType="numbers"   runat="server" />
+             </asp:TableCell>
 
              <asp:TableCell Width="30">
               </asp:TableCell>

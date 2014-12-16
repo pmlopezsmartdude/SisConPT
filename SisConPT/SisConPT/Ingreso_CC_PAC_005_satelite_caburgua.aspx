@@ -72,13 +72,13 @@
             <asp:TableCell Width="60">
                 <asp:Label ID="Label5" runat="server" Text="Peso" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="120">
-                <asp:TextBox MaxLength="5" ID="Peso" runat="server"   Width="110" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox MaxLength="5" ID="Peso" runat="server"   Width="110" Height="20" Enabled="true" ReadOnly="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell><asp:TableCell Width="60">
       <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Peso" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Peso"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
         </asp:TableCell><asp:TableCell Width="60">
                 <asp:Label ID="Label_envase" runat="server" Text="Envase" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="60"><asp:TextBox ID="txt_envase_cod" ReadOnly="True" runat="server"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox></asp:TableCell><asp:TableCell Width="120">
-                <asp:DropDownList ID="DDL_envase_d"  runat="server" Width="150" DataSourceID="DDL_envase" DataTextField="nombre" DataValueField="codenvase" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="envase_SelectedIndexChanged"> </asp:DropDownList>
+                <asp:DropDownList ID="DDL_envase_d"  runat="server" Width="150" DataSourceID="DDL_envase" DataTextField="nombre" DataValueField="alias" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="envase_SelectedIndexChanged"> </asp:DropDownList>
             </asp:TableCell></asp:TableRow><asp:TableRow ID="TableRow2" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
            <asp:TableCell Width="60">
                 <asp:Label ID="Label7" runat="server" Text="Calibre" Width="80" Height="20"></asp:Label>
@@ -93,10 +93,9 @@
            <asp:TableCell Width="60">
                 <asp:Label ID="Label9" runat="server" Text="Salida" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="120">
-                <asp:TextBox MaxLength="4" runat="server" ID="Salida"   Width="110" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                    <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender45" TargetControlID="Salida" FilterType="numbers"  runat="server" />
+                <asp:DropDownList ID="DDL_salida_d"  runat="server" Width="120" DataSourceID="DDL_salida" DataTextField="sal_descrip" DataValueField="sal_descrip" Height="25"  Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="salida_SelectedIndexChanged"> </asp:DropDownList>
             </asp:TableCell><asp:TableCell Width="60">
-      <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="Salida" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Salida" ValidationGroup="ChangeUserPasswordValidationGroup"/>
+     
         </asp:TableCell><asp:TableCell Width="60">
                 <asp:Label ID="Label10" runat="server" Text="Prod. Etiquetado" Width="100" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="60"><asp:TextBox ID="txt_prodetiq_cod" ReadOnly="True" runat="server"  Width="60" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox></asp:TableCell><asp:TableCell Width="120"> <asp:DropDownList ID="DDL_prodetiq_d"  runat="server" Width="150" DataSourceID="DDL_prodetiq" DataTextField="DESCRIPCION" DataValueField="ALIAS" Height="25"  Font-Names="Century Gothic" AutoPostBack="True" onselectedindexchanged="prodetiq_SelectedIndexChanged"> </asp:DropDownList></asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -299,10 +298,12 @@
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txtmachucon" FilterType="numbers"  runat="server" />
-            </asp:TableCell><asp:TableCell>
-                
-            </asp:TableCell><asp:TableCell>
-                
+            </asp:TableCell> <asp:TableCell>
+                <asp:Label ID="Label12" runat="server" Height="10">Sutura Expuesta</asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_sut_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender37" TargetControlID="txt_sut_exp" FilterType="numbers"  runat="server" />
             </asp:TableCell></asp:TableRow><asp:TableRow ID="TableRow7" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             <asp:TableCell>
                 

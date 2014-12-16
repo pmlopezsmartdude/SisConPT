@@ -83,9 +83,8 @@ namespace SisConPT.SisConPT
 
         protected void Procesos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            GridViewRow row = gvProcesos.Rows[e.NewSelectedIndex];
-
-            string caja = row.Cells[1].Text;
+            string caja = Convert.ToString(gvProcesos.DataKeys[e.NewSelectedIndex].Value);
+            
           
 
             InitializeEditPopUp();
@@ -138,8 +137,8 @@ namespace SisConPT.SisConPT
             " convert(varchar(15),defcalnor) as defcalnor,convert(varchar(15),defcalsob) as defcalsob, observac, " +
             " cptdestino,convert(varchar(4),cptcajasvaciadas) as cptcajasvaciadas, convert(varchar(15),pesoneto) as pesoneto" +
             " , convert(varchar(15),f1) as f1,convert(varchar(15),f2) as f2,convert(varchar(15),f3) as f3," +
-			" convert(varchar(15),f4) as f4,convert(varchar(15),f5) as f5, sol.calibresoluble" +
-            " from defecto as def inner join controlpt as cl on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptcodcja=sol.codcaja where cl.cptcodcja='" + caja + "'";
+            " convert(varchar(15),f4) as f4,convert(varchar(15),f5) as f5, sol.calibresoluble, convert(varchar(15),defsutura_exp) as defsutura_exp," +
+            " convert(varchar(50),cl.cptnumero) as cptnumero from defecto as def inner join controlpt as cl on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptnumero=sol.cptnumero where cl.cptnumero='" + caja + "'";
             SqlCommand cmd_proc = new SqlCommand(cadena_consulta, con);
             try
             {
@@ -194,6 +193,8 @@ namespace SisConPT.SisConPT
                     txt_f5.Text = reader.GetString(49);
                     TextBox1obs.Text = reader.GetString(41);
                     lbl_calibre.Text = reader.GetString(50);
+                    txt_sut_exp.Text = reader.GetString(51);
+                    lbl_cptnumero.Text = reader.GetString(52);
 
                 }
 
@@ -294,8 +295,8 @@ namespace SisConPT.SisConPT
             con.Open();
             int planta = Convert.ToInt32(txt_cod_plan.Text);
             string comando_cadena = "select cl.cptfechor as cptfechor,cl.cptproces as cptproces,cl.cptnulote as cptnulote," +
-            " cl.cptvardes as cptvardes, cl.cptcodcja as cptcodcja, cl.cptdestino as cptdestino, sol.calibresoluble as calibresoluble" +
-            " from controlpt as cl  inner join defecto as def on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptcodcja=sol.codcaja " +
+            " cl.cptvardes as cptvardes, cl.cptcodcja as cptcodcja, cl.cptdestino as cptdestino, sol.calibresoluble as calibresoluble, cl.cptnumero" +
+            " from controlpt as cl  inner join defecto as def on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptnumero=sol.cptnumero " +
             " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.lincodigo='" + linea_2 + "' and cl.placodigo= " + planta + "";
 
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
@@ -374,13 +375,14 @@ namespace SisConPT.SisConPT
             if (txt_f4.Text == "") { txt_f4.Text = "0"; }
             if (txt_f5.Text == "") { txt_f5.Text = "0"; }
             if (TextBox1obs.Text == "") { TextBox1obs.Text = "0"; }
+            if (txt_sut_exp.Text == "") { txt_sut_exp.Text = "0"; }
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
             connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
             SqlConnection conexion = new SqlConnection(connStringmain.ToString());
 
-            string update_controlpt = "update controlpt set cptdestino = '" + txt_destino.Text + "', cptcajasvaciadas= '" + txt_cajasvaciadas.Text + "' where cptcodcja = '" + lbl_caja.Text  + "';";
+            string update_controlpt = "update controlpt set cptdestino = '" + txt_destino.Text + "', cptcajasvaciadas= '" + txt_cajasvaciadas.Text + "' where cptnumero = '" + lbl_cptnumero.Text + "';";
 
             string update_defecto = "update defecto set" +
                 " defcalbaj = '" + txtbajo.Text + "'," +
@@ -417,8 +419,9 @@ namespace SisConPT.SisConPT
                 " defdesgar = '" + txtdesgarro.Text + "'," +
                 " defcorsie = '" + txtcortesierra.Text + "'," +
                 " observac = '" + TextBox1obs.Text + "'," +
+                " defsutura_exp = '" + txt_sut_exp.Text + "'," +
                 " pesoneto = '" + txt_peso_neto.Text + "'" +
-                " from defecto as def inner join controlpt as cl on def.cptnumero=cl.cptnumero where cl.cptcodcja='" + lbl_caja.Text + "'";
+                " from defecto as def inner join controlpt as cl on def.cptnumero=cl.cptnumero where cl.cptnumero='" + lbl_cptnumero.Text + "'";
 
             string update_solidos = "update solidossolubles set" +
                 " f1 = '" + txt_f1.Text + "'," +
@@ -426,7 +429,7 @@ namespace SisConPT.SisConPT
                 " f3 = '" + txt_f3.Text + "'," +
                 " f4 = '" + txt_f4.Text + "'," +
                 " f5 = '" + txt_f5.Text + "'" +
-                " where codcaja='" + lbl_caja.Text + "'";
+                " where cptnumero='" + lbl_cptnumero.Text + "'";
             try
             {
 

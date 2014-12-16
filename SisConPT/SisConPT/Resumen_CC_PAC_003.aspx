@@ -74,10 +74,6 @@
                                 </asp:TemplateField>
                                
                                 <asp:BoundField DataField="Ctrl_CodProc" HeaderText="Proceso" DataFormatString="{0:d}"  />
-                             <%-- <asp:BoundField DataField="Ctrl_CodPlan" HeaderText="Planta" DataFormatString="{0:d}" />
-                                <asp:BoundField DataField="Ctrl_Lin" HeaderText="Linea" />
-                                <asp:BoundField DataField="Ctrl_Usuario" HeaderText="Usuario" />
-                                <asp:BoundField DataField="Ctrl_Turno" HeaderText="Turno" />--%>
                             </Columns>
                             
 
@@ -98,7 +94,7 @@
          BackgroundCssClass="backgroundColor"  >
     </asp:ModalPopupExtender>
     
-    <asp:Panel ID="panelEditOrder" runat="server" BackColor="White" BorderStyle=Double ScrollBars=Auto width=70% Height=95%>
+    <asp:Panel ID="panelEditOrder" runat="server" BackColor="White" BorderStyle="Double" ScrollBars="Auto" width="70%" Height="95%">
     
          <asp:UpdatePanel ID="upEditOrder" runat="server">
             <ContentTemplate>   
@@ -371,10 +367,11 @@
                    </asp:TableCell>
 
              <asp:TableCell Width="30">
-             
+             <asp:Label ID="Label36" runat="server" Text="Sutura Expuesta" Width="70" Height="20"></asp:Label>
              </asp:TableCell>
              <asp:TableCell>
-                   </asp:TableCell>
+                <asp:TextBox  MaxLength="3" runat="server" ID="txt_sut_exp"  Width="30" Height="20" Enabled="false" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
+              </asp:TableCell>
 
              <asp:TableCell Width="30">
               </asp:TableCell>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Resumen_CC-PAC-005_CODCAJ.aspx.cs" Inherits="SisConPT.SisConPT.Resumen_CC_PAC_005_CODCAJ" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Resumen_CC_PAC_005_III.aspx.cs" Inherits="SisConPT.SisConPT.Resumen_CC_PAC_005_III" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
@@ -31,14 +31,7 @@
     <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">  <asp:TableCell Width="60"></asp:TableCell></asp:TableRow>
 
    <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-             <asp:TableCell Width="30">
-            <asp:Label ID="lbl_linea" runat="server" Text="Línea" Width="50" Height="20"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell Width="60">
-                 <asp:DropDownList ID="drop_linea_d"  runat="server" DataSourceID="drop_linea" DataTextField="lincodigo" DataValueField="lincodigo" Height="30px" Width="80" Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="linea_SelectedIndexChanged">
-        </asp:DropDownList>
-             </asp:TableCell>
-              <asp:TableCell Width="30">
+   <asp:TableCell Width="30">
             <asp:Label ID="lbl_turno" runat="server" Text="Turno" Width="50" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
@@ -46,7 +39,15 @@
                  <asp:DropDownList ID="drop_turno_d"  runat="server" DataSourceID="drop_turno_d" DataTextField="turcodigo" DataValueField="turcodigo" Height="30px" Width="80" Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="turno_SelectedIndexChanged" >
         </asp:DropDownList>  
                </asp:TableCell>
-               <asp:TableCell Width="60">
+
+             <asp:TableCell Width="30">
+            <asp:Label ID="lbl_linea" runat="server" Text="Línea" Width="50" Height="20"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell Width="60">
+                 <asp:DropDownList ID="drop_linea_d"  runat="server" DataSourceID="drop_linea" DataTextField="lincodigo" DataValueField="lincodigo" Height="30px" Width="80" Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="linea_SelectedIndexChanged">
+        </asp:DropDownList>
+             </asp:TableCell>
+                             <asp:TableCell Width="60">
              <asp:Button ID="Exportar_005" runat="server" Text="Exportar" Enabled="true" OnClick="Exportar_click" />
                  
                </asp:TableCell>
@@ -90,6 +91,9 @@
     </asp:TableCell>
    </asp:TableRow>
   </asp:Table>
+        <asp:RoundedCornersExtender ID="Datos_RoundedCornersExtender" runat="server" 
+            Enabled="True" TargetControlID="Datos">
+        </asp:RoundedCornersExtender>
   </fieldset>
 
 
@@ -152,59 +156,24 @@
                      <asp:TableRow ID="TableRow11" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
             <asp:TableCell>
-                 <asp:Label ID="Label1" runat="server" Height="20">Proceso</asp:Label>
+                 <asp:Label ID="Label1" runat="server" Height="20" Font-Size="Small">Proceso</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-             <asp:Label ID="lbl_proceso" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+             <asp:Label ID="lbl_proceso" runat="server" Width="50" Height="20" Font-Size="Small" Font-Names="Century Gothic"></asp:Label>
                  </asp:TableCell>
+            
             <asp:TableCell>
-                 <asp:Label ID="Label2" runat="server" Height="20">Productor</asp:Label>
+                 <asp:Label ID="Label3" runat="server" Height="20" Font-Size="Small">Lote</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-             <asp:Label ID="lbl_productor" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                 </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label3" runat="server" Height="20">Lote</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_lote" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
+             <asp:Label ID="lbl_lote" runat="server" Width="50" Height="20" Font-Size="Small" Font-Names="Century Gothic"></asp:Label>
                     </asp:TableCell>
 
-             <asp:TableCell>
-                 <asp:Label ID="Label5" runat="server" Height="20">Variedad</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-            <asp:Label ID="lbl_variedad" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-               
-            </asp:TableCell>
             
  </asp:TableRow>
             <asp:TableRow ID="TableRow15" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
-            <asp:TableCell>
-                 <asp:Label ID="Label6" runat="server" Height="20">Clasificacion</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_clasi" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-               </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label7" runat="server" Height="20">Destino</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_destino" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-               </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label8" runat="server" Height="20">Cajas Vaciadas</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_vaciadas" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                 </asp:TableCell>
-                 <asp:TableCell>
-                 <asp:Label ID="Label11" runat="server" Height="20">Casos</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_casos" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                 </asp:TableCell>
+           
         
  </asp:TableRow><asp:TableRow ID="TableRow13" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="10">
             

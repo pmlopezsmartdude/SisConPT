@@ -103,7 +103,7 @@
 
            <asp:GridView ID="gvProcesos" runat="server" CellPadding="3" ForeColor="Black" 
                             GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
-                            DataKeyNames="cptcodcja" BackColor="White" 
+                            DataKeyNames="cptnumero" BackColor="White" 
                             BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="Small"
                             onpageindexchanging="Procesos_PageIndexChanging" 
                             onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center" style="width:800px">
@@ -187,7 +187,7 @@
                  <asp:Label ID="lbl_proceso" runat="server" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                
+                <asp:Label ID="lbl_cptnumero" runat="server" Height="20" Visible="false"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
               
@@ -552,10 +552,11 @@
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txtmachucon" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                
+                <asp:Label ID="Label25" runat="server" Height="10">Sutura Expuesta</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                
+                <asp:TextBox  MaxLength="3"    runat="server" ID="txt_sut_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender41" TargetControlID="txt_sut_exp" FilterType="numbers"  runat="server" />
             </asp:TableCell>
  </asp:TableRow>
           <asp:TableRow ID="TableRow7" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">

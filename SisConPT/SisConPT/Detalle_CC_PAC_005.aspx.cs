@@ -207,7 +207,7 @@ namespace SisConPT.SisConPT
             " def.defparagu as defparagu,def.defparcic as defparcic,def.defpittin as defpittin,def.defpudric as defpudric,def.defmanpar as defmanpar,"+
             " def.defdanopa as defdanopa,def.defdesgar as defdesgar,def.defcorsie as defcorsie,def.solsolub as solsolub,def.observac as observac,"+
             " def.pesoneto as pesoneto,sol.calibresoluble as calibresoluble,sol.f1 as f1,sol.f2 as f2,sol.f3 as f3,sol.f4 as f4,sol.f5 as f5,sol.nrolinea as nrolinea "+
-            " from controlpt as cl  inner join defecto as def on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptcodcja=sol.codcaja "+
+            " from controlpt as cl  inner join defecto as def on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptnumero=sol.cptnumero " +
             " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.lincodigo='" + linea_2 + "' and cl.placodigo= " + planta + "";
 
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
@@ -256,7 +256,7 @@ namespace SisConPT.SisConPT
             " def.defparagu as PART_AGUA,def.defparcic as PART_CICATRIZADAS,def.defpittin as PITTING,def.defpudric as PUDRICION,def.defmanpar as MANCHAS_PARDAS," +
             " def.defdanopa as DANO_PAJARO,def.defdesgar as DESGARRE,def.defcorsie as CORTE_SIERRAS,def.observac as OBSERVACIONES," +
             " def.pesoneto as PESO_NETO_II,sol.calibresoluble as CALIBRE_II,sol.f1 as f1,sol.f2 as f2,sol.f3 as f3,sol.f4 as f4,sol.f5 as f5 " +
-            " from controlpt as cl  inner join defecto as def on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptcodcja=sol.codcaja " +
+            " from controlpt as cl  inner join defecto as def on cl.cptnumero=def.cptnumero inner join solidossolubles as sol on cl.cptnumero=sol.cptnumero " +
             " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.lincodigo='" + linea_2 + "' and cl.placodigo= " + planta + "";
 
             SqlCommand command = new SqlCommand(sql, con);

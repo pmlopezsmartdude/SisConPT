@@ -185,7 +185,7 @@ namespace SisConPT.SisConPT
         protected void Btn_resumen_005(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/SisConPT/Resumen_CC-PAC-005_CODCAJ.aspx");
+            Response.Redirect("~/SisConPT/Resumen_CC_PAC_005_II.aspx");
 
         }
         protected void Btn_resumen_075(object sender, EventArgs e)

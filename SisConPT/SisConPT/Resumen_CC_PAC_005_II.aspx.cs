@@ -15,7 +15,7 @@ using System.Configuration;
 
 namespace SisConPT.SisConPT
 {
-    public partial class Resumen_CC_PAC_005_CODCAJ : System.Web.UI.Page
+    public partial class Resumen_CC_PAC_005_II : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -74,7 +74,7 @@ namespace SisConPT.SisConPT
             if (!IsPostBack)
             {
 
-             DropLinea(); 
+                BuscaTurno(); 
 
             }
 
@@ -83,15 +83,16 @@ namespace SisConPT.SisConPT
 
         protected void linea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
+            //string linea = Convert.ToString(drop_linea_d.SelectedValue);
 
-            BuscaTurno(linea);
+           // BuscaTurno(linea);
 
         }
 
         protected void turno_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string turno = Convert.ToString(drop_turno_d.SelectedValue);
+            DropLinea(turno);
 
         }
      
@@ -135,15 +136,27 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             string turno = Convert.ToString(drop_turno_d.SelectedValue);
-            int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
 
             string inicio = txt_fechainicio.Text;
             string fin = txt_fechafin.Text;
             int planta = Convert.ToInt32(txt_cod_plan.Text);
 
             if (destino == "&nbsp;") { destino = ""; }
-            string cadena_consulta = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; " +
+            
+            string cadena_consulta = "";
+            if (linea_2 == "Todas")
+            {
+                cadena_consulta = "[RESUMEN_CC_PAC_005_todas] '" + inicio + "','" + fin + "', '" + turno + "'," + planta + "; " +
             " select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
+            }
+            else
+            {
+                cadena_consulta = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; " +
+            " select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
+            }
+
+
             SqlCommand cmd_proc = new SqlCommand(cadena_consulta, con);
             try
             {
@@ -209,7 +222,7 @@ namespace SisConPT.SisConPT
             mpeEditOrder.Hide();
         }
 
-        private void DropLinea()
+        private void DropLinea(string turno)
         {
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
@@ -221,7 +234,7 @@ namespace SisConPT.SisConPT
             con.Open();
             //linea
 
-            SqlCommand cmd_linea = new SqlCommand("select distinct lincodigo from controlpt where placodigo = '" + txt_cod_plan.Text + "'", con);
+            SqlCommand cmd_linea = new SqlCommand("select 'Todas' as lincodigo union select distinct lincodigo from controlpt where turcodigo='" + turno + "' and placodigo = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
@@ -229,24 +242,11 @@ namespace SisConPT.SisConPT
             drop_linea_d.DataSource = ds_linea;
             drop_linea_d.DataBind();
 
-            if (drop_linea_d.Items.Count != 0)
-            {
-                int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
-
-                BuscaTurno(linea);
-
-            }
-            if (drop_linea_d.Items.Count == 0)
-            {
-                
-                BuscaTurno(0);
-
-            }
             con.Close();
         
         }
 
-        private void BuscaTurno(int linea)
+        private void BuscaTurno()
         {
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
@@ -255,19 +255,33 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             //linea
-
-            SqlCommand cmd_linea = new SqlCommand("select distinct turcodigo from controlpt where lincodigo ='" + linea + "' and placodigo = '" + txt_cod_plan.Text + "'", con);
+            
+            SqlCommand cmd_linea = new SqlCommand("select distinct turcodigo from controlpt where placodigo = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_linea = new SqlDataAdapter(cmd_linea);
             DataSet ds_linea = new DataSet();
             sda_linea.Fill(ds_linea);
+
             try
             { 
             drop_turno_d.DataSourceID = "";
             drop_turno_d.DataSource = ds_linea;
             drop_turno_d.DataBind();
 
-                string turno = Convert.ToString(drop_turno_d.SelectedValue);
-                int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string turno = "";
+                if (drop_turno_d.Items.Count != 0)
+                {
+                    turno = Convert.ToString(drop_turno_d.SelectedValue);
+
+                    DropLinea(turno);
+
+                }
+                if (drop_turno_d.Items.Count == 0)
+                {
+
+                    DropLinea(turno);
+
+                }
+
 
             con.Close();
             }
@@ -282,7 +296,7 @@ namespace SisConPT.SisConPT
             
         }
 
-        private void GvProcesos_Llenar(string turno, int linea_2, string inicio, string fin)
+        private void GvProcesos_Llenar(string turno, string linea_2, string inicio, string fin)
         {
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -292,8 +306,15 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             int planta = Convert.ToInt32(txt_cod_plan.Text);
-            string comando_cadena = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a;";
-
+            string comando_cadena = "";
+            if (linea_2 == "Todas")
+            {
+                comando_cadena = "[RESUMEN_CC_PAC_005_todas] '" + inicio + "','" + fin + "', '" + turno + "'," + planta + "; select * from ##a;";
+            }
+            else
+            {
+                comando_cadena = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a;";
+            }
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
             DataSet ds_proc = new DataSet();
@@ -321,12 +342,20 @@ namespace SisConPT.SisConPT
             string PlantaNombre = Session["PlantaName"].ToString();
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
+            string filtro = "";
+            if (linea_2 == "Todas")
+            {
+                filtro = " where nroproceso='" + proceso + "' and nrolote='" + lote + "' and turno='" + turno + "' and placodigo= '" + txt_cod_plan.Text + "'";
+            }
+            else
+            {
+                filtro = " where nroproceso='" + proceso + "' and nrolote='" + lote + "' and turno='" + turno + "' and nrolinea='" + linea_2 + "' and placodigo= '" + txt_cod_plan.Text + "'";
+            }
 
             string comando_cadena = "select codcaja, calibresoluble,convert(varchar (255),f1) as f1,convert(varchar (255),f2) as f2," +
             " convert(varchar (255),f3) as f3,convert(varchar (255),f4) as f4,convert(varchar (255),f5) as f5, convert(varchar(255)," +
             " (CONVERT(decimal(18, 2),(f1+f2+f3+f4+f5)/5.0))) as promedio from solidossolubles " +
-            " as sol inner join controlpt as cl on sol.codcaja=cl.cptcodcja" +
-            " where nroproceso='" + proceso + "' and nrolote='" + lote + "' and turno='" + turno + "' and nrolinea='" + linea_2 + "' and placodigo= '" + txt_cod_plan.Text + "'";
+            " as sol inner join controlpt as cl on sol.codcaja=cl.cptcodcja" + filtro;
 
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
@@ -350,7 +379,7 @@ namespace SisConPT.SisConPT
         protected void Exportar_click(object sender, EventArgs e)
         {
             string turno = Convert.ToString(drop_turno_d.SelectedValue);
-            int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
             connStringmain = rootWebConfig.ConnectionStrings.ConnectionStrings["CONTROLPTConnectionString"];
@@ -361,8 +390,16 @@ namespace SisConPT.SisConPT
             string inicio = txt_fechainicio.Text;
             string fin = txt_fechafin.Text;
 
+            string sql = "";
 
-            string sql = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a;";
+            if (linea_2 == "Todas")
+            {
+                sql = "[RESUMEN_CC_PAC_005_todas] '" + inicio + "','" + fin + "', '" + turno + "'," + planta + "; select * from ##a;";
+            }
+            else
+            {
+                sql = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a;";
+            }
 
             SqlCommand command = new SqlCommand(sql, con);
             con.Open();
@@ -376,7 +413,7 @@ namespace SisConPT.SisConPT
         protected void Filtrar(object sender, EventArgs e)
         {
             string turno = Convert.ToString(drop_turno_d.SelectedValue);
-            int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
   
             string inicio = txt_fechainicio.Text;
             string fin = txt_fechafin.Text;
