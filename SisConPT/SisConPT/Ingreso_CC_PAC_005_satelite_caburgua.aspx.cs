@@ -28,8 +28,11 @@ namespace SisConPT.SisConPT
                 
                 DDL_prodetiq();
                 DDL_clasi();
-               
+
+
             }
+
+
 
 
         }
@@ -431,7 +434,7 @@ namespace SisConPT.SisConPT
             Peso.Text = reader.GetString(0);
             con.Close();
             txt_envase_cod.Text = envase;
-        }
+        }//
 
        protected void especie_SelectedIndexChanged(object sender, EventArgs e)
        {
