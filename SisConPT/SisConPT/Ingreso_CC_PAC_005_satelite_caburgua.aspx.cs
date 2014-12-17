@@ -16,6 +16,7 @@ namespace SisConPT.SisConPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbl_planta_nombre.Text = Session["PlantaName"].ToString();
             if (!IsPostBack)
             {
                 DropTurno();
@@ -28,13 +29,7 @@ namespace SisConPT.SisConPT
                 
                 DDL_prodetiq();
                 DDL_clasi();
-
-
-            }
-
-
-
-
+         }
         }
 
         protected void Grabar_Click(object sender, EventArgs e)
@@ -434,7 +429,7 @@ namespace SisConPT.SisConPT
             Peso.Text = reader.GetString(0);
             con.Close();
             txt_envase_cod.Text = envase;
-        }//
+        }
 
        protected void especie_SelectedIndexChanged(object sender, EventArgs e)
        {
@@ -485,7 +480,6 @@ namespace SisConPT.SisConPT
            string prodetiq = Convert.ToString(DDL_prodetiq_d.SelectedValue);
            txt_prodetiq_cod.Text = prodetiq;
        }
-
        protected void marca_SelectedIndexChanged(object sender, EventArgs e)
        {
            string marca = Convert.ToString(DDL_marca_d.SelectedValue);
@@ -533,7 +527,7 @@ namespace SisConPT.SisConPT
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
-           SqlCommand cmd_proc = new SqlCommand("select COD_VARIEDAD, VARDESC from VARIEDAD where CODESPECIE='" + especie + "'", con);
+           SqlCommand cmd_proc = new SqlCommand("select COD_VARIEDAD, VARDESC from VARIEDAD where CODESPECIE='" + especie + "' order by vardesc asc", con);
            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
            DataSet ds_proc = new DataSet();
            sda_proc.Fill(ds_proc);
@@ -554,7 +548,7 @@ namespace SisConPT.SisConPT
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
-           SqlCommand cmd_proc = new SqlCommand("select emb.COD_EMBALAJE, emb.DESCRIPCION, emb_esp.CODESPECIE from embalaje as emb inner join EMBALAJE_ESPECIE as emb_esp on emb.COD_EMBALAJE=emb_esp.COD_EMBALAJE where codespecie='" + especie + "'", con);
+           SqlCommand cmd_proc = new SqlCommand("select emb.COD_EMBALAJE, emb.DESCRIPCION, emb_esp.CODESPECIE from embalaje as emb inner join EMBALAJE_ESPECIE as emb_esp on emb.COD_EMBALAJE=emb_esp.COD_EMBALAJE where codespecie='" + especie + "' order by descripcion asc", con);
            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
            DataSet ds_proc = new DataSet();
            sda_proc.Fill(ds_proc);
@@ -573,7 +567,7 @@ namespace SisConPT.SisConPT
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
-           SqlCommand cmd_proc = new SqlCommand("select env.alias, env.nombre, env_esp.codespecie from envases as env inner join [ENVASES_ESPECIE] as env_esp on env.CODENVASE=env_esp.CODENVASE where codespecie='" + especie + "'", con);
+           SqlCommand cmd_proc = new SqlCommand("select env.alias, env.nombre, env_esp.codespecie from envases as env inner join [ENVASES_ESPECIE] as env_esp on env.CODENVASE=env_esp.CODENVASE where codespecie='" + especie + "' order by nombre asc", con);
            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
            DataSet ds_proc = new DataSet();
            sda_proc.Fill(ds_proc);
@@ -592,7 +586,7 @@ namespace SisConPT.SisConPT
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
-           SqlCommand cmd_proc = new SqlCommand("SELECT cod_etiqueta as MARCA_COD, descripcion as MARCA_NOMBRE FROM etiqueta", con);
+           SqlCommand cmd_proc = new SqlCommand("SELECT cod_etiqueta as MARCA_COD, descripcion as MARCA_NOMBRE FROM etiqueta order by marca_nombre asc", con);
            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
            DataSet ds_proc = new DataSet();
            sda_proc.Fill(ds_proc);
@@ -613,7 +607,7 @@ namespace SisConPT.SisConPT
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
-           SqlCommand cmd_proc = new SqlCommand("select CODPRODUCTOR, ALIAS, DESCRIPCION from [dbo].[PRODUCTORES] group by CODPRODUCTOR, ALIAS, DESCRIPCION", con);
+           SqlCommand cmd_proc = new SqlCommand("select CODPRODUCTOR, ALIAS, DESCRIPCION from [dbo].[PRODUCTORES] group by CODPRODUCTOR, ALIAS, DESCRIPCION order by DESCRIPCION asc", con);
            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
            DataSet ds_proc = new DataSet();
            sda_proc.Fill(ds_proc);
@@ -633,7 +627,7 @@ namespace SisConPT.SisConPT
            SqlConnection con = new SqlConnection(connStringLM.ToString());
            con.Open();
            //linea
-           SqlCommand cmd_proc = new SqlCommand("select CODPRODUCTOR, ALIAS, DESCRIPCION from [dbo].[PRODUCTORES] group by CODPRODUCTOR, ALIAS, DESCRIPCION", con);
+           SqlCommand cmd_proc = new SqlCommand("select CODPRODUCTOR, ALIAS, DESCRIPCION from [dbo].[PRODUCTORES] group by CODPRODUCTOR, ALIAS, DESCRIPCION order by DESCRIPCION asc", con);
            SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
            DataSet ds_proc = new DataSet();
            sda_proc.Fill(ds_proc);

@@ -25,7 +25,11 @@
     <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender36" TargetControlID="CodCaja" FilterType="numbers"  runat="server" />
     </asp:TableCell><asp:TableCell>
       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="CodCaja" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Código de caja"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
-        </asp:TableCell></asp:TableRow></asp:Table></asp:Panel><asp:Table ID="UnitecDatos" runat="server" Width="800px" Height="90px" Font-Names="Century Gothic" Font-Size="X-Small">
+        </asp:TableCell><asp:TableCell> <asp:Label ID="lbl_planta_nombre" runat="server" Font-Bold="true" Width="200" Height="20" Font-Names="Century Gothic" Font-Size="Small"></asp:Label>
+      </asp:TableCell><asp:TableCell>
+      </asp:TableCell><asp:TableCell>
+      </asp:TableCell><asp:TableCell>
+      </asp:TableCell></asp:TableRow></asp:Table></asp:Panel><asp:Table ID="UnitecDatos" runat="server" Width="800px" Height="90px" Font-Names="Century Gothic" Font-Size="X-Small">
 
         <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
         <asp:TableCell Width="60"><asp:Label ID="label_turno" runat="server" Text="Turno" Width="80" Height="20"></asp:Label></asp:TableCell><asp:TableCell Width="60"><asp:DropDownList ID="DDL_turno_d"  runat="server" Width="120" DataSourceID="DDL_turno" DataTextField="turno" DataValueField="turno" Height="25"  Font-Names="Century Gothic" AutoPostBack="True" onselectedindexchanged="turno_SelectedIndexChanged"> </asp:DropDownList>
@@ -122,8 +126,8 @@
             </asp:TableCell><asp:TableCell>
             <asp:Label ID="LabelPesoNeto" runat="server" Text="Peso Neto" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell>
-            <asp:TextBox runat="server" ID="txt_peso_neto" Width="50" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-            <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender35" TargetControlID="txt_peso_neto" FilterType="numbers"  runat="server" />
+            <asp:TextBox MaxLength="7"  runat="server" ID="txt_peso_neto" Width="50" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender35" TargetControlID="txt_peso_neto" FilterType="numbers, Custom" Validchars="." runat="server" />
             </asp:TableCell></asp:TableRow></asp:Table></fieldset> <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0">
 <asp:TabPanel runat="server" HeaderText="DEFECTOS" ID="TabPanel1"  Enabled ="true" >
     <ContentTemplate>
@@ -298,10 +302,9 @@
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txtmachucon" FilterType="numbers"  runat="server" />
-            </asp:TableCell> <asp:TableCell>
+            </asp:TableCell><asp:TableCell>
                 <asp:Label ID="Label12" runat="server" Height="10">Sutura Expuesta</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
+            </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_sut_exp"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender37" TargetControlID="txt_sut_exp" FilterType="numbers"  runat="server" />
             </asp:TableCell></asp:TableRow><asp:TableRow ID="TableRow7" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
