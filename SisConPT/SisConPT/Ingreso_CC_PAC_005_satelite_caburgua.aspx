@@ -14,7 +14,16 @@
         <legend>CC-PAC-005</legend>
     <asp:Panel ID="Panel1" runat="server" >
 
-        <asp:Table ID="Table5" runat="server" Width="776px" Height="50px" 
+        <asp:Table ID="Table_15" runat="server" Width="776px" Height="50px" 
+            Font-Names="Century Gothic" Font-Size="X-Small" style="margin-bottom: 0px">
+            
+            <asp:TableRow ID="TableRow1" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell>
+            <asp:Label ID="lbl_planta_nombre" runat="server" Font-Bold="true" Width="400" Height="20" Font-Names="Century Gothic" Font-Size="Medium"></asp:Label>
+            </asp:TableCell>
+            </asp:TableRow>
+            </asp:Table>
+             <asp:Table ID="Table5" runat="server" Width="776px" Height="50px" 
             Font-Names="Century Gothic" Font-Size="X-Small" style="margin-bottom: 0px">
                     <asp:TableRow ID="TableRow19" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
         <asp:TableCell Width="30">
@@ -25,10 +34,16 @@
     <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender36" TargetControlID="CodCaja" FilterType="numbers"  runat="server" />
     </asp:TableCell><asp:TableCell>
       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="CodCaja" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Código de caja"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
-        </asp:TableCell><asp:TableCell> <asp:Label ID="lbl_planta_nombre" runat="server" Font-Bold="true" Width="200" Height="20" Font-Names="Century Gothic" Font-Size="Small"></asp:Label>
-      </asp:TableCell><asp:TableCell>
-      </asp:TableCell><asp:TableCell>
-      </asp:TableCell><asp:TableCell>
+        </asp:TableCell><asp:TableCell> 
+      </asp:TableCell><asp:TableCell><asp:CheckBox ID="check_fecha" runat="server" Text="Ingresar Fecha Manual" AutoPostBack="true" oncheckedchanged="check_fecha_CheckedChanged"/> 
+      </asp:TableCell><asp:TableCell> <asp:TextBox ID="Fecha_manual" runat="server" Width="70" >
+       </asp:TextBox><asp:ImageButton ID="imgPopup" ImageUrl="~/Images/calendar.png" ImageAlign="Bottom"
+    runat="server" />
+
+   <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="Fecha_manual"
+    Format="yyyy-MM-dd">
+</cc1:CalendarExtender>
+      </asp:TableCell><asp:TableCell> 
       </asp:TableCell></asp:TableRow></asp:Table></asp:Panel><asp:Table ID="UnitecDatos" runat="server" Width="800px" Height="90px" Font-Names="Century Gothic" Font-Size="X-Small">
 
         <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">

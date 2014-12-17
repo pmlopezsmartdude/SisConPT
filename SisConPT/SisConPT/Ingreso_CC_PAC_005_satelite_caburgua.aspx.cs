@@ -17,6 +17,14 @@ namespace SisConPT.SisConPT
         protected void Page_Load(object sender, EventArgs e)
         {
             lbl_planta_nombre.Text = Session["PlantaName"].ToString();
+            if (check_fecha.Checked == true)
+            {
+                Fecha_manual.Enabled = true;
+            }
+            else
+            {
+                Fecha_manual.Enabled = false;
+            }
             if (!IsPostBack)
             {
                 DropTurno();
@@ -35,7 +43,19 @@ namespace SisConPT.SisConPT
         protected void Grabar_Click(object sender, EventArgs e)
         {
             string numeroctrl = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
-            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            string fecha = "";
+            if (Fecha_manual.Text == "") { Fecha_manual.Text = DateTime.Now.ToString("yyyy-MM-dd"); }
+            if (check_fecha.Checked == true)
+            {
+                fecha = Fecha_manual.Text;
+            }
+            else
+            {
+                fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            }
+            if (txtbajo.Text == "") { txtbajo.Text = "0"; }
+
+
             string username = HttpContext.Current.User.Identity.Name;
             if (txtbajo.Text == "") { txtbajo.Text = "0"; }
             if (txtprecalibre.Text == "") { txtprecalibre.Text = "0"; }
@@ -516,9 +536,6 @@ namespace SisConPT.SisConPT
 
            txt_destino.Focus();
        }
- 
-
-
        private void DropVariedad(string especie)
        {
            System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -700,7 +717,19 @@ namespace SisConPT.SisConPT
             con.Close();
         }
 
+        protected void check_fecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_fecha.Checked == true)
+            {
+                Fecha_manual.Enabled = true;
+            }
+            else
+            {
+                Fecha_manual.Enabled = false;
+            }
 
 
+        }
+        
     }
 }
