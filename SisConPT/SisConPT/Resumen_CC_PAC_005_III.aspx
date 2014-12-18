@@ -120,8 +120,9 @@
                                 <asp:BoundField DataField="cptnulote" HeaderText="Lote" />
                                 <asp:BoundField DataField="cptmardes" HeaderText="Marca" />
                                       <asp:BoundField DataField="lincodigo" HeaderText="Linea" />
-                                 <asp:BoundField DataField="promedio_final" HeaderText="Promedio Final" />
-                                 <asp:BoundField DataField="Desviacion" HeaderText="Desviacion" />
+                                 <asp:BoundField DataField="promedio_final" HeaderText="Promedio Calidad" />
+                                 <asp:BoundField DataField="promedio_final_condicion" HeaderText="Promedio Condición" />
+                                
                             </Columns>
                         
                        <FooterStyle BackColor="#CCCCCC" />
@@ -187,13 +188,13 @@
                  <asp:Label ID="Label7" runat="server" Height="20" Font-Bold="true" Font-Size="Small">Desde : </asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-             <asp:Label ID="lbl_desde" runat="server" Width="50" Height="20" Font-Size="Small" Font-Names="Century Gothic"></asp:Label>
+             <asp:Label ID="lbl_desde" runat="server" Width="80" Height="20" Font-Size="Small" Font-Names="Century Gothic"></asp:Label>
                     </asp:TableCell>
                         <asp:TableCell>
                  <asp:Label ID="Label9" runat="server" Height="20" Font-Bold="true" Font-Size="Small">Hasta : </asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-             <asp:Label ID="lbl_hasta" runat="server" Width="50" Height="20" Font-Size="Small" Font-Names="Century Gothic"></asp:Label>
+             <asp:Label ID="lbl_hasta" runat="server" Width="80" Height="20" Font-Size="Small" Font-Names="Century Gothic"></asp:Label>
                     </asp:TableCell>
 
             

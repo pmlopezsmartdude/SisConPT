@@ -132,7 +132,7 @@ namespace SisConPT.SisConPT
                 CCPAC003PP_sat.Visible = false;
                 CCPAC05PCC.Visible = true;
                 //cambiar a true el 005resumen
-                btn_005_resumen.Visible = false;
+                btn_005_resumen.Visible = true;
                 BTN_DETALLE.Visible = true;
                 btn_003_resumen.Visible = true;
                 btn_075_resumen.Visible = true;
@@ -146,7 +146,7 @@ namespace SisConPT.SisConPT
                 btn_satelite.Visible = true;
                 CCPAC003PP_sat.Visible = true;
                 CCPAC05PCC.Visible = false;
-                btn_005_resumen.Visible = false;
+                btn_005_resumen.Visible = true;
                 BTN_DETALLE.Visible = true;
                 btn_003_resumen.Visible = true;
                 btn_075_resumen.Visible = false;

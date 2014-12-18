@@ -96,7 +96,13 @@ namespace SisConPT.SisConPT
         protected void Procesos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvProcesos.PageIndex = e.NewPageIndex;
+            string turno = Convert.ToString(drop_turno_d.SelectedValue);
             int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+
+            string inicio = txt_fechainicio.Text;
+            string fin = txt_fechafin.Text;
+
+            GvProcesos_Llenar(turno, linea_2, inicio, fin);
         }
 
         private void PopUpDetalle(string caja)
@@ -456,8 +462,7 @@ namespace SisConPT.SisConPT
                     conexion.Close();
 
                 }
-                string error = "Guardado ok";
-                Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "scriptName", "alert(\"Registro guardado ok\");", true);
             }
             catch { 
 
