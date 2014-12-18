@@ -40,6 +40,15 @@
     <Reference Include="AjaxControlToolkit, Version=4.1.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>C:\Users\Desarrollo\Downloads\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>C:\Users\Desarrollo\Downloads\itextsharp-all-5.5.4\itextsharp-dll-pdfa\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>C:\Users\Desarrollo\Downloads\itextsharp-all-5.5.4\itextsharp-dll-xtra\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -84,6 +93,8 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="SisConPT\Ingreso_CC-PAC-003_sat.aspx" />
+    <Content Include="SisConPT\GenerarPDF.aspx" />
     <Content Include="SisConPT\Resumen_CC_PAC_005_RM.aspx" />
     <Content Include="SisConPT\Resumen_CC_PAC_005_III.aspx" />
     <Content Include="SisConPT\Resumen_CC_PAC_005_II.aspx" />
@@ -176,6 +187,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SisConPT\Ingreso_CC-PAC-003_sat.aspx.cs">
+      <DependentUpon>Ingreso_CC-PAC-003_sat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisConPT\Ingreso_CC-PAC-003_sat.aspx.designer.cs">
+      <DependentUpon>Ingreso_CC-PAC-003_sat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SisConPT\GenerarPDF.aspx.cs">
+      <DependentUpon>GenerarPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisConPT\GenerarPDF.aspx.designer.cs">
+      <DependentUpon>GenerarPDF.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SisConPT\Resumen_CC_PAC_005_RM.aspx.cs">
       <DependentUpon>Resumen_CC_PAC_005_RM.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

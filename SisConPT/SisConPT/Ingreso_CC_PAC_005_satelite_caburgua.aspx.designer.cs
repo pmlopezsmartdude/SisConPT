@@ -58,13 +58,13 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label lbl_planta_nombre;
         
         /// <summary>
-        /// Control Table5.
+        /// Control UnitecDatos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table5;
+        protected global::System.Web.UI.WebControls.Table UnitecDatos;
         
         /// <summary>
         /// Control TableRow19.
@@ -148,13 +148,13 @@ namespace SisConPT.SisConPT {
         protected global::AjaxControlToolkit.CalendarExtender Calendar1;
         
         /// <summary>
-        /// Control UnitecDatos.
+        /// Control TableRow11.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table UnitecDatos;
+        protected global::System.Web.UI.WebControls.TableRow TableRow11;
         
         /// <summary>
         /// Control label_turno.
@@ -535,24 +535,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.DropDownList DDL_prodetiq_d;
         
         /// <summary>
-        /// Control Table3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
-        
-        /// <summary>
-        /// Control TableRow15.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow TableRow15;
-        
-        /// <summary>
         /// Control Label21.
         /// </summary>
         /// <remarks>
@@ -580,24 +562,6 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Label Label22;
         
         /// <summary>
-        /// Control txt_destino.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_destino;
-        
-        /// <summary>
-        /// Control Label23.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label23;
-        
-        /// <summary>
         /// Control txt_cajasvaciadas.
         /// </summary>
         /// <remarks>
@@ -616,13 +580,31 @@ namespace SisConPT.SisConPT {
         protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredTextBoxExtender34;
         
         /// <summary>
-        /// Control LabelPesoNeto.
+        /// Control Label23.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPesoNeto;
+        protected global::System.Web.UI.WebControls.Label Label23;
+        
+        /// <summary>
+        /// Control txt_destino.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_destino;
+        
+        /// <summary>
+        /// Control Label24.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label24;
         
         /// <summary>
         /// Control txt_peso_neto.

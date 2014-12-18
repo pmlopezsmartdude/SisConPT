@@ -178,3 +178,6 @@ D:\Proyectos\SisConPT\SisConPT\bin\zh-Hant\System.Spatial.resources.dll
 D:\Proyectos\SisConPT\SisConPT\obj\Debug\SisConPT.csprojResolveAssemblyReference.cache
 D:\Proyectos\SisConPT\SisConPT\obj\Debug\SisConPT.dll
 D:\Proyectos\SisConPT\SisConPT\obj\Debug\SisConPT.pdb
+D:\Proyectos\SisConPT\SisConPT\bin\itextsharp.dll
+D:\Proyectos\SisConPT\SisConPT\bin\itextsharp.pdfa.dll
+D:\Proyectos\SisConPT\SisConPT\bin\itextsharp.xtra.dll

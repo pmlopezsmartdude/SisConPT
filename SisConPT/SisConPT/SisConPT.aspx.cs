@@ -129,8 +129,10 @@ namespace SisConPT.SisConPT
             if (planta == "Planta Mostazal" || planta == "Planta Molina")
             {
                 btn_satelite.Visible = false;
+                CCPAC003PP_sat.Visible = false;
                 CCPAC05PCC.Visible = true;
-                btn_005_resumen.Visible = true;
+                //cambiar a true el 005resumen
+                btn_005_resumen.Visible = false;
                 BTN_DETALLE.Visible = true;
                 btn_003_resumen.Visible = true;
                 btn_075_resumen.Visible = true;
@@ -142,10 +144,11 @@ namespace SisConPT.SisConPT
             else
             {
                 btn_satelite.Visible = true;
+                CCPAC003PP_sat.Visible = true;
                 CCPAC05PCC.Visible = false;
                 btn_005_resumen.Visible = false;
                 BTN_DETALLE.Visible = true;
-                btn_003_resumen.Visible = false;
+                btn_003_resumen.Visible = true;
                 btn_075_resumen.Visible = false;
                 CCPAC075PP.Visible = false;
                 CCPAC003PP.Visible = false;
@@ -185,8 +188,7 @@ namespace SisConPT.SisConPT
         protected void Btn_resumen_005(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/SisConPT/Resumen_CC_PAC_005_II.aspx");
-
+            Response.Redirect("~/SisConPT/Resumen_CC_PAC_005_III.aspx");
         }
         protected void Btn_resumen_075(object sender, EventArgs e)
         {
@@ -198,6 +200,12 @@ namespace SisConPT.SisConPT
         {
             Session["PlantaName"] = DropPlanta_d.Text;
             Response.Redirect("~/SisConPT/Ingreso_CC-PAC-003.aspx");
+
+        }
+        protected void Btn_003_sat(object sender, EventArgs e)
+        {
+            Session["PlantaName"] = DropPlanta_d.Text;
+            Response.Redirect("~/SisConPT/Ingreso_CC-PAC-003_sat.aspx");
 
         }
 

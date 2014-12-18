@@ -75,16 +75,16 @@
                 <asp:Label ID="Label2" runat="server" Text="Turno" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Turno" runat="server" ReadOnly="True" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Turno" runat="server" ReadOnly="True" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
                 <asp:Label ID="Label7" runat="server" Text="Especie" width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="especieid" runat="server" ReadOnly="True" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="especieid" runat="server" ReadOnly="True" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="especietext" runat="server" ReadOnly="true" Width="120" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="especietext" runat="server" ReadOnly="true" Width="120" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
 
@@ -94,16 +94,16 @@
                 <asp:Label ID="Label4" runat="server" Text="Linea"  Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Linea" runat="server" ReadOnly="True" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Linea" runat="server" ReadOnly="True" Width="80" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
                 <asp:Label ID="Label5" runat="server" Text="Variedad" width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Variedad" runat="server" ReadOnly="True" width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Variedad" runat="server" ReadOnly="True" width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="VariedadText" runat="server" ReadOnly="True" Width="120" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="VariedadText" runat="server" ReadOnly="True" Width="120" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle">
@@ -111,16 +111,16 @@
                 <asp:Label runat="server" Text="Proceso" width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:Textbox ID="NroProceso" runat="server" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Textbox>
+                <asp:Textbox ID="NroProceso" runat="server" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:Textbox>
             </asp:TableCell>
             <asp:TableCell Width="60">
                 <asp:Label runat="server" Text="Marca" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Marca" runat="server" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Marca" runat="server" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="MarcaTxt" runat="server" ReadOnly="true" Width="120" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="MarcaTxt" runat="server" ReadOnly="true" Width="120" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -128,16 +128,16 @@
                 <asp:Label runat="server" Text="Lote" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Lote" runat="server" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Lote" runat="server" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
                 <asp:Label runat="server" Text="Embalaje" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Embalaje" runat="server" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Embalaje" runat="server" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Embalajetx" runat="server" ReadOnly="true" Width="120" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Embalajetx" runat="server" ReadOnly="true" Width="120" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -145,16 +145,16 @@
                 <asp:Label runat="server" Text="Peso" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Peso" runat="server" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Peso" runat="server" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
                 <asp:Label runat="server" Text="Envase" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Envase" runat="server" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Envase" runat="server" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox ID="Envasetxt" runat="server" ReadOnly="true" Width="120" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox ID="Envasetxt" runat="server" ReadOnly="true" Width="120" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -162,16 +162,16 @@
                 <asp:Label runat="server" Text="Calibre" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox runat="server" ID="Calibre" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox runat="server" ID="Calibre" ReadOnly="true" Width="80" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
                 <asp:Label runat="server" Text="Prod. Real" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox runat="server" ID="ProdReal" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ProdReal" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox runat="server" ID="ProdRealtxt" ReadOnly="true" Width="120" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ProdRealtxt" ReadOnly="true" Width="120" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
@@ -179,66 +179,59 @@
                 <asp:Label runat="server" Text="Salida" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox runat="server" ID="Salida" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox runat="server" ID="Salida" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
                 <asp:Label runat="server" Text="Prod. Etiquetado" Width="100" Height="20"></asp:Label>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox runat="server" ID="ProdEtiq" ReadOnly="true" Width="80" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ProdEtiq" ReadOnly="true" Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell Width="60">
-                <asp:TextBox runat="server" ID="ProdEtiqtxt" ReadOnly="true" Width="120" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox runat="server" ID="ProdEtiqtxt" ReadOnly="true" Width="120" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
 
-
-
-        <asp:TableRow ID="TableRow11" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-        <asp:TableCell>
-               
+        <asp:TableRow ID="TableRow20" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell Width="60">
+                <asp:Label ID="Label13" runat="server" Text="Clasificación" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
-        </asp:TableRow>
-
-    </asp:Table>
-     <asp:Table ID="Table3" runat="server" Width="732px" Height="50px" 
-            Font-Names="Century Gothic" Font-Size="X-Small">
-   
-         
-          <asp:TableRow ID="TableRow15" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-            <asp:TableCell>
-                <asp:Label ID="Label21" runat="server" Text="Clasificación" Width="80" Height="20"></asp:Label>
+            <asp:TableCell Width="60">
+               <asp:TextBox  runat="server" ID="txt_calisificacion"  Width="80" Height="20"  ReadOnly="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox  runat="server" ID="txt_calisificacion"  Width="50" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-                
+            <asp:TableCell Width="60">
+                <asp:Label ID="Label14" runat="server" Text="Cajas Vaciadas" Width="80" Height="20"></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="Label22" runat="server" Text="Destino" Width="80" Height="20"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox   runat="server" ID="txt_destino"  Width="150" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
-               
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="Label23" runat="server" Text="Cajas Vaciadas" Width="80" Height="20"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox  MaxLength="5"    runat="server" ID="txt_cajasvaciadas"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            <asp:TableCell Width="60">
+                <asp:TextBox  MaxLength="5"    runat="server" ID="txt_cajasvaciadas"  Width="80" Height="20"  Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender34" TargetControlID="txt_cajasvaciadas" FilterType="numbers"  runat="server" />
             </asp:TableCell>
-            <asp:TableCell>
-            <asp:Label ID="LabelPesoNeto" runat="server" Text="Peso Neto" Width="80" Height="20"></asp:Label>
+            <asp:TableCell Width="60">
+                
             </asp:TableCell>
-            <asp:TableCell>
-            <asp:TextBox runat="server" ID="txt_peso_neto" Width="50" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+        </asp:TableRow>
+        <asp:TableRow ID="TableRow21" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
+            <asp:TableCell Width="60">
+                <asp:Label ID="Label15" runat="server" Text="Destino" Width="80" Height="20"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell Width="60">
+                 <asp:TextBox   runat="server" ID="txt_destino"  Width="80" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell Width="60">
+                <asp:Label ID="Label20" runat="server" Text="Peso Neto" Width="80" Height="20"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell Width="60">
+                         <asp:TextBox runat="server" ID="txt_peso_neto" Width="80" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender35" TargetControlID="txt_peso_neto" FilterType="numbers"  runat="server" />
             </asp:TableCell>
-   
- </asp:TableRow>
-        
+            <asp:TableCell Width="60">
+                
+            </asp:TableCell>
+        </asp:TableRow>
 
-         </asp:Table>
+
+    </asp:Table>
+     
          </fieldset>
 
 

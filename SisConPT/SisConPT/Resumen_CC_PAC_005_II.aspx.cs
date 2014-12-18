@@ -164,9 +164,9 @@ namespace SisConPT.SisConPT
             using (SqlDataReader reader = cmd_proc.ExecuteReader())
             {
                 reader.Read();
-                lbl_proceso.Text = reader.GetString(0);
-                lbl_productor.Text = reader.GetString(1);
-                lbl_lote.Text = reader.GetString(2);
+                //lbl_proceso.Text = reader.GetString(0);
+                //lbl_productor.Text = reader.GetString(1);
+                //lbl_lote.Text = reader.GetString(2);
 
                 txtprecalibre.Text = reader.GetString(5);
                 txtdanotrip.Text = reader.GetString(6);
@@ -199,11 +199,11 @@ namespace SisConPT.SisConPT
                 txtdesgarro.Text = reader.GetString(33);
                 txtcortesierra.Text = reader.GetString(34);
                 txt_sut_exp.Text = reader.GetString(35);
-                lbl_variedad.Text = reader.GetString(40);
-                lbl_clasi.Text  = reader.GetString(37);
-                lbl_destino.Text  = reader.GetString(38);
-                lbl_vaciadas.Text  = reader.GetString(39);
-                lbl_casos.Text = reader.GetString(41);
+                //lbl_variedad.Text = reader.GetString(40);
+                //lbl_clasi.Text  = reader.GetString(37);
+                //lbl_destino.Text  = reader.GetString(38);
+                //lbl_vaciadas.Text  = reader.GetString(39);
+                //lbl_casos.Text = reader.GetString(41);
            }
 
             con.Close();

@@ -651,12 +651,19 @@ namespace SisConPT.SisConPT
             txt_destino.Text = "";
             txt_calisificacion.Text = "";
             txt_sut_exp.Text = "";
+            txt_peso_neto.Text = "";
 
             txt_f1.Text = "";
             txt_f2.Text = "";
             txt_f3.Text = "";
             txt_f4.Text = "";
             txt_f5.Text = "";
+
+            txt_destino.Enabled = true;
+            txt_cajasvaciadas.Enabled = true;
+            txt_peso_neto.Enabled = true;
+            txt_calisificacion.Enabled = true;
+
             CodCaja.Focus();
             ButtonBuscar.Enabled = true;
             CodCaja.Enabled = true;

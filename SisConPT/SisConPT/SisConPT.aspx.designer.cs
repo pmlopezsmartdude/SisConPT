@@ -76,6 +76,15 @@ namespace SisConPT.SisConPT {
         protected global::System.Web.UI.WebControls.Button CCPAC003PP;
         
         /// <summary>
+        /// Control CCPAC003PP_sat.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CCPAC003PP_sat;
+        
+        /// <summary>
         /// Control TableRow1.
         /// </summary>
         /// <remarks>

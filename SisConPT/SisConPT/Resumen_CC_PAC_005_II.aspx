@@ -153,71 +153,9 @@
                          Font-Names="Century Gothic" Font-Size="x-Small" HorizontalAlign="Center"  >
 
 
-                     <asp:TableRow ID="TableRow11" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-            
-            <asp:TableCell>
-                 <asp:Label ID="Label1" runat="server" Height="20">Proceso</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_proceso" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                 </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label2" runat="server" Height="20">Productor</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_productor" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                 </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label3" runat="server" Height="20">Lote</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_lote" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                    </asp:TableCell>
-
-             <asp:TableCell>
-                 <asp:Label ID="Label5" runat="server" Height="20">Variedad</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-            <asp:Label ID="lbl_variedad" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-               
-            </asp:TableCell>
-            
- </asp:TableRow>
-            <asp:TableRow ID="TableRow15" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
-            
-            <asp:TableCell>
-                 <asp:Label ID="Label6" runat="server" Height="20">Clasificacion</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_clasi" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-               </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label7" runat="server" Height="20">Destino</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_destino" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-               </asp:TableCell>
-            <asp:TableCell>
-                 <asp:Label ID="Label8" runat="server" Height="20">Cajas Vaciadas</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_vaciadas" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                 </asp:TableCell>
-                 <asp:TableCell>
-                 <asp:Label ID="Label11" runat="server" Height="20">Casos</asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-             <asp:Label ID="lbl_casos" runat="server" Width="50" Height="20" Font-Size="X-Small" Font-Names="Century Gothic"></asp:Label>
-                 </asp:TableCell>
-        
- </asp:TableRow><asp:TableRow ID="TableRow13" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="10">
-            
+                    
     
-            <asp:TableCell>
-                
-            </asp:TableCell>
-       
- </asp:TableRow>
+    
 <asp:TableRow ID="TableRow12" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
             <asp:TableCell>

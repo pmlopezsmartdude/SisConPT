@@ -35,6 +35,7 @@
                 </asp:TableCell>
                 <asp:TableCell ID="TableCell3" runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="CCPAC003PP" runat="server" onclick="Btn_003" Text="Ingreso CC-PAC-003"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>
+                    <asp:Button ID="CCPAC003PP_sat" runat="server" onclick="Btn_003_sat" Text="Ingreso CC-PAC-003"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>
                 </asp:TableCell>
                  </asp:TableRow>
             <asp:TableRow ID="TableRow1" runat="server" BorderColor="Black" BorderStyle="Solid" HorizontalAlign="Center" VerticalAlign="Middle">
@@ -46,6 +47,7 @@
                 </asp:TableCell>
                      <asp:TableCell ID="TableCell4" runat="server" BorderColor="Black" BorderStyle="Solid">
                     <asp:Button ID="btn_003_resumen" runat="server" onclick="Btn_resumen_003" Text="Resumen CC-PAC-003"  Font-Names="Century Gothic" Font-Size="X-Small" width="200"/>
+                   
                 </asp:TableCell>
      
         

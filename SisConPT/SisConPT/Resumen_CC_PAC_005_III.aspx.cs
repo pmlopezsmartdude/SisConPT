@@ -108,14 +108,14 @@ namespace SisConPT.SisConPT
 
             string proceso = row.Cells[1].Text;
             string lote = row.Cells[2].Text;
-            string destino = row.Cells[3].Text;
+            string marca = row.Cells[3].Text;
+            string linea = row.Cells[4].Text;
             string turno = Convert.ToString(drop_turno_d.SelectedValue);
-            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
 
 
             InitializeEditPopUp();
-            PopUpDetalle(proceso, lote, destino);
-            gv_solubles(proceso, lote, turno, linea_2);
+            PopUpDetalle(proceso, lote, marca, linea);
+            gv_solubles(proceso, lote, marca, linea);
 
             mpeEditOrder.Show();
         }
@@ -126,7 +126,7 @@ namespace SisConPT.SisConPT
             int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
         }
 
-        private void PopUpDetalle(string proceso, string lote, string destino)
+        private void PopUpDetalle(string proceso, string lote, string marca, string linea)
         {
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -142,63 +142,77 @@ namespace SisConPT.SisConPT
             string fin = txt_fechafin.Text;
             int planta = Convert.ToInt32(txt_cod_plan.Text);
 
-            if (destino == "&nbsp;") { destino = ""; }
             
-            string cadena_consulta = "";
+            string cadena_consulta = "select  cptproces, cptnulote, cptmardes,lincodigo," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defprecal*1.0))) as [defprecal]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defdanotr*1.0))) as [defdanotr]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defescama*1.0))) as [defescama]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffrutode*1.0))) as [deffrutode]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffrutodo*1.0))) as [deffrutodo]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defguatab*1.0))) as [defguatab]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defherida*1.0))) as [defherida]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defmancha*1.0))) as [defmancha]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defmedial*1.0))) as [defmedial]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defpiella*1.0))) as [defpiella]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defrusset*1.0))) as [defrusset]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsutura*1.0))) as [defsutura]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffaltoc*1.0))) as [deffaltoc]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deframole*1.0))) as [deframole]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsinped*1.0))) as [defsinped]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))) as [promedio_final]," +
+            " (case when (avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))>=2 then 'Sobre el promedio'" +
+            " else 'Cumple' end) Desviacion, placodigo, convert(varchar(255),count(1)) as casos" +
+            " from controlpt as cl " +
+            " inner join defecto as def on cl.cptnumero=def.cptnumero";
+
+            string continuacion = "";
+
             if (linea_2 == "Todas")
             {
-                cadena_consulta = "[RESUMEN_CC_PAC_005_todas] '" + inicio + "','" + fin + "', '" + turno + "'," + planta + "; " +
-            " select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
+                continuacion = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "'" +
+                    " and cptproces='" + proceso + "' and cptnulote='" + lote + "' and lincodigo='" + linea + "' and cptmardes='"+ marca +"'" +
+                    " group by cptproces, cptnulote,cptmardes,placodigo,lincodigo order by cptproces;";
             }
             else
             {
-                cadena_consulta = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; " +
-            " select * from ##a where cptproces='" + proceso + "' and cptnulote='" + lote + "' and cptdestino='" + destino + "';";
+                continuacion = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "' and cl.lincodigo='" + linea_2 + "'" +
+                    " and cptproces='" + proceso + "' and cptnulote='" + lote + "' and lincodigo='" + linea + "' and cptmardes='" + marca + "'" +
+                    " group by cptproces, cptnulote,cptmardes,placodigo,lincodigo order by cptproces;";
             }
 
-
-            SqlCommand cmd_proc = new SqlCommand(cadena_consulta, con);
+            string consulta_completa = cadena_consulta + continuacion;
+            SqlCommand cmd_proc = new SqlCommand(consulta_completa, con);
             try
             {
 
             using (SqlDataReader reader = cmd_proc.ExecuteReader())
             {
                 reader.Read();
+
+                lbl_desde.Text = inicio;
+                lbl_hasta.Text = fin;
                 lbl_proceso.Text = reader.GetString(0);
+                lbl_lote.Text = reader.GetString(1);
+                lbl_marca.Text = reader.GetString(2);
+                lbl_linea_popup.Text = reader.GetString(3);
+                txtprecalibre.Text = reader.GetString(4);
+                txtdanotrip.Text = reader.GetString(5);
+                txtescama.Text = reader.GetString(6);
+                txtfrutosdeformes.Text = reader.GetString(7);
+                txtfrutosdobles.Text = reader.GetString(8);
+                txtguatablanca.Text = reader.GetString(9);
+                txtherida.Text = reader.GetString(10);
+                txtmanchas.Text = reader.GetString(11);
+                txtmedialuna.Text = reader.GetString(12);
+                txtpiellagarto.Text = reader.GetString(13);
+                txtrusset.Text = reader.GetString(14);
+                txtsutura.Text = reader.GetString(15);
+                txtfaltocolor.Text = reader.GetString(16);
+                txtramaleo.Text = reader.GetString(17);
+                txtsinpedicelo.Text = reader.GetString(18);
+                lbl_calidad.Text = reader.GetString(19);
+                lbl_casos.Text = reader.GetString(22);
 
-                lbl_lote.Text = reader.GetString(2);
-
-                txtprecalibre.Text = reader.GetString(5);
-                txtdanotrip.Text = reader.GetString(6);
-                txtescama.Text = reader.GetString(7);
-                txtfrutosdeformes.Text = reader.GetString(8);
-                txtfrutosdobles.Text = reader.GetString(9);
-                txtguatablanca.Text = reader.GetString(10);
-                txtherida.Text = reader.GetString(11);
-                txtmanchas.Text = reader.GetString(12);
-                txtmedialuna.Text = reader.GetString(13);
-                txtpiellagarto.Text = reader.GetString(14);
-                txtrusset.Text = reader.GetString(15);
-                txtsutura.Text = reader.GetString(16);
-                txtfaltocolor.Text = reader.GetString(17);
-                txtramaleo.Text = reader.GetString(18);
-                txtsinpedicelo.Text = reader.GetString(19);
-                txtadhesion.Text = reader.GetString(20);
-                txtdeshid.Text = reader.GetString(21);
-                txtdeshidpedi.Text = reader.GetString(22);
-                txtblandos.Text = reader.GetString(23);
-                txtheridasabiertas.Text = reader.GetString(24);
-                txtmachucon.Text = reader.GetString(25);
-                txtpartiduras.Text = reader.GetString(26);
-                txtpartidurasagua.Text = reader.GetString(27);
-                txtpartiduracicatrizada.Text = reader.GetString(28);
-                txtpitting.Text = reader.GetString(29);
-                txtpudricion.Text = reader.GetString(30);
-                txtmanchaspardas.Text = reader.GetString(31);
-                txtdanopajaro.Text = reader.GetString(32);
-                txtdesgarro.Text = reader.GetString(33);
-                txtcortesierra.Text = reader.GetString(34);
-                txt_sut_exp.Text = reader.GetString(35);
 
            }
 
@@ -305,11 +319,55 @@ namespace SisConPT.SisConPT
             string comando_cadena = "";
             if (linea_2 == "Todas")
             {
-                comando_cadena = "[RESUMEN_CC_PAC_005_todas] '" + inicio + "','" + fin + "', '" + turno + "'," + planta + "; select * from ##a;";
+                comando_cadena = "select  cptproces, cptnulote, cptmardes,lincodigo," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defprecal*1.0))) as [defprecal]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defdanotr*1.0))) as [defdanotr]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defescama*1.0))) as [defescama]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffrutode*1.0))) as [deffrutode]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffrutodo*1.0))) as [deffrutodo]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defguatab*1.0))) as [defguatab]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defherida*1.0))) as [defherida]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defmancha*1.0))) as [defmancha]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defmedial*1.0))) as [defmedial]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defpiella*1.0))) as [defpiella]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defrusset*1.0))) as [defrusset]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsutura*1.0))) as [defsutura]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffaltoc*1.0))) as [deffaltoc]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(deframole*1.0))) as [deframole]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsinped*1.0))) as [defsinped]," +
+             " convert(varchar(255),CONVERT(decimal(18, 2),avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))) as [promedio_final]," +
+             " (case when (avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))>=2 then 'Sobre el promedio'" +
+             " else 'Cumple' end) Desviacion, placodigo, convert(varchar(255),count(1)) as casos" +
+             " from controlpt as cl " +
+             " inner join defecto as def on cl.cptnumero=def.cptnumero" +
+             " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "'" +
+             " group by cptproces, cptnulote,cptmardes,placodigo,lincodigo order by cptproces;";
             }
             else
             {
-                comando_cadena = "[RESUMEN_CC_PAC_005] '" + inicio + "','" + fin + "', '" + turno + "'," + linea_2 + "," + planta + "; select * from ##a;";
+                comando_cadena = "select  cptproces, cptnulote, cptmardes,lincodigo," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defprecal*1.0))) as [defprecal]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defdanotr*1.0))) as [defdanotr]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defescama*1.0))) as [defescama]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffrutode*1.0))) as [deffrutode]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffrutodo*1.0))) as [deffrutodo]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defguatab*1.0))) as [defguatab]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defherida*1.0))) as [defherida]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defmancha*1.0))) as [defmancha]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defmedial*1.0))) as [defmedial]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defpiella*1.0))) as [defpiella]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defrusset*1.0))) as [defrusset]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsutura*1.0))) as [defsutura]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deffaltoc*1.0))) as [deffaltoc]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(deframole*1.0))) as [deframole]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsinped*1.0))) as [defsinped]," +
+            " convert(varchar(255),CONVERT(decimal(18, 2),avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))) as [promedio_final]," +
+            " (case when (avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))>=2 then 'Sobre el promedio'" +
+            " else 'Cumple' end) Desviacion, placodigo, convert(varchar(255),count(1)) as casos" +
+            " from controlpt as cl " +
+            " inner join defecto as def on cl.cptnumero=def.cptnumero" +
+            " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "' and cl.lincodigo='" + linea_2 + "'" +
+            " group by cptproces, cptnulote,cptmardes,placodigo,lincodigo order by cptproces;";
             }
             SqlCommand cmd_proc = new SqlCommand(comando_cadena, con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
