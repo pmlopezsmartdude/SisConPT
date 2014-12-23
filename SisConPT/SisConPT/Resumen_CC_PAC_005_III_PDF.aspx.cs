@@ -10,16 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-
-
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualBasic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -30,13 +21,9 @@ using System.Diagnostics;
 using System.ComponentModel;
 using System.Text;
 using System.Collections;
-using System.Data;
-using System.Configuration;
 using System.Web.Security;
-using System.Web.UI.HtmlControls;
 using System.Xml;
 using System.Net;
-using System.Data.SqlClient;
 
 
 
@@ -639,71 +626,74 @@ namespace SisConPT.SisConPT
         {
 
             string identif = DateTime.Now.ToString("yyyyMMddTHHmmss");
-            
-            StringWriter sw = new StringWriter();
-            string html = sw.ToString();
+            try
+            {
 
-            Document Doc = new Document();
+                StringWriter sw = new StringWriter();
+                string html = sw.ToString();
 
-            PdfWriter.GetInstance
-            (Doc, new FileStream(Environment.GetFolderPath
-            (Environment.SpecialFolder.Desktop)
-            + "\\Resumen005" + identif + ".pdf", FileMode.Create));
-            Doc.Open();
-            BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
-            Font times2 = new Font(bfTimes, 12, Font.NORMAL, Color.BLACK);
-            Font times1 = new Font(bfTimes, 15, Font.NORMAL, Color.BLACK);
+                Document Doc = new Document();
 
-            Chunk c = new Chunk ("Resumen " + drop_turno_d.Text + "\n", times1);
+                PdfWriter.GetInstance
+                (Doc, new FileStream(Environment.GetFolderPath
+                (Environment.SpecialFolder.Desktop)
+                + "\\Resumen005" + identif + ".pdf", FileMode.Create));
+                Doc.Open();
+                BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
+                Font times2 = new Font(bfTimes, 12, Font.NORMAL, Color.BLACK);
+                Font times1 = new Font(bfTimes, 15, Font.NORMAL, Color.BLACK);
 
-            Paragraph p = new Paragraph();
-            p.Alignment = Element.ALIGN_CENTER;
-            p.Add(c);
+                Chunk c = new Chunk("Resumen " + drop_turno_d.Text + "\n", times1);
 
-
-
-            Chunk chunk1 = new Chunk
-            ("\n \n \t Proceso \t \t \t : \t \t \t " + lbl_proceso.Text + " \t \t \t \t \tLote \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_lote.Text + " \t \t \t \t \t Marca \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_marca.Text + "   \n" +
-             "\n \t Linea \t \t \t \t \t : \t \t \t " + lbl_linea_popup.Text + " \t \t \t \t \t \t Desde \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_desde.Text + " \t \tHasta \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_hasta.Text + "   \n" +
-             "\n \t Casos \t \t \t \t \t : \t \t \t " + lbl_casos.Text + " \t \t \t \t \t \t Promedio Calidad  : \t \t \t " + lbl_calidad.Text + " \t \t \t \t \t \t Promedio Condicion \t \t \t : \t \t \t " + lbl_condicion.Text + "      \n" +
-            "\n\n \t \t DEFECTOS DE CALIDAD \n" +
-            "	\n	Pre Calibre \t \t \t  : \t \t \t 	" + txtprecalibre.Text + " \t \t \t 	Guata Blanca \t \t \t : \t \t \t " + txtguatablanca.Text + "	 \t \t \t Russet \t \t \t \t \t \t \t \t \t : \t \t \t " + txtrusset.Text + "	\n	" +
-            "	\n	Daño Trip \t \t \t \t  : \t \t \t 	" + txtdanotrip.Text + "	 \t \t \t Herida \t \t \t \t \t \t \t \t : \t \t \t " + txtherida.Text + "	 \t \t \t Sutura \t \t \t  \t \t \t \t \t \t : \t \t \t " + txtsutura.Text + "	\n	" +
-            "	\n	Escama \t \t \t \t \t \t  : \t \t \t 	" + txtescama.Text + "	 \t \t \t Manchas \t \t \t \t \t \t  : \t \t \t " + txtmanchas.Text + "	 \t \t \t Falto de Color \t \t  : \t \t \t 	" + txtfaltocolor.Text + "	\n	" +
-            "	\n	Frutos Deformes: \t \t  	" + txtfrutosdeformes.Text + " \t \t \t 	Media Luna \t \t \t   : \t \t \t " + txtmedialuna.Text + "	 \t \t \t Ramaleo \t \t \t \t \t \t \t : \t \t \t " + txtramaleo.Text + "	\n	" +
-            "	\n	Frutos Dobles  \t : \t \t \t 	" + txtfrutosdobles.Text + "	 \t \t \t Piel de Lagarto \t : \t \t \t " + txtpiellagarto.Text + "	 \t \t \t Sin Pedicelo \t \t \t  \t : \t \t \t " + txtsinpedicelo.Text + "	\n	" +
-            "\n\n \t \t DEFECTOS DE CONDICION \n" +
-            "	\n	Adhesion \t \t \t \t \t \t \t  \t \t \t \t \t : \t \t \t " + txtadhesion.Text + " \t \t \t 	Partiduras \t \t \t \t \t \t \t \t \t : \t \t \t " + txtpartiduras.Text + " \t \t \t 	Daño de Pajaro \t \t \t : \t \t \t " + txtdanopajaro.Text + "	\n	" +
-            "	\n	Deshidratacion de Frutos : \t \t \t " + txtdeshid.Text + " \t \t \t 	Partiduras por Agua \t : \t \t \t " + txtpartidurasagua.Text + " \t \t \t 	Desgarro \t \t \t \t \t \t \t \t : \t \t \t " + txtdesgarro.Text + "	\n	" +
-            "	\n	Deshidratacion Pedicelar : \t \t \t " + txtdeshidpedi.Text + " \t \t \t 	Partidura Cicatrizada \t: \t \t \t " + txtpartiduracicatrizada.Text + " \t \t \t 	Corte de Sierra \t \t \t : \t \t \t " + txtcortesierra.Text + "	\n	" +
-            "	\n	Blandos \t \t \t \t \t \t \t \t \t \t  \t \t \t : \t \t \t " + txtblandos.Text + " \t \t \t 	Pitting	 \t \t \t \t \t \t \t \t \t \t \t \t: \t \t \t 	" + txtpitting.Text + " \t \t \t Sutura Expuesta \t \t : \t \t \t " + txt_sut_exp.Text + "	\n	" +
-            "	\n	Heridas Abiertas \t \t \t  \t \t \t : \t \t \t " + txtheridasabiertas.Text + " \t \t \t 	Pudricion \t \t \t \t \t \t \t \t \t \t: \t \t \t " + txtpudricion.Text + " \t \t \t \n	" +
-            "	\n	Machucon \t \t \t \t \t \t  \t \t \t \t \t : \t \t \t " + txtmachucon.Text + " \t \t \t 	Manchas Pardas \t \t \t \t \t: \t \t \t " + txtmanchaspardas.Text + " \t \t \t 	" +
-
-            "", times2);
-            Paragraph p1 = new Paragraph();
-
-            p1.Alignment = Element.ALIGN_LEFT;
-            p1.Add(chunk1);
-
-            
-
-            Doc.Add(p);
-            Doc.Add(p1);
-            
-
-            System.Xml.XmlTextReader xmlReader = new System.Xml.XmlTextReader(new StringReader(html));
-            HtmlParser.Parse(Doc, xmlReader);
-
-            Doc.Close();
+                Paragraph p = new Paragraph();
+                p.Alignment = Element.ALIGN_CENTER;
+                p.Add(c);
 
 
-            string Path = Environment.GetFolderPath
-            (Environment.SpecialFolder.Desktop)
-            + "\\Resumen005"+identif +".pdf";
+                Chunk chunk1 = new Chunk
+                ("\n \n \t Proceso \t \t \t : \t \t \t " + lbl_proceso.Text + " \t \t \t \t \tLote \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_lote.Text + " \t \t \t \t \t Marca \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_marca.Text + "   \n" +
+                 "\n \t Linea \t \t \t \t \t : \t \t \t " + lbl_linea_popup.Text + " \t \t \t \t \t \t Desde \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_desde.Text + " \t \tHasta \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_hasta.Text + "   \n" +
+                 "\n \t Casos \t \t \t \t \t : \t \t \t " + lbl_casos.Text + " \t \t \t \t \t \t Promedio Calidad  : \t \t \t " + lbl_calidad.Text + " \t \t \t \t \t \t Promedio Condicion \t \t \t : \t \t \t " + lbl_condicion.Text + "      \n" +
+                "\n\n \t \t DEFECTOS DE CALIDAD \n" +
+                "	\n	Pre Calibre \t \t \t  : \t \t \t 	" + txtprecalibre.Text + " \t \t \t 	Guata Blanca \t \t \t : \t \t \t " + txtguatablanca.Text + "	 \t \t \t Russet \t \t \t \t \t \t \t \t \t : \t \t \t " + txtrusset.Text + "	\n	" +
+                "	\n	Daño Trip \t \t \t \t  : \t \t \t 	" + txtdanotrip.Text + "	 \t \t \t Herida \t \t \t \t \t \t \t \t : \t \t \t " + txtherida.Text + "	 \t \t \t Sutura \t \t \t  \t \t \t \t \t \t : \t \t \t " + txtsutura.Text + "	\n	" +
+                "	\n	Escama \t \t \t \t \t \t  : \t \t \t 	" + txtescama.Text + "	 \t \t \t Manchas \t \t \t \t \t \t  : \t \t \t " + txtmanchas.Text + "	 \t \t \t Falto de Color \t \t  : \t \t \t 	" + txtfaltocolor.Text + "	\n	" +
+                "	\n	Frutos Deformes: \t \t  	" + txtfrutosdeformes.Text + " \t \t \t 	Media Luna \t \t \t   : \t \t \t " + txtmedialuna.Text + "	 \t \t \t Ramaleo \t \t \t \t \t \t \t : \t \t \t " + txtramaleo.Text + "	\n	" +
+                "	\n	Frutos Dobles  \t : \t \t \t 	" + txtfrutosdobles.Text + "	 \t \t \t Piel de Lagarto \t : \t \t \t " + txtpiellagarto.Text + "	 \t \t \t Sin Pedicelo \t \t \t  \t : \t \t \t " + txtsinpedicelo.Text + "	\n	" +
+                "\n\n \t \t DEFECTOS DE CONDICION \n" +
+                "	\n	Adhesion \t \t \t \t \t \t \t  \t \t \t \t \t : \t \t \t " + txtadhesion.Text + " \t \t \t 	Partiduras \t \t \t \t \t \t \t \t \t : \t \t \t " + txtpartiduras.Text + " \t \t \t 	Daño de Pajaro \t \t \t : \t \t \t " + txtdanopajaro.Text + "	\n	" +
+                "	\n	Deshidratacion de Frutos : \t \t \t " + txtdeshid.Text + " \t \t \t 	Partiduras por Agua \t : \t \t \t " + txtpartidurasagua.Text + " \t \t \t 	Desgarro \t \t \t \t \t \t \t \t : \t \t \t " + txtdesgarro.Text + "	\n	" +
+                "	\n	Deshidratacion Pedicelar : \t \t \t " + txtdeshidpedi.Text + " \t \t \t 	Partidura Cicatrizada \t: \t \t \t " + txtpartiduracicatrizada.Text + " \t \t \t 	Corte de Sierra \t \t \t : \t \t \t " + txtcortesierra.Text + "	\n	" +
+                "	\n	Blandos \t \t \t \t \t \t \t \t \t \t  \t \t \t : \t \t \t " + txtblandos.Text + " \t \t \t 	Pitting	 \t \t \t \t \t \t \t \t \t \t \t \t: \t \t \t 	" + txtpitting.Text + " \t \t \t Sutura Expuesta \t \t : \t \t \t " + txt_sut_exp.Text + "	\n	" +
+                "	\n	Heridas Abiertas \t \t \t  \t \t \t : \t \t \t " + txtheridasabiertas.Text + " \t \t \t 	Pudricion \t \t \t \t \t \t \t \t \t \t: \t \t \t " + txtpudricion.Text + " \t \t \t \n	" +
+                "	\n	Machucon \t \t \t \t \t \t  \t \t \t \t \t : \t \t \t " + txtmachucon.Text + " \t \t \t 	Manchas Pardas \t \t \t \t \t: \t \t \t " + txtmanchaspardas.Text + " \t \t \t 	" +
+
+                "", times2);
+                Paragraph p1 = new Paragraph();
+
+                p1.Alignment = Element.ALIGN_LEFT;
+                p1.Add(chunk1);
 
 
-            ShowPdf(Path);
+
+                Doc.Add(p);
+                Doc.Add(p1);
+
+
+                System.Xml.XmlTextReader xmlReader = new System.Xml.XmlTextReader(new StringReader(html));
+                HtmlParser.Parse(Doc, xmlReader);
+
+                Doc.Close();
+
+
+                string Path = Environment.GetFolderPath
+                (Environment.SpecialFolder.Desktop)
+                + "\\Resumen005" + identif + ".pdf";
+
+
+                ShowPdf(Path);
+            }
+            catch { }
         }
 
 

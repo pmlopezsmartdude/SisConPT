@@ -608,10 +608,12 @@
 
         <center> <asp:Button ID="btnClose" runat="server" Text="Cerrar" 
                                                 CssClass="button" onclick="btnClose_Click" CausesValidation="false" />
-                                                <asp:Button ID="boton" runat="server" Text="pdf" Enabled="true" OnClick="boton_Click" /></center>
+                                                <asp:Button ID="boton" runat="server" Text="pdf" Enabled="true" OnClick="boton_Click" />
+                                                </center>
                 </fieldset>
                  </div>
-             </ContentTemplate>
+             </ContentTemplate> 
+               <Triggers>  <asp:PostBackTrigger ControlID="boton" /> </Triggers> 
         </asp:UpdatePanel>
 
         
