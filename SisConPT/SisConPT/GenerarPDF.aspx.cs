@@ -70,7 +70,7 @@ namespace SisConPT.SisConPT
             Doc.Open();
 
             Chunk c = new Chunk
-            ("Prueba de un Documento en PDF \n", FontFactory.GetFont("Verdana", 15));
+            ("Resumen PAC CC 005 \n", FontFactory.GetFont("Verdana", 15));
             
             Paragraph p = new Paragraph();
             p.Alignment = Element.ALIGN_CENTER;

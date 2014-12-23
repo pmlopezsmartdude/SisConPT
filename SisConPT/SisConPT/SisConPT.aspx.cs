@@ -188,7 +188,7 @@ namespace SisConPT.SisConPT
         protected void Btn_resumen_005(object sender, EventArgs e)
         {
             Session["PlantaName"] = DropPlanta_d.Text;
-            Response.Redirect("~/SisConPT/Resumen_CC_PAC_005_III.aspx");
+            Response.Redirect("~/SisConPT/Resumen_CC_PAC_005_III_pdf.aspx");
         }
         protected void Btn_resumen_075(object sender, EventArgs e)
         {

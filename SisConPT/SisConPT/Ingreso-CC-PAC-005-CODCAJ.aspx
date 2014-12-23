@@ -719,7 +719,7 @@
    <asp:TableRow Width="162px">
    <asp:TableCell>
        <asp:Label ID="Label6" runat="server" Text="Label">Observaciones</asp:Label><br />
-       <center><asp:TextBox ID="TextBox1obs" runat="server" Height="120" Width="600" Font-Size="X-Small" Font-Names="Century Gothic" TextMode="MultiLine">0</asp:TextBox></center>
+       <center><asp:TextBox MaxLength="120"   ID="TextBox1obs" runat="server" Height="120" Width="600" Font-Size="X-Small" Font-Names="Century Gothic" TextMode="MultiLine">0</asp:TextBox></center>
    </asp:TableCell>   </asp:TableRow>
       <asp:TableRow Width="162px">
    <asp:TableCell>

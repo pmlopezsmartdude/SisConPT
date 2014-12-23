@@ -93,11 +93,10 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="SisConPT\Resumen_CC_PAC_005_III_PDF.aspx" />
     <Content Include="SisConPT\Ingreso_CC-PAC-003_sat.aspx" />
     <Content Include="SisConPT\GenerarPDF.aspx" />
-    <Content Include="SisConPT\Resumen_CC_PAC_005_RM.aspx" />
     <Content Include="SisConPT\Resumen_CC_PAC_005_III.aspx" />
-    <Content Include="SisConPT\Resumen_CC_PAC_005_II.aspx" />
     <Content Include="SisConPT\Ingreso_CC_PAC_005_satelite_caburgua.aspx" />
     <Content Include="SisConPT\Detalle_CC_PAC_005.aspx" />
     <Content Include="SisConPT\Editar_CC_PAC_005.aspx" />
@@ -119,7 +118,6 @@
     <Content Include="SisConPT\ImportExcel.aspx" />
     <Content Include="SisConPT\Ingreso-CC-PAC-005-CODCAJ.aspx" />
     <Content Include="SisConPT\Ingreso_CC-PAC-003.aspx" />
-    <Content Include="SisConPT\Resumen_CC-PAC-005_CODCAJ.aspx" />
     <Content Include="SisConPT\Resumen_CC-PAC-075_CSV.aspx" />
     <Content Include="SisConPT\Resumen_CC_PAC_003.aspx" />
     <Content Include="SisConPT\SisConPT.aspx" />
@@ -187,6 +185,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SisConPT\Resumen_CC_PAC_005_III_PDF.aspx.cs">
+      <DependentUpon>Resumen_CC_PAC_005_III_PDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisConPT\Resumen_CC_PAC_005_III_PDF.aspx.designer.cs">
+      <DependentUpon>Resumen_CC_PAC_005_III_PDF.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SisConPT\Ingreso_CC-PAC-003_sat.aspx.cs">
       <DependentUpon>Ingreso_CC-PAC-003_sat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,26 +206,12 @@
     <Compile Include="SisConPT\GenerarPDF.aspx.designer.cs">
       <DependentUpon>GenerarPDF.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SisConPT\Resumen_CC_PAC_005_RM.aspx.cs">
-      <DependentUpon>Resumen_CC_PAC_005_RM.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SisConPT\Resumen_CC_PAC_005_RM.aspx.designer.cs">
-      <DependentUpon>Resumen_CC_PAC_005_RM.aspx</DependentUpon>
-    </Compile>
     <Compile Include="SisConPT\Resumen_CC_PAC_005_III.aspx.cs">
       <DependentUpon>Resumen_CC_PAC_005_III.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SisConPT\Resumen_CC_PAC_005_III.aspx.designer.cs">
       <DependentUpon>Resumen_CC_PAC_005_III.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SisConPT\Resumen_CC_PAC_005_II.aspx.cs">
-      <DependentUpon>Resumen_CC_PAC_005_II.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SisConPT\Resumen_CC_PAC_005_II.aspx.designer.cs">
-      <DependentUpon>Resumen_CC_PAC_005_II.aspx</DependentUpon>
     </Compile>
     <Compile Include="SisConPT\Ingreso_CC_PAC_005_satelite_caburgua.aspx.cs">
       <DependentUpon>Ingreso_CC_PAC_005_satelite_caburgua.aspx</DependentUpon>
@@ -263,13 +254,6 @@
     </Compile>
     <Compile Include="SisConPT\Ingreso_CC-PAC-003.aspx.designer.cs">
       <DependentUpon>Ingreso_CC-PAC-003.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SisConPT\Resumen_CC-PAC-005_CODCAJ.aspx.cs">
-      <DependentUpon>Resumen_CC-PAC-005_CODCAJ.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SisConPT\Resumen_CC-PAC-005_CODCAJ.aspx.designer.cs">
-      <DependentUpon>Resumen_CC-PAC-005_CODCAJ.aspx</DependentUpon>
     </Compile>
     <Compile Include="SisConPT\Resumen_CC-PAC-075_CSV.aspx.cs">
       <DependentUpon>Resumen_CC-PAC-075_CSV.aspx</DependentUpon>
