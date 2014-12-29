@@ -644,212 +644,14 @@ namespace SisConPT.SisConPT
 
             string file = @"C:\Temporalpdf\Resumen_005.pdf";
 
-//            string html = "<html><head></head><body>" +
-//"   <p>RESUMEN</p>" +
-//"   <p>&nbsp;</p>" +
-//" <table>" +
-//"   <tr>" +
-//"     <td>Proceso</td>" +
-//"     <td>:</td>" +
-//"     <td>variable_proceso</td>" +
 
-//"     <td>Lote</td>" +
-//"     <td>:</td>" +
-//"     <td>variable_lote</td>" +
 
-//"     <td>Marca</td>" +
-//"     <td>:</td>" +
-//"     <td>variable_marca</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Linea</td>" +
-//"     <td>:</td>" +
-//"     <td>variable_linea</td>" +
+            string html_encabezado = "";
 
-//"     <td>Desde</td>" +
-//"     <td>:</td>" +
-//"     <td>variable_desde</td>" +
 
-//"     <td>Hasta</td>" +
-//"     <td>:</td>" +
-//"     <td>variable_hasta</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Cajas</td>" +
-//"     <td>:</td>" +
-//"     <td>variable_cajas</td>" +
-
-//"     <td>Promedio Calidad </td>" +
-//"     <td>:</td>" +
-//"     <td>variable_calidad</td>" +
-
-//"     <td>Promedio Condici&oacute;n </td>" +
-//"     <td>:</td>" +
-//"     <td>variable_condicion</td>" +
-//"   </tr>" +
-//" </table>" +
-//" <p>DEFECTOS DE CALIDAD</p>" +
-//" <table >" +
-//"   <tr>" +
-//"     <td>Pre Calibre </td>" +
-//"     <td>:</td>" +
-//"     <td>v_precalibre</td>" +
-
-//"     <td>Guata Blanca </td>" +
-//"     <td>:</td>" +
-//"     <td>v_guata</td>" +
-
-//"     <td>Russet</td>" +
-//"     <td>:</td>" +
-//"     <td>v_russet</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Da&ntilde;o Trip </td>" +
-//"     <td>:</td>" +
-//"     <td>v_da&ntilde;otrip</td>" +
-
-//"     <td>Herida</td>" +
-//"     <td>:</td>" +
-//"     <td>v_herida</td>" +
-
-//"     <td>Sutura</td>" +
-//"     <td>:</td>" +
-//"     <td>v_sutura</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Escama</td>" +
-//"     <td>:</td>" +
-//"     <td>v_escama</td>" +
-
-//"     <td>Manchas</td>" +
-//"     <td>:</td>" +
-//"     <td>v_manchas</td>" +
-
-//"     <td>Falto de Color </td>" +
-//"     <td>:</td>" +
-//"     <td>v_faltocolor</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Frutos Deformes </td>" +
-//"     <td>:</td>" +
-//"     <td>v_deformes</td>" +
-
-//"     <td>Media Luna </td>" +
-//"     <td>:</td>" +
-//"     <td>v_medialuna</td>" +
-
-//"     <td>Ramaleo</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ramaleo</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Frutos Dobles </td>" +
-//"     <td>:</td>" +
-//"     <td>v_dobles</td>" +
-
-//"     <td>Piel de Lagarto </td>" +
-//"     <td>:</td>" +
-//"     <td>v_piel_lagarto</td>" +
-
-//"     <td>Sin Pedicelo </td>" +
-//"     <td>:</td>" +
-//"     <td>v_pedicelo</td>" +
-//"   </tr>" +
-//" </table>" +
-//" " +
-//" <p>&nbsp;</p>" +
-//" <p>DEFECTOS DE CONDICI&Oacute;N </p>" +
-//" <table >" +
-//"   <tr>" +
-//"     <td>Adhesion</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Partiduras</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Da&ntilde;o de Pajaro </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Deshidratacion de Frutos </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Partiduras por Agua </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Desgarro</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Deshidratacion Pedicelar </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Patrtidura Cicatrizada </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Corte de Sierra </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Blandos</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Pitting</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Sutura Expuesta </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Heridas Abiertas </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Pudricion</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-//"     <td></td>" +
-
-//"     <td></td>" +
-//"     <td></td>" +
-//"   </tr>" +
-//"   <tr>" +
-//"     <td>Machucon</td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-
-//"     <td>Manchas Pardas </td>" +
-//"     <td>:</td>" +
-//"     <td>v_ade</td>" +
-//"     <td></td>" +
-
-//"     <td></td>" +
-//"     <td></td>" +
-//"   </tr>" +
-//" </table>" +
-//                "</body></html>";
-
-//            Document document = new Document(PageSize.A4, 80, 50, 30, 65);
-//            PdfWriter.GetInstance(document, new FileStream(file, FileMode.Create));
-//            document.Open();
-
-//            foreach (IElement E in HTMLWorker.ParseToList(new StringReader(html), new StyleSheet()))
-//                document.Add(E);
-
-//           document.Close();
-//           ShowPdf(file);
+                 html_encabezado = "<html><head></head><body>" +
+                    "<img alt=\"Logo iText\" src=\"http://sisqc.sfg.cl:8080/sisqc/Images/logosfg.png\" height=\"54px\" width=\"235px\">" +
+                     "</body></html>";
 
 
 
@@ -873,7 +675,11 @@ namespace SisConPT.SisConPT
             Font times2 = new Font(bfTimes, 12, Font.NORMAL, Color.BLACK);
             Font times1 = new Font(bfTimes, 15, Font.NORMAL, Color.BLACK);
 
-            Chunk c = new Chunk("Resumen " + drop_turno_d.Text + "\n", times1);
+            foreach (IElement E in HTMLWorker.ParseToList(new StringReader(html_encabezado), new StyleSheet()))
+                Doc.Add(E);
+
+
+            Chunk c = new Chunk("\n \n Resumen " + drop_turno_d.Text + "\n", times1);
 
             Paragraph p = new Paragraph();
             p.Alignment = Element.ALIGN_CENTER;

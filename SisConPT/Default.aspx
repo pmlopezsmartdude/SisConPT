@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <img alt="" src="Images/logosfg.png" />
+ 
     <h2>
         Bienvenido al sistema de control de calidad</h2>
     
