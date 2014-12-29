@@ -202,7 +202,7 @@
   <asp:TableRow ID="TableRow16" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
             <asp:TableCell>
-                 <asp:Label ID="Label6" runat="server" Height="20" Font-Bold="true" Font-Size="Small">Casos : </asp:Label>
+                 <asp:Label ID="Label6" runat="server" Height="20" Font-Bold="true" Font-Size="Small">Cajas : </asp:Label>
             </asp:TableCell>
             <asp:TableCell>
              <asp:Label ID="lbl_casos" runat="server" Width="50" Height="20"  Font-Size="Small" Font-Names="Century Gothic"></asp:Label>

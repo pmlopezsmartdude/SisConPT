@@ -386,7 +386,7 @@ namespace SisConPT.SisConPT
         protected void Grabar_Click(object sender, EventArgs e)
         {
             string numeroctrl = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz");
-            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd"); 
             string username = HttpContext.Current.User.Identity.Name;
             if (txtbajo.Text == "") { txtbajo.Text = "0"; }
             if (txtprecalibre.Text == "") { txtprecalibre.Text = "0"; }
