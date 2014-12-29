@@ -628,12 +628,12 @@ namespace SisConPT.SisConPT
         protected void boton_Click(object sender, EventArgs e)
         {
 
-            if (System.IO.File.Exists(@"C:\Terminalpdf\Resumen_005.pdf"))
+            if (System.IO.File.Exists(@"C:\Temporalpdf\Resumen_005.pdf"))
             {
 
                 try
                 {
-                    System.IO.File.Delete(@"C:\Terminalpdf\Resumen_005.pdf");
+                    System.IO.File.Delete(@"C:\Temporalpdf\Resumen_005.pdf");
                 }
                 catch (System.IO.IOException ey)
                 {
@@ -642,7 +642,7 @@ namespace SisConPT.SisConPT
             }
 
 
-            string file = @"C:\Terminalpdf\Resumen_005.pdf";
+            string file = @"C:\Temporalpdf\Resumen_005.pdf";
 
 //            string html = "<html><head></head><body>" +
 //"   <p>RESUMEN</p>" +
