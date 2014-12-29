@@ -148,15 +148,15 @@ namespace SisConPT.SisConPT
 
         private void PopUpDetalle(string proceso, string lote, string marca, string linea)
         {
-            string username = HttpContext.Current.User.Identity.Name;
-            if (username == "desarrollo")
-            {
-                boton.Visible = true;
-            }
-            else
-            {
-                boton.Visible = false;
-            }
+            //string username = HttpContext.Current.User.Identity.Name;
+            //if (username == "desarrollo")
+            //{
+            //    boton.Visible = true;
+            //}
+            //else
+            //{
+            //    boton.Visible = false;
+            //}
 
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");

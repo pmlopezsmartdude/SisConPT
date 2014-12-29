@@ -608,7 +608,7 @@
 
         <center> <asp:Button ID="btnClose" runat="server" Text="Cerrar" 
                                                 CssClass="button" onclick="btnClose_Click" CausesValidation="false" />
-                                                <asp:Button ID="boton" runat="server" Text="pdf" Enabled="true" visible="false" OnClick="boton_Click" />
+                                                <asp:Button ID="boton" runat="server" Text="pdf" Enabled="true" OnClick="boton_Click" />
                                                 </center>
                 </fieldset>
                  </div>
