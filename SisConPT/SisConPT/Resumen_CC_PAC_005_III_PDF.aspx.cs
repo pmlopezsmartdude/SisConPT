@@ -635,7 +635,7 @@ namespace SisConPT.SisConPT
         protected void boton_Click(object sender, EventArgs e)
         {
 
-            string file = @"C:\Windows\Temp\Documento.pdf";
+            string file = @"C:\Temporalpdf\Documento.pdf";
 
             string html = "<html><head></head><body>" +
                 "<img alt=\"Logo iText\" src=\"http://itextpdf.com/img/logo.gif\" height=\"50px\" width=\"50px\">" +
