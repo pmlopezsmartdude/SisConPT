@@ -1052,7 +1052,7 @@ namespace SisConPT.SisConPT
         protected void boton_Click(object sender, EventArgs e)
         {
 
-            string file = @"C:\Users\Desarrollo\Desktop\Temporalpdf\Resumen_005.pdf";
+            string file = @"C:\Temporalpdf\Resumen_005.pdf";
 
             if (System.IO.File.Exists(file))
             {
