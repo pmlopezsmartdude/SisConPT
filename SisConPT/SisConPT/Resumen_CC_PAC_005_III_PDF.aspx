@@ -134,7 +134,7 @@
                                 <asp:BoundField DataField="cptproces" HeaderText="Proceso" />
                                 <asp:BoundField DataField="cptnulote" HeaderText="Lote" />
                                 <asp:BoundField DataField="cptmardes" HeaderText="Marca" />
-                                      <asp:BoundField DataField="lincodigo" HeaderText="Linea" />
+                                      <asp:BoundField DataField="lincodigo" HeaderText="Línea" />
                                       <asp:BoundField DataField="turcodigo" HeaderText="Turno" />
                                       <asp:BoundField DataField="cptnompre" HeaderText="Productor" />
 
@@ -166,7 +166,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                
-                                <asp:BoundField DataField="lincodigo" HeaderText="Linea" />
+                                <asp:BoundField DataField="lincodigo" HeaderText="Línea" />
                                 <asp:BoundField DataField="turcodigo" HeaderText="Turno" />
                                 <asp:BoundField DataField="cptnompre" HeaderText="Productor" />
                                 <asp:BoundField DataField="promedio_final" HeaderText="Promedio Calidad" />
@@ -216,7 +216,7 @@
                     </asp:TableCell></asp:TableRow><asp:TableRow ID="TableRow14" runat="server" HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
             
             <asp:TableCell>
-                 <asp:Label ID="Label5" runat="server" Height="20" Font-Bold="true" Font-Size="Small">Linea : </asp:Label>
+                 <asp:Label ID="Label5" runat="server" Height="20" Font-Bold="true" Font-Size="Small">Línea : </asp:Label>
             </asp:TableCell><asp:TableCell>
              <asp:Label ID="lbl_linea_popup" runat="server" Width="50" Height="20"  Font-Size="Small" Font-Names="Century Gothic"></asp:Label>
                  </asp:TableCell><asp:TableCell>
@@ -288,12 +288,12 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtrusset"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
           
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesion</asp:Label>
+                <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesión</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtadhesion"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lblpudricion" runat="server" Height="10">Pudricion</asp:Label>
+                <asp:Label ID="lblpudricion" runat="server" Height="10">Pudrición</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtpudricion"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                 
@@ -310,7 +310,7 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtsutura"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
              
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratacion de Frutos</asp:Label>
+                <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratación de Frutos</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtdeshid"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
           
@@ -332,7 +332,7 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtfaltocolor"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
           
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratacion Pedicelar</asp:Label>
+                <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratación Pedicelar</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtdeshidpedi"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
                
@@ -397,7 +397,7 @@
             </asp:TableCell><asp:TableCell>
                 
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lblmachucon" runat="server" Height="10">Machucon</asp:Label>
+                <asp:Label ID="lblmachucon" runat="server" Height="10">Machucón</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic">0</asp:TextBox>
  
@@ -514,12 +514,12 @@
         </fieldset>
 
 
-               <center> <asp:Button ID="btnClose" runat="server" Text="Cerrar" 
+                 <center> <asp:Button ID="btnClose" runat="server" Text="Cerrar" 
                                                 CssClass="button" onclick="btnClose_Click" CausesValidation="false" />
                                                 <asp:Button ID="boton" runat="server" Text="pdf" Enabled="true" OnClick="boton_Click" />
                                                 </center>
                 </fieldset>
-                        </div></ContentTemplate><Triggers>  <asp:PostBackTrigger ControlID="boton" /> </Triggers> 
+                          </div></ContentTemplate><Triggers>  <asp:PostBackTrigger ControlID="boton" /> </Triggers> 
         </asp:UpdatePanel>
 
         
@@ -623,12 +623,12 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_russet_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
           
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="Label36" runat="server" Height="10">Adhesion</asp:Label>
+                <asp:Label ID="Label36" runat="server" Height="10">Adhesión</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_adhesion_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="Label37" runat="server" Height="10">Pudricion</asp:Label>
+                <asp:Label ID="Label37" runat="server" Height="10">Pudrición</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_pudricion_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 
@@ -645,7 +645,7 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_sutura_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
              
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="Label40" runat="server" Height="10">Deshidratacion de Frutos</asp:Label>
+                <asp:Label ID="Label40" runat="server" Height="10">Deshidratación de Frutos</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txt_deshidfru_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
           
@@ -667,7 +667,7 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtfaltocolor_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
           
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lbldeshidpedi_t" runat="server" Height="10">Deshidratacion Pedicelar</asp:Label>
+                <asp:Label ID="lbldeshidpedi_t" runat="server" Height="10">Deshidratación Pedicelar</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtdeshidpedi_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                
@@ -732,7 +732,7 @@
             </asp:TableCell><asp:TableCell>
                 
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lblmachucon_t" runat="server" Height="10">Machucon</asp:Label>
+                <asp:Label ID="lblmachucon_t" runat="server" Height="10">Machucón</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtmachucon_t"  Width="30" Height="20" Enabled="False" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
  
@@ -826,7 +826,7 @@
                                                  <asp:Button ID="boton_2" runat="server" Text="pdf" Enabled="true" OnClick="boton_Click" />
                                                 </center>
                 </fieldset>
-                        </div></ContentTemplate><Triggers>  <asp:PostBackTrigger ControlID="boton" /> </Triggers> 
+                          </div></ContentTemplate><Triggers>  <asp:PostBackTrigger ControlID="boton" /> </Triggers> 
                 <Triggers>  <asp:PostBackTrigger ControlID="boton_2" /> </Triggers> 
         </asp:UpdatePanel>
 

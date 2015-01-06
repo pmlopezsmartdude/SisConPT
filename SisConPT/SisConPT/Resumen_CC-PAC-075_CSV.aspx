@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
 <fieldset>
-        <legend>DECARGA ARCHIVO EXCEL<asp:Label ID="lbl_planta" runat="server" Width="150" Height="30"></asp:Label><asp:Label ID="lbl_codpla" runat="server" Width="150" Height="30"></asp:Label></legend>
+        <legend>DECARGA ARCHIVO EXCEL <asp:Label ID="lbl_planta" runat="server" Width="150" Height="30"></asp:Label><asp:Label ID="lbl_codpla" runat="server" Width="150" Height="30"></asp:Label></legend>
          <asp:Table ID="Datos" runat="server" Width="653px" Height="50px" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Center">
           <asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="30">
              <asp:TableCell Width="150">

@@ -364,14 +364,14 @@
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" TargetControlID="txtrusset" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesion</asp:Label>
+                <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesión</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtadhesion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender4" TargetControlID="txtadhesion" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="lblpudricion" runat="server" Height="10">Pudricion</asp:Label>
+                <asp:Label ID="lblpudricion" runat="server" Height="10">Pudrición</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtpudricion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
@@ -401,7 +401,7 @@
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" TargetControlID="txtsutura" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratacion de Frutos</asp:Label>
+                <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratación de Frutos</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtdeshid"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
@@ -438,7 +438,7 @@
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender13" TargetControlID="txtfaltocolor" FilterType="numbers"  runat="server" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratacion Pedicelar</asp:Label>
+                <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratación Pedicelar</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtdeshidpedi"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
@@ -545,7 +545,7 @@
                 
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="lblmachucon" runat="server" Height="10">Machucon</asp:Label>
+                <asp:Label ID="lblmachucon" runat="server" Height="10">Machucón</asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>

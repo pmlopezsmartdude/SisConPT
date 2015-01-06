@@ -117,7 +117,7 @@
                    </asp:TableCell> <asp:TableCell></asp:TableCell>
                    <asp:TableCell Width="90">
             
-             <asp:Label ID="Label1" runat="server" Text="Referencia CAT 1 Justificacion Ajuste" Width="90" Height="20"></asp:Label>
+             <asp:Label ID="Label1" runat="server" Text="Referencia CAT 1 Justificación Ajuste" Width="90" Height="20"></asp:Label>
              </asp:TableCell>
                     <asp:TableCell>
                 <asp:TextBox runat="server" ID="txt_ref"  Width="100" Height="50" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
@@ -138,7 +138,7 @@
     <td colspan="2" align="center"><asp:Label ID="Label19" runat="server" Text="Puntual" Width="70" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
     <td colspan="2" align="center"><asp:Label ID="Label20" runat="server" Text="Externo" Width="70" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
     <td colspan="2" align="center"><asp:Label ID="Label21" runat="server" Text="Punto Negro" Width="70" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
-    <td colspan="2" align="center"><asp:Label ID="Label22" runat="server" Text="Punto Marron" Width="70" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
+    <td colspan="2" align="center"><asp:Label ID="Label22" runat="server" Text="Punto Marrón" Width="70" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
     <td colspan="2" align="center"><asp:Label ID="Label23" runat="server" Text="Mancha Blanca" Width="70" Height="20" Font-Names="Century Gothic" Font-Size="X-Small"></asp:Label></td>
   </tr>
   <tr>

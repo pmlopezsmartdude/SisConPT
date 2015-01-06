@@ -47,7 +47,7 @@
             </asp:TableCell><asp:TableCell Width="60"></asp:TableCell><asp:TableCell Width="60"><asp:Label ID="label_especie" runat="server" Text="Especie" width="80" Height="20"></asp:Label></asp:TableCell><asp:TableCell Width="60"><asp:TextBox ID="especietext" runat="server"  Width="60" Height="20" ReadOnly="true" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox></asp:TableCell><asp:TableCell Width="120"><asp:DropDownList ID="DDL_cod_especie_d"  runat="server" Width="180" DataSourceID="DDL_cod_especie" DataTextField="DESCESPECIE"  DataValueField="CODESPECIE" Height="26"  Font-Names="Century Gothic" AutoPostBack="True"  onselectedindexchanged="especie_SelectedIndexChanged"> </asp:DropDownList>
                 </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center" VerticalAlign="Middle" Height="20">
         <asp:TableCell Width="60">
-                <asp:Label ID="label_linea" runat="server" Text="Linea"  Width="80" Height="20"></asp:Label>
+                <asp:Label ID="label_linea" runat="server" Text="Línea"  Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="60">
                 <asp:DropDownList ID="DDL_linea_d"  runat="server" Width="120" DataSourceID="DDL_linea" DataTextField="linea" DataValueField="linea" Height="26"  Font-Names="Century Gothic" AutoPostBack="True" onselectedindexchanged="linea_SelectedIndexChanged"> </asp:DropDownList>
                            </asp:TableCell><asp:TableCell Width="60">
@@ -186,12 +186,12 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtrusset"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender3" TargetControlID="txtrusset" FilterType="numbers"  runat="server" />
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesion</asp:Label>
+                <asp:Label ID="lbladhesion" runat="server" Height="10">Adhesión</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtadhesion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender4" TargetControlID="txtadhesion" FilterType="numbers"  runat="server" />
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lblpudricion" runat="server" Height="10">Pudricion</asp:Label>
+                <asp:Label ID="lblpudricion" runat="server" Height="10">Pudrición</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtpudricion"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender5" TargetControlID="txtpudricion" FilterType="numbers"  runat="server" />
@@ -212,7 +212,7 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtsutura"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" TargetControlID="txtsutura" FilterType="numbers"  runat="server" />
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratacion de Frutos</asp:Label>
+                <asp:Label ID="lbldeshid" runat="server" Height="10">Deshidratación de Frutos</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtdeshid"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender9" TargetControlID="txtdeshid" FilterType="numbers"  runat="server" />
@@ -238,7 +238,7 @@
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtfaltocolor"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender13" TargetControlID="txtfaltocolor" FilterType="numbers"  runat="server" />
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratacion Pedicelar</asp:Label>
+                <asp:Label ID="lbldeshidpedi" runat="server" Height="10">Deshidratación Pedicelar</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtdeshidpedi"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender14" TargetControlID="txtdeshidpedi" FilterType="numbers"  runat="server" />
@@ -312,7 +312,7 @@
             </asp:TableCell><asp:TableCell>
                 
             </asp:TableCell><asp:TableCell>
-                <asp:Label ID="lblmachucon" runat="server" Height="10">Machucon</asp:Label>
+                <asp:Label ID="lblmachucon" runat="server" Height="10">Machucón</asp:Label>
             </asp:TableCell><asp:TableCell>
                 <asp:TextBox  MaxLength="3"    runat="server" ID="txtmachucon"  Width="30" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
                 <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender25" TargetControlID="txtmachucon" FilterType="numbers"  runat="server" />

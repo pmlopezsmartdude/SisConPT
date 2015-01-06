@@ -56,7 +56,7 @@ namespace SisConPT.SisConPT
           
         protected void proc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
+            string proceso = Convert.ToString(drop_proc_d.SelectedValue);
 
             DropLote(proceso);
             
@@ -112,7 +112,7 @@ namespace SisConPT.SisConPT
                  drop_proc_d.DataSource = ds_proc;
                  drop_proc_d.DataBind();
 
-                    int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
+                    string proceso = Convert.ToString(drop_proc_d.SelectedValue);
 
                      DropLote(proceso);
                  con.Close();
@@ -182,7 +182,7 @@ namespace SisConPT.SisConPT
             con.Close();
         }
 
-        private void DropLote(int proceso)
+        private void DropLote(string proceso)
         {
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringLM;

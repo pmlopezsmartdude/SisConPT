@@ -934,7 +934,7 @@ namespace SisConPT.SisConPT
                 " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsinped*1.0))) as [SIN PEDICELO]," +
                 " convert(varchar(255),CONVERT(decimal(18, 2),avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))) as [PROMEDIO CALIDAD]," +
                 " (case when (avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))>=2 then 'Sobre el promedio'" +
-                " else 'Cumple' end) DESVIASION_CALIDAD, placodigo AS PLANTA, convert(varchar(255),count(1)) as CAJAS," +
+                " else 'Cumple' end) DESVIACION_CALIDAD, placodigo AS PLANTA, convert(varchar(255),count(1)) as CAJAS," +
                  " convert(varchar(255),CONVERT(decimal(18, 2),avg(defadhesi*1.0))) as [ADHESION]," +
                 " convert(varchar(255),CONVERT(decimal(18, 2),avg(defdesfru*1.0))) as [DESHIDRATACION DE FRUTOS]," +
                 " convert(varchar(255),CONVERT(decimal(18, 2),avg(defdesped*1.0))) as [DESHIDRATACION PEDICELAR]," +
@@ -953,7 +953,7 @@ namespace SisConPT.SisConPT
                 " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsutura_exp*1.0))) as [SUTURA EXPUESTA]," +
                 " convert(varchar(255),CONVERT(decimal(18, 2),avg(([defadhesi]+[defdesfru]+[defdesped]+[defblando]+[defherabi]+[defmachuc]+[defpartid]+[defparagu]+[defparcic]+[defpittin]+[defpudric]+[defmanpar]+[defdanopa]+[defdesgar]+[defcorsie]+[defsutura_exp])*1.0))) as [PROMEDIO CONDICION]," +
                  " (case when (avg(([defadhesi]+[defdesfru]+[defdesped]+[defblando]+[defherabi]+[defmachuc]+[defpartid]+[defparagu]+[defparcic]+[defpittin]+[defpudric]+[defmanpar]+[defdanopa]+[defdesgar]+[defcorsie]+[defsutura_exp])*1.0))>=10 then 'Sobre el promedio'" +
-                 " else 'Cumple' end) DESVIASION_CONDICION, cptnompre as [PRODUCTOR] " +
+                 " else 'Cumple' end) DESVIACION_CONDICION, cptnompre as [PRODUCTOR] " +
                  " from controlpt as cl " +
                  " inner join defecto as def on cl.cptnumero=def.cptnumero";
 

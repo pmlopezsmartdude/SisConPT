@@ -58,7 +58,7 @@ namespace SisConPT.SisConPT
           
         protected void proc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
+            string proceso = Convert.ToString(drop_proc_d.SelectedValue);
 
             DropLote(proceso);
             
@@ -66,7 +66,7 @@ namespace SisConPT.SisConPT
            
         protected void linea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea = Convert.ToString(drop_linea_d.SelectedValue);
 
             BuscaTurno(linea);
             
@@ -74,7 +74,7 @@ namespace SisConPT.SisConPT
       
         protected void turno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea = Convert.ToString(drop_linea_d.SelectedValue);
             string turno = Convert.ToString(drop_turno_d.SelectedValue);
 
             DDLProcesos(linea, turno);
@@ -94,7 +94,7 @@ namespace SisConPT.SisConPT
         
         }
         
-        private void DDLProcesos(int linea, string turno)
+        private void DDLProcesos(string linea, string turno)
              {
 
                  System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -122,7 +122,7 @@ namespace SisConPT.SisConPT
                  drop_proc_d.DataBind();
 
 
-                     int proceso = Convert.ToInt32(drop_proc_d.SelectedValue);
+                     string proceso = Convert.ToString(drop_proc_d.SelectedValue);
 
                      DropLote(proceso);
 
@@ -155,14 +155,14 @@ namespace SisConPT.SisConPT
             drop_linea_d.DataBind();
 
 
-                int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
+                string linea = Convert.ToString(drop_linea_d.SelectedValue);
 
                 BuscaTurno(linea);
          
             con.Close();
         }
      
-        private void BuscaTurno(int linea)
+        private void BuscaTurno(string linea)
         {
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -188,7 +188,7 @@ namespace SisConPT.SisConPT
             drop_turno_d.DataBind();
 
 
-                int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+                string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
                 string turno = Convert.ToString(drop_turno_d.SelectedValue);
 
                 DDLProcesos(linea_2, turno);
@@ -248,7 +248,7 @@ namespace SisConPT.SisConPT
             con.Close();
         }
 
-        private void DropLote(int proceso)
+        private void DropLote(string proceso)
         {
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -364,8 +364,7 @@ namespace SisConPT.SisConPT
                 conexion.Close();
             }
 
-            string error = "Registro guardado OK";
-            Response.Write("<script language=javascript > alert('" + error + "'); </script>");
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "scriptName", "alert(\"Registro guardado ok\");", true);
 
             txt_precalibre.Text = "";
             txt_trips.Text = "";

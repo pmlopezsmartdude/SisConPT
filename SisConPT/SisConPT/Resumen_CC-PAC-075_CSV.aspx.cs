@@ -84,9 +84,9 @@ namespace SisConPT.SisConPT
                 " Ctrl_global_prueba as [GLOBAL % EXP],Ctrl_puntual_valor as [PUNTUAL VALOR],Ctrl_puntual_porc as [PUNTUAL %]," +
                 " Ctrl_puntual_prueba as [PUNTUAL % EXP],Ctrl_externo_valor as [EXTERNO VALOR],Ctrl_externo_porc as [EXTERNO %]," +
                 " Ctrl_externo_prueba as [EXTERNO % EXP],Ctrl_ptonegro_valor as [PUNTO NEGRO VALOR],Ctrl_ptonegro_porc as [PUNTO NEGRO %]," +
-                " Ctrl_ptonegro_prueba as [PUNTO NEGRO % EXP],Ctrl_ptomarron_valor as [PUNTO MARRON VALOR],Ctrl_ptomarron_porc as [PUNTO MARRON %]," +
-                " Ctrl_ptomarron_prueba as [PUNTO MARRON % EXP],Ctrl_marchablanca_valor as [MANCHABLANCA VALOR],Ctrl_marchablanca_porc as [MANCHA BLANCA %]," +
-                " Ctrl_marchablanca_prueba as [MANCHA BLANCA % EXP],Ctrl_KilosLote as [KILOS LOTE],Ctrl_NumTotes as [NUMERO TOTES],Ctrl_PorcExp as [% EXP]," +
+                " Ctrl_ptonegro_prueba as [PUNTO NEGRO % EXP],Ctrl_ptomarron_valor as [PUNTO MARRON VALOR],Ctrl_ptomarron_porc as [PUNTO MARRÓN %]," +
+                " Ctrl_ptomarron_prueba as [PUNTO MARRÓN % EXP],Ctrl_marchablanca_valor as [MANCHABLANCA VALOR],Ctrl_marchablanca_porc as [MANCHA BLANCA %]," +
+                " Ctrl_marchablanca_prueba as [MANCHA BLANCA % EXP],Ctrl_KilosLote as [KILOS LOTE],Ctrl_NumTotes as [NÚMERO TOTES],Ctrl_PorcExp as [% EXP]," +
                 " Ctrl_FecHora as [FECHA / HORA], Ctrl_obs as [OBSERVACIONES] FROM CC_PAC_075 WHERE Ctrl_CodPlan ='" + lbl_codpla.Text + "'";
             SqlCommand command = new SqlCommand(sql, con);
             con.Open();

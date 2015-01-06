@@ -83,7 +83,7 @@ namespace SisConPT.SisConPT
 
         protected void linea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea = Convert.ToString(drop_linea_d.SelectedValue);
 
             BuscaTurno(linea);
 
@@ -92,7 +92,7 @@ namespace SisConPT.SisConPT
         protected void turno_SelectedIndexChanged(object sender, EventArgs e)
         {
             string turno = Convert.ToString(drop_turno_d.SelectedValue);
-            int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
 
             GvProcesos_Llenar(turno, linea_2);
 
@@ -117,7 +117,7 @@ namespace SisConPT.SisConPT
         protected void Procesos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvProcesos.PageIndex = e.NewPageIndex;
-            int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+            string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
         }
 
         private void PopUpDetalle(string proceso_id)
@@ -227,7 +227,7 @@ namespace SisConPT.SisConPT
 
             if (drop_linea_d.Items.Count != 0)
             {
-                int linea = Convert.ToInt32(drop_linea_d.SelectedValue);
+                string linea = Convert.ToString(drop_linea_d.SelectedValue);
 
                 BuscaTurno(linea);
 
@@ -235,14 +235,14 @@ namespace SisConPT.SisConPT
             if (drop_linea_d.Items.Count == 0)
             {
 
-                BuscaTurno(0);
+                BuscaTurno("0");
 
             }
             con.Close();
 
         }
 
-        private void BuscaTurno(int linea)
+        private void BuscaTurno(string linea)
         {
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
             System.Configuration.ConnectionStringSettings connStringmain;
@@ -263,7 +263,7 @@ namespace SisConPT.SisConPT
 
 
                     string turno = Convert.ToString(drop_turno_d.SelectedValue);
-                    int linea_2 = Convert.ToInt32(drop_linea_d.SelectedValue);
+                    string linea_2 = Convert.ToString(drop_linea_d.SelectedValue);
 
                     GvProcesos_Llenar(turno, linea_2);
 
@@ -280,7 +280,7 @@ namespace SisConPT.SisConPT
 
         }
 
-        private void GvProcesos_Llenar(string turno, int linea_2)
+        private void GvProcesos_Llenar(string turno, string linea_2)
         {
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
