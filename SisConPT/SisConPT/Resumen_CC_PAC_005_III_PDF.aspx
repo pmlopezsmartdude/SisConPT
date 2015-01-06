@@ -107,7 +107,7 @@
            
             </asp:TableCell>
             <asp:TableCell Width="60">
-              <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_fechafin" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Fecha"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
+              <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_fechainicio" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Fecha"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
                 
                </asp:TableCell>
 
@@ -115,7 +115,7 @@
            
             </asp:TableCell>
             <asp:TableCell Width="60">
-               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_fechainicio" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Fecha"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_fechafin" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Fecha"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
              </asp:TableCell>
                           
                
