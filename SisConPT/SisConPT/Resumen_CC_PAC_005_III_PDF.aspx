@@ -32,7 +32,7 @@
               <asp:RadioButton text="General" id="resumen_gral" groupname="RESUMEN" runat="server" Font-Size="x-Small"/>
             </asp:TableCell>
                      <asp:TableCell Width="60">
-                <asp:Button ID="btn_resumen" runat="server" Text="Resumen Total" Enabled="true" Width="100" OnClick="Resumen_total" />
+                <asp:Button ID="btn_resumen" runat="server" Text="Resumen Total" Enabled="true" Width="100" OnClick="Resumen_total" ValidationGroup="ChangeUserPasswordValidationGroup"/>
 
     </asp:TableCell>
    </asp:TableRow>
@@ -56,7 +56,7 @@
         </asp:DropDownList>
              </asp:TableCell>
                              <asp:TableCell Width="60">
-             <asp:Button ID="Exportar_005" runat="server" Text="Exportar" Enabled="true"  Width="100" OnClick="Exportar_click" />
+             <asp:Button ID="Exportar_005" runat="server" Text="Exportar" Enabled="true"  Width="100" OnClick="Exportar_click" ValidationGroup="ChangeUserPasswordValidationGroup"/>
                  
                </asp:TableCell>
        
@@ -98,7 +98,7 @@
 </cc1:CalendarExtender>
    </asp:TableCell>
       <asp:TableCell Width="60">
-             <asp:Button ID="Filtrar_fecha" runat="server" Text="  Filtrar  " Enabled="true"  Width="100" OnClick="Filtrar" />
+             <asp:Button ID="Filtrar_fecha" runat="server" Text="  Filtrar  " Enabled="true"  Width="100" OnClick="Filtrar" ValidationGroup="ChangeUserPasswordValidationGroup" />
                  
                </asp:TableCell>
    </asp:TableRow>
@@ -107,7 +107,7 @@
            
             </asp:TableCell>
             <asp:TableCell Width="60">
-             
+              <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_fechafin" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Fecha"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
                 
                </asp:TableCell>
 
@@ -115,7 +115,7 @@
            
             </asp:TableCell>
             <asp:TableCell Width="60">
-               
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_fechainicio" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Fecha"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
              </asp:TableCell>
                           
                
@@ -1116,11 +1116,13 @@
 
         <center> <asp:Button ID="btnClose_todos" runat="server" Text="Cerrar" 
                                                 CssClass="button" onclick="btnClose_Click" CausesValidation="false" />
+                                                 <asp:Button ID="boton_2" runat="server" Text="pdf" Enabled="true" OnClick="boton_Click" />
                                                 </center>
                 </fieldset>
                  </div>
              </ContentTemplate> 
                <Triggers>  <asp:PostBackTrigger ControlID="boton" /> </Triggers> 
+                <Triggers>  <asp:PostBackTrigger ControlID="boton_2" /> </Triggers> 
         </asp:UpdatePanel>
 
         

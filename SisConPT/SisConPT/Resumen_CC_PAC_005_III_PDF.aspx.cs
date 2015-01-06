@@ -348,15 +348,6 @@ namespace SisConPT.SisConPT
 
         private void PopUpDetalle(string proceso, string lote, string marca, string linea)
         {
-            //string username = HttpContext.Current.User.Identity.Name;
-            //if (username == "desarrollo")
-            //{
-            //    boton.Visible = true;
-            //}
-            //else
-            //{
-            //    boton.Visible = false;
-            //}
 
 
             System.Configuration.Configuration rootWebConfig = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/sisconpt");
@@ -447,20 +438,6 @@ namespace SisConPT.SisConPT
                 }
             }
 
-
-
-            //if (linea_2 == "Todas")
-            //{
-            //    continuacion = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "'" +
-            //        " and cptproces='" + proceso + "' and cptnulote='" + lote + "' and lincodigo='" + linea + "' and cptmardes='" + marca + "'" +
-            //        " group by cptproces, cptnulote,cptmardes,placodigo,lincodigo order by cptproces;";
-            //}
-            //else
-            //{
-            //    continuacion = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "' and cl.lincodigo='" + linea_2 + "'" +
-            //        " and cptproces='" + proceso + "' and cptnulote='" + lote + "' and lincodigo='" + linea + "' and cptmardes='" + marca + "'" +
-            //        " group by cptproces, cptnulote,cptmardes,placodigo,lincodigo order by cptproces;";
-            //}
 
             string consulta_completa = cadena_consulta + continuacion;
             SqlCommand cmd_proc = new SqlCommand(consulta_completa, con);
@@ -725,15 +702,7 @@ namespace SisConPT.SisConPT
                 else { primera = "select lincodigo,"; }
             }
 
-                //if (turno == "Todos")
-                //{
-                //    primera = "select lincodigo,";
-                //}
-                //else
-                //{
-                //    primera = "select  cptproces, cptnulote, cptmardes,lincodigo,";
-                //}
-            
+
                 string inicio_consulta = " convert(varchar(255),CONVERT(decimal(18, 2),avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))) as [promedio_final]," +
                 " (case when (avg((defprecal+defdanotr+defescama+deffrutode+deffrutodo+defguatab+defherida+defmancha+defmedial+defpiella+defrusset+defsutura+deffaltoc+deframole+defsinped)*1.0))>=2 then 'Sobre el promedio'" +
                 " else 'Cumple' end) Desviacion, placodigo, convert(varchar(255),count(1)) as casos," +
@@ -742,35 +711,7 @@ namespace SisConPT.SisConPT
                 " else 'Cumple' end) Desviacion_condicion, cl.turcodigo as turcodigo " +
                 " from controlpt as cl " +
                 " inner join defecto as def on cl.cptnumero=def.cptnumero";
-            
-                //if (turno == "Todos")
-                //{
-                //    if (linea_2 == "Todas")
-                //    {
-                //        comando_cadena = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.placodigo= '" + planta + "'" +
-                //     " group by  cl.turcodigo , placodigo,lincodigo ;";
-                //    }
-                //    else
-                //    {
-                //        comando_cadena = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.placodigo= '" + planta + "' and cl.lincodigo='" + linea_2 + "'" +
-                //    " group by  cl.turcodigo , placodigo,lincodigo ;";
-                //    }
-                //}
-                //else
-                //{
-                //    if (linea_2 == "Todas")
-                //    {
-                //        comando_cadena = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "'" +
-                //     " group by cl.turcodigo , cptproces, cptnulote,cptmardes,placodigo,lincodigo ;";
-                //    }
-                //    else
-                //    {
-                //        comando_cadena = " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "' and cl.lincodigo='" + linea_2 + "'" +
-                //    " group by cl.turcodigo , cptproces, cptnulote,cptmardes,placodigo,lincodigo ;";
-                //    }
-                //}
-
-
+        
                 SqlCommand cmd_proc = new SqlCommand(primera + inicio_consulta + comando_cadena, con);
                 SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
                 DataSet ds_proc = new DataSet();
@@ -1007,8 +948,7 @@ namespace SisConPT.SisConPT
             string tipo = "todos";
             InitializeEditPopUp();
             PopUpDetalle_Todos(linea, turno, tipo);
-
-
+            
             mpeEditOrder_todos.Show();
 
         }
@@ -1066,24 +1006,14 @@ namespace SisConPT.SisConPT
                     Console.WriteLine(ey.Message);
                 }
             }
-
-
             
-
-
-
             string html_encabezado = "";
 
-
-                 html_encabezado = "<html><head></head><body>" +
+            html_encabezado = "<html><head></head><body>" +
                     "<img alt=\"Logo iText\" src=\"http://sisqc.sfg.cl:8080/sisqc/Images/logosfg.png\" height=\"54px\" width=\"235px\">" +
                      "</body></html>";
 
-
-
             string identif = DateTime.Now.ToString("yyyyMMddTHHmmss");
-            //try
-            //{
 
             StringWriter sw = new StringWriter();
             string html = sw.ToString();
@@ -1092,28 +1022,29 @@ namespace SisConPT.SisConPT
 
             PdfWriter.GetInstance
             (Doc, new FileStream(file, FileMode.Create));
-            //PdfWriter.GetInstance
-            // (Doc, new FileStream(Environment.GetFolderPath
-            // (Environment.SpecialFolder.MyDocuments)
-            // + "\\Resumen005" + identif + ".pdf", FileMode.Create));
             Doc.Open();
             BaseFont bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
             Font times2 = new Font(bfTimes, 12, Font.NORMAL, Color.BLACK);
             Font times1 = new Font(bfTimes, 15, Font.NORMAL, Color.BLACK);
 
             foreach (IElement E in HTMLWorker.ParseToList(new StringReader(html_encabezado), new StyleSheet()))
-                Doc.Add(E);
+            Doc.Add(E);
 
+            string titulo = "";
+            string cuerpo = "";
+            string texto_turno = "";
+            if (resumen_proc.Checked)
+            {
+                if (drop_turno_d.Text == "Todos")
+                {
+                    titulo = "\n \n Resumen\n";
+                }
+                else
+                {
+                    titulo = "\n \n Resumen " + drop_turno_d.Text + "\n";
+                }
 
-            Chunk c = new Chunk("\n \n Resumen " + drop_turno_d.Text + "\n", times1);
-
-            Paragraph p = new Paragraph();
-            p.Alignment = Element.ALIGN_CENTER;
-            p.Add(c);
-
-
-            Chunk chunk1 = new Chunk
-            ("\n \n \t Proceso \t \t \t : \t \t \t " + lbl_proceso.Text + " \t \t \t \t \tLote \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_lote.Text + " \t \t \t \t \t Marca \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_marca.Text + "   \n" +
+                cuerpo = "\n \n \t Proceso \t \t \t : \t \t \t " + lbl_proceso.Text + " \t \t \t \t \tLote \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_lote.Text + " \t \t \t \t \t Marca \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_marca.Text + "   \n" +
              "\n \t Linea \t \t \t \t \t : \t \t \t " + lbl_linea_popup.Text + " \t \t \t \t \t \t Desde \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_desde.Text + " \t \tHasta \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_hasta.Text + "   \n" +
              "\n \t Cajas \t \t \t \t \t : \t \t \t " + lbl_casos.Text + " \t \t \t \t \t \t Promedio Calidad  : \t \t \t " + lbl_calidad.Text + " \t \t \t \t \t \t Promedio Condicion \t \t \t : \t \t \t " + lbl_condicion.Text + "      \n" +
             "\n\n \t \t DEFECTOS DE CALIDAD \n" +
@@ -1130,32 +1061,72 @@ namespace SisConPT.SisConPT
             "	\n	Heridas Abiertas \t \t \t  \t \t \t : \t \t \t " + txtheridasabiertas.Text + " \t \t \t 	Pudricion \t \t \t \t \t \t \t \t \t \t: \t \t \t " + txtpudricion.Text + " \t \t \t \n	" +
             "	\n	Machucon \t \t \t \t \t \t  \t \t \t \t \t : \t \t \t " + txtmachucon.Text + " \t \t \t 	Manchas Pardas \t \t \t \t \t: \t \t \t " + txtmanchaspardas.Text + " \t \t \t 	" +
 
-            "", times2);
-            Paragraph p1 = new Paragraph();
+            "";
+               
+            }
+            else
+            {
+                resumen_gral.Checked = true;
+                if (resumen_gral.Checked)
+                {
+                    titulo = "\n \n Resumen";
+                    texto_turno = "\n \t " + lbl_tit_turno.Text + " \t \t \t \t \t \t \t \t \t \t  \t \t \t " + lbl_turno_t.Text + " \t \t" + lbl_tit_linea.Text + " \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t  \t \t \t " + lbl_linea_t.Text + " \n";
+                    cuerpo = "\n \t Desde \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_desde_t.Text + " \t \tHasta \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t : \t \t \t " + lbl_hasta_t.Text + "   Cajas \t \t \t \t \t : \t \t \t " + lbl_cajas_t.Text + " \t \t \t \t \t \t \n" +
+             "\n \t Promedio Calidad  : \t \t \t " + lbl_calidad_t.Text + " \t \t \t \t \t \t Promedio Condicion \t \t \t : \t \t \t " + lbl_condicion_t.Text + "      \n" +
+            "\n\n \t \t DEFECTOS DE CALIDAD \n" +
+            "	\n	Pre Calibre \t \t \t  : \t \t \t 	" + txt_precalibre_t.Text + " \t \t \t 	Guata Blanca \t \t \t : \t \t \t " + txtguatablanca_t.Text + "	 \t \t \t Russet \t \t \t \t \t \t \t \t \t : \t \t \t " + txt_russet_t.Text + "	\n	" +
+            "	\n	Daño Trip \t \t \t \t  : \t \t \t 	" + txt_trip_t.Text + "	 \t \t \t Herida \t \t \t \t \t \t \t \t : \t \t \t " + txtherida_t.Text + "	 \t \t \t Sutura \t \t \t  \t \t \t \t \t \t : \t \t \t " + txt_sutura_t.Text + "	\n	" +
+            "	\n	Escama \t \t \t \t \t \t  : \t \t \t 	" + txtescama_t.Text + "	 \t \t \t Manchas \t \t \t \t \t \t  : \t \t \t " + txtmanchas_t.Text + "	 \t \t \t Falto de Color \t \t  : \t \t \t 	" + txtfaltocolor_t.Text + "	\n	" +
+            "	\n	Frutos Deformes: \t \t  	" + txtfrutosdeformes_t.Text + " \t \t \t 	Media Luna \t \t \t   : \t \t \t " + txtmedialuna_t.Text + "	 \t \t \t Ramaleo \t \t \t \t \t \t \t : \t \t \t " + txtramaleo_t.Text + "	\n	" +
+            "	\n	Frutos Dobles  \t : \t \t \t 	" + txtfrutosdobles_t.Text + "	 \t \t \t Piel de Lagarto \t : \t \t \t " + txtpiellagarto_t.Text + "	 \t \t \t Sin Pedicelo \t \t \t  \t : \t \t \t " + txtsinpedicelo_t.Text + "	\n	" +
+            "\n\n \t \t DEFECTOS DE CONDICION \n" +
+            "	\n	Adhesion \t \t \t \t \t \t \t  \t \t \t \t \t : \t \t \t " + txt_adhesion_t.Text + " \t \t \t 	Partiduras \t \t \t \t \t \t \t \t \t : \t \t \t " + txtpartiduras_t.Text + " \t \t \t 	Daño de Pajaro \t \t \t : \t \t \t " + txtdanopajaro_t.Text + "	\n	" +
+            "	\n	Deshidratacion de Frutos : \t \t \t " + txt_deshidfru_t.Text + " \t \t \t 	Partiduras por Agua \t : \t \t \t " + txtpartidurasagua_t.Text + " \t \t \t 	Desgarro \t \t \t \t \t \t \t \t : \t \t \t " + txtdesgarro_t.Text + "	\n	" +
+            "	\n	Deshidratacion Pedicelar : \t \t \t " + txtdeshidpedi_t.Text + " \t \t \t 	Partidura Cicatrizada \t: \t \t \t " + txtpartiduracicatrizada_t.Text + " \t \t \t 	Corte de Sierra \t \t \t : \t \t \t " + txtcortesierra_t.Text + "	\n	" +
+            "	\n	Blandos \t \t \t \t \t \t \t \t \t \t  \t \t \t : \t \t \t " + txtblandos_t.Text + " \t \t \t 	Pitting	 \t \t \t \t \t \t \t \t \t \t \t \t: \t \t \t 	" + txtpitting_t.Text + " \t \t \t Sutura Expuesta \t \t : \t \t \t " + txt_sut_exp_t.Text + "	\n	" +
+            "	\n	Heridas Abiertas \t \t \t  \t \t \t : \t \t \t " + txtheridasabiertas_t.Text + " \t \t \t 	Pudricion \t \t \t \t \t \t \t \t \t \t: \t \t \t " + txt_pudricion_t.Text + " \t \t \t \n	" +
+            "	\n	Machucon \t \t \t \t \t \t  \t \t \t \t \t : \t \t \t " + txtmachucon_t.Text + " \t \t \t 	Manchas Pardas \t \t \t \t \t: \t \t \t " + txt_manchaspardas_t.Text + " \t \t \t 	" +
 
+            "";
+                }
+                else
+                {
+                    titulo = "\n \n Resumen";
+                    
+                }
+                
+            }
+            
+            Chunk c = new Chunk(titulo, times1);
+
+            Paragraph p = new Paragraph();
+            p.Alignment = Element.ALIGN_CENTER;
+            p.Add(c);
+
+            Chunk chunk1 = new Chunk (cuerpo, times2);
+            Chunk chunk_2 = new Chunk(texto_turno, times2);
+
+            Paragraph p1 = new Paragraph();
             p1.Alignment = Element.ALIGN_LEFT;
             p1.Add(chunk1);
 
-
-
+            Paragraph p2 = new Paragraph();
+            p2.Alignment = Element.ALIGN_LEFT;
+            p2.Add(chunk_2);
+           
+            
             Doc.Add(p);
+            Doc.Add(p2);
             Doc.Add(p1);
-
-
+            
+ 
             System.Xml.XmlTextReader xmlReader = new System.Xml.XmlTextReader(new StringReader(html));
             HtmlParser.Parse(Doc, xmlReader);
 
             Doc.Close();
 
-            //string Path = Environment.GetFolderPath
-            //(Environment.SpecialFolder.MyDocuments)
-            //+ "\\Resumen005" + identif + ".pdf";
-
-
-
             ShowPdf(file);
-            //}
-            //catch { }
+
         }
  
     }
