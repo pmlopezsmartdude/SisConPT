@@ -87,7 +87,7 @@
             <asp:TableCell Width="60">
                 <asp:Label ID="Label5" runat="server" Text="Peso" Width="80" Height="20"></asp:Label>
             </asp:TableCell><asp:TableCell Width="120">
-                <asp:TextBox MaxLength="5" ID="Peso" runat="server"   Width="116" Height="20" Enabled="true" ReadOnly="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
+                <asp:TextBox MaxLength="5" ID="Peso" runat="server"   Width="116" Height="20" Enabled="true" Font-Size="X-Small" Font-Names="Century Gothic"></asp:TextBox>
             </asp:TableCell><asp:TableCell Width="60">
       <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Peso" CssClass="failureNotification" Font-Size="x-Small"  ErrorMessage="Ingrese Peso"  ValidationGroup="ChangeUserPasswordValidationGroup"/>
         </asp:TableCell><asp:TableCell Width="60">
