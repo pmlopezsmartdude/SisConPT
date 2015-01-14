@@ -118,7 +118,7 @@
    <asp:GridView ID="gvProcesos" runat="server" CellPadding="3" ForeColor="Black" 
                             GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
                             DataKeyNames="cptproces,cptnulote,cptmardes, lincodigo,turcodigo,cptnompre" BackColor="White" 
-                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="Small"
+                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="x-Small"
                             onpageindexchanging="Procesos_PageIndexChanging" 
                             onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center" style="width:700px">
                             <Columns>
@@ -137,10 +137,14 @@
                                       <asp:BoundField DataField="lincodigo" HeaderText="Línea" />
                                       <asp:BoundField DataField="turcodigo" HeaderText="Turno" />
                                       <asp:BoundField DataField="cptnompre" HeaderText="Productor" />
+                                      
 
                                       
                                  <asp:BoundField DataField="promedio_final" HeaderText="Promedio Calidad" />
                                  <asp:BoundField DataField="promedio_final_condicion" HeaderText="Promedio Condición" />
+
+                                 <asp:BoundField DataField="FecDesde" HeaderText="Desde" />
+                                      <asp:BoundField DataField="FecHasta" HeaderText="Hasta" />
                                 
                             </Columns>
                         
@@ -153,7 +157,7 @@
                         <asp:GridView ID="GridTodos" runat="server" CellPadding="3" ForeColor="Black" 
                             GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
                             DataKeyNames="lincodigo, turcodigo,cptnompre" BackColor="White" 
-                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="Small"
+                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="x-Small"
                             onpageindexchanging="Todos_PageIndexChanging" 
                             onselectedindexchanging="Todos_SelectedIndexChanging" HorizontalAlign="Center" style="width:700px">
                             <Columns>
@@ -171,6 +175,9 @@
                                 <asp:BoundField DataField="cptnompre" HeaderText="Productor" />
                                 <asp:BoundField DataField="promedio_final" HeaderText="Promedio Calidad" />
                                 <asp:BoundField DataField="promedio_final_condicion" HeaderText="Promedio Condición" />
+
+                                <asp:BoundField DataField="FecDesde" HeaderText="Desde" />
+                                <asp:BoundField DataField="FecHasta" HeaderText="Hasta" />
                                 
                             </Columns>
                         

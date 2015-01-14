@@ -290,7 +290,7 @@ namespace SisConPT.SisConPT
             SqlConnection con = new SqlConnection(connStringmain.ToString());
             con.Open();
             //linea
-            SqlCommand cmd_proc = new SqlCommand("select distinct Ctrl_CodProc  from VistaResumen003 where Ctrl_Turno='" + turno + "' and Ctrl_Lin='" + linea_2 + "' and Ctrl_CodPlan = '" + txt_cod_plan.Text + "'", con);
+            SqlCommand cmd_proc = new SqlCommand("select distinct Ctrl_CodProc, inicio  from VistaResumen003 where Ctrl_Turno='" + turno + "' and Ctrl_Lin='" + linea_2 + "' and Ctrl_CodPlan = '" + txt_cod_plan.Text + "'", con);
             SqlDataAdapter sda_proc = new SqlDataAdapter(cmd_proc);
             DataSet ds_proc = new DataSet();
             try

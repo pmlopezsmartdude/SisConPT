@@ -60,9 +60,9 @@
    <asp:GridView ID="gvProcesos" runat="server" CellPadding="3" ForeColor="Black" 
                             GridLines="Vertical" AllowPaging="True" AutoGenerateColumns="False"  
                             DataKeyNames="Ctrl_CodProc" BackColor="White" 
-                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
+                            BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Century Gothic" Font-Size="x-Small"
                             onpageindexchanging="Procesos_PageIndexChanging" 
-                            onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center">
+                            onselectedindexchanging="Procesos_SelectedIndexChanging" HorizontalAlign="Center"  >
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -73,15 +73,15 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                
-                                <asp:BoundField DataField="Ctrl_CodProc" HeaderText="Proceso" DataFormatString="{0:d}"  />
+                                <asp:BoundField DataField="Ctrl_CodProc" HeaderText="Proceso"  />
+                                <asp:BoundField DataField="Inicio" HeaderText="Fecha" />
                             </Columns>
                             
 
-                            <FooterStyle BackColor="#CCCCCC" />
-                            <PagerStyle BackColor="#999999" ForeColor="White" HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#999999" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="Gray" Font-Bold="True" ForeColor="White" />
-                            <AlternatingRowStyle BackColor="#999999" />
+                          <FooterStyle BackColor="#CCCCCC" />
+                            <PagerStyle BackColor="#005eb7" ForeColor="White" HorizontalAlign="Center" />
+                            <HeaderStyle BackColor="#90c9ff" Font-Bold="True" ForeColor="White" />
+                            <AlternatingRowStyle BackColor="#cbe6ff" />
                         </asp:GridView>
 
 

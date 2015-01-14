@@ -195,7 +195,7 @@ namespace SisConPT.SisConPT
             if (tipo=="todos")
             {
                 inicio_consulta = "select  '' as proceso, '' as lote, '' as marca , '' as lincodigo,";
-                fin_consulta = ",'' as cptnompre from controlpt as cl " +
+                fin_consulta = ",'' as cptnompre, MIN(cl.cptfechor) as FecDesde, max(cl.cptfechor) as FecHasta from controlpt as cl " +
             " inner join defecto as def on cl.cptnumero=def.cptnumero" + 
             " where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.placodigo= '" + planta + "'" +
              " group by  placodigo;";
@@ -219,7 +219,7 @@ namespace SisConPT.SisConPT
              //   btn_resumen.Visible = true;
 
                 inicio_consulta = "select  '' as proceso, '' as lote, '' as marca , lincodigo,";
-                fin_consulta = ",cptnompre from controlpt as cl " +
+                fin_consulta = ",cptnompre, MIN(cl.cptfechor) as FecDesde, max(cl.cptfechor) as FecHasta from controlpt as cl " +
             " inner join defecto as def on cl.cptnumero=def.cptnumero"+
                 "  where (cl.cptfechor>='" + inicio + "' and cl.cptfechor <= '" + fin + "') and cl.turcodigo='" + turno + "' and cl.placodigo= '" + planta + "' " +
                     " and lincodigo='" + linea + "' and cptnompre='" + productor + "'" +
@@ -297,11 +297,10 @@ namespace SisConPT.SisConPT
                 }
 
 
-                lbl_desde_t.Text = inicio;
-                lbl_hasta_t.Text = fin;
+                
                 txt_precalibre_t.Text = reader.GetString(4);
                 txt_trip_t.Text = reader.GetString(5);
-                string trip = reader.GetString(5);
+               
 
                 txtescama_t.Text = reader.GetString(6);
                 txtfrutosdeformes_t.Text = reader.GetString(7);
@@ -322,7 +321,7 @@ namespace SisConPT.SisConPT
 
                 txt_adhesion_t.Text = reader.GetString(23);
                 txt_deshidfru_t.Text = reader.GetString(24);
-                string deshidr = reader.GetString(24);
+                
                 
                 txtdeshidpedi_t.Text = reader.GetString(25);
                 txtblandos_t.Text = reader.GetString(26);
@@ -340,6 +339,9 @@ namespace SisConPT.SisConPT
                 txt_sut_exp_t.Text = reader.GetString(38);
                 lbl_condicion_t.Text = reader.GetString(39);
                 lbl_productor_t.Text = reader.GetString(41);
+                lbl_desde_t.Text = reader.GetString(42);
+                lbl_hasta_t.Text = reader.GetString(43);
+    
             
 
            }
@@ -410,7 +412,7 @@ namespace SisConPT.SisConPT
             " convert(varchar(255),CONVERT(decimal(18, 2),avg(defsutura_exp*1.0))) as [defsutura_exp]," +
             " convert(varchar(255),CONVERT(decimal(18, 2),avg(([defadhesi]+[defdesfru]+[defdesped]+[defblando]+[defherabi]+[defmachuc]+[defpartid]+[defparagu]+[defparcic]+[defpittin]+[defpudric]+[defmanpar]+[defdanopa]+[defdesgar]+[defcorsie]+[defsutura_exp])*1.0))) as [promedio_final_condicion]," +
              " (case when (avg(([defadhesi]+[defdesfru]+[defdesped]+[defblando]+[defherabi]+[defmachuc]+[defpartid]+[defparagu]+[defparcic]+[defpittin]+[defpudric]+[defmanpar]+[defdanopa]+[defdesgar]+[defcorsie]+[defsutura_exp])*1.0))>=10 then 'Sobre el promedio'" +
-             " else 'Cumple' end) Desviacion_condicion, cptnompre" +
+             " else 'Cumple' end) Desviacion_condicion, cptnompre, MIN(cl.cptfechor) as FecDesde, max(cl.cptfechor) as FecHasta" +
             " from controlpt as cl " +
             " inner join defecto as def on cl.cptnumero=def.cptnumero";
 
@@ -481,8 +483,7 @@ namespace SisConPT.SisConPT
                     }
 
 
-                    lbl_desde.Text = inicio;
-                    lbl_hasta.Text = fin;
+                    
                     lbl_proceso.Text = reader.GetString(0);
                     lbl_lote.Text = reader.GetString(1);
                     lbl_marca.Text = reader.GetString(2);
@@ -524,7 +525,8 @@ namespace SisConPT.SisConPT
                     txt_sut_exp.Text = reader.GetString(38);
                     lbl_condicion.Text = reader.GetString(39);
                     lbl_productor.Text = reader.GetString(41);
-
+                    lbl_desde.Text = reader.GetString(42);
+                    lbl_hasta.Text = reader.GetString(43);
 
 
                 }
@@ -718,7 +720,7 @@ namespace SisConPT.SisConPT
                 " else 'Cumple' end) Desviacion, placodigo, convert(varchar(255),count(1)) as casos," +
                 " convert(varchar(255),CONVERT(decimal(18, 2),avg(([defadhesi]+[defdesfru]+[defdesped]+[defblando]+[defherabi]+[defmachuc]+[defpartid]+[defparagu]+[defparcic]+[defpittin]+[defpudric]+[defmanpar]+[defdanopa]+[defdesgar]+[defcorsie]+[defsutura_exp])*1.0))) as [promedio_final_condicion]," +
                 " (case when (avg(([defadhesi]+[defdesfru]+[defdesped]+[defblando]+[defherabi]+[defmachuc]+[defpartid]+[defparagu]+[defparcic]+[defpittin]+[defpudric]+[defmanpar]+[defdanopa]+[defdesgar]+[defcorsie]+[defsutura_exp])*1.0))>=10 then 'Sobre el promedio'" +
-                " else 'Cumple' end) Desviacion_condicion, cl.turcodigo as turcodigo, cptnompre " +
+                " else 'Cumple' end) Desviacion_condicion, cl.turcodigo as turcodigo, cptnompre,  MIN(cl.cptfechor) as FecDesde, max(cl.cptfechor) as FecHasta " +
                 " from controlpt as cl " +
                 " inner join defecto as def on cl.cptnumero=def.cptnumero";
         
